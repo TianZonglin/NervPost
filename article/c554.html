@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>C语言函数传值的相关问题 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="C/C++,malloc">
+	
+	
+		<meta name="description" content="（本文年代久远，请谨慎阅读）现有如下程序段：
+1234567891011void getmem(char **p,int n)&#123;	*p=(char *)malloc(n);&#125;int main(void) &#123;	// your code goes here	char *str;	getm...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/c554.html">
+        C语言函数传值的相关问题
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/C-C/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>C/C++</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2015年11月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约693字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需6分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/c554.html" class="pageViews" data-flag-title="C语言函数传值的相关问题"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>（本文年代久远，请谨慎阅读）现有如下程序段：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getmem</span><span class="params">(<span class="keyword">char</span> **p,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	*p=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// your code goes here</span></span><br><span class="line">	<span class="keyword">char</span> *str;</span><br><span class="line">	getmem(&amp;str,<span class="number">100</span>);</span><br><span class="line">	<span class="built_in">strcpy</span>(str,<span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,str);<span class="built_in">free</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>执行无误，输出hello，没有问题；<br>修改之后如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getmem</span><span class="params">(<span class="keyword">char</span> *p,<span class="keyword">int</span> n)</span></span>&#123; <span class="comment">//一开始认为是多余的</span></span><br><span class="line">	p=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// your code goes here</span></span><br><span class="line">	<span class="keyword">char</span> *str;</span><br><span class="line">	getmem(str,<span class="number">100</span>); <span class="comment">//相应改为str</span></span><br><span class="line">	<span class="built_in">strcpy</span>(str,<span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,str);<span class="built_in">free</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>上述输出为null，其实不小心犯了个低级错误，那就是：<br>调用getmem时是值传递，str本身在getmem之后并没有获得相应空间，原因即getmem中的*p 作为局部变量并不能将p返回到main函数，即它只让局部的p指向了一段空间，没有意义。</p>
+<p>而如果形参改为开始的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getmem(<span class="keyword">char</span> **p,<span class="keyword">int</span> n)</span><br></pre></td></tr></table></figure>
+<p>调用时使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getmem(&amp;str,<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<p>其意思是：char *<em>p即指向指针的指针，意为“p指向一个变量，此变量存放的不是具体数据，而是一个指针的地址”，</em>p 即表示其所指的地址变量，显然，此处被指向的指针即str，那么getmem中的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*p=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(n);</span><br></pre></td></tr></table></figure>
+<p>即表示此“被指向的指针”，即str指向一段空间，而区别于值传递的是此处实参为&amp;str，其结束调用后会改变其指向。</p>
+<p>此处会改变的原因：本质仍为值传递，但是传递的不是此指针（不同于前面的getmem(str,100)），而是指针所存放的地址，其被 p所指向，然后在函数中通过p修改了p指向内容的值，即修改了str的地址，即调用后str指向发生改变。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>char *str中，str是一个地址，printf(str)中str也是个地址，只不过格式控制类型为%s，这样的print即从str地址开始一直输出，直到’\0’为止（终结符是系统自动加上的），这样便实现打印字符串的工作，好像str真作为一个变量存放了这个串，其实不然。</p>
+<p>另外，不用函数的方式来开辟空间确实就不需要**p这么麻烦：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// your code goes here</span></span><br><span class="line">	<span class="keyword">char</span> *str;</span><br><span class="line">	str=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line">	<span class="built_in">strcpy</span>(str,<span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,str);<span class="built_in">free</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述即可以完成对char *str开辟空间的工作，此外，除了用malloc手动申请空间，也可以用数组赋值的方式：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// your code goes here</span></span><br><span class="line">	<span class="keyword">char</span> *str;</span><br><span class="line">	<span class="keyword">char</span> a[<span class="number">100</span>];<span class="comment">//利用系统自动为数组分配空间的特点</span></span><br><span class="line">	str=a; <span class="comment">//这样也可以实现str指向一片连续空间</span></span><br><span class="line">	<span class="comment">//str=(char *)malloc(100);</span></span><br><span class="line">	<span class="built_in">strcpy</span>(str,<span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,str);<span class="built_in">free</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\39cd.html" title="在VC6.0中连接mysql数据库的方法实例" rel="bookmark">在VC6.0中连接mysql数据库的方法实例</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38ca.html" title="重新编译运行C++/Cuda混编项目" rel="bookmark">重新编译运行C++/Cuda混编项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c85a.html" title="构建CUDA项目二周目翻车记录" rel="bookmark">构建CUDA项目二周目翻车记录</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/c554.html">https://www.cz5h.com/article/c554.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C-C/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>C/C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/malloc/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>malloc</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/c554.html&title=C语言函数传值的相关问题 - 长征部落格&summary=（本文年代久远，请谨慎阅读）现有如下程序段：
+1234567891011void getmem(char **p,int n)&#123;	*p=(char *)malloc(n);&#125;int main(void) &#123;	// your code goes here	char *str;	getmem(&amp;str,100);	strcpy(str," hello"); printf("%s",str);free(str); return 0;&#125;" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/c554.html&title=C语言函数传值的相关问题 - 长征部落格&summary=（本文年代久远，请谨慎阅读）现有如下程序段：
+1234567891011void getmem(char **p,int n)&#123;	*p=(char *)malloc(n);&#125;int main(void) &#123;	// your code goes here	char *str;	getmem(&amp;str,100);	strcpy(str," hello"); printf("%s",str);free(str); return 0;&#125;" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/c554.html&title=C语言函数传值的相关问题 - 长征部落格&summary=（本文年代久远，请谨慎阅读）现有如下程序段：
+1234567891011void getmem(char **p,int n)&#123;	*p=(char *)malloc(n);&#125;int main(void) &#123;	// your code goes here	char *str;	getmem(&amp;str,100);	strcpy(str," hello"); printf("%s",str);free(str); return 0;&#125;" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACUUlEQVR42u3cQXICMQwEwP3/p5N7qiikkYGgbd+ABdzLZTJy5fq56brAwcHBwcEXwa9wPfzg5vuePf/39el+wcHBwcHBN8LLAaB4/RT06HOm+wUHBwcHB98MfxoAmtdXA04VNt4vODg4ODg4+FUNKt0CoR1IwMHBwcHBwY/Bu8EkLSzAwcHBwcHBDxT0RXj19e73fWySAg4ODg4O/o/g8YG5Dz0+dsAPHBwcHBz8i+HTlQaV6vu6geXpfsHBwcHBwRfBTw/w0412BxDx/sDBwcHBwW8Er4LSDXULj+kPAQ4ODg4OvhGeDuqr13dvRLq/dhEBDg4ODg7+xfBqEZAO7KvFQreg6O4PHBwcHBx8MzwtHNKBQDpQ6O4LHBwcHBwc/H2rG4TigQI4ODg4OPgCeFrwT29ct2DoHhwYT1LAwcHBwcG/AH7qD/900D89kN8uPMDBwcHBwRfBu4EhhZwuHI4lN3BwcHBw8AXw7sG8VwWO6Y1++hgcHBwcHHwhfFr4nxoMlAuF5vPg4ODg4OB3gHeDTBpcxgP+Vw8UwMHBwcHBvxh++gBAGmRODzjAwcHBwcE3wadrOoio3sDpIAMcHBwcHHwj/ApXOtjvFgmnAhY4ODg4OPhm+KmAcbrYmB4cKDcw4ODg4ODgC+DVwj4NLt33pQOFdoABBwcHBwe/MTzdaDqYSH8AcHBwcHBw8Kv9D23T75mutyU3cHBwcHDwfwDvDhS6RcP0AGEarMDBwcHBwTfD02BQLQq6BwxOFQ/g4ODg4OCb4Xdb4ODg4ODgC9YvWeKEn4TOQ+QAAAAASUVORK5CYII=" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACUUlEQVR42u3cQXICMQwEwP3/p5N7qiikkYGgbd+ABdzLZTJy5fq56brAwcHBwcEXwa9wPfzg5vuePf/39el+wcHBwcHBN8LLAaB4/RT06HOm+wUHBwcHB98MfxoAmtdXA04VNt4vODg4ODg4+FUNKt0CoR1IwMHBwcHBwY/Bu8EkLSzAwcHBwcHBDxT0RXj19e73fWySAg4ODg4O/o/g8YG5Dz0+dsAPHBwcHBz8i+HTlQaV6vu6geXpfsHBwcHBwRfBTw/w0412BxDx/sDBwcHBwW8Er4LSDXULj+kPAQ4ODg4OvhGeDuqr13dvRLq/dhEBDg4ODg7+xfBqEZAO7KvFQreg6O4PHBwcHBx8MzwtHNKBQDpQ6O4LHBwcHBwc/H2rG4TigQI4ODg4OPgCeFrwT29ct2DoHhwYT1LAwcHBwcG/AH7qD/900D89kN8uPMDBwcHBwRfBu4EhhZwuHI4lN3BwcHBw8AXw7sG8VwWO6Y1++hgcHBwcHHwhfFr4nxoMlAuF5vPg4ODg4OB3gHeDTBpcxgP+Vw8UwMHBwcHBvxh++gBAGmRODzjAwcHBwcE3wadrOoio3sDpIAMcHBwcHHwj/ApXOtjvFgmnAhY4ODg4OPhm+KmAcbrYmB4cKDcw4ODg4ODgC+DVwj4NLt33pQOFdoABBwcHBwe/MTzdaDqYSH8AcHBwcHBw8Kv9D23T75mutyU3cHBwcHDwfwDvDhS6RcP0AGEarMDBwcHBwTfD02BQLQq6BwxOFQ/g4ODg4OCb4Xdb4ODg4ODgC9YvWeKEn4TOQ+QAAAAASUVORK5CYII=">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/cad2.html" rel="prev" title="安装sqlserver并用myeclipse访问之">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        安装sqlserver并用myeclipse访问之
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i> Java</a> <a class="tag" href="/tags/Sqlserver/"><i class="fas fa-hashtag" aria-hidden="true"></i> Sqlserver</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/64a8.html" rel="prev" title="JQuery选择器和JQuery包装集">
+                      
+                        JQuery选择器和JQuery包装集
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/HTML/"><i class="fas fa-hashtag" aria-hidden="true"></i> HTML</a> <a class="tag" href="/tags/JQuery/"><i class="fas fa-hashtag" aria-hidden="true"></i> JQuery</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'C语言函数传值的相关问题',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码分析"><span class="toc-text">代码分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>Manual for reinstalling system - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="Summary,Ubuntu">
+	
+	
+		<meta name="description" content="This is a complete installation manual, the purpose is to quickly modify the ubuntu system to a usable state, including several parts such as coding environm...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/cd23.html">
+        Manual for reinstalling system
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年7月28日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约3.3k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需24分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/cd23.html" class="pageViews" data-flag-title="Manual for reinstalling system"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T22:42:42+02:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年7月28日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>This is a complete installation manual, the purpose is to quickly modify the ubuntu system to a usable state, including several parts such as coding environment and theme modification. This article has hidden images to highlight the text content. You can find the part you are interested in according to the catalog.</p>
+<a id="more"></a>
+
+<p><strong>Go to <a href="https://tianzonglin.github.io/Ubuntu-Installog" target="_blank" rel="external nofollow noopener noreferrer">Github version</a></strong> (This doc includes two parts of <a href="https://tianzonglin.github.io/Ubuntu-Installog/Installations.html" target="_blank" rel="external nofollow noopener noreferrer">Installations</a> and <a href="https://tianzonglin.github.io/Ubuntu-Installog/PersonalSettings.html" target="_blank" rel="external nofollow noopener noreferrer">PersonalSettings</a>)<br><br></p>
+<hr>
+<ul>
+<li><p><a href="#0-laptop-info">0. laptop info</a></p>
+</li>
+<li><p><a href="#1-install-the-system">1. install the system</a></p>
+<ul>
+<li><a href="#1-1-prepare-a-USB-installer-with-another-computer">1.1 prepare a USB installer - with another computer</a></li>
+<li><a href="#1-2-turn-off-the-secure-boot-in-BIOS">1.2 turn off the secure boot in BIOS</a></li>
+<li><a href="#1-3-follow-and-finish-the-standard-installation-process">1.3 follow and finish the standard installation process</a></li>
+<li><a href="#1-4-agree-the-1st-time-update-require-then-reboot">1.4 agree the 1st time update require, then reboot</a></li>
+</ul>
+</li>
+<li><p><a href="#2-install-nvidia-dirver">2. install nvidia dirver</a></p>
+<ul>
+<li><a href="#2-1-add-repository-then-we-can-check-devices">2.1 add repository then we can check devices</a></li>
+<li><a href="#2-2-install-drivers-in-APP-software-and-updates">2.2 install drivers in APP - Software and Updates</a></li>
+<li><a href="#2-3-do-NOT-set-blacklist-of-nouveau-or-set-grub">2.3 do NOT set blacklist of nouveau or set grub.</a></li>
+</ul>
+</li>
+<li><p><a href="#3-install-cuda-toolkit">3. install cuda-toolkit</a></p>
+<ul>
+<li><a href="#3-1-select-cuda-10-or-another-version">3.1 select cuda-10_* or another version</a></li>
+<li><a href="#3-2-execute">3.2 execute</a></li>
+<li><a href="#3-3-type-no-in-the-process">3.3 type NO in the process</a></li>
+<li><a href="#3-4-test-samples">3.4 test samples</a></li>
+<li><a href="#3-5-extra-important-config">3.5 extra IMPORTANT config</a></li>
+</ul>
+</li>
+<li><p><a href="#4-install-GL-stuff">4. install GL stuff</a></p>
+<ul>
+<li><a href="#4-1-for-GL-gl-h-use">4.1 for GL/gl.h use</a></li>
+<li><a href="#4-2-GL-gluh">4.2 GL/glu.h</a></li>
+<li><a href="#4-3-others">4.3 others</a></li>
+<li><a href="#4-4-just-use-all-in-one-command">4.4 just use all-in-one command</a></li>
+</ul>
+</li>
+<li><p><a href="#5-install-project-stuff">5. install project stuff</a></p>
+<ul>
+<li><a href="#5-1-base-tools">5.1 base tools</a></li>
+<li><a href="#5-2-rebuild-project">5.2 rebuild project</a></li>
+</ul>
+</li>
+<li><p><a href="#6-install-personal-software">6. install personal software</a></p>
+<ul>
+<li><a href="#6-1-screenshot-flameshot">6.1 screenshot: flameshot</a></li>
+<li><a href="#6-2-vscode">6.2 vscode</a></li>
+</ul>
+</li>
+<li><p><a href="#7-change-the-theme-with-tweaks">7. change the theme with Tweaks</a></p>
+<ul>
+<li><a href="#7-1-install-tweaks-and-its-extensions">7.1 install tweaks and its extensions</a></li>
+<li><a href="#7-2-change-menu-style">7.2 change menu style</a></li>
+<li><a href="#7-3-change-the-wallpaper">7.3 change the wallpaper</a></li>
+<li><a href="#7-4-change-the-panel-and-put-icons-on-the-desktop">7.4 change the panel and put icons on the desktop</a></li>
+</ul>
+</li>
+<li><p><a href="#8-unimportant-changes">8. unimportant changes</a></p>
+<ul>
+<li><a href="#8-1-add-support-of-Chinese">8.1 add support of Chinese</a></li>
+<li><a href="#8-2-change-screen-resolution">8.2 change screen resolution</a></li>
+<li><a href="#8-3-add-support-of-windows-software">8.3 add support of Windows software</a></li>
+<li><a href="#8-4-some-unessential-changes-with-tweaks">8.4 some unessential changes with Tweaks</a></li>
+<li><a href="#8-5-other-useful-tools-and-settings">8.5 other useful tools and settings</a><ul>
+<li><a href="#8-5-1-brightness-control">8.5.1 brightness control</a></li>
+<li><a href="#8-5-2-vscode-preferances">8.5.2 vscode preferances</a></li>
+<li><a href="#8-5-3-picgo">8.5.3 picgo</a></li>
+<li><a href="#8-5-4-install-and-set-git">8.5.4 install and set git</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#X-Ubuntu-Using-Tips">X. Ubuntu Using Tips</a></p>
+<ul>
+<li><a href="#X-1-updates">X.1 updates</a></li>
+<li><a href="#X-2-when-desktop-crash">X.2 when desktop crash</a></li>
+</ul>
+<br>
+
+</li>
+</ul>
+<hr>
+<h3 id="0-laptop-info"><a href="#0-laptop-info" class="headerlink" title="0. laptop info"></a>0. laptop info</h3><ul>
+<li>MSI GE62 490, with an Nvidia GeForce 960M graphics card</li>
+<li>the core is intel i7-6700HQ with an inside graphics card</li>
+<li>single system (ubuntu-18.04-LTS)</li>
+</ul>
+<h3 id="1-install-the-system"><a href="#1-install-the-system" class="headerlink" title="1. install the system"></a>1. install the system</h3><h4 id="1-1-prepare-a-USB-installer-with-another-computer"><a href="#1-1-prepare-a-USB-installer-with-another-computer" class="headerlink" title="1.1 prepare a USB installer - with another computer"></a>1.1 prepare a USB installer - with another computer</h4><p>Note: official iso (<a href="https://releases.ubuntu.com/18.04/ubuntu-18.04.4-desktop-amd64.iso" target="_blank" rel="external nofollow noopener noreferrer">ubuntu-18.04.4-desktop-amd64.iso</a>)</p>
+<h4 id="1-2-turn-off-the-secure-boot-in-BIOS"><a href="#1-2-turn-off-the-secure-boot-in-BIOS" class="headerlink" title="1.2 turn off the secure boot in BIOS"></a>1.2 turn off the secure boot in BIOS</h4><h4 id="1-3-follow-and-finish-the-standard-installation-process"><a href="#1-3-follow-and-finish-the-standard-installation-process" class="headerlink" title="1.3 follow and finish the standard installation process"></a>1.3 follow and finish the standard installation process</h4><p>Note: do NOT set grub (eg. nomodeset) if you can install smoothly. After setting ubuntu’s configuration, you can log into the new Ubuntu system (now, with the core graphics card and drivers)</p>
+<h4 id="1-4-agree-the-1st-time-update-require-then-reboot"><a href="#1-4-agree-the-1st-time-update-require-then-reboot" class="headerlink" title="1.4 agree the 1st time update require, then reboot"></a>1.4 agree the 1st time update require, then reboot</h4><p>Note: when you first get into the Ubunutu, you may get a piece of update information, DO agree that, the principle is that we agree with all updates during the process of installation, but after we get a stable and complete system, then we stop update anything, try to keep the system having no change, if not, there might be some conflict between the new updates and the old drivers. </p>
+<h3 id="2-install-nvidia-dirver"><a href="#2-install-nvidia-dirver" class="headerlink" title="2. install nvidia dirver"></a>2. install nvidia dirver</h3><h4 id="2-1-add-repository-then-we-can-check-devices"><a href="#2-1-add-repository-then-we-can-check-devices" class="headerlink" title="2.1 add repository then we can check devices"></a>2.1 add repository then we can check devices</h4><p>Note：we get the recommendation version here！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo ubuntu-drivers devices</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-install-drivers-in-APP-Software-and-Updates"><a href="#2-2-install-drivers-in-APP-Software-and-Updates" class="headerlink" title="2.2 install drivers in APP - Software and Updates"></a>2.2 install drivers in APP - Software and Updates</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Software and Updates -&gt;</span><br><span class="line">    additional drivers -&gt;</span><br><span class="line">        select the recommandation version -&gt;</span><br><span class="line">            apply</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-do-NOT-set-blacklist-of-nouveau-or-set-grub"><a href="#2-3-do-NOT-set-blacklist-of-nouveau-or-set-grub" class="headerlink" title="2.3 do NOT set blacklist of nouveau or set grub."></a>2.3 do NOT set blacklist of nouveau or set grub.</h4><p>Note: all stuff could be handled automatically by system if we use this way to install the drivers, we do nothing then it would be worked very well with Nvidia drivers!</p>
+<p>Now, the installation of the Nvidia driver was finished. You can use <code>nvidia-smi</code> to test if it’s ok (screenshot:<a href="http://i.imgur.com/GgfSqCM.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/GgfSqCM.png</a>) or just check the system information and see the drivers name. (screenshot: <a href="http://i.imgur.com/Euj6tQy.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/Euj6tQy.png</a>)</p>
+<h3 id="3-install-cuda-toolkit"><a href="#3-install-cuda-toolkit" class="headerlink" title="3. install cuda-toolkit"></a>3. install cuda-toolkit</h3><h4 id="3-1-select-cuda-10-or-another-version"><a href="#3-1-select-cuda-10-or-another-version" class="headerlink" title="3.1 select cuda-10_* or another version"></a>3.1 select cuda-10_* or another version</h4><p>(screenshot: <a href="http://i.imgur.com/6xPtxju.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/6xPtxju.png</a>)</p>
+<h4 id="3-2-execute"><a href="#3-2-execute" class="headerlink" title="3.2 execute"></a>3.2 execute</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod 777 cuda-10_\*.run</span><br><span class="line">$ sudo sh cuda-10_\*.run</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-type-NO-in-the-process"><a href="#3-3-type-NO-in-the-process" class="headerlink" title="3.3 type NO in the process"></a>3.3 type NO in the process</h4><p>Note: we have installed the driver by ourselves, so here say no. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 410.48?</span><br><span class="line">(y)es&#x2F;(n)o&#x2F;(q)uit: n</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-test-samples"><a href="#3-4-test-samples" class="headerlink" title="3.4 test samples"></a>3.4 test samples</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd &#x2F;usr&#x2F;local&#x2F;cuda&#x2F;samples</span><br><span class="line">$ make</span><br><span class="line">  (10 minutes later)</span><br><span class="line">$ cd &#x2F;usr&#x2F;local&#x2F;cuda&#x2F;samples&#x2F;bin&#x2F;x86_64&#x2F;linux&#x2F;release</span><br><span class="line">$ .&#x2F;deviceQuery</span><br></pre></td></tr></table></figure>
+
+<p>(screenshot: <a href="http://i.imgur.com/jJ7vpNw.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/jJ7vpNw.png</a>)</p>
+<h4 id="3-5-extra-IMPORTANT-config"><a href="#3-5-extra-IMPORTANT-config" class="headerlink" title="3.5 extra IMPORTANT config"></a>3.5 extra IMPORTANT config</h4><p>Note: add two environment params into /etc/profile, if not, maybe you could get the error says: libcudart.so.10.0: cannot open shared object file: No such file or directory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;bin:$PATH </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;lib:&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;lib64&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Now cuda installation is finished, actually, with samples’ test, we can also make sure that the GPU driver worked well.</p>
+<h3 id="4-install-GL-stuff"><a href="#4-install-GL-stuff" class="headerlink" title="4. install GL stuff"></a>4. install GL stuff</h3><h4 id="4-1-for-GL-gl-h-use"><a href="#4-1-for-GL-gl-h-use" class="headerlink" title="4.1 for GL/gl.h use"></a>4.1 for GL/gl.h use</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mesa-common-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-GL-glu-h"><a href="#4-2-GL-glu-h" class="headerlink" title="4.2 GL/glu.h"></a>4.2 GL/glu.h</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libglu1-mesa-dev freeglut3-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-others"><a href="#4-3-others" class="headerlink" title="4.3 others"></a>4.3 others</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libglfw3-dev libgles2-mesa-dev libglew-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-4-just-use-all-in-one-command"><a href="#4-4-just-use-all-in-one-command" class="headerlink" title="4.4 just use all-in-one command"></a>4.4 just use all-in-one command</h4><p>Note: they are all necessary to install, and maybe you need to install more libs, it’s up to your code.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install mesa-common-dev freeglut3-dev libglfw3-dev libgles2-mesa-dev libglew-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-install-project-stuff"><a href="#5-install-project-stuff" class="headerlink" title="5. install project stuff"></a>5. install project stuff</h3><h4 id="5-1-base-tools"><a href="#5-1-base-tools" class="headerlink" title="5.1 base tools"></a>5.1 base tools</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install vim</span><br><span class="line">$ sudo apt install cmake</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-rebuild-project"><a href="#5-2-rebuild-project" class="headerlink" title="5.2 rebuild project"></a>5.2 rebuild project</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ cd ProjectionExplain&#x2F;LIBRARY&#x2F;glui-master</span><br><span class="line">$ rm CMakeCache.txt</span><br><span class="line">$ make clean</span><br><span class="line">$ mkdir build &amp;&amp; cd build</span><br><span class="line">$ cmake ..</span><br><span class="line">$ make install</span><br><span class="line">$ cd ProjectionExplain&#x2F;</span><br><span class="line">$ make clean</span><br><span class="line">$ make </span><br><span class="line">$ .&#x2F;projwiz -f DATA&#x2F;segmentation lamp</span><br></pre></td></tr></table></figure>
+
+<p>All stuff about GL-project has been done!<br> (screenshot: <a href="http://i.imgur.com/rDCtEId.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/rDCtEId.png</a>)</p>
+<h3 id="6-install-personal-software"><a href="#6-install-personal-software" class="headerlink" title="6. install personal software"></a>6. install personal software</h3><h4 id="6-1-screenshot-flameshot"><a href="#6-1-screenshot-flameshot" class="headerlink" title="6.1 screenshot: flameshot"></a>6.1 screenshot: flameshot</h4><p>use <code>sudo apt-get install flameshot</code></p>
+<p>set the shortcut<br> (screenshot: <a href="http://i.imgur.com/id2PPYj.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/id2PPYj.png</a>)</p>
+<h4 id="6-2-vscode"><a href="#6-2-vscode" class="headerlink" title="6.2 vscode"></a>6.2 vscode</h4><p><strong>..more settings could be found in chapter 8.5..</strong></p>
+<p>install it directly in APP (Ubuntu Software).<br> (screenshot: <a href="http://i.imgur.com/W971ERc.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/W971ERc.png</a>)</p>
+<p>then, we can program code with vsc</p>
+<ul>
+<li>open folder (ProjectionExplain)</li>
+<li>Terminal-&gt;new terminal-&gt;make &amp;&amp; ./projwiz -f DATA/segmentation lamp</li>
+</ul>
+<h3 id="7-change-the-theme-with-Tweaks"><a href="#7-change-the-theme-with-Tweaks" class="headerlink" title="7. change the theme with Tweaks"></a>7. change the theme with Tweaks</h3><h4 id="7-1-install-tweaks-and-its-extensions"><a href="#7-1-install-tweaks-and-its-extensions" class="headerlink" title="7.1 install tweaks and its extensions"></a>7.1 install tweaks and its extensions</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-tweaks adwaita-icon-theme-full</span><br></pre></td></tr></table></figure>
+
+<p>then logout and login system or reboot.</p>
+<h4 id="7-2-change-menu-style"><a href="#7-2-change-menu-style" class="headerlink" title="7.2 change menu style"></a>7.2 change menu style</h4><p>(extension: applications menu) Note: turn on this extension could display the app manager like windows starting menu. Here I just changed the margin of the application and hide the application’s icon and show the desktop’s button (like windows).</p>
+<h4 id="7-3-change-the-wallpaper"><a href="#7-3-change-the-wallpaper" class="headerlink" title="7.3 change the wallpaper"></a>7.3 change the wallpaper</h4><h4 id="7-4-change-the-panel-and-put-icons-on-the-desktop"><a href="#7-4-change-the-panel-and-put-icons-on-the-desktop" class="headerlink" title="7.4 change the panel and put icons on the desktop"></a>7.4 change the panel and put icons on the desktop</h4><p>The default style of the dock is not same as Windows, and the desktop is not very important while using Ubuntu, but here the idea is to change Ubuntu looks like Windows in every detailed area, so here, we still need to do two things: put icons onto the desktop and change the original style of dock.</p>
+<p>There are several paths that could include installed applications, which means we need to go to different folders to find those icons. The paths below are some possible locations you need to check. Then just drag out and put the icon onto the desktop. You will see these icons become files like *.desktop, don’t worry, just double-click them and click ‘Trust and Launch’, then they could change back to the normal icons.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;share&#x2F;applications</span><br><span class="line">&#x2F;var&#x2F;lib&#x2F;snapd&#x2F;desktop&#x2F;applications</span><br><span class="line">~&#x2F;.local&#x2F;share&#x2F;applications</span><br></pre></td></tr></table></figure>
+
+<p>Then we need to use Tweaks to change the panel/dock. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Open Tweaks -&gt; Extensions </span><br><span class="line">      -&gt; turn on the &#39;applications menu&#39; </span><br><span class="line">      -&gt; turn on the &#39;Dash to panel&#39; -&gt; open settings</span><br><span class="line">            -&gt; Location and Style</span><br><span class="line">                  -&gt; panel location -&gt; bottom</span><br><span class="line">                  -&gt; panel size -&gt; 45px</span><br><span class="line">                  -&gt; icons margin -&gt; 5px</span><br><span class="line">                  -&gt; indicator -&gt; open settings</span><br><span class="line">                        -&gt; height -&gt; 0px (we hide it by this)</span><br><span class="line">                  -&gt; clock location -&gt; right</span><br><span class="line">                  -&gt; task panels -&gt; left</span><br><span class="line">            -&gt; Behaviors</span><br><span class="line">                  -&gt; turn off &#39;favoriate applications&#39;</span><br><span class="line">                  -&gt; turn off &#39;applications icon&#39;</span><br><span class="line">                  -&gt; turn on &#39;show desktop&#39;</span><br><span class="line">                  -&gt; turn off &#39;cancel applications&#39; group&#39;</span><br></pre></td></tr></table></figure>
+
+<p>Till now, the basic theme set has been finished, and the style now is very similar (98%) to the  Windows desktop.  (screenshot: <a href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/2020-07-2823849238944.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/y7safc9.png</a>)</p>
+<h3 id="8-unimportant-changes"><a href="#8-unimportant-changes" class="headerlink" title="8. unimportant changes"></a>8. unimportant changes</h3><h4 id="8-1-add-support-of-Chinese"><a href="#8-1-add-support-of-Chinese" class="headerlink" title="8.1 add support of Chinese"></a>8.1 add support of Chinese</h4><ul>
+<li><strong>add extra language in the system</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Go to Settings </span><br><span class="line">-&gt; Region &amp; Languages</span><br><span class="line">    -&gt; manage installed language</span><br><span class="line">        -&gt; if get the message of &#39;installed not complete&#39; then just install</span><br><span class="line">            -&gt; click &#39;Install&#x2F;Remove Languages&#39; </span><br><span class="line">                -&gt; choose Chinese then install (maybe need double-click)</span><br><span class="line">            -&gt; then in &#39;Language for menu and windows&#39; </span><br><span class="line">                -&gt; drag Chinese up to the 1st position</span><br><span class="line">-&gt; now in &#39;Region &amp; Language&#39;, the Language has been changed to Chinese automatically.</span><br></pre></td></tr></table></figure>
+
+<p>Note: After reboot, System now could be displayed by Chinese.  If you get the message about ‘change public folder names’ like Downloads, Pictures, Videos, then I suggest that let the system keep the old/English name, cause Chinese characters could be hard to use in terminal or code. </p>
+<ul>
+<li><strong>install SogouPinyin</strong></li>
+</ul>
+<p>Note:  Download the package from Browser, <a href="https://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external nofollow noopener noreferrer">Linux_64-bit.deb.</a> Then, just click the deb file and click ‘install’. If you use an old Ubuntu version, just follow <a href="https://pinyin.sogou.com/linux/help.php" target="_blank" rel="external nofollow noopener noreferrer">this page</a>. After that, you also need to reboot the system.</p>
+<ul>
+<li><strong>install fcitx and change the input source to SogouPinyin</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install fcitx</span><br><span class="line">then, go to Settings</span><br><span class="line">    -&gt; manage  installed language</span><br><span class="line">        -&gt; change the  &#39;Input System&#39;(default is IBus) to fictx</span><br><span class="line">        -&gt; then click  &#39;apply system-wild&#39;</span><br><span class="line">-&gt; Now , you&#39;d better to reboot, then</span><br><span class="line">    -&gt; find &#39;keybord icon&#39; in the task bar (default location is top-right corner)</span><br><span class="line">        -&gt; click &#39;configure current input method&#39;</span><br><span class="line">            -&gt; then you could see SogouPinyin has been there. </span><br><span class="line">                 We can delete that &#39;Wubi&#39; so that we just keep English and Pinyin for us.</span><br><span class="line"> Now we finished all stuff. The default change-key is the single click of &#39;Shift&#39;.</span><br></pre></td></tr></table></figure>
+
+<p>Note: the above three parts are not the same thing, please set them one by one. And always remember to reboot the system or you maybe can’t see the additions. If you think the panel of SogouPinyin is too small to watch, then you can modify it in its settings.</p>
+<p>With Chinese support, we can then set more slight changes with Tweaks (screenshot: <a href="http://i.imgur.com/l5sLZwZ.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/l5sLZwZ.png</a>).</p>
+<h4 id="8-2-change-screen-resolution"><a href="#8-2-change-screen-resolution" class="headerlink" title="8.2 change screen resolution"></a>8.2 change screen resolution</h4><ul>
+<li>connect high-resolution (second) screen </li>
+<li>make a command set with xrandr of high-resolution configuration, like 2k. There are 3 commands we can put them in *.sh file,  the 3rd line is to use xrandr to set primary monitor and turn off the laptop’s screen. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Firstly, we need to get some specific parameters.</span><br><span class="line"></span><br><span class="line">$ cvt 2560 1440</span><br><span class="line">&#x2F;&#x2F;the output here is what we used in xrandr below</span><br><span class="line">$ xrandr -q</span><br><span class="line">&#x2F;&#x2F;check display monitors, we need to make sure the ID of the primary and second screen, here are eDP-1-1(primary) and HDMI-1-2(second). </span><br><span class="line"></span><br><span class="line">(just 3 lines)：</span><br><span class="line"></span><br><span class="line">xrandr --newmode &quot;2560x1440_55.00&quot;  284.00  2560 2744 3016 3472  1440 1443 1448 1489 -hsync +vsync</span><br><span class="line">xrandr --addmode HDMI-1-2 &quot;2560x1440_55.00&quot;</span><br><span class="line">xrandr --output HDMI-1-2 --mode &quot;2560x1440_55.00&quot; --output eDP-1-1 --off</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>finally, just find a way to execute the 3 commands, you can run them with ‘sh *.sh’ or let them executed automatically after we login system.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">quick way :</span><br><span class="line">    -&gt; just put these 3 lines into the end of &#x2F;etc&#x2F;profile,</span><br><span class="line">    -&gt; then, reboot, you could find the monitor was switched by itself.</span><br></pre></td></tr></table></figure>
+
+<p>Note: the original system doesn’t support higher resolution more than 1080, so we need to add new resolution and trigger the change.</p>
+<h4 id="8-3-add-support-of-Windows-software"><a href="#8-3-add-support-of-Windows-software" class="headerlink" title="8.3 add support of Windows software"></a>8.3 add support of Windows software</h4><p>like tencent qq, or redalert2, or other applications.</p>
+<ul>
+<li>method-1: install wine from Ubuntu-Software, then install windows apps with wine. With this, we could paly redalert2 or chat with windows-qq in ubuntu.</li>
+<li>method-2: install an android simulator, I highly recommend this one (<a href="https://www.linzhuotech.com/index.php/home/index/download.html" target="_blank" rel="external nofollow noopener noreferrer">download link</a>), it’s stable and fast and could give us the same using-experience of the android pad, if you just want to use qq or wechat in ubuntu, you need to try this. (screenshot: <a href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/Cache_32799f853a0e21fe..jpg" target="_blank" rel="external nofollow noopener noreferrer">https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/Cache_32799f853a0e21fe..jpg</a>)</li>
+</ul>
+<p>Note:  I found a quick way to use the wine qq in Ubuntu, even you DON’T need to install wine. To do this, you need to go to this Github page and download the *.AppImage file from its release. Then, just use two commands to run it. That’s all. this appimage includes a minimum wine inside and you just do nothing, download then use it! </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod a+x TIM-x86_64.AppImage</span><br><span class="line">$ .&#x2F;TIM-x86_64.AppImage.AppImage</span><br></pre></td></tr></table></figure>
+
+<p>(In my machine, the appimage of QQ can’t work well with some problems about showing characters, so I just use TIM instead.)</p>
+<p>If you want to open it by icons, then you can make a *.desktop file by yourself, then put this file into <code>~/.local/share/applications</code>, after that, you can find your desktop icon in ‘applications’ (search it), right-click and add it to the favorite, then, you will find your own desktop icon appears in the dock.</p>
+<p>Firstly, get qq.png and make your own desktop file (any path is ok, mine is Downloads/)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;qq.png</span><br><span class="line">$ vim QQ.desktop</span><br></pre></td></tr></table></figure>
+
+<p>Secondly, copy the content, save and quit.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name&#x3D;QQ</span><br><span class="line">Exec&#x3D;&#x2F;home&#x2F;tzloop&#x2F;Downloads&#x2F;TIM-x86_64.AppImage</span><br><span class="line">Icon&#x3D;&#x2F;home&#x2F;tzloop&#x2F;Downloads&#x2F;qq.png</span><br><span class="line">Type&#x3D;Application</span><br><span class="line">StartupNotify&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<p>Then, right-click the file, in permission page -&gt; allow it execute as application</p>
+<p>Finally, copy it to your system applications’ folder.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp &#x2F;home&#x2F;tzloop&#x2F;Downloads&#x2F;QQ.desktop ~&#x2F;.local&#x2F;share&#x2F;applications</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="8-4-some-unessential-changes-with-Tweaks"><a href="#8-4-some-unessential-changes-with-Tweaks" class="headerlink" title="8.4 some unessential changes with Tweaks"></a>8.4 some unessential changes with Tweaks</h4><ul>
+<li>theme -&gt;  Adwaita-dark</li>
+<li>cursor -&gt; Adwaita-default</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The default font family  (4 items) are :</span><br><span class="line">    Ubuntu&#x2F;11, Ubuntu Regular&#x2F;11, Sans Regular&#x2F;11, Ubuntu Mono Regular&#x2F;13.</span><br><span class="line">then I set 1-3&#39;s font family to Ubuntu Medium with the same font-szie but zoom ratio is 1.3.</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-5-other-useful-tools-and-settings"><a href="#8-5-other-useful-tools-and-settings" class="headerlink" title="8.5 other useful tools and settings"></a>8.5 other useful tools and settings</h4><h5 id="8-5-1-brightness-control"><a href="#8-5-1-brightness-control" class="headerlink" title="8.5.1 brightness control"></a>8.5.1 brightness control</h5><p>I use RedShift here, other similar software like F.lux is good as well. Using RedShift is simple:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-&gt; install it with &#96;sudo apt-get install redshift-gtk&#96;, gtk means visual version.</span><br><span class="line">-&gt; open location service: Settings -&gt; Privacy -&gt; Location service -&gt; open. (this step is ESSENTIAL)</span><br><span class="line">-&gt; open redshift, if you can&#39;t find the icon, just search it in &#39;applications&#39;.</span><br><span class="line">-&gt; then, brightness will be changed</span><br><span class="line">-&gt; finally, with its menu, you can set it open with your system.</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-5-2-vscode-preferances"><a href="#8-5-2-vscode-preferances" class="headerlink" title="8.5.2 vscode preferances"></a>8.5.2 vscode preferances</h5><p><strong>@theme</strong></p>
+<p> File -&gt; Preferences -&gt; Color Theme, I’d like to use <code>Tomorrow Night Blue</code>, which is also a kind of dark theme but could also work well in the day time.</p>
+<p><strong>@font</strong></p>
+<p> File -&gt; Preferences -&gt; Settings, then we use ‘search’ (search ‘font’) to locate the items that we need to change, I’d like to set these parameters by JSON format, and the programming stuff settings are as below:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;terminal.integrated.fontFamily&quot;: &quot;monospace&quot;,</span><br><span class="line">    &quot;editor.fontWeight&quot;: &quot;600&quot;,</span><br><span class="line">    &quot;editor.fontFamily&quot;: &quot;monospace&quot;,</span><br><span class="line">    &quot;editor.fontSize&quot;: 15.5,</span><br><span class="line">    &quot;terminal.integrated.fontSize&quot;: 12,</span><br><span class="line">    &quot;workbench.colorTheme&quot;: &quot;Tomorrow Night Blue&quot;</span><br><span class="line">&#125;</span><br><span class="line">I like this combination, it worked very well in my 2k screen.</span><br></pre></td></tr></table></figure>
+
+<p>If you want to make the font same with vscode in Windows (specifically, it’s Consolas), then you need to install new fonts manually, you can’t use new fonts if you don’t install them at first.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;down.gloriousdays.pw&#x2F;Fonts&#x2F;Consolas.zip</span><br><span class="line">$ unzip Consolas.zip</span><br><span class="line">$ sudo mkdir -p &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;consolas</span><br><span class="line">$ sudo cp consola*.ttf &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;consolas&#x2F;</span><br><span class="line">$ sudo chmod 644 &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;consolas&#x2F;consola*.ttf</span><br><span class="line">$ cd &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;consolas</span><br><span class="line">$ sudo mkfontscale &amp;&amp; sudo mkfontdir &amp;&amp; sudo fc-cache -fv</span><br><span class="line">&#x2F;&#x2F;check the installed fonts</span><br><span class="line">$ fc-list</span><br></pre></td></tr></table></figure>
+
+<p><strong>@terminal’s location</strong></p>
+<p>Just search ‘location’ in settings and change <code>Workbench › Panel: Default Location</code> from bottom to left, because I want to have more vertical space to read long codes while we usually don’t write long sentences/codes in lines, so it has more free horizontal space that we can settle the terminal. </p>
+<p><strong>@files display order in Explorer (left area)</strong></p>
+<p>Just search ‘explorer.sortOrder’ in settings and set it sorted by ‘type’, it’s useful for some make/cmake projects, which has a lot of *.cpp or *.o files, they’re mixed with the default setting, but it should be sorted by type so that we can have a clear group of different files.</p>
+<p>The final view of vscode in my Ubuntu like this: (screenshot: <a href="http://i.imgur.com/g7OehEL.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/g7OehEL.png</a>)</p>
+<h5 id="8-5-3-picgo"><a href="#8-5-3-picgo" class="headerlink" title="8.5.3 picgo"></a>8.5.3 picgo</h5><p>Everytime you want to share or publish your screenshot or othem images, then try to use PicGo. It’s a useful tool that includes many kind of image-bed, the usage of it in Ubuntu is similar to the  wine qq.</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Firstly, get picgo.png and make your own desktop file (any path is ok, mine is Downloads&#x2F;)</span><br><span class="line"></span><br><span class="line">$ wget https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;TianZonglin&#x2F;tuchuang&#x2F;master&#x2F;img&#x2F;opic.png</span><br><span class="line">$ vim QQ.desktop</span><br><span class="line"></span><br><span class="line">Secondly, copy the content, save and quit.</span><br><span class="line"></span><br><span class="line">[Desktop Entry]</span><br><span class="line">Name&#x3D;PicGO</span><br><span class="line">Exec&#x3D;&#x2F;home&#x2F;tzloop&#x2F;Downloads&#x2F;PicGo.AppImage</span><br><span class="line">Icon&#x3D;&#x2F;home&#x2F;tzloop&#x2F;Downloads&#x2F;opic.png</span><br><span class="line">Type&#x3D;Application</span><br><span class="line">StartupNotify&#x3D;true</span><br><span class="line"></span><br><span class="line">Then, right-click the file, in permission page -&gt; allow it execute as application</span><br><span class="line">Finally, copy it to your system applications&#39; folder.</span><br></pre></td></tr></table></figure>
+
+<p>If you want to upload images by clipboard, you need to use <code>sudo apt install xclip</code> to install xclip. The quick settings of Github’s image-bed are below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repository name -&gt; TianZonglin&#x2F;tuchuang</span><br><span class="line">branch name -&gt; master</span><br><span class="line">token -&gt; get a new one from Github (Settings -&gt; Developer Settings -&gt; Personal access tokens)</span><br><span class="line">storage path -&gt; img&#x2F;</span><br><span class="line">custom domain name -&gt; https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="8-5-4-install-and-set-git"><a href="#8-5-4-install-and-set-git" class="headerlink" title="8.5.4 install and set git"></a>8.5.4 install and set git</h5><ul>
+<li>install</li>
+<li>set and use with vscode (target: github)</li>
+</ul>
+<h3 id="X-Ubuntu-Using-Tips"><a href="#X-Ubuntu-Using-Tips" class="headerlink" title="X. Ubuntu Using Tips"></a>X. Ubuntu Using Tips</h3><h4 id="X-1-updates"><a href="#X-1-updates" class="headerlink" title="X.1 updates"></a>X.1 updates</h4><p>just delay the update checking (I don’t know how to stop it)! do NOT cancel the ‘update from’, or you would get errors when you install new packages/tools/…<br> (screenshot:<a href="http://i.imgur.com/w7Kvc7X.png" target="_blank" rel="external nofollow noopener noreferrer">http://i.imgur.com/w7Kvc7X.png</a>)</p>
+<h4 id="X-2-when-desktop-crash"><a href="#X-2-when-desktop-crash" class="headerlink" title="X.2 when desktop crash"></a>X.2 when desktop crash</h4><p>like stucking when turning off some windows or stucking after running something for a long time. When this happened, do NOT shut down the system by cut down the power! that’s a dangerous behavior, system core may be ruined by this.</p>
+<p>the right way is: Ctrl+Alt+F2/3/4, log into the tty2/3/4, then restart gdm/lightdm, or rollback the wrong options here if you remember. Or do nothing, just wait for the system rerun again, sometimes it could be reworked after waiting a while.</p>
+<br>
+
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/2020-07-28-22-24-15.png">
+</fancybox>
+
+
+
+
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\aa5f.html" title="Summary and review of 2018, B" rel="bookmark">Summary and review of 2018, B</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ab1f.html" title="Summary and review of 2018, A" rel="bookmark">Summary and review of 2018, A</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2690.html" title="分享我的一些对拍照的理解与认识" rel="bookmark">分享我的一些对拍照的理解与认识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2275.html" title="CSC申请结束到派出前的事项" rel="bookmark">CSC申请结束到派出前的事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/cd23.html">https://www.cz5h.com/article/cd23.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Summary/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Summary</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Ubuntu/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Ubuntu</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/cd23.html&title=Manual for reinstalling system - 长征部落格&summary=This is a complete installation manual, the purpose is to quickly modify the ubuntu system to a usable state, including several parts such as coding environment and theme modification. This article has hidden images to highlight the text content. You can find the part you are interested in according to the catalog." target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/cd23.html&title=Manual for reinstalling system - 长征部落格&summary=This is a complete installation manual, the purpose is to quickly modify the ubuntu system to a usable state, including several parts such as coding environment and theme modification. This article has hidden images to highlight the text content. You can find the part you are interested in according to the catalog." target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/cd23.html&title=Manual for reinstalling system - 长征部落格&summary=This is a complete installation manual, the purpose is to quickly modify the ubuntu system to a usable state, including several parts such as coding environment and theme modification. This article has hidden images to highlight the text content. You can find the part you are interested in according to the catalog." target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACT0lEQVR42u3aSXJDIQwFQO5/6WSfKhcacOwvmp2HgPp7ozyxfi5dCxwcHBwcfBB8FdfLjZN/t3v/7+fdesHBwcHBwSfCww1AsNAu6NV53XrBwcHBwcEnw7cNQLOw7P5bSLZecHBwcHBw8JVtSLoBBzg4ODg4OPj/w6MBRjawAAcHBwcHBz8Q0GcH84calo9PUsDBwcHBwb8IXg0MPvW6XC84ODg4OPggeHdVB/3RACLbsGzrBQcHBwcHHwTvBgunH2D1wUTrAwcHBwcHnwzPBvfd71UHEWFodpICDg4ODg7+IHj1AkAUni24e5GgncCAg4ODg4M/CH6qMagOBtINSPGCAjg4ODg4+ER4tlHoBgTZxiU7kAgPFMDBwcHBwQfCoxt2C602PtUgBBwcHBwc/AZ49uBuAHHqQsCxzg0cHBwcHPyB8Gzh3YFAtZFpBx7g4ODg4OCD4d0AogurntNuYMDBwcHBwR8ID1+MSx5cbTiqwUS4TnBwcHBw8Ivg3X/8qwFH9ocI1wEODg4ODn4RPLqijUk1AMl+bztQAAcHBwcHHwyvBgHRgcSpgCJdPzg4ODg4+CB4d1Ubnuh+1YADHBwcHBz8Bvgqru7goBo0VBsqcHBwcHDwyfBTDcbpBxPdL/zgwMHBwcHBB8OjgX33YsHu3O5AId3AgIODg4ODXwzPvl89L7vP2xsYcHBwcHDwC+HRc7rr6xoYcHBwcHDwN8KrF/qygOx53YAEHBwcHBx8MrzaGHQbj+yFguwDAQcHBwcHnwy/bYGDg4ODgw9YvwtKg6502XaoAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACT0lEQVR42u3aSXJDIQwFQO5/6WSfKhcacOwvmp2HgPp7ozyxfi5dCxwcHBwcfBB8FdfLjZN/t3v/7+fdesHBwcHBwSfCww1AsNAu6NV53XrBwcHBwcEnw7cNQLOw7P5bSLZecHBwcHBw8JVtSLoBBzg4ODg4OPj/w6MBRjawAAcHBwcHBz8Q0GcH84calo9PUsDBwcHBwb8IXg0MPvW6XC84ODg4OPggeHdVB/3RACLbsGzrBQcHBwcHHwTvBgunH2D1wUTrAwcHBwcHnwzPBvfd71UHEWFodpICDg4ODg7+IHj1AkAUni24e5GgncCAg4ODg4M/CH6qMagOBtINSPGCAjg4ODg4+ER4tlHoBgTZxiU7kAgPFMDBwcHBwQfCoxt2C602PtUgBBwcHBwc/AZ49uBuAHHqQsCxzg0cHBwcHPyB8Gzh3YFAtZFpBx7g4ODg4OCD4d0AogurntNuYMDBwcHBwR8ID1+MSx5cbTiqwUS4TnBwcHBw8Ivg3X/8qwFH9ocI1wEODg4ODn4RPLqijUk1AMl+bztQAAcHBwcHHwyvBgHRgcSpgCJdPzg4ODg4+CB4d1Ubnuh+1YADHBwcHBz8Bvgqru7goBo0VBsqcHBwcHDwyfBTDcbpBxPdL/zgwMHBwcHBB8OjgX33YsHu3O5AId3AgIODg4ODXwzPvl89L7vP2xsYcHBwcHDwC+HRc7rr6xoYcHBwcHDwN8KrF/qygOx53YAEHBwcHBx8MrzaGHQbj+yFguwDAQcHBwcHnwy/bYGDg4ODgw9YvwtKg6502XaoAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/cf94.html" rel="prev" title="修改自定义站点监控页面的样式">
+                      
+                        修改自定义站点监控页面的样式
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Hexo/"><i class="fas fa-hashtag" aria-hidden="true"></i> Hexo</a> <a class="tag" href="/tags/UptimeRobot/"><i class="fas fa-hashtag" aria-hidden="true"></i> UptimeRobot</a> <a class="tag" href="/tags/CSS/"><i class="fas fa-hashtag" aria-hidden="true"></i> CSS</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Manual for reinstalling system',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-laptop-info"><span class="toc-text">0. laptop info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-install-the-system"><span class="toc-text">1. install the system</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-prepare-a-USB-installer-with-another-computer"><span class="toc-text">1.1 prepare a USB installer - with another computer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-turn-off-the-secure-boot-in-BIOS"><span class="toc-text">1.2 turn off the secure boot in BIOS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-follow-and-finish-the-standard-installation-process"><span class="toc-text">1.3 follow and finish the standard installation process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-agree-the-1st-time-update-require-then-reboot"><span class="toc-text">1.4 agree the 1st time update require, then reboot</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-install-nvidia-dirver"><span class="toc-text">2. install nvidia dirver</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-add-repository-then-we-can-check-devices"><span class="toc-text">2.1 add repository then we can check devices</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-install-drivers-in-APP-Software-and-Updates"><span class="toc-text">2.2 install drivers in APP - Software and Updates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-do-NOT-set-blacklist-of-nouveau-or-set-grub"><span class="toc-text">2.3 do NOT set blacklist of nouveau or set grub.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-install-cuda-toolkit"><span class="toc-text">3. install cuda-toolkit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-select-cuda-10-or-another-version"><span class="toc-text">3.1 select cuda-10_* or another version</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-execute"><span class="toc-text">3.2 execute</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-type-NO-in-the-process"><span class="toc-text">3.3 type NO in the process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-test-samples"><span class="toc-text">3.4 test samples</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-extra-IMPORTANT-config"><span class="toc-text">3.5 extra IMPORTANT config</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-install-GL-stuff"><span class="toc-text">4. install GL stuff</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-for-GL-gl-h-use"><span class="toc-text">4.1 for GL&#x2F;gl.h use</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-GL-glu-h"><span class="toc-text">4.2 GL&#x2F;glu.h</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-others"><span class="toc-text">4.3 others</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-just-use-all-in-one-command"><span class="toc-text">4.4 just use all-in-one command</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-install-project-stuff"><span class="toc-text">5. install project stuff</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-base-tools"><span class="toc-text">5.1 base tools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-rebuild-project"><span class="toc-text">5.2 rebuild project</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-install-personal-software"><span class="toc-text">6. install personal software</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-screenshot-flameshot"><span class="toc-text">6.1 screenshot: flameshot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-vscode"><span class="toc-text">6.2 vscode</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-change-the-theme-with-Tweaks"><span class="toc-text">7. change the theme with Tweaks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-install-tweaks-and-its-extensions"><span class="toc-text">7.1 install tweaks and its extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-change-menu-style"><span class="toc-text">7.2 change menu style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-change-the-wallpaper"><span class="toc-text">7.3 change the wallpaper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-change-the-panel-and-put-icons-on-the-desktop"><span class="toc-text">7.4 change the panel and put icons on the desktop</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-unimportant-changes"><span class="toc-text">8. unimportant changes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-add-support-of-Chinese"><span class="toc-text">8.1 add support of Chinese</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-change-screen-resolution"><span class="toc-text">8.2 change screen resolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-add-support-of-Windows-software"><span class="toc-text">8.3 add support of Windows software</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-some-unessential-changes-with-Tweaks"><span class="toc-text">8.4 some unessential changes with Tweaks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5-other-useful-tools-and-settings"><span class="toc-text">8.5 other useful tools and settings</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-1-brightness-control"><span class="toc-text">8.5.1 brightness control</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-2-vscode-preferances"><span class="toc-text">8.5.2 vscode preferances</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-3-picgo"><span class="toc-text">8.5.3 picgo</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-5-4-install-and-set-git"><span class="toc-text">8.5.4 install and set git</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#X-Ubuntu-Using-Tips"><span class="toc-text">X. Ubuntu Using Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#X-1-updates"><span class="toc-text">X.1 updates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#X-2-when-desktop-crash"><span class="toc-text">X.2 when desktop crash</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

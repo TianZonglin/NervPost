@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>应对LeanCloud对于处理性能的限制 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="JavaScript,JQuery,LeanCloud">
+	
+	
+		<meta name="description" content="最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/502d.html">
+        应对LeanCloud对于处理性能的限制
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Hexo%E7%9B%B8%E5%85%B3/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Hexo相关</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年6月26日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需10分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/502d.html" class="pageViews" data-flag-title="应对LeanCloud对于处理性能的限制"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>最近一直想如何才能统计<a href="https://old.cz5h.com/other/page_share.html" target="_blank" rel="noopener">资源分享</a>页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用<code>LeanCloud</code>来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去<a href>资源分享</a>里看看效果。</p>
+<a id="more"></a>
+
+<h3 id="更广泛的应用场景"><a href="#更广泛的应用场景" class="headerlink" title="更广泛的应用场景"></a>更广泛的应用场景</h3><p>其实上面说的对下载次数进行统计实际上就是统计点击的计数，这就可以应用到更多的场景，比如给文章<strong>添加喜欢数、顶数、踩数</strong>等等，这是可以直接用的，处理逻辑都不变。<br>还有就是类似<strong>淘宝五颗星打分数</strong>的这种评分机制，也是可以稍作改变就可以。<br>总之，只要是由点击后触发数据更新的场景都可以用此来实现。</p>
+<p>这里，对如何实现整个需求暂不细说，主要说一下遇到的主要问题。</p>
+<h3 id="LeanCloud查询处理的性能局限"><a href="#LeanCloud查询处理的性能局限" class="headerlink" title="LeanCloud查询处理的性能局限"></a>LeanCloud查询处理的性能局限</h3><blockquote>
+<p><strong>QPS</strong><br>因特网上，经常用每秒查询率来衡量域名系统服务器的机器的性能，其即为QPS。<br>对应fetches/sec，即每秒的响应请求数，也即是最大吞吐能力。<br>计算关系：<br>QPS = 并发量 / 平均响应时间<br>并发量 = QPS * 平均响应时间</p>
+</blockquote>
+<p>这里，<code>LeanCloud</code>对免费实例的<code>QPS</code>做了限制，可以理解，如果同时的查询发送的过多，则会使Lean返回错误代码，如下图所示：</p>
+<p><img src="http://static.zybuluo.com/EVA001/qra41l8o6yq4w0a1xqpq3hu4/image_1cgcl6rvj125disn1qjr1fgi7lb9.png" alt></p>
+<p><a href="https://leancloud.cn/docs/error_code.html" target="_blank" rel="external nofollow noopener noreferrer">错误码详解</a></p>
+<blockquote>
+<p><strong>429</strong><br>信息 - <strong>Too many requests.</strong><br>含义 - 超过应用的流控限制，即超过每个应用同一时刻最多可使用的工作线程数，或者说同一时刻最多可以同时处理的数据请求。通过 <strong>控制台 &gt; 存储 &gt; API 统计 &gt; API 性能 &gt; 总览</strong> 可以查看应用产生的请求统计数据，如平均工作线程、平均响应时间等。使用 LeanCloud 商用版或企业版 的用户，如有需要，可以联系我们来调整工作线程数。</p>
+</blockquote>
+<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>第一遍打开时需要循环发一遍查询来查询每个资源已有的下载数。</p>
+<p>这里注意，为什么要循环每次发一次查询呢，因为在<code>LeanCloud</code>中创建的实例场景是广义的计数实例，即我只发一次查询然后处理返回结果，这种方式理论上是可行的，但是在实现上需要附加查询条件，还要考虑在库中的实例不一定只是一个地方的计数统计，总之较为复杂。</p>
+<p>更简单的处理方式就是一一对应，一个计数实例（表中的一行记录）就是对应页面某处的一个计数器，只是在这里，由于分享下载的资源有点多，大概200元素，所以如果不加处理的发送查询请求，那几乎算是同时对<code>LeanCloud</code>发起这200次查询请求，由于其访问性能有限，所以需要对请求的发送做一定调整。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</span><br><span class="line">    <span class="keyword">var</span> texts = $(<span class="keyword">this</span>).parent().find(sp).eq(cnt);</span><br><span class="line">    <span class="keyword">var</span> url = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</span><br><span class="line">    query.equalTo(<span class="string">"url"</span>, url);</span><br><span class="line">    query.find(&#123;</span><br><span class="line">    	success: <span class="function"><span class="keyword">function</span>(<span class="params">results</span>) </span>&#123;</span><br><span class="line">    		<span class="keyword">if</span> (results.length == <span class="number">0</span>) &#123;</span><br><span class="line">    			texts.text(<span class="string">"0"</span>); <span class="comment">//初始是 0</span></span><br><span class="line">    			<span class="keyword">return</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; results.length; i++) &#123;</span><br><span class="line">    			<span class="keyword">var</span> object = results[i];</span><br><span class="line">    			texts.text(object.get(<span class="string">'time'</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://static.zybuluo.com/EVA001/itcj2lnmbxzrw57y1ow6vi9o/image_1cge7og1n2h510su1h5deno18oq13.png" alt></p>
+<p>我们主要关注<code>QPS</code>的变化，上图中较高的曲线是未经处理时发送查询请求的QPS曲线，这时由于并发的查询数过多，导致<code>LeanCloud</code>达到瞬时的负载上限而出现<code>429</code>错误。官方的错误代码解释为：</p>
+<blockquote>
+<p><strong>429</strong><br>信息 - <strong>Too many requests.</strong><br>含义 - 超过应用的流控限制，即超过每个应用同一时刻最多可使用的工作线程数，或者说同一时刻最多可以同时处理的数据请求。通过 <strong>控制台 &gt; 存储 &gt; API 统计 &gt; API 性能 &gt; 总览</strong> 可以查看应用产生的请求统计数据，如平均工作线程、平均响应时间等。使用 LeanCloud 商用版或企业版 的用户，如有需要，可以联系我们来调整工作线程数。</p>
+</blockquote>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>解决此问题自然的会想到使用降低同时请求的查询数量，进而想到可以使用延迟执行来实现，这里可以使用<code>setTimeout</code>来针对循环内的每一次查询都进行延时操作。</p>
+<p>这里又引出一个问题，那就是如何在<code>each</code>循环中进行延时操作</p>
+<h3 id="在each循环中进行延时操作"><a href="#在each循环中进行延时操作" class="headerlink" title="在each循环中进行延时操作"></a>在<code>each</code>循环中进行延时操作</h3><p><code>JQuery</code>中的循环<code>each</code>的工作原理，其并不是类似<code>Java</code>那样的顺序循环，即第一次循环代码的执行总是先于第二次循环中代码的执行，这里要特别注意，<code>each</code>中循环的的代码的执行理论上是同时进行的（<strong>异步执行</strong>），即没有严格的先后执行顺序，对于这一问题，可以统一归类为 <strong>JQuery异步执行的代码如何顺序执行</strong> 的问题。可以看看这篇文章，<a href="https://www.cnblogs.com/yangjunhua/p/3509342.html" target="_blank" rel="external nofollow noopener noreferrer">JQuery回调、递延对象总结</a>，注意，使用<code>then</code>等对逻辑进行严格控制是正确的，但不是唯一的方法，如果你想完成的按顺序执行仅仅是<strong>时间上的先后</strong>而没有<strong>逻辑上的先后</strong>，那么还是用<strong>延时</strong>来实现比较容易理解。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    send.leancloud.query(item); <span class="comment">// 伪代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述执行后几乎是同时发送循环总数的查询请求，这样就容易导致<code>429</code>错误；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    	 send.leancloud.query(item); <span class="comment">// 伪代码</span></span><br><span class="line">    &#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述延时的代码是经典的错误做法，误认为<code>each</code>是同步的顺序的循环，但其实不是，这样添加之后的效果是，全部查询同时在延时1000ms后发出，其结果还是几乎同时发向了LeanCloud。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    	 send.leancloud.query(item); <span class="comment">// 伪代码	 </span></span><br><span class="line">    &#125;,<span class="number">100</span>*index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述为正确的写法，注意<code>100*index</code>，这是利用了其异步执行的特点来进行延时，每次循环后的查询请求还是跟之前叙述一样会几乎同时被执行，但是这里执行时的延时时间不一样了，这里变成了<code>0,100,200...</code>，即查询请求会在<code>0ms,100ms,200ms...</code>后被发送给LeanCloud，显然的，达到了控制<code>QPS</code>的要求。</p>
+<p><img src="http://static.zybuluo.com/EVA001/fnijmpwthuvxyos4pzpp2zoe/image_1cge7qlcu1m82fj0i7k8g11tjv1g.png" alt></p>
+<p>上图是查询发送处理后的<code>QPS</code>曲线，可以看出其值下降了很多，但仍有时很<strong>尖锐</strong>，可以通过加大查询的发送间隙来降低，当然，图示状态已经可以正常查询且不触发<code>429</code>错误。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p>对于时间间隔来说，要综合查询的数量考虑，但总体上不能过大，这样会在前端显示过慢而损失交互性。<br><img src="http://static.zybuluo.com/EVA001/8uttol7g62infft0sdfqmgkj/1111112.gif" alt></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>偶发的断线异常，非本地错误!：</p>
+<blockquote>
+<p><strong>0</strong><br>信息 - (无)<br>含义 - WebSocket 正常关闭，可能发生在服务器重启，或本地网络异常的情况。SDK 会自动重连，无需人工干预。</p>
+</blockquote>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4e53.html" title="引入基于LCloud的页面访问统计" rel="bookmark">引入基于LCloud的页面访问统计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d6bd.html" title="Hexo的安装及重置恢复" rel="bookmark">Hexo的安装及重置恢复</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/502d.html">https://www.cz5h.com/article/502d.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>JavaScript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JQuery/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>JQuery</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeanCloud/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>LeanCloud</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/502d.html&title=应对LeanCloud对于处理性能的限制 - 长征部落格&summary=最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/502d.html&title=应对LeanCloud对于处理性能的限制 - 长征部落格&summary=最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/502d.html&title=应对LeanCloud对于处理性能的限制 - 长征部落格&summary=最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACT0lEQVR42u3by1LDMAwF0Pz/T8OemY71IhDleNdCbZ2sVF33+nrpusDBwcHBwRfBr+I6HtDc59Pfu/WCg4ODg4NvhIcbgJ8bHQo8FRx9cGP1goODg4ODL4YfG4AgtDwoOJzXrRccHBwcHBw83nhU959qjMDBwcHBwcHjDcRdgQI4ODg4ODh4f0A/PTDoNlC3JSng4ODg4OD/CF6+MPdHr8v1goODg4ODL4JPr+yg4q4LB+Dg4ODg4Bvh3YYiW2C2MZoKHsDBwcHBwTfCT4V1A4Zq4dn9wkEHODg4ODj4Ing1sM8WWL1QkH1Q7SQFHBwcHBz8QfCpQqoDiumLCO1BBDg4ODg4+IPg2Y2yjUh0v+xFvur54ODg4ODgm+BThf/WgKF6YTCcpICDg4ODgz8Ynv3C3x7oNwOL6INNJyng4ODg4OAPhncHE9Mr+2DCdYODg4ODg78AXh3odxuY7vvtBgYcHBwcHPxB8C54ahDRvXAYPg8cHBwcHHwRvLpRdmAQHSBUH2i4fnBwcHBw8EXwKjRbeDbo737+GCiAg4ODg4MvgGcPzAYLXfjUgAQcHBwcHHwjfKrxyAYD0Qak+7njIAIcHBwcHPzB8Ku4yoOA6aA/G3yAg4ODg4MvhE8NDKoDhOyFAnBwcHBwcPDCF/mh/68Csg0VODg4ODg4+NwP5KIN022BAjg4ODg4+Ivh1SChGjRE6/y4Lzg4ODg4+GL4VKAQLbR7MSFbDzg4ODg4+EZ49+BsI5QNFKL1pgMFcHBwcHDwB8PftsDBwcHBwResb+naw26dXaN1AAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACT0lEQVR42u3by1LDMAwF0Pz/T8OemY71IhDleNdCbZ2sVF33+nrpusDBwcHBwRfBr+I6HtDc59Pfu/WCg4ODg4NvhIcbgJ8bHQo8FRx9cGP1goODg4ODL4YfG4AgtDwoOJzXrRccHBwcHBw83nhU959qjMDBwcHBwcHjDcRdgQI4ODg4ODh4f0A/PTDoNlC3JSng4ODg4OD/CF6+MPdHr8v1goODg4ODL4JPr+yg4q4LB+Dg4ODg4Bvh3YYiW2C2MZoKHsDBwcHBwTfCT4V1A4Zq4dn9wkEHODg4ODj4Ing1sM8WWL1QkH1Q7SQFHBwcHBz8QfCpQqoDiumLCO1BBDg4ODg4+IPg2Y2yjUh0v+xFvur54ODg4ODgm+BThf/WgKF6YTCcpICDg4ODgz8Ynv3C3x7oNwOL6INNJyng4ODg4OAPhncHE9Mr+2DCdYODg4ODg78AXh3odxuY7vvtBgYcHBwcHPxB8C54ahDRvXAYPg8cHBwcHHwRvLpRdmAQHSBUH2i4fnBwcHBw8EXwKjRbeDbo737+GCiAg4ODg4MvgGcPzAYLXfjUgAQcHBwcHHwjfKrxyAYD0Qak+7njIAIcHBwcHPzB8Ku4yoOA6aA/G3yAg4ODg4MvhE8NDKoDhOyFAnBwcHBwcPDCF/mh/68Csg0VODg4ODg4+NwP5KIN022BAjg4ODg4+Ivh1SChGjRE6/y4Lzg4ODg4+GL4VKAQLbR7MSFbDzg4ODg4+EZ49+BsI5QNFKL1pgMFcHBwcHDwB8PftsDBwcHBwResb+naw26dXaN1AAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/9a85.html" rel="prev" title="美国版战狼—12勇士">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        美国版战狼—12勇士
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"><i class="fas fa-hashtag" aria-hidden="true"></i> 观后感</a> <a class="tag" href="/tags/%E8%83%A1%E4%B9%B1%E8%AF%84%E4%BB%B7/"><i class="fas fa-hashtag" aria-hidden="true"></i> 胡乱评价</a> <a class="tag" href="/tags/%E5%9B%BE%E6%96%87/"><i class="fas fa-hashtag" aria-hidden="true"></i> 图文</a> <a class="tag" href="/tags/%E5%89%A7%E9%80%8F/"><i class="fas fa-hashtag" aria-hidden="true"></i> 剧透</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/f5a4.html" rel="prev" title="分布式执行代码的认知纠正">
+                      
+                        分布式执行代码的认知纠正
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E6%80%BB%E7%BB%93/"><i class="fas fa-hashtag" aria-hidden="true"></i> 总结</a> <a class="tag" href="/tags/Scala/"><i class="fas fa-hashtag" aria-hidden="true"></i> Scala</a> <a class="tag" href="/tags/Spark/"><i class="fas fa-hashtag" aria-hidden="true"></i> Spark</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '应对LeanCloud对于处理性能的限制',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更广泛的应用场景"><span class="toc-text">更广泛的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeanCloud查询处理的性能局限"><span class="toc-text">LeanCloud查询处理的性能局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因分析"><span class="toc-text">原因分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在each循环中进行延时操作"><span class="toc-text">在each循环中进行延时操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终效果"><span class="toc-text">最终效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

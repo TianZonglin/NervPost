@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>音频格式的汇总及压缩比较 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="音频,压缩">
+	
+	
+		<meta name="description" content="数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/2b07.html">
+        音频格式的汇总及压缩比较
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Daily-Life/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Daily_Life</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年6月5日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约5.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需23分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/2b07.html" class="pageViews" data-flag-title="音频格式的汇总及压缩比较"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-18T23:53:34+02:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年4月18日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM/WAV格式的信号是否有所削减。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>本文转自：<a href="https://www.ggdoc.com/" target="_blank" rel="external nofollow noopener noreferrer">果果文本库</a><br>原文标题：19种音频格式介绍及音质压缩比的比较</p>
+</blockquote>
+<h3 id="音频相关参数"><a href="#音频相关参数" class="headerlink" title="音频相关参数"></a>音频相关参数</h3><h4 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h4><p>什么是速率？当然我不能直接给你解释说“速率就是比特率”。大家在用一些软件播放声音文件的时候应该注意到了一个小小的信息。比如“128Kbps”、“1411Kbps”…也有朋友知道了，通常情况下，”Kbps”前面的数字越大，声音效果越好，比如CD就是“1411Kbps”。那么，到底这些数字代表什么呢？简单的说来就是在每秒钟时间内，有多少数据被转换成声音。之所以CD的音质比MP3好，是因为CD在每一秒内的信息比MP3多。比如，128Kbps的MP3文件相比1411Kbps的CD文件，其每秒被转换的数据量，MP3比CD少了近12倍。同样的一首歌曲，CD听来就要细腻得多（当然人群中有这么一群号称“木耳”的人可能觉得效果是一样的）MP3用较少的数据表达相同的内容，其详细程度当然就不如CD了。</p>
+<h4 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h4><p>采样率也是很常见的一个词语。具体表现形式为“XXHz”，其中“XX”是一个具体数字。比如“44100Hz（44.1KHz）”，“32000Hz（32KHz）”等。之前已经说过了，数码音频文件是由很多个“点”来组成的，那么采样率其实就是采集这些“点”的一个“数量”标准。很显然“44100Hz”比“32000Hz”的采样率要高，所以单位时间内（1秒）搜集到的点就更多。单位时间的点越多声音的信息也就越完善，当然也就更接近于真实。所以，如果在保证速率相同的条件下，“44100Hz”的文件要好于“32000Hz”（当然，这也不是绝对的）。</p>
+<h3 id="有损压缩"><a href="#有损压缩" class="headerlink" title="有损压缩"></a>有损压缩</h3><p>有损压缩的音源，其实我们都比较熟悉，目前流行的有损格式主要有MP3、WMA、OGG、MP3pro、AAC、VQF、ASF等。</p>
+<h4 id="WMV格式"><a href="#WMV格式" class="headerlink" title="WMV格式"></a>WMV格式</h4><p>WMA的全称是WindowsMedia Audio，是微软力推的一种音频格式。WMA格式是以减少数据流量但保持音质的方法来达到更高的压缩率目的，其压缩率一般可以达到1:18，生成的文件大小只有相应MP3文件的一半。</p>
+<h4 id="MP3格式"><a href="#MP3格式" class="headerlink" title="MP3格式"></a>MP3格式</h4><p>MP3的全称是MovingPicture Experts Group Audio Layer Ⅲ。简单的说，MP3就是一种音频压缩技术，由于这种压缩方式的全称叫MPEGAudio Layer 3，所以人们把它简称为MP3。它诞生于1993年，其“父母”是德国夫朗和费研究院（FaunhofeIIS）和法国汤姆生（Thomson）公司。</p>
+<p>MP3是利用MPEGAudio Layer 3的技术，将音乐以1:10甚至1:12的压缩率，压缩成容量较小的文件，换句话说，能够在音质丢失很小的情况下把文件压缩到更小的程度。而且还非常好的保持了原来的音质。正是因为MP3体积小，音质高的特点使得MP3格式几乎成为网上音乐的代名词。每分钟音乐的MP3格式只有1MB左右大小，这样每首歌的大小只有3-4兆字节。使用MP3播放器对MP3文件进行实时的解压缩（解码），这样，高品质的MP3音乐就播放出来了。</p>
+<p>MP3编码质量分为：固定码率（CBR），平均码率（ABR）和动态码率（VBR）。早期的MP3编码技术并不完善，很长的一段时间以来，大多数人都使用128Kbps的CBR（固定编码率）格式来对MP3文件编码，直到最近，VBR（可变编码率）和ABR（平均编码率）的压缩方式出现，编码的比特率最高可达320Kbps，MP3文件在音质上才开始有所进步，而LAME的出现，则为这一进步带来了质的飞跃。</p>
+<p><strong>补充：最高比特率320K，高频部分一刀切是它的缺点。音质不高！</strong></p>
+<h4 id="WMA格式"><a href="#WMA格式" class="headerlink" title="WMA格式"></a>WMA格式</h4><p>WMA的全称是WindowsMedia Audio，是微软力推的一种音频格式。WMA格式是以减少数据流量但保持音质的方法来达到更高的压缩率目的，其压缩率一般可以达到1:18，生成的文件大小只有相应MP3文件的一半。</p>
+<p>WMA与MP3音质和体积上的对比特点，可以总结为：低比特率（小于128Kbps）时，WMA体积比MP3小，音质比MP3好；而在高比特率（大于128K）时，MP3的音质则比WMA好。</p>
+<p>WMA相对于MP3的最大特点就是有极强的可保护性，可以说，WMA的推出，就是针对MP3没有版权保护的缺点来的。WMA可以通过DRM（Digital Rights Management）方案加入防止拷贝，或者加入限制播放时间和播放次数，甚至是播放机器的限制，可有力地防止盗版。</p>
+<p><strong>补充：128kbps为wma最优压缩比，128kbpswma=192kbps mp3</strong></p>
+<h4 id="OGG格式"><a href="#OGG格式" class="headerlink" title="OGG格式"></a>OGG格式</h4><p>Ogg全称应该是OGGVobis（oggVorbis）是一种新的音频压缩格式，类似于MP3等现有的音乐格式。但有一点不同的是，它是完全免费、开放和没有专利限制的。OGGVobis有一个很出众的特点，就是支持多声道，随着它的流行，以后用随身听来听DTS编码的多声道作品将不会是梦想。</p>
+<p>Vorbis 是这种音频压缩机制的名字，而Ogg则是一个计划的名字，该计划意图设计一个完全开放性的多媒体系统。目前该计划只实现了OggVorbis这一部分。</p>
+<p>Ogg Vorbis文件的扩展名是。OGG。这种文件的设计格式是非常先进的。现在创建的OGG文件可以在未来的任何播放器上播放，因此，这种文件格式可以不断地进行大小和音质的改良，而不影响旧有的编码器或播放器。</p>
+<p><strong>补充：目前最好的有损格式之一，MP3部分支持，智能手机装软件部分可以支持，最高比特率500kbps。</strong></p>
+<h4 id="Mp3Pro格式"><a href="#Mp3Pro格式" class="headerlink" title="Mp3Pro格式"></a>Mp3Pro格式</h4><p>在WMA刚开始流行的时候，还没有高品质的MP3，所以当时MP3的地位真的有点动摇了，于是Thomson公司在2001年6月，携手FaunhofeIIS，发布了一种新的格式MP3pro，这是对MP3格式的改良，编码算法比MP3要复杂得多，简单的说，就是分两层编码，在MP3的基础上，再与另外一种技术（SB频段复制技术）混合编码。</p>
+<p>Mp3Pro是Mp3编码格式的升级版本。MP3Pro是由瑞典Coding科技公司开发的，在保持相同的音质下同样可以把声音文件的文件量压缩到原有MP3格式的一半大小。而且可以在基本不改变文件大小的情况下改善原先的MP3音乐音质。它能够在用较低的比特率压缩音频文件的情况下，最大程度地保持压缩前的音质。这种格式在低位率的时候，压缩效率非常高，所以在一般音质情况下，同位率的MP3pro的体积要比MP3甚至WMA都小得多，而音质却是三者中最好的。</p>
+<p>MP3pro可以实现完全的兼容性。经过mp3Pro压缩的文件，扩展名仍旧是。mp3。可以在老的mp3播放器上播放。老的mp3文件可以在新的mp3pro播放器上进行播放。实现了该公司所谓的“向前向后兼容”。</p>
+<p><strong>从技术上讲，MP3pro是一种非常优秀的编码方式，但是它高昂的专利费，使它没有真正流行起来。</strong></p>
+<h4 id="RA系列"><a href="#RA系列" class="headerlink" title="RA系列"></a>RA系列</h4><p>RA、RAM和RM都是Real公司成熟的网络音频格式，采用了“音频流”技术，所以非常适合网络广播。在制作时可以加入版权、演唱者、制作者、Mail 和歌曲的Title等信息。</p>
+<p>RA可以称为互联网上多媒体传播的霸主，适合于网络上进行实时播放，是目前在线收听网络音乐最好的一种格式。</p>
+<h4 id="MOD格式"><a href="#MOD格式" class="headerlink" title="MOD格式"></a>MOD格式</h4><p>MOD是一种类似波表的音乐格式，但它的结构却类似MIDI，使用真实采样，体积很小，音质好，在以前的DOS年代，MOD经常被作为游戏的背景音乐。现在的MOD可以包含很多音轨，而且格式众多，如S3M、NST、669、MTM、XM、IT、XT和RT等。</p>
+<h4 id="MD格式"><a href="#MD格式" class="headerlink" title="MD格式"></a>MD格式</h4><p>MD（即MiniDisc）是SONY 公司于1992年推出的一种完整的便携音乐格式，它所采用的压缩算法就是ATRAC技术（压缩比是1∶5）。MD又分为可录型MD（Recordable，有磁头和激光头两个头）和单放型MD（Pre-recorded，只有激光头）。</p>
+<p>强大的编辑功能是MD的强项，可以快速选曲、曲目移动、合并、分割、删除和曲名编辑等多项功能，比CD更具个性化，随时可以拥有一张属于自己的MD专辑。MD的产品包括MD随身听、MD床头音响、MD汽车音响、MD录音卡座、MD摄像枪和MD驱动器等。</p>
+<h4 id="ASF格式"><a href="#ASF格式" class="headerlink" title="ASF格式"></a>ASF格式</h4><p>ASF的全称是AdvancedStreaming Format，是微软所制订的一种媒体播放格式，适合在网络上播放。而WindowsMedia On-Demand Producer则是制作ASF档案的免费软件，让即使是初学者也能很轻易的利用现成的WAV或AVI档案制作ASF文件。</p>
+<h4 id="AAC格式"><a href="#AAC格式" class="headerlink" title="AAC格式"></a>AAC格式</h4><p>AAC实际上是高级音频编码的缩写。AAC是由Fraunhofer IIS-A、杜比和AT&amp;T共同开发的一种音频格式，它是MPEG-2规范的一部分。AAC所采用的运算法则与MP3的运算法则有所不同，AAC通过结合其他的功能来提高编码效率。AAC的音频算法在压缩能力上远远超过了以前的一些压缩算法（比如MP3等）。它还同时支持多达48个音轨、15个低频音轨、更多种采样率和比特率、多种语言的兼容能力、更高的解码效率。总之，AAC可以在比MP3文件缩小30%的前提下提供更好的音质。</p>
+<p><strong>补充：目前最好的有损格式之一。有多种编码，faac，nero为常见，比特率最高448kbps。硬件支持方面，高级mp3和现在手机普遍支持。</strong></p>
+<h4 id="MID格式"><a href="#MID格式" class="headerlink" title="MID格式"></a>MID格式</h4><p>MID是midi的简称，是它的扩展名。MIDI是英语MusicInstrument Digital Interface 的缩写，翻译过来就是“数字化乐器接口”，也就是说它的真正涵义是一个供不同设备进行信号传输的接口的名称。我们如今的MIDI音乐制作全都要靠这个接口，在这个接口之间传送的信息也就叫MIDI信息。MIDI最早是应用在电子合成器一种用键盘演奏的电子乐器上，由于早期的电子合成器的技术规范不统一，不同的合成器的链接很困难，在1983年8月，YAMAHA、ROLAND、KAWAI等著名的电子乐器制造厂商联合指定了统一的数字化乐器接口规范，这就是MIDI1.0技术规范。此后，各种电子合成器已经电子琴等电子乐器都采用了这个统一的规范，这样，各种电子乐器就可以互相链接起来，传达MIDI信息，形成一个真正的合成音乐演奏系统。</p>
+<p>由于多媒体计算机技术的迅速发展，计算机对数字信号的强大的处理能力，使得计算机处理MIDI信息成为顺理成章的事情了，所以，现在不少人把MIDI音乐称之为电脑音乐。事实上，利用多媒体计算机不但可以播放、创作和实时地演奏MIDI音乐。甚至可以把MIDI音乐转变成看的见的乐谱（五线谱或简谱）打印出来，反之，也可以把乐谱变成美妙的音乐。利用MIDI的这个性质，可以用于音乐教学（尤其是识谱），让学生利用计算机学习音乐知识和创作音乐。</p>
+<h4 id="M4A格式"><a href="#M4A格式" class="headerlink" title="M4A格式"></a>M4A格式</h4><p>M4A是MPEG4音频标准的文件的扩展名。在MPEG4标准中提到，普通的MPEG4文件扩展名是。mp4。自从Apple开始在它的iTunes以及iPod中使用。m4a以区别MPEG4的视频和音频文件以来，。m4a这个扩展名变得流行了。目前，几乎所有支持MPEG4音频的软件都支持。m4a。最常用的。m4a文件是使用AAC格式的（文件），不过其他的格式，比如AppleLossless甚至mp3也可以被放在。m4a容器里（TC注：这个container的概念类似于。mkv文件）。可以安全的把只包含音频的。mp4文件的扩展名改成。m4a，以便让它能在你喜欢的播放器里播放，反之亦然。</p>
+<h4 id="VQF格式"><a href="#VQF格式" class="headerlink" title="VQF格式"></a>VQF格式</h4><p>VQF格式是由YAMAHA和NTT共同开发的一种音频压缩技术，它的核心是减少数据流量但保持音质的方法来达到更高的压缩比，它的压缩率能够达到1:18，因此相同情况下压缩后VQF的文件体积比MP3小30%～50%，更便利于网上传播，同时音质极佳，接近CD音质（16位44.1kHz立体声）。可以说VQF技术上也是很先进的，但VQF未公开技术标准，由于宣传不力，这种格式难有用武之地，至今未能流行开来。</p>
+<h4 id="AAC-格式"><a href="#AAC-格式" class="headerlink" title="AAC+格式"></a>AAC+格式</h4><p>AAC+也称之为HE-AAC。</p>
+<p>HE意思是”highefficiency”（高效性）。HE-AAC混合了AAC与SBR技术。SBR代表的是SpectralBand Replication（频段复制）。SBR的关键是在低码流下提供全带宽的编码而不会产生多余的信号。传统认为音频编码在低码流下意味着减少带宽和降低采样率（见MP3FAQ #7）或产生令人不快的噪音信号。SBR解决问题的方法是让核心编码去编码低频信号，而SBR解码器通过分析低频信号产生高频信号和一些保留在比特流中的指导信号（通常码流极低，~2kbps）。这就是采用无SBR解码器的原因，这样你的带宽（frequencyresponse）（频率响应）会被严重浪费。这也是为什么被叫做SpectralBand Replication的原因，它只是增加音频的带宽，而非重建。</p>
+<h4 id="AIFF与AU格式"><a href="#AIFF与AU格式" class="headerlink" title="AIFF与AU格式"></a>AIFF与AU格式</h4><p>这里顺便提一下由苹果公司开发的AIFF（Audio Interchange FileFormat）</p>
+<p>格式和为UNIX系统开发的AU格式，它们都和WAV非常相像，在大多数的音频编辑软件中也都支持它们这几种常见的音乐格式。</p>
+<h3 id="无损压缩"><a href="#无损压缩" class="headerlink" title="无损压缩"></a>无损压缩</h3><p>对于我们最常说的“无损音频”来说，一般都是指传统CD格式中的16bit/44.1kHz采样率的文件格式，而知所以称为无损压缩，也是因为其包含了20Hz-22.05kHz这个完全覆盖人耳可闻范围的频响频率而得名。</p>
+<p>音频的无损压缩，大家可能还比较陌生，但这并不意味着无损压缩技术发展得不好，相反，在无损压缩领域，早就有许多很出色的作品，比如APE、FLAC、WavPack、LPAC、WMALossless、AppleLossless、La、OptimFOG、Shoten等。</p>
+<h4 id="CD格式"><a href="#CD格式" class="headerlink" title="CD格式"></a>CD格式</h4><p>即CD唱片，一张CD可以播放74分钟左右的声音文件，Windows系统中自带了一个CD播放机，另外多数声卡所附带的软件都提供了CD播放功能，甚至有一些光驱脱离电脑，只要接通电源就可以作为一个独立的CD播放机使用。</p>
+<p>标准CD格式为44.1K的采样，速率88K/秒，16位量化位数，因为CD 可以说是近似无损的，因此它的声音基本上是忠于原声的，因此如果你如果是一个音响发烧友的话，CD是你的首选。它会让你感受到天籁之音。CD光盘可以在CD唱机中播放，也能用电脑里的各种播放软件来重放。但注意：不能直接的复制CD格式的文件到电脑硬盘上播放，需要使用像EAC这样的抓音轨软件把CD格式的文件转换成WAV，这个转换过程基本上是无损的。推荐大家使用这种方法。</p>
+<h4 id="WAV格式"><a href="#WAV格式" class="headerlink" title="WAV格式"></a>WAV格式</h4><p>WAV格式是微软公司开发的一种声音文件格式，也叫波形声音文件，是最早的数字音频格式，被Windows平台及其应用程序广泛支持。WAV格式是以RIFF格式为标准的。RIFF是英文ResourceInterchange File Format的缩写，每个WAVE文件的头四个字节便是“RIFF”。WAVE文件由文件头和数据体两大部分组成。</p>
+<p>WAV格式支持许多压缩算法，支持多种音频位数、采样频率和声道，采用44.1kHz的采样频率，16位量化位数，因此WAV的音质与CD相差无几，但WAV格式对存储空间需求太大不便于交流和传播。</p>
+<p><strong>补充：WAV属于无损音乐格式，缺点：体积十分大！</strong></p>
+<h4 id="FLAC格式"><a href="#FLAC格式" class="headerlink" title="FLAC格式"></a>FLAC格式</h4><p>FLAC即是FreeLossless Audio Codec的缩写，全称应该叫OGGFLAC，中文可解为无损音频压缩编码。它是OGG计划的一部分，当然也就是开源、免费的了，这也难怪它这么快就得到了多家MP3厂商的支持。</p>
+<p>FLAC是一套著名的自由音频压缩编码，其特点是无损压缩。FLAC压缩比可以达到2：1，对于无损压缩来说，这已经是相当高的比例了；而且它解码速度快，只需进行整数运算即可完成整个解码过程，对CPU的运算能力要求很低，所以普通的随身听，都可以轻松实现实时解码。</p>
+<p>不同于其他有损压缩编码如MP3 及AAC，它不会破坏任何原有的音频资讯，所以可以还原音乐光盘音质。现在它已被很多软件及硬件音频产品所支持。简而言之，FLAC与MP3相仿，但是是无损压缩的，也就是说音频以FLAC方式压缩不会丢失任何信息。这种压缩与Zip的方式类似，但是FLAC将给你更大的压缩比率，因为</p>
+<p>FLAC是专门针对音频的特点设计的压缩方式，并且你可以使用播放器播放FLAC压缩的文件，就象通常播放你的MP3文件一样。</p>
+<p><strong>补充：为无损格式，较ape而言，他体积大点，但是兼容性好，编码速度快，播放器支持更广</strong></p>
+<h4 id="APE格式"><a href="#APE格式" class="headerlink" title="APE格式"></a>APE格式</h4><p>APE是目前流行的、由Monkey’sAudio出品的一种数字音乐文件格式，它出现得比FLAC早，而且名气也比FLAC大。与MP3、OGG这类有损压缩方式不同，APE是目前世界上惟一得到公认的音频无损压缩格式，也就是说当您将从音频CD上读取的音频数据文件压缩成APE格式后，您还可以再将APE格式的文件还原，而还原后的音乐文件与压缩前一模一样，没有任何损失。而现在越来越多的人将它在网络传播，因为被压缩后的APE文件容量要比WAV源文件小一半多，可以节约传输所用的时间，也更方便传播！由于APE的采样率高达800kbps～1400kbps，接近于音乐CD的1411.2kbps，远远高于MP3的128kbps，因此它在压缩后的音质和源文件音质几乎毫无差异，其音质之佳已经过了严格的盲听测试，得到了全世界发烧友的公认。APE的这些特点，都是其他无损压缩格式所争相效仿的。</p>
+<p>在APE出现之前，音乐迷们都认为以CD或者WAV来保存自己喜欢的音乐素材是最好的方法了，但APE的出现，足以使他们改变这种看法，因为APE既可以保持音乐信号的无损，又可以以比WAV高得多的压缩率（接近2：1）压缩WAV文件，而且可以无须解压而直接播放。由于压缩后的APE文件只有原文件一半左右大小，APE格式受到了许多音乐爱好者的喜爱，特别是对于希望通过网络传输音频CD的朋友来说，APE可以帮助他们节约大量的资源。APE如此流行，在网上也比较容易能下载到APE格式的文件。</p>
+<p><strong>补充：为无损压缩格式，较flac而言，他体积较小。编码速度偏慢。</strong></p>
+<h3 id="压缩比较"><a href="#压缩比较" class="headerlink" title="压缩比较"></a>压缩比较</h3><h4 id="压缩比"><a href="#压缩比" class="headerlink" title="压缩比"></a>压缩比</h4><p><code>aac &gt; ogg &gt; mp3（wma） &gt; ape &gt; flac &gt; wav（同一音源条件下）</code></p>
+<p>mp3和wma以192kbps为分界线，192kbps以上mp3好，192kbps以下wma好。</p>
+<h4 id="音质"><a href="#音质" class="headerlink" title="音质"></a>音质</h4><p><code>wav = flac = ape &gt; aac &gt; ogg &gt; mp3 &gt; wma</code></p>
+<h4 id="综合音质体积编码率"><a href="#综合音质体积编码率" class="headerlink" title="综合音质体积编码率"></a>综合音质体积编码率</h4><p><code>aac &gt; ogg &gt; flac &gt; ape &gt; mp3 &gt; wav、wma</code></p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8996.html" title="美国是如何一步步成为超级大国的" rel="bookmark">美国是如何一步步成为超级大国的</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\9a85.html" title="美国版战狼—12勇士" rel="bookmark">美国版战狼—12勇士</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/2b07.html">https://www.cz5h.com/article/2b07.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9F%B3%E9%A2%91/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>音频</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8E%8B%E7%BC%A9/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>压缩</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/2b07.html&title=音频格式的汇总及压缩比较 - 长征部落格&summary=数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM/WAV格式的信号是否有所削减。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/2b07.html&title=音频格式的汇总及压缩比较 - 长征部落格&summary=数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM/WAV格式的信号是否有所削减。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/2b07.html&title=音频格式的汇总及压缩比较 - 长征部落格&summary=数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM/WAV格式的信号是否有所削减。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTklEQVR42u3aS47jMAwFQN//0tP7BgYmH4VOTJd2+ckqZfNA8vr30nWBg4ODg4Mvgl/h+u/Gvz6/+93d+3f7dc8LDg4ODg6+EV4OAMXvT0F3F5meFxwcHBwcfDP8NgA0DzLd//R+4ODg4ODg4PVCQ7eA0A4k4ODg4ODg4McCTDeYpAULcHBwcHBw8AMF+nAQYBpYPt5JAQcHBwcH/yJ4PDD3odcfn2wEBwcHBwf/Avh0dQNJtwDR3ff2ueDg4ODg4IvgaUA4feBuAyIdMAAHBwcHB98ITxv01UJFCul+L24ogIODg4ODPxCeBog0WFQvYlroKFdgwMHBwcHBHwzvAtNCQvqc6kWUnwcODg4ODr4YPi3Ydw/YPfh0QAEcHBwcHHwTvBtMUlgKSINKuaEADg4ODg7+YHi60bcNBBxLbuDg4ODg4A+Gp0HidAA5PWAADg4ODg6+EX66IT8NQumgwbGGAjg4ODg4+IPgaVCZQk8XJsoXBA4ODg4OvhDeDTLdg1QLCN3BhPYfAA4ODg4O/gJ4GmSqwaUaZKaBCBwcHBwc/E3w7oHSQNJt8B8rVICDg4ODgy+CT9epC0mDU/tiwMHBwcHBF8GvcJ068LSA0W1UgIODg4ODb4SfChhpoX/aWChfHDg4ODg4+GJ4tWCfvu5eWNpQaAcYcHBwcHBw8HHgOXVxfx5gwMHBwcHBF8G7AwNpcGk3PsDBwcHBwRfDuw2F6sDd9HnH/hBwcHBwcPCF8DQYTANMOXiEhQdwcHBwcPDN8LctcHBwcHDwBesHFvyCvc9MimoAAAAASUVORK5CYII=" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTklEQVR42u3aS47jMAwFQN//0tP7BgYmH4VOTJd2+ckqZfNA8vr30nWBg4ODg4Mvgl/h+u/Gvz6/+93d+3f7dc8LDg4ODg6+EV4OAMXvT0F3F5meFxwcHBwcfDP8NgA0DzLd//R+4ODg4ODg4PVCQ7eA0A4k4ODg4ODg4McCTDeYpAULcHBwcHBw8AMF+nAQYBpYPt5JAQcHBwcH/yJ4PDD3odcfn2wEBwcHBwf/Avh0dQNJtwDR3ff2ueDg4ODg4IvgaUA4feBuAyIdMAAHBwcHB98ITxv01UJFCul+L24ogIODg4ODPxCeBog0WFQvYlroKFdgwMHBwcHBHwzvAtNCQvqc6kWUnwcODg4ODr4YPi3Ydw/YPfh0QAEcHBwcHHwTvBtMUlgKSINKuaEADg4ODg7+YHi60bcNBBxLbuDg4ODg4A+Gp0HidAA5PWAADg4ODg6+EX66IT8NQumgwbGGAjg4ODg4+IPgaVCZQk8XJsoXBA4ODg4OvhDeDTLdg1QLCN3BhPYfAA4ODg4O/gJ4GmSqwaUaZKaBCBwcHBwc/E3w7oHSQNJt8B8rVICDg4ODgy+CT9epC0mDU/tiwMHBwcHBF8GvcJ068LSA0W1UgIODg4ODb4SfChhpoX/aWChfHDg4ODg4+GJ4tWCfvu5eWNpQaAcYcHBwcHBw8HHgOXVxfx5gwMHBwcHBF8G7AwNpcGk3PsDBwcHBwRfDuw2F6sDd9HnH/hBwcHBwcPCF8DQYTANMOXiEhQdwcHBwcPDN8LctcHBwcHDwBesHFvyCvc9MimoAAAAASUVORK5CYII=">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/a61a.html" rel="prev" title="IDEA-2017.2-bug-SBT项目初始化的失败">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        IDEA-2017.2-bug-SBT项目初始化的失败
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/IDEA/"><i class="fas fa-hashtag" aria-hidden="true"></i> IDEA</a> <a class="tag" href="/tags/SBT/"><i class="fas fa-hashtag" aria-hidden="true"></i> SBT</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/30b8.html" rel="prev" title="使用D3.JS进行坐标轴绘制和图绘制">
+                      
+                        使用D3.JS进行坐标轴绘制和图绘制
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 可视化</a> <a class="tag" href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE/"><i class="fas fa-hashtag" aria-hidden="true"></i> 图数据</a> <a class="tag" href="/tags/D3/"><i class="fas fa-hashtag" aria-hidden="true"></i> D3</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '音频格式的汇总及压缩比较',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#音频相关参数"><span class="toc-text">音频相关参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#速率"><span class="toc-text">速率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#采样率"><span class="toc-text">采样率</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有损压缩"><span class="toc-text">有损压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WMV格式"><span class="toc-text">WMV格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MP3格式"><span class="toc-text">MP3格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WMA格式"><span class="toc-text">WMA格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OGG格式"><span class="toc-text">OGG格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mp3Pro格式"><span class="toc-text">Mp3Pro格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RA系列"><span class="toc-text">RA系列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MOD格式"><span class="toc-text">MOD格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MD格式"><span class="toc-text">MD格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ASF格式"><span class="toc-text">ASF格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AAC格式"><span class="toc-text">AAC格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MID格式"><span class="toc-text">MID格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#M4A格式"><span class="toc-text">M4A格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VQF格式"><span class="toc-text">VQF格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AAC-格式"><span class="toc-text">AAC+格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AIFF与AU格式"><span class="toc-text">AIFF与AU格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无损压缩"><span class="toc-text">无损压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CD格式"><span class="toc-text">CD格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WAV格式"><span class="toc-text">WAV格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FLAC格式"><span class="toc-text">FLAC格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#APE格式"><span class="toc-text">APE格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩比较"><span class="toc-text">压缩比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#压缩比"><span class="toc-text">压缩比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#音质"><span class="toc-text">音质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#综合音质体积编码率"><span class="toc-text">综合音质体积编码率</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

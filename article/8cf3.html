@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>Scala中的Collection - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="Scala,Collection">
+	
+	
+		<meta name="description" content="Scala中的immutable Collection 集合Traversable 遍历Iterable    迭代Set无序集合     Sequence序列        Map映射">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/8cf3.html">
+        Scala中的Collection
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Spark学习笔记</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年10月30日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需15分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/8cf3.html" class="pageViews" data-flag-title="Scala中的Collection"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="Scala中的immutable-Collection-集合"><a href="#Scala中的immutable-Collection-集合" class="headerlink" title="Scala中的immutable Collection 集合"></a>Scala中的immutable Collection 集合</h1><p>Traversable 遍历<br>Iterable    迭代<br>Set无序集合     Sequence序列        Map映射</p>
+<a id="more"></a>
+
+<ul>
+<li><p><strong>Set</strong></p>
+</li>
+<li><p>SortedSet HashSet BitSet  ListSet</p>
+</li>
+<li><p>TreeSet       </p>
+</li>
+<li><p><strong>Sequence</strong></p>
+</li>
+<li><p>IndexedSeq   LinearSeq   </p>
+</li>
+<li><p>IndexedSeq</p>
+</li>
+<li><p>Vector,NumericRange,Range,Array,String  </p>
+</li>
+<li><p>LinearSeq</p>
+</li>
+<li><p>List,Stream,Quene,Stack</p>
+</li>
+<li><p><strong>Map</strong></p>
+</li>
+<li><p>Sortedmap HashMap LsitMap</p>
+</li>
+<li><p>TreeMap</p>
+</li>
+</ul>
+<h2 id="List-T"><a href="#List-T" class="headerlink" title="List[T]"></a>List[T]</h2><p>T是类型，由于会自动推导类型，所以不必指明类型</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> a = <span class="type">List</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)        <span class="comment">//定义方法一</span></span><br><span class="line">a: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)     <span class="comment">//自动推导为Int类型的List</span></span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">val</span> b = <span class="number">0</span>::a                 <span class="comment">//定义方法二：连接操作符</span></span><br><span class="line">b: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)  <span class="comment">//将左边的元素添加到右边List的头部</span></span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">var</span> c = <span class="string">"x"</span>::<span class="string">"y"</span>::<span class="string">"z"</span>::<span class="type">Nil</span>   <span class="comment">//Nil是空List</span></span><br><span class="line">c: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(x, y, z)     </span><br><span class="line"></span><br><span class="line"><span class="comment">//上述过程是从右往左连接，步骤如下：</span></span><br><span class="line">scala&gt; <span class="string">"z"</span>::<span class="type">Nil</span></span><br><span class="line">res5: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(z)</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="string">"y"</span>::res5</span><br><span class="line">res6: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(y, z)</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="string">"x"</span>::res6</span><br><span class="line">res7: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(x, y, z)</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">val</span> d = a:::c                <span class="comment">//定义方法三：使用:::连接两个List</span></span><br><span class="line">d: <span class="type">List</span>[<span class="type">Any</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, x, y, z)</span><br><span class="line">                                    <span class="comment">//自动推导为Int,String的父类为Any</span></span><br><span class="line">scala&gt; a.head</span><br><span class="line">res8: <span class="type">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">scala&gt; d.head                       <span class="comment">//.head返回头元素</span></span><br><span class="line">res9: <span class="type">Any</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">scala&gt; c.head</span><br><span class="line">res10: <span class="type">String</span> = x</span><br><span class="line"></span><br><span class="line">scala&gt; a.tail                       <span class="comment">//.tail返回除头元素之外的元素</span></span><br><span class="line">res11: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">scala&gt; d.tail</span><br><span class="line">res12: <span class="type">List</span>[<span class="type">Any</span>] = <span class="type">List</span>(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, x, y, z)</span><br><span class="line"></span><br><span class="line">scala&gt; a.isEmpty                    <span class="comment">//.isEmpty返回List是否为空</span></span><br><span class="line">res13: <span class="type">Boolean</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">scala&gt; <span class="type">Nil</span>.isEmpty</span><br><span class="line">res14: <span class="type">Boolean</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//利用tail和isEmpty构造循环来实现List的遍历：</span></span><br><span class="line">scala&gt; <span class="function"><span class="keyword">def</span> <span class="title">scanf</span></span>(list: <span class="type">List</span>[<span class="type">Int</span>]):<span class="type">String</span> = &#123;</span><br><span class="line">     | <span class="keyword">if</span>(list.isEmpty) <span class="string">"NULL"</span></span><br><span class="line">     | <span class="keyword">else</span> list.head.toString+<span class="string">" "</span>+scanf(list.tail)</span><br><span class="line">     | &#125;</span><br><span class="line">scanf: (list: <span class="type">List</span>[<span class="type">Int</span>])<span class="type">String</span></span><br><span class="line"></span><br><span class="line">scala&gt; scanf(a)</span><br><span class="line">res15: <span class="type">String</span> = <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="type">NULL</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="List的高阶函数-filter：过滤"><a href="#List的高阶函数-filter：过滤" class="headerlink" title="List的高阶函数 filter：过滤"></a>List的高阶函数 filter：过滤</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将List元素进行过滤</span></span><br><span class="line"><span class="comment">//下面filter参数是一个匿名函数，x代表一个元素，filter会遍历List判断每个元素是否满足条件</span></span><br><span class="line">scala&gt; a.filter(x =&gt; x % <span class="number">2</span> ==<span class="number">1</span>) </span><br><span class="line">res17: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//toList表达式，结果是将当前字符串转为List</span></span><br><span class="line">scala&gt; <span class="string">"100 Persons"</span>.toList</span><br><span class="line">res18: <span class="type">List</span>[<span class="type">Char</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>,  , <span class="type">P</span>, e, r, s, o, n, s)</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断是否为数字可以用Character.isDigit(x)方法</span></span><br><span class="line">scala&gt; <span class="string">"100 Persons"</span>.toList.filter(x =&gt; <span class="type">Character</span>.isDigit(x))</span><br><span class="line">res20: <span class="type">List</span>[<span class="type">Char</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//takeWhile满足条件则取元素，直到！取到某元素才停止</span></span><br><span class="line"><span class="comment">//（类似while循环）下面取元素取到字符‘o’终止，并且不会打印‘o’</span></span><br><span class="line">scala&gt; <span class="string">"100 Persons"</span>.toList.takeWhile(x =&gt; x!='o')</span><br><span class="line">res21: <span class="type">List</span>[<span class="type">Char</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>,  , <span class="type">P</span>, e, r, s)</span><br></pre></td></tr></table></figure>
+<h1 id="List的高阶函数-map-flatMap：映射"><a href="#List的高阶函数-map-flatMap：映射" class="headerlink" title="List的高阶函数 map/flatMap：映射"></a>List的高阶函数 map/flatMap：映射</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于下面的变量a和c应用映射</span></span><br><span class="line">scala&gt; a</span><br><span class="line">res22: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">scala&gt; c</span><br><span class="line">res22: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(x, y, z)</span><br><span class="line"></span><br><span class="line"><span class="comment">//map的参数就是一个匿名函数，表明一个转换过程，参数中的匿名函数参数x是List中得每个元素</span></span><br><span class="line"><span class="comment">//使用map实现全部字母大写</span></span><br><span class="line">scala&gt; c.map(x =&gt; x.toUpperCase)</span><br><span class="line">res23: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(<span class="type">X</span>, <span class="type">Y</span>, <span class="type">Z</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数中的匿名函数参数x可以使用通配符下划线'_'来代替</span></span><br><span class="line">scala&gt; c.map( _.toUpperCase)</span><br><span class="line">res24: <span class="type">List</span>[<span class="type">String</span>] = <span class="type">List</span>(<span class="type">X</span>, <span class="type">Y</span>, <span class="type">Z</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//同样的filter也可以使用通配符下划线'_'来代替</span></span><br><span class="line">scala&gt; a.filter( _ % <span class="number">2</span> ==<span class="number">1</span>)</span><br><span class="line">res25: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过filter和map来实现对List中过滤后元素的具体操作</span></span><br><span class="line"><span class="comment">//下面是将奇数全部加10</span></span><br><span class="line">scala&gt; a.filter( _ % <span class="number">2</span> ==<span class="number">1</span>).map( _ +  <span class="number">10</span>)</span><br><span class="line">res26: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">11</span>, <span class="number">13</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//下面是嵌套List</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> complex = <span class="type">List</span>( a,<span class="type">List</span>(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</span><br><span class="line">complex: <span class="type">List</span>[<span class="type">List</span>[<span class="type">Int</span>]] = <span class="type">List</span>(<span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>), <span class="type">List</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于嵌套List，filter仍然会遍历到最里层的元素并且进行过滤</span></span><br><span class="line"><span class="comment">//但是其返回不会去掉外壳，仍然是个嵌套List</span></span><br><span class="line">scala&gt; complex.map(x =&gt; x.filter( _%<span class="number">2</span> ==<span class="number">0</span>))</span><br><span class="line">res27: <span class="type">List</span>[<span class="type">List</span>[<span class="type">Int</span>]] = <span class="type">List</span>(<span class="type">List</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="type">List</span>(<span class="number">4</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//同样，使用下划线也可以通配参数x</span></span><br><span class="line">scala&gt; complex.map( _.filter( _%<span class="number">2</span> ==<span class="number">0</span>))</span><br><span class="line">res28: <span class="type">List</span>[<span class="type">List</span>[<span class="type">Int</span>]] = <span class="type">List</span>(<span class="type">List</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="type">List</span>(<span class="number">4</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用flatMap可以将嵌套List“打平”，将返回元素全部放在同一层</span></span><br><span class="line"><span class="comment">//下面就可以取出嵌套List中的偶数，注意，去除了‘外壳’</span></span><br><span class="line">scala&gt; complex.flatMap( _.filter( _%<span class="number">2</span> ==<span class="number">0</span>))</span><br><span class="line">res30: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="List的高阶函数-集合的规约操作"><a href="#List的高阶函数-集合的规约操作" class="headerlink" title="List的高阶函数 集合的规约操作"></a>List的高阶函数 集合的规约操作</h1><p>把集合的元素通过运算和操作规约为一个值</p>
+<h2 id="reduceLeft-op-T-T-gt-T"><a href="#reduceLeft-op-T-T-gt-T" class="headerlink" title="reduceLeft(op: (T, T) =&gt; T )"></a>reduceLeft(op: (T, T) =&gt; T )</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x1  x2  x3      ... xn</span><br><span class="line">  op    x3      ... xn</span><br><span class="line">     op         ... xn</span><br><span class="line">                ...</span><br><span class="line">                 op</span><br></pre></td></tr></table></figure>
+<p>特性1：参数为一个匿名函数<br>特性2：规约结果一定是List元素的类型，所以是被经常使用的（相较于foldLeft）</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">对于<span class="type">List</span>变量a</span><br><span class="line">scala&gt; a</span><br><span class="line">res33: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">使用reduceLeft，参数为匿名函数，表示规约的表达式</span><br><span class="line">scala&gt; a.reduceLeft((x,y) =&gt; x+y)</span><br><span class="line">res31: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line">可以使用下划线通配</span><br><span class="line">scala&gt; a.reduceLeft(_+_)</span><br><span class="line">res32: <span class="type">Int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="foldLeft-z-U-op-U-T-gt-U"><a href="#foldLeft-z-U-op-U-T-gt-U" class="headerlink" title="foldLeft(z:U)(op: (U, T) =&gt; U )"></a>foldLeft(z:U)(op: (U, T) =&gt; U )</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z   x1  x2      ... xn</span><br><span class="line">  op    x1      ... xn</span><br><span class="line">     op         ... xn</span><br><span class="line">                ...</span><br><span class="line">                 op</span><br></pre></td></tr></table></figure>
+<p>特性1：使用柯里化定义<br>特性2：必须有初始值z<br>特性3：返回值是初始值z的类型，故不太使用</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; a</span><br><span class="line">res33: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">//使用foldLeft进行元素的求和，并且初值为0</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">0</span>)((x,y) =&gt; x+y)</span><br><span class="line">res34: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="comment">//使用通配符</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">0</span>)(_+_)</span><br><span class="line">res35: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="comment">//初值改变后的结果</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">1</span>)(_+_)</span><br><span class="line">res36: <span class="type">Int</span> = <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h1 id="惰性求值的类型：Stream-流"><a href="#惰性求值的类型：Stream-流" class="headerlink" title="惰性求值的类型：Stream 流"></a>惰性求值的类型：Stream 流</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用to或until来获取range类型</span></span><br><span class="line">scala&gt; <span class="number">1</span> to <span class="number">10</span> by <span class="number">2</span></span><br><span class="line">res41: scala.collection.immutable.<span class="type">Range</span> = inexact <span class="type">Range</span> <span class="number">1</span> to <span class="number">10</span> by <span class="number">2</span></span><br><span class="line"><span class="comment">//until是小于，取不到边界</span></span><br><span class="line">scala&gt; (<span class="number">1</span> until <span class="number">10</span>).toList</span><br><span class="line">res44: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>)</span><br><span class="line"><span class="comment">//to是小于等于，可以取边界</span></span><br><span class="line">scala&gt; (<span class="number">1</span> to <span class="number">10</span>).toList</span><br><span class="line">res45: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用操作符#::来连接定义一个Stream，其中Stream.empty是空流</span></span><br><span class="line">scala&gt; <span class="number">1</span> #:: <span class="number">2</span>#:: <span class="number">3</span>#:: <span class="type">Stream</span>.empty</span><br><span class="line">res46: scala.collection.immutable.<span class="type">Stream</span>[<span class="type">Int</span>] = <span class="type">Stream</span>(<span class="number">1</span>, ?)</span><br><span class="line"></span><br><span class="line"><span class="comment">//惰性求值的特性：由打印可知，只显示和判断第一个元素是什么，其他的用？表示</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> s = (<span class="number">1</span> to <span class="number">1000</span>).toStream</span><br><span class="line">s: scala.collection.immutable.<span class="type">Stream</span>[<span class="type">Int</span>] = <span class="type">Stream</span>(<span class="number">1</span>, ?)</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取Stream的第一个元素</span></span><br><span class="line">scala&gt; s.head</span><br><span class="line">res48: <span class="type">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取Stream除首元素以外的元素，其返回结果仍然是Stream类型，所以仍然只显示(2, ?)</span></span><br><span class="line">scala&gt; s.tail</span><br><span class="line">res49: scala.collection.immutable.<span class="type">Stream</span>[<span class="type">Int</span>] = <span class="type">Stream</span>(<span class="number">2</span>, ?)</span><br><span class="line">scala&gt; s.tail.head</span><br><span class="line">res50: <span class="type">Int</span> = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h1 id="Scala中的tuple：元组"><a href="#Scala中的tuple：元组" class="headerlink" title="Scala中的tuple：元组"></a>Scala中的tuple：元组</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//元组的概念，和Python中的元组类似，可以放不用类型的变量</span></span><br><span class="line">scala&gt; (<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">res51: (<span class="type">Int</span>, <span class="type">Int</span>) = (<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//只有两个元素的元组叫pair，可以使用箭头的方式来定义</span></span><br><span class="line">scala&gt; <span class="number">1</span> -&gt; <span class="number">2</span></span><br><span class="line">res52: (<span class="type">Int</span>, <span class="type">Int</span>) = (<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//scala自动识别元素类型</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> t = (<span class="number">1</span>,'a',<span class="string">"Tom"</span>,<span class="number">34.5</span>)</span><br><span class="line">t: (<span class="type">Int</span>, <span class="type">Char</span>, <span class="type">String</span>, <span class="type">Double</span>) = (<span class="number">1</span>,a,<span class="type">Tom</span>,<span class="number">34.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于一个元组变量，下划线加数字表示第N个元素，t._1表示第一个元素</span></span><br><span class="line">scala&gt; t._1</span><br><span class="line">res54: <span class="type">Int</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//取元素时不能超出下标，否则报错</span></span><br><span class="line">scala&gt; t._5</span><br><span class="line">&lt;console&gt;:<span class="number">13</span>: error: value _5 is not a member of (<span class="type">Int</span>, <span class="type">Char</span>, <span class="type">String</span>, <span class="type">Double</span>)</span><br><span class="line">       t._5</span><br><span class="line">         ^</span><br></pre></td></tr></table></figure>
+<p><strong>元组的用处：</strong><br>可以封装函数的返回值，在函数返回多个类型的变量时，可以包装起来一并返回</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面这个函数通过元组，一并返回输入参数List变量中所有元素的个数、求和、平方和</span></span><br><span class="line">scala&gt; <span class="function"><span class="keyword">def</span> <span class="title">_3operate</span></span>(in:<span class="type">List</span>[<span class="type">Int</span>]):(<span class="type">Int</span>,<span class="type">Int</span>,<span class="type">Int</span>) =</span><br><span class="line">     | in.foldLeft((<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>))((t,v) =&gt; (t._1+<span class="number">1</span>,t._2+v,t._3+v*v)</span><br><span class="line">     | )</span><br><span class="line">_3operate: (in: <span class="type">List</span>[<span class="type">Int</span>])(<span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>)</span><br><span class="line"><span class="comment">//调用该函数，可以返回三个值</span></span><br><span class="line">scala&gt; _3operate(a)</span><br><span class="line">res56: (<span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>) = (<span class="number">4</span>,<span class="number">10</span>,<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="Scala中的Map-lt-K-V-gt"><a href="#Scala中的Map-lt-K-V-gt" class="headerlink" title="Scala中的Map&lt;K,V&gt;"></a>Scala中的Map&lt;K,V&gt;</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用类似元组的箭头来定义一个键值对</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> p = <span class="type">Map</span>(<span class="number">1</span> -&gt;  <span class="string">"Tom"</span>,<span class="number">9</span>-&gt;<span class="string">"Jack"</span>)</span><br><span class="line">p: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="type">Tom</span>, <span class="number">9</span> -&gt; <span class="type">Jack</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//按Key取值</span></span><br><span class="line">scala&gt; p(<span class="number">1</span>)</span><br><span class="line">res58: <span class="type">String</span> = <span class="type">Tom</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断指定Key是否在Map中</span></span><br><span class="line">scala&gt; p.contains(<span class="number">1</span>)</span><br><span class="line">res59: <span class="type">Boolean</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回包含全部Key的Set集合</span></span><br><span class="line">scala&gt; p.keys</span><br><span class="line">res60: <span class="type">Iterable</span>[<span class="type">Int</span>] = <span class="type">Set</span>(<span class="number">1</span>, <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回包含全部Value的Iterable类型</span></span><br><span class="line">scala&gt; p.values</span><br><span class="line">res61: <span class="type">Iterable</span>[<span class="type">String</span>] = <span class="type">MapLike</span>.<span class="type">DefaultValuesIterable</span>(<span class="type">Tom</span>, <span class="type">Jack</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>涉及的Map相关运算</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用+号 添加键值对，注意Map不支持混合类型的添加，否则会出错</span></span><br><span class="line">scala&gt; p + (<span class="string">"name"</span> -&gt; <span class="string">"Kim"</span>)</span><br><span class="line">&lt;console&gt;:<span class="number">13</span>: error: <span class="class"><span class="keyword">type</span> <span class="title">mismatch</span></span>;</span><br><span class="line"> found   : (<span class="type">String</span>, <span class="type">String</span>)</span><br><span class="line"> required: (<span class="type">Int</span>, ?)</span><br><span class="line">       p + (<span class="string">"name"</span> -&gt; <span class="string">"Kim"</span>)</span><br><span class="line">                   ^</span><br><span class="line"><span class="comment">//正确添加键值对，注意会按Key值覆写键值对，即Key冲突时丢弃原来的Value</span></span><br><span class="line"><span class="comment">//有冲突的添加</span></span><br><span class="line">scala&gt; p + (<span class="number">1</span> -&gt; <span class="string">"Kim"</span>)</span><br><span class="line">res63: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="type">Kim</span>, <span class="number">9</span> -&gt; <span class="type">Jack</span>)</span><br><span class="line"><span class="comment">//正常的添加</span></span><br><span class="line">scala&gt; p + (<span class="number">2</span> -&gt; <span class="string">"Kim"</span>)</span><br><span class="line">res65: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="type">Tom</span>, <span class="number">9</span> -&gt; <span class="type">Jack</span>, <span class="number">2</span> -&gt; <span class="type">Kim</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用-号来删除键值对，注意减的是Key值</span></span><br><span class="line">scala&gt; p - <span class="number">1</span></span><br><span class="line">res70: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">9</span> -&gt; <span class="type">Jack</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//注意添加或删减的结果不能直接通过= 赋值给自己，会报错</span></span><br><span class="line">scala&gt; p = p <span class="number">-9</span></span><br><span class="line">&lt;console&gt;:<span class="number">12</span>: error: reassignment to <span class="keyword">val</span></span><br><span class="line">       p = p <span class="number">-9</span></span><br><span class="line">         ^</span><br><span class="line"><span class="comment">//上述的添加和删除都是操作单个元素，下面使用包含键值对的List集合加上++运算符来完成添加拖个键值对</span></span><br><span class="line">scala&gt; p ++ <span class="type">List</span>(<span class="number">2</span>-&gt;<span class="string">"a"</span>,<span class="number">5</span>-&gt;<span class="string">"b"</span>)</span><br><span class="line">res72: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="type">Tom</span>, <span class="number">9</span> -&gt; <span class="type">Jack</span>, <span class="number">2</span> -&gt; a, <span class="number">5</span> -&gt; b)</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除多个键值对，注意删除只需要含Key值的List即可</span></span><br><span class="line">scala&gt; p -- <span class="type">List</span>(<span class="number">1</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">res73: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以联合构成表达式</span></span><br><span class="line">scala&gt; p ++ <span class="type">List</span>(<span class="number">2</span>-&gt;<span class="string">"a"</span>,<span class="number">5</span>-&gt;<span class="string">"b"</span>) -- <span class="type">List</span>(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">res74: scala.collection.immutable.<span class="type">Map</span>[<span class="type">Int</span>,<span class="type">String</span>] = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="type">Tom</span>, <span class="number">9</span> -&gt; <span class="type">Jack</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="函数式编程示例：快速排序"><a href="#函数式编程示例：快速排序" class="headerlink" title="函数式编程示例：快速排序"></a>函数式编程示例：快速排序</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qSort</span></span>(a:<span class="type">List</span>[<span class="type">Int</span>]):<span class="type">List</span>[<span class="type">Int</span>] = &#123;</span><br><span class="line">		<span class="keyword">if</span>(a.length &lt; <span class="number">2</span>) a</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			qSort( a.filter( _ &lt; a.head )) ++ </span><br><span class="line">			a.filter( _ == a.head ) ++ </span><br><span class="line">			qSort( a.filter( _ &gt; a.head ))</span><br><span class="line">			</span><br><span class="line">&#125;                                 <span class="comment">//&gt; qSort: (a: List[Int])List[Int]</span></span><br><span class="line"></span><br><span class="line">qSort(<span class="type">List</span>(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">2</span>))      <span class="comment">//&gt; res0: List[Int] = List(1, 2, 2, 2, 3, 5, 5, 8)</span></span><br><span class="line">qSort(<span class="type">List</span>(<span class="number">9</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">0</span>))      <span class="comment">//&gt; res1: List[Int] = List(0, 1, 2, 3, 4, 5, 8, 9)</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释：</strong></p>
+<blockquote>
+<p>首先快排需要一个分割变量，这里直接用a.head即输入List的第一个元素来做分割<br>其次是归类，每次递归都要分出小于，大于和等于的元素<br>然后是合并，使用++操作符，把每次的元素拼接起来，即每次调整后的结果<br>最后是判断递归结束条件：如果当前作为输入的分割后的List元素不足2，那么表示无序调整，排序结束</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p>这里外层递归中含有两个递归，外层递归即函数的返回的是三部分之和，这并不是尾递归<br>这个例子是综合了函数式编程、高阶函数、递归等Scala编程思想的体现。</p>
+</blockquote>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/8cf3.html">https://www.cz5h.com/article/8cf3.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Collection/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Collection</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/8cf3.html&title=Scala中的Collection - 长征部落格&summary=Scala中的immutable Collection 集合Traversable 遍历Iterable    迭代Set无序集合     Sequence序列        Map映射" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/8cf3.html&title=Scala中的Collection - 长征部落格&summary=Scala中的immutable Collection 集合Traversable 遍历Iterable    迭代Set无序集合     Sequence序列        Map映射" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/8cf3.html&title=Scala中的Collection - 长征部落格&summary=Scala中的immutable Collection 集合Traversable 遍历Iterable    迭代Set无序集合     Sequence序列        Map映射" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aQW7DMAwEQP//0+29QBByRTexNLrZRW2NT5ulrp9D1wUODg4ODr4R/ApX+UVv/u/d/b9/X90vODg4ODj4jvAupHo/Bb167up+wcHBwcHBd4a/DQBD19Xnv4V09wsODg4ODg4eB4/VggMcHBwcHBz8/wPM9EABHBwcHBwcfKCgbwaSqcDy8UkKODg4ODj4F8HjA3Mfuh474AcODg4ODv5g+OrqBopuAZE+/+V7wcHBwcHBN4JPDfBXN1gtHFYPGICDg4ODg+8MTzfWve4OJGLo6iQFHBwcHBz8i+HVwf110+oePLitgQEHBwcHB38gvDrwXy0U0gKj+rxyYAIHBwcHB98IPlVIdIuHdKDQDV7g4ODg4OAnwJd/4A8HoNWg0h4ogIODg4ODPxB+18A/BaYHAsZONoKDg4ODgz8IXn1BekAv/VDTBwzAwcHBwcFPgld/2K8OFtLC4bYAAw4ODg4O/iB4GjzS4iANQmMfDBwcHBwcfEN4FViFdEFpYKreBwcHBwcHPxne3WC3kEgLkXigAA4ODg4OfiB8NeBMDR7iogIcHBwcHHwj+OqaKirSANX+MODg4ODg4BvBr3B1AWmRkAao8kABHBwcHBx8A3g3sKwWC91glB4cKDcw4ODg4ODgG8Crhf1dBwmmBhbtAAMODg4ODn4wvLvh9H3pAQVwcHBwcHDw/MDf1KBgefABDg4ODg6+MbxbIEwV/ekBvm4hAg4ODg4OviM8DQbdAFOFTRUP4ODg4ODgO8NPW+Dg4ODg4BusX6wGBC5zgdtYAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aQW7DMAwEQP//0+29QBByRTexNLrZRW2NT5ulrp9D1wUODg4ODr4R/ApX+UVv/u/d/b9/X90vODg4ODj4jvAupHo/Bb167up+wcHBwcHBd4a/DQBD19Xnv4V09wsODg4ODg4eB4/VggMcHBwcHBz8/wPM9EABHBwcHBwcfKCgbwaSqcDy8UkKODg4ODj4F8HjA3Mfuh474AcODg4ODv5g+OrqBopuAZE+/+V7wcHBwcHBN4JPDfBXN1gtHFYPGICDg4ODg+8MTzfWve4OJGLo6iQFHBwcHBz8i+HVwf110+oePLitgQEHBwcHB38gvDrwXy0U0gKj+rxyYAIHBwcHB98IPlVIdIuHdKDQDV7g4ODg4OAnwJd/4A8HoNWg0h4ogIODg4ODPxB+18A/BaYHAsZONoKDg4ODgz8IXn1BekAv/VDTBwzAwcHBwcFPgld/2K8OFtLC4bYAAw4ODg4O/iB4GjzS4iANQmMfDBwcHBwcfEN4FViFdEFpYKreBwcHBwcHPxne3WC3kEgLkXigAA4ODg4OfiB8NeBMDR7iogIcHBwcHHwj+OqaKirSANX+MODg4ODg4BvBr3B1AWmRkAao8kABHBwcHBx8A3g3sKwWC91glB4cKDcw4ODg4ODgG8Crhf1dBwmmBhbtAAMODg4ODn4wvLvh9H3pAQVwcHBwcHDw/MDf1KBgefABDg4ODg6+MbxbIEwV/ekBvm4hAg4ODg4OviM8DQbdAFOFTRUP4ODg4ODgO8NPW+Dg4ODg4BusX6wGBC5zgdtYAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/db81.html" rel="prev" title="Python的原生爬虫案例">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        Python的原生爬虫案例
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/Python/"><i class="fas fa-hashtag" aria-hidden="true"></i> Python</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/bd82.html" rel="prev" title="Scala的基础概念">
+                      
+                        Scala的基础概念
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Scala/"><i class="fas fa-hashtag" aria-hidden="true"></i> Scala</a> <a class="tag" href="/tags/%E6%A6%82%E8%BF%B0/"><i class="fas fa-hashtag" aria-hidden="true"></i> 概述</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Scala中的Collection',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-T"><span class="toc-text">List[T]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduceLeft-op-T-T-gt-T"><span class="toc-text">reduceLeft(op: (T, T) &#x3D;&gt; T )</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foldLeft-z-U-op-U-T-gt-U"><span class="toc-text">foldLeft(z:U)(op: (U, T) &#x3D;&gt; U )</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

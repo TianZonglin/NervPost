@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>服务监控</title>
+    <meta name="keywords" content="监控, 服务, Uptime">
+    <meta name="description" content="基于UptimeRobot的服务监控页面">
+    <meta name="robots" content="index,follow">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+    <link rel="shortcut icon" href="/favicon.ico"> 
+
+
+
+    <script src="./config.js"></script>
+    <link href="./static/css/main.9d11a12e.css" rel="stylesheet"><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="长征部落格" type="application/atom+xml">
+</head>
+ 
+    
+
+  <body>
+    <div id="app"></div>
+    <script src="./static/js/main.b23dcefe.js"></script>
+    <script>
+        document.getElementById('footer').style.display = 'none';	// 隐藏选择的元素
+        //document.getElementById('test').style.display = 'block';	// 以块级样式显示
+    </script>
+
+<style>
+body {
+    background-color: #010012;
+    background-image: linear-gradient(#010012, #111f4c, #010012);
+}
+#header .navi {
+    font-size: 15px;
+    font-weight: 600;
+}
+#uptime .timeline i.ok {
+    background: #2195f3bb;
+}
+#uptime .timeline i.down {
+    background: #f34539bb;
+}
+#uptime .timeline i.none {
+    background: #2196f326;
+}
+#uptime .meta .status.down {
+    background-image: url();
+    color: #f34539bb;
+    font-weight: 600;
+}
+
+#uptime .timeline i {
+    border-radius: 10px;
+}
+#uptime .meta .status.ok {
+    background-image: url();
+    color: #2195f3bb;
+    font-weight: 600;
+}
+#uptime .meta .name {
+    font-weight: 600;
+}
+#uptime .foot {
+    color: #757a80;
+    font-weight: 600;
+    
+}
+#uptime .foot :nth-child(2){ 
+    color: #2195f3bb;
+    font-weight: 600;
+
+}
+#uptime .timeline {
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#footer a {
+    color: #999fa6;
+    font-weight: 700;
+}
+#header .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2195f3;
+}
+#uptime .item {
+    padding: 18px 20px;
+    border-bottom: 1px solid #c5def6;
+}
+#uptime {
+ 
+    border: 0px solid #e3e4e6;
+}
+#uptime .item {
+     
+    border-bottom: 15px solid #060923;
+}
+#uptime .meta .link {
+    background: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMzYgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNjAwLjgxOCA2OTcuNmMtNzAuNCAwLTEzNC40LTI1LjYtMTkyLTc2LjgtMjUuNi0yNS42LTI1LjYtNjQtNi40LTg5LjYgMjUuNi0yNS42IDY0LTI1LjYgODkuNi02LjQgNTcuNiA1MS4yIDE0Ny4yIDUxLjIgMTk4LjQgMGwxNjYuNC0xNjYuNGMyNS42LTI1LjYgMzguNC02NCAzOC40LTEwMi40IDAtMjUuNi02LjQtNjQtMzguNC05Ni01Ny42LTUxLjItMTQ3LjItNTEuMi0xOTguNCAwbC02NCA3Ni44Yy0yNS42IDI1LjYtNjQgMjUuNi04OS42IDAtMjUuNi0yNS42LTI1LjYtNjQgMC04OS42bDcwLjQtNzAuNGMxMDIuNC0xMDIuNCAyNjguOC0xMDIuNCAzNzcuNiAwIDUxLjIgNTEuMiA4My4yIDExNS4yIDgzLjIgMTkyIDAgNzAuNC0yNS42IDEzNC40LTc2LjggMTkybC0xNjYuNCAxNjYuNGMtNTcuNiA0NC44LTEyMS42IDcwLjQtMTkyIDcwLjR6IiBmaWxsPSIjODQ5MkE2Ii8+PHBhdGggZD0iTTI3NC40MTggMTAyNGMtNzAuNCAwLTEzNC40LTI1LjYtMTkyLTc2LjgtMTA4LjgtOTYtMTA4LjgtMjYyLjQtNi40LTM3Ny42bDE2Ni40LTE2Ni40YzEwOC44LTEwMi40IDI3NS4yLTEwMi40IDM3Ny42IDAgMjUuNiAyNS42IDI1LjYgNjQgMCA4OS42cy02NCAyNS42LTg5LjYgMGMtNTEuMi01MS4yLTE0MC44LTUxLjItMTk4LjQgMGwtMTY2LjQgMTY2LjRjLTQ0LjggNTEuMi02NCAxNDAuOCAwIDE5OC40IDU3LjYgNTEuMiAxNDcuMiA1MS4yIDE5OC40IDBsNzAuNC03MC40YzI1LjYtMjUuNiA2NC0yNS42IDg5LjYgMHMyNS42IDY0IDAgODkuNmwtNzAuNCA3MC40Yy00NC44IDUxLjItMTA4LjggNzYuOC0xNzkuMiA3Ni44eiIgZmlsbD0iIzg0OTJBNiIvPjwvc3ZnPg==) 50%/100% 100% no-repeat;
+    display:none;
+    width: 13px;
+    height: 13px;
+    margin-left: 6px;
+    opacity: .6;
+    text-indent: -99999px;
+    transition: opacity .3s ease-out;
+}
+</style>
+
+<div id="footer">
+    <div class="container">
+        
+        <center> 
+            <div id="valine_container" style="display: none;"></div>
+            <br>
+            <b><a id="btn" style="cursor:pointer">\\ 留言反馈 //</a></b><br><br>
+            <div style="display: none;"><script type="text/javascript">document.write(unescape("%3Cspan style='color:black !important;' id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript async src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D2' type='text/javascript'%3E%3C/script%3E"));</script></div>
+            <img style="height: 12px;vertical-align: bottom;margin-bottom: 4.1px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="#"> 20250821号</a>
+            <br><b>监控服务由 UptimeRobot 强力驱动！刷新间隔：5分钟</b><br>
+            <b>Copyright © 2020 TZLOOP</b><br>
+            <a href="/"><img style="height:20px !important;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/title.svg"></a><br>
+            <div style="display: inline-block;">
+            <div style="float:left;">
+                 <img style="width: 15px;margin-top: 3.1px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAACfklEQVRIie2UTUhUYRSGn3PnWlCLfnZGISHUJqiIKAyKyBYWEUGJzpjMCHYt3FSW7pKwCAJbmOVM4kzCNEkFBdbKMKtFilREQotoIYVugyQC574tHKcpf8YIWvmu7j3n/d7nO9/lfrCoRf1vWT5DNHG3GD9dhtlWoBhYkWl9Neyj5L9Nw5NTNaFPfw1qbu53C4vGy0FngG0L3PKwfFrHRwvvNTfvncwLinWlSmS6AWxeEGCm3jr4J2sjVa9yi07uSzSRPCFHA/8AAdji47zsiCcbJWUHcQAkWTSRakMWRbg5iybMSOWNNrsJjOVUAoZdiSZS16ZhAYA1RRtbgIYcowQ3l8g9kpa/CWPXvCDRP/ndPWYF/kqD7Vk+7Bx+8956Hz14Zh3x5AHDevn1vX6AjnuR0D2AaDzZB7Zv/pH01IuESmHq+JFdBwoyTV/okGPY+RwIgqFpSOZYls4PAWFLpp+9cCiGMZjTdkzW4AhGfmVy36CkszNZlK2JoXwgTNngW93d6xElwIMc1Iizerl72lBEUHYiHDyGeJd2rWXak8bagIm5IXwzp6AtO53vXsJ47UWCR4UOSlaxalng7Fz/0QuJqrqaYAogmkgdROoBlv8JAavwwpWPAWLx1HGhBLISr6Zy8HfrLIrG75wDWiSrrqup7AHo7EwWTbrUI9uRWfiKgHvdqy4fnYIkK4R1C5rqIsHWmYPPoY54stGwy0DCmfQv1NZWfZ7N196VWhcwLhqqBpq8SPDqbL55L9VY1509MtqBDUh9MgaQfQEwYy3SbsxKgQ8y1deFQ8/nysp7e0uy2O2e/ZJ/2GAHUJhpjQkGgYdeuLLPzJQva1GLAuAnLMbzkiCd8lEAAAAASUVORK5CYII=">
+            </div><div style="float:left;"> 
+                <span id="up/index.html" class="pageViews" style data-flag-title="站点监控"></span>
+            </div>   
+            </div>    
+        </center>
+            <br><br>
+    
+    </div>
+  </div>
+
+
+
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/v1.10.2-jquery.min.js" type="text/javascript"></script>
+  <script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+  <script type="text/javascript">
+  
+  function IsLoad(_url){
+    $.ajax({
+        url:_url,
+        type:"get",
+        success:function(){
+            //说明请求的url存在，并且可以访问
+            console.log('请求的url可以访问');
+         },
+        statusCode:{
+            404:function(){
+                //说明请求的url不存在
+                console.log('请求的url不可访问');
+            }
+         }
+    });
+}
+
+    $(function () {
+        $("#btn").click(function(){   
+            if($("#btn").val()=="收起评论"){
+                $("#valine_container").hide();
+                $("#btn").val("留言反馈");
+            }else{
+                $("#valine_container").show();
+                $("#btn").val("收起评论");
+            }
+        });
+    });
+
+  if(true){
+      var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+      var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+      AV.init({
+          appId: leancloud_app_id,
+          appKey: leancloud_app_key
+      });
+      var pageViewsLength = $(".pageViews").length;
+      var isIndex = $(".pageViews").length > 1 ?true:false;
+      function showTime() {
+          var Pageview = AV.Object.extend("Pageview");
+          if(isIndex){
+              $(".pageViews").each(function(){
+                  showPageViewsNum($(this), Pageview);
+              });
+          }else{
+              addPageViewsNum($(".pageViews"));
+          }
+      }
+      //仅显示阅读量
+      function showPageViewsNum(ele, Pageview){
+          var id = ele.attr('id').trim();
+          var query = new AV.Query("Pageview");
+          query.equalTo("post_id", id);
+          query.descending('createdAt');
+          query.limit(1);
+          query.find().then(function (results) {
+              $(document.getElementById(id)).text(results && results.length > 0?  results[0].get("count") : '0');
+          }, function (error) {
+               $(document.getElementById(id)).text('0');
+          });
+      }
+      //追加并显示阅读量
+      function addPageViewsNum(ele){
+          var id = ele.attr('id').trim();
+          var title = ele.attr('data-flag-title').trim();
+          var query = new AV.Query("Pageview");
+          query.equalTo("post_id", id);
+          query.descending('createdAt');
+          query.limit(1);
+          query.find().then(function (results) {
+              if (results.length == 0) {
+                 saveNewPageview(id, title);
+                 return;
+              }
+              var pageview = results[0];
+              var count = pageview.get("count");
+              count++;
+              pageview.set("count", count);
+              pageview.set("title", title);
+              pageview.save().then(function (pageview) {
+                  $(document.getElementById(id)).text(count);
+              })
+          }, function (error) {
+              saveNewPageview(id, title);
+          })
+      }
+  
+      function saveNewPageview(id, title) {
+         var Pageview = AV.Object.extend("Pageview");
+         var query = new Pageview;
+         query.save({
+             post_id: id,
+             title: title,
+             count: 1
+         }).then(function (pageview) {
+             $(document.getElementById(id)).text(pageview.count);
+         }, function (error) {
+         });
+  
+      }
+  
+      if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+          showTime();
+      }
+  }
+  </script>
+
+  <!-- Baidu Push ---->
+	<script>
+        (function(){
+          var bp = document.createElement('script');
+          var curProtocol = window.location.protocol.split(':')[0];
+          if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bp, s);
+          console.log("Baidu Push done!");
+        })();
+        </script>
+        <!-- End Baidu Push -->
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+      
+          gtag('config', 'UA-109269848-5');
+        </script>
+        <div style="display:none;">
+          <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script> 
+      
+        </div>
+     
+        <script type="text/javascript" src="../js/valine.js"></script>
+    
+        <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = "nick,mail,link".split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        var notify = 'true' == true;;
+        var verify = 'true' == true;;
+        var valine = new Valine();
+        valine.init({
+          el: '#valine_container',
+          notify: notify,
+          verify: verify,
+          guest_info: guest_info,
+          appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+          appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+          placeholder: "如有需要，可在此留言反馈",
+          pageSize:'5',
+          avatar:'retro',
+          lang:'zh-cn',
+        visitor: 'true',
+          highlight: 'true'
+        })
+        
+        </script>
+</html>
+
+
+
+

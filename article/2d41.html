@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>GraphX编程指南-官方文档-整理 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="Scala,Spark,GraphX">
+	
+	
+		<meta name="description" content="GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/2d41.html">
+        GraphX编程指南-官方文档-整理
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年5月7日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约9.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需44分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/2d41.html" class="pageViews" data-flag-title="GraphX编程指南-官方文档-整理"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基本的运算（例如，subgraph，joinVertices和mapReduceTriplets），以及在一个优化后的<br>PregelAPI的变形。此外，GraphX 包括越来越多的图算法和 builder 构造器，以简化图形分析任务。</p>
+<a id="more"></a>
+
+<p><img src="http://static.zybuluo.com/EVA001/oujumqm4pgtbi4vpc4tqkcq3/image_1ccthlr9p187rj041rg21pe41mgv9.png" alt></p>
+<p>GraphX 目前是一个 alpha 组件。虽然我们会尽量减少 API 的变化，但是一些 API 可能会在将来的版本中改变。</p>
+<h4 id="图并行计算的背景"><a href="#图并行计算的背景" class="headerlink" title="图并行计算的背景"></a><strong>图并行计算的背景</strong></h4><p>从社交网络到语言建模，日益扩大的规模和图形数据的重要性已带动许多新的图像并行系统（例如，Giraph和 GraphLab）。通过限制可表示计算的类型以及引入新的技术来划分和分布图，这些系统比一般的数据并行系统在执行复杂图形算法方面有大幅度地提高。</p>
+<p><img src="http://static.zybuluo.com/EVA001/xye2asif3tkxzo2tpglhtca9/image_1ccthsb1e14kl1ii013uj1did1k8km.png" alt></p>
+<p>然而，这些限制在获得重大性能提升的同时，也使其难以表达一个典型的图表分析流程中的许多重要阶段：构造图，修改它的结构或表达计算跨越多重图的计算。此外，如何看待数据取决于我们的目标，相同的原始数据，可能有许多不同的表(table)和图表视图(graph views)。</p>
+<p><img src="http://static.zybuluo.com/EVA001/az222xkl2l0ehwh7st09zff3/image_1ccthuiq8e381jbu5gm1efs7m813.png" alt></p>
+<p>因此，能够在同一组物理数据的表和图表视图之间切换是很有必要的，并利用各视图的属性，以方便地和有效地表达计算。但是，现有的图形分析管道必须由图并行和数据并行系统组成，从而导致大量的数据移动和重复以及复杂的编程模型。</p>
+<p><img src="http://static.zybuluo.com/EVA001/hig4fwb6c215mb0g10q20zw3/image_1ccthvs4q11911f671skf1jeeitd1g.png" alt></p>
+<p>该 GraphX 项目的目标是建立一个系统，建立一个统一的图和数据并行计算的 API。该GraphX API 使用户能够将数据既可以当作一个图，也可以当作集合（即RDDS）而不用进行数据移动或数据复制。通过引入在图并行系统中的最新进展，GraphX能够优化图形操作的执行。</p>
+<h4 id="GraphX-替换-Spark-Bagel-的-API"><a href="#GraphX-替换-Spark-Bagel-的-API" class="headerlink" title="GraphX 替换 Spark Bagel 的 API"></a><strong>GraphX 替换 Spark Bagel 的 API</strong></h4><p>在GraphX 的发布之前，Spark的图计算是通过Bagel实现的，后者是Pregel的一个具体实现。GraphX提供了更丰富的图属性API，从而增强了Bagel。从而达到一个更加精简的Pregel抽象，系统优化，性能提升以及减少内存开销。虽然我们计划最终弃用Bagel，我们将继续支持Bagel的API和Bagel编程指南。不过，我们鼓励Bagel用户，探索新的GraphXAPI，并就从Bagel升级中遇到的障碍反馈给我们。</p>
+<h4 id="从-Spark-0-9-1-迁移"><a href="#从-Spark-0-9-1-迁移" class="headerlink" title="从 Spark 0.9.1 迁移"></a><strong>从 Spark 0.9.1 迁移</strong></h4><p>GraphX 在Spark 1.1.0 包含Spark-0.9.1一个用户面向接口的改变。EdgeRDD现在可以存储相邻顶点属性来构建triplets，因此它获得了一个类型参数。一个Graph[VD，ED]的边的类型是EdgeRDD[ED，VD]而不是 EdgeRDD[ED]。</p>
+<h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a><strong>入门</strong></h3><p>首先，你要导入 Spark 和 GraphX 到你的项目，如下所示：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark._</span><br><span class="line"><span class="keyword">import</span>  org.apache.spark.graphx._</span><br><span class="line"><span class="comment">// To make some of the examples work we will also need RDD</span></span><br><span class="line"><span class="keyword">import</span>  org.apache.spark.rdd.<span class="type">RDD</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你不使用Spark shell，你还需要一个 SparkContext。要了解更多有关如何开始使用Spark参考 Spark快速入门指南。</p>
+<h4 id="属性图"><a href="#属性图" class="headerlink" title="属性图"></a><strong>属性图</strong></h4><p>该 属性图是一个用户定义的顶点和边的有向多重图。有向多重图是一个有向图，它可能有多个平行边共享相同的源和目的顶点。多重图支持并行边的能力简化了有多重关系（例如，同事和朋友）的建模场景。每个顶点是 唯一 的 64位长的标识符（VertexID）作为主键。GraphX并没有对顶点添加任何顺序的约束。同样，每条边具有相应的源和目的顶点的标识符。</p>
+<p>该属性表的参数由顶点（VD）和边缘（ED）的类型来决定。这些是分别与每个顶点和边相关联的对象的类型。</p>
+<p>GraphX 优化顶点和边的类型的表示方法，当他们是普通的旧的数据类型（例如，整数，双精度等）通过将它们存储在专门的阵列减小了在内存占用量。</p>
+<p>在某些情况下，可能希望顶点在同一个图中有不同的属性类型。这可以通过继承来实现。例如，以用户和产品型号为二分图我们可以做到以下几点：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">VertexProperty</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="class"><span class="title">case</span>  <span class="title">class</span>  <span class="title">UserProperty</span>(<span class="params"> val name: <span class="type">String</span></span>)  <span class="keyword">extends</span>  <span class="title">VertexProperty</span></span></span><br><span class="line"><span class="class"><span class="title">case</span>  <span class="title">class</span>  <span class="title">ProductProperty</span>(<span class="params"> val name: <span class="type">String</span>,  val price: <span class="type">Double</span></span>)  <span class="keyword">extends</span></span></span><br><span class="line"><span class="class"><span class="title">VertexProperty</span></span></span><br><span class="line"><span class="class"><span class="title">//</span> <span class="title">The</span> <span class="title">graph</span> <span class="title">might</span> <span class="title">then</span> <span class="title">have</span> <span class="title">the</span> <span class="title">type</span></span>:</span><br><span class="line"><span class="keyword">var</span> graph: <span class="type">Graph</span>[<span class="type">VertexProperty</span>, <span class="type">String</span>] = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<p>和 RDDS 一样，属性图是不可变的，分布式的和容错的。对图中的值或结构的改变是通过生成具有所需更改的新图来完成的。注意原始图的该主要部分（即不受影响的结构，属性和索引）被重用，从而减少这个数据结构的成本。该图是通过启发式执行顶点分区，在不同的执行器(executor)中进行顶点的划分。与 RDDS 一样，在发生故障的情况下，图中的每个分区都可以重建。</p>
+<p>逻辑上讲，属性图对应于一对类型集合（RDDS），这个组合记录顶点和边的属性。因此，该图表类包含成员访问该图的顶点和边：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> vertices: <span class="type">VertexRDD</span>[<span class="type">VD</span>]</span><br><span class="line">    <span class="keyword">val</span> edges: <span class="type">EdgeRDD</span>[<span class="type">ED</span>, <span class="type">VD</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类 VertexRDD [VD]和 EdgeRDD[ED，VD]继承和并且分别是一个优化的版本的RDD[(VertexID,VD)]和RDD[Edge[ED]]。这两个VertexRDD[VD]和EdgeRDD[ED,VD]提供各地图的计算内置附加功能，并充分利用内部优化。我们在上一节顶点和边RDDS中详细讨论了VertexRDD和EdgeRDD的API，但现在，他们可以简单地看成是RDDS形式的： RDD[(VertexID,VD)]和 RDD [EDGE[ED]] 。</p>
+<h4 id="属性图的例子"><a href="#属性图的例子" class="headerlink" title="属性图的例子"></a><strong>属性图的例子</strong></h4><p>假设我们要建立一个 GraphX项目各合作者的属性图。顶点属性可能会包含用户名和职业。我们可以使用一组字符注释来描述代表合作者关系的边：</p>
+<p><img src="http://static.zybuluo.com/EVA001/1iccuz2jn4dbffvvjz517cjc/image_1cctigkqj1nq11kh1g5615m7q421t.png" alt></p>
+<p>由此产生的图形将有类型签名：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> userGraph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]</span><br></pre></td></tr></table></figure>
+
+<p>有许多方法可以从原始数据文件，RDDS，甚至合成生成器来生成图，我们会在 graph builders 更详细的讨论。可能是最通用的方法是使用 Graph ojbect。例如，下面的代码从一系列的RDDS的集合中构建图：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Assume the SparkContext has already been constructed</span></span><br><span class="line"><span class="keyword">val</span> sc: <span class="type">SparkContext</span></span><br><span class="line"><span class="comment">// Create an RDD for the vertices</span></span><br><span class="line"><span class="keyword">val</span> users: <span class="type">RDD</span>[(<span class="type">VertexId</span>, (<span class="type">String</span>, <span class="type">String</span>))] =</span><br><span class="line">    sc.parallelize( <span class="type">Array</span>((<span class="number">3</span>L, (<span class="string">"rxin"</span>, <span class="string">"student"</span>)), (<span class="number">7</span>L, (<span class="string">"jgonzal"</span>,<span class="string">"postdoc"</span>)),(<span class="number">5</span>L, (<span class="string">"franklin"</span>, <span class="string">"prof"</span>)), (<span class="number">2</span>L, (<span class="string">"istoica"</span>, <span class="string">"prof"</span>))))</span><br><span class="line"><span class="comment">// Create an RDD for edges</span></span><br><span class="line"><span class="keyword">val</span> relationships: <span class="type">RDD</span>[<span class="type">Edge</span>[<span class="type">String</span>]] =</span><br><span class="line">    sc.parallelize( <span class="type">Array</span>( <span class="type">Edge</span>(<span class="number">3</span>L, <span class="number">7</span>L, <span class="string">"collab"</span>), <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">3</span>L, <span class="string">"advisor"</span>),<span class="type">Edge</span>(<span class="number">2</span>L, <span class="number">5</span>L, <span class="string">"colleague"</span>),  <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">7</span>L, <span class="string">"pi"</span>)))</span><br><span class="line"><span class="comment">// Define a default user in case there are relationship with missing user</span></span><br><span class="line"><span class="keyword">val</span> defaultUser = (<span class="string">"John Doe"</span>, <span class="string">"Missing"</span>)</span><br><span class="line"><span class="comment">// Build the initial Graph</span></span><br><span class="line"><span class="keyword">val</span> graph =  <span class="type">Graph</span>(users, relationships, defaultUser)</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，我们利用了Edge的case类。Edge具有srcId和dstId，它们分别对应于源和目的地顶点的标识符。此外，Edge 类具有 attr属性，并存储的边的特性。</p>
+<p>我们可以通过 graph.vertices 和 graph.edges属性，得到图到各自的顶点和边的视图。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]  <span class="comment">// Constructed from above</span></span><br><span class="line"><span class="comment">// Count all users which are postdocs</span></span><br><span class="line">graph.vertices.filter &#123;  <span class="keyword">case</span> (id, (name, pos))  =&gt; pos == <span class="string">"postdoc"</span> &#125;.count</span><br><span class="line"><span class="comment">// Count all the edges where src &gt; dst</span></span><br><span class="line">graph.edges.filter(e  =&gt; e.srcId &gt; e.dstId).count</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是graph.vertices返回VertexRDD[(String,String)]延伸RDD[(VertexID，(String，String))]，所以我们使用Scala的case表达来解构元组。在另一方面，graph.edges返回EdgeRDD包含Edge[String]对象。我们可以也使用的如下的类型的构造器：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graph.edges.filter &#123;  <span class="keyword">case</span>  <span class="type">Edge</span>(src, dst, prop)  =&gt; src &gt; dst &#125;.count</span><br></pre></td></tr></table></figure>
+
+<p>除了 图的顶点和边的意见，GraphX 也提供了三重视图。三重视图逻辑连接点和边的属性产生的 RDD[EdgeTriplet [VD，ED]包含的实例 EdgeTriplet类。此 连接 可以表示如下的SQL表达式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> src.id, dst.id, src.attr, e.attr, dst.attr</span><br><span class="line"><span class="keyword">FROM</span> edges  <span class="keyword">AS</span> e  <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> vertices  <span class="keyword">AS</span> src, vertices  <span class="keyword">AS</span> dst</span><br><span class="line"><span class="keyword">ON</span> e.srcId = src.Id  <span class="keyword">AND</span> e.dstId = dst.Id</span><br></pre></td></tr></table></figure>
+
+<p>或图形方式：</p>
+<p><img src="http://static.zybuluo.com/EVA001/1bf09oov7mqbww8mpoy00rya/image_1cctj00g11j4e1ghaq5v1dvapea2a.png" alt></p>
+<p>该 EdgeTriplet类继承了 Edge并加入了类属性:srcAttr和dstAttr,用于包含了源和目标属性。我们可以用一个图的三元组视图渲染描述用户之间的关系字符串的集合。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]  <span class="comment">// Constructed from above</span></span><br><span class="line"><span class="comment">// Use the triplets view to create an RDD of facts.</span></span><br><span class="line"><span class="keyword">val</span> facts: <span class="type">RDD</span>[<span class="type">String</span>] =</span><br><span class="line">    graph.triplets.map(triplet  =&gt;</span><br><span class="line">        triplet.srcAttr._1 + <span class="string">" is the "</span> + triplet.attr + <span class="string">" of "</span> + triplet.dstAttr._1)</span><br><span class="line">facts.collect.foreach(println(_ _))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Graph-操作"><a href="#Graph-操作" class="headerlink" title="Graph 操作"></a><strong>Graph 操作</strong></h4><p>正如RDDs有这样基本的操作mpa，filter，和reduceByKey，属性图也有一系列基本的运算,采用用户定义的函数，并产生新的图形与变换的性质和结构。定义核心运算已优化的实现方式中定义的Graph，并且被表示为核心操作的组合定义在GraphOps。然而，由于Scala的implicits特性,GraphOps中的操作会自动作为Graph的成员。例如，我们可以计算各顶点的入度（定义在的 GraphOps）：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]</span><br><span class="line"><span class="comment">// Use the implicit GraphOps.inDegrees operator</span></span><br><span class="line"><span class="keyword">val</span> inDegrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>] = graph.inDegrees</span><br></pre></td></tr></table></figure>
+
+<p>将核心图操作和 GraphOps区分开来的原因是为了将来能够支持不同的图表示。每个图的表示必须实现核心操作并且复用 GraphOps中很多有用的操作。</p>
+<h4 id="运算列表总结"><a href="#运算列表总结" class="headerlink" title="运算列表总结"></a><strong>运算列表总结</strong></h4><p>以下列出了Graph图 和 GraphOps中同时定义的操作.为了简单起见,我们都定义为Graph的成员函数。请注意，某些函数签名已被简化（例如，默认参数和类型的限制被删除了）,还有一些更高级的功能已被删除，完整的列表,请参考API文档。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Summary of the functionality in the property graph */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="comment">//  Information  about  the  Graph</span></span><br><span class="line">    <span class="keyword">val</span> numEdges: <span class="type">Long</span></span><br><span class="line">    <span class="keyword">val</span> numVertices: <span class="type">Long</span></span><br><span class="line">    <span class="keyword">val</span> inDegrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>]</span><br><span class="line">    <span class="keyword">val</span> outDegrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>]</span><br><span class="line">    <span class="keyword">val</span> degrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>]</span><br><span class="line">    <span class="comment">//  Views  of  the  graph  as  collections</span></span><br><span class="line">    <span class="keyword">val</span> vertices: <span class="type">VertexRDD</span>[<span class="type">VD</span>]</span><br><span class="line">    <span class="keyword">val</span> edges: <span class="type">EdgeRDD</span>[<span class="type">ED</span>, <span class="type">VD</span>]</span><br><span class="line">    <span class="keyword">val</span> triplets: <span class="type">RDD</span>[<span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]]</span><br><span class="line">    <span class="comment">//  Functions  for  caching  graphs</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">persist</span></span>(newLevel: <span class="type">StorageLevel</span> =  <span class="type">StorageLevel</span>. <span class="type">MEMORY_ONLY</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cache</span></span>(): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unpersistVertices</span></span>(blocking: <span class="type">Boolean</span> =  <span class="literal">true</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="comment">//  Change  the  partitioning  heuristic</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partitionBy</span></span>(partitionStrategy: <span class="type">PartitionStrategy</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="comment">//  Transform  vertex  and  edge  attributes</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapVertices</span></span>[<span class="type">VD2</span>](map: (<span class="type">VertexID</span>, <span class="type">VD</span>)  =&gt;  <span class="type">VD2</span>): <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapEdges</span></span>[<span class="type">ED2</span>](map: <span class="type">Edge</span>[<span class="type">ED</span>]  =&gt;  <span class="type">ED2</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapEdges</span></span>[<span class="type">ED2</span>](map: (<span class="type">PartitionID</span>, <span class="type">Iterator</span>[<span class="type">Edge</span>[<span class="type">ED</span>]])  =&gt;  <span class="type">Iterator</span>[<span class="type">ED2</span>]):<span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapTriplets</span></span>[<span class="type">ED2</span>](map: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">ED2</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapTriplets</span></span>[<span class="type">ED2</span>](map: (<span class="type">PartitionID</span>, <span class="type">Iterator</span>[<span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]])  =&gt;</span><br><span class="line">    <span class="type">Iterator</span>[<span class="type">ED2</span>]): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">    <span class="comment">//  Modify  the  graph  structure</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span></span>: <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subgraph</span></span>(</span><br><span class="line">            epred: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>,<span class="type">ED</span>]  =&gt;  <span class="type">Boolean</span> = (x  =&gt;  <span class="literal">true</span>),</span><br><span class="line">            vpred: (<span class="type">VertexID</span>, <span class="type">VD</span>)  =&gt;  <span class="type">Boolean</span> = ((v, d)  =&gt;  <span class="literal">true</span>)</span><br><span class="line">        ): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mask</span></span>[<span class="type">VD2</span>, <span class="type">ED2</span>](other: <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED2</span>]): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">groupEdges</span></span>(merge: (<span class="type">ED</span>, <span class="type">ED</span>)  =&gt;  <span class="type">ED</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="comment">//  Join  RDDs  with  the  graph</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">joinVertices</span></span>[<span class="type">U</span>](table: <span class="type">RDD</span>[(<span class="type">VertexID</span>, <span class="type">U</span>)])(mapFunc: (<span class="type">VertexID</span>, <span class="type">VD</span>, <span class="type">U</span>)</span><br><span class="line">    =&gt;  <span class="type">VD</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">outerJoinVertices</span></span>[<span class="type">U</span>, <span class="type">VD2</span>](other: <span class="type">RDD</span>[(<span class="type">VertexID</span>, <span class="type">U</span>)])</span><br><span class="line">    (mapFunc: (<span class="type">VertexID</span>, <span class="type">VD</span>,  <span class="type">Option</span>[<span class="type">U</span>])  =&gt;  <span class="type">VD2</span>)</span><br><span class="line">    : <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="comment">//  Aggregate  information  about  adjacent  triplets</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighborIds</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>): <span class="type">VertexRDD</span>[<span class="type">Array</span>[<span class="type">VertexID</span>]]</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighbors</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>):<span class="type">VertexRDD</span>[<span class="type">Array</span>[(<span class="type">VertexID</span>, <span class="type">VD</span>)]]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapReduceTriplets</span></span>[<span class="type">A</span>: <span class="type">ClassTag</span>](</span><br><span class="line">            mapFunc: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">Iterator</span>[(<span class="type">VertexID</span>, <span class="type">A</span>)],</span><br><span class="line">            reduceFunc: (<span class="type">A</span>, <span class="type">A</span>)  =&gt; <span class="type">A</span>,</span><br><span class="line">            activeSetOpt: <span class="type">Option</span>[(<span class="type">VertexRDD</span>[_ _], <span class="type">EdgeDirection</span>)] =  <span class="type">None</span></span><br><span class="line">        ): <span class="type">VertexRDD</span>[<span class="type">A</span>]</span><br><span class="line">    <span class="comment">//  Iterative  graph-parallel  computation</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pregel</span></span>[<span class="type">A</span>](initialMsg: <span class="type">A</span>, maxIterations: <span class="type">Int</span>, activeDirection:  <span class="type">EdgeDirection</span>)(</span><br><span class="line">            vprog: (<span class="type">VertexID</span>, <span class="type">VD</span>, <span class="type">A</span>)  =&gt;  <span class="type">VD</span>,</span><br><span class="line">            sendMsg: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">Iterator</span>[(<span class="type">VertexID</span>,<span class="type">A</span>)],</span><br><span class="line">            mergeMsg: (<span class="type">A</span>, <span class="type">A</span>)  =&gt; <span class="type">A</span></span><br><span class="line">        ): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="comment">//  Basic  graph  algorithms</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pageRank</span></span>(tol: <span class="type">Double</span>, resetProb: <span class="type">Double</span> = <span class="number">0.15</span>): <span class="type">Graph</span>[<span class="type">Double</span>, <span class="type">Double</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connectedComponents</span></span>(): <span class="type">Graph</span>[<span class="type">VertexID</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">triangleCount</span></span>(): <span class="type">Graph</span>[<span class="type">Int</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stronglyConnectedComponents</span></span>(numIter: <span class="type">Int</span>): <span class="type">Graph</span>[<span class="type">VertexID</span>, <span class="type">ED</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a><strong>属性操作</strong></h3><p>和RDD的 map操作类似，属性图包含以下内容：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapVertices</span></span>[<span class="type">VD2</span>](map: (<span class="type">VertexId</span>, <span class="type">VD</span>)  =&gt;  <span class="type">VD2</span>): <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapEdges</span></span>[<span class="type">ED2</span>](map: <span class="type">Edge</span>[<span class="type">ED</span>]  =&gt;  <span class="type">ED2</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapTriplets</span></span>[<span class="type">ED2</span>](map: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">ED2</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED2</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个运算产生一个新的图,这个图的顶点和边属性通过 map方法修改。</p>
+<p>请注意，在所有情况下的图的机构不受影响。这是这些运算符的关键所在，它允许新得到图可以复用初始图的结构索引。下面的代码段在逻辑上是等效的，但第一个不保留结构索引，所以不会从 GraphX 系统优化中受益：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> newVertices = graph.vertices.map &#123;  <span class="keyword">case</span> (id, attr)  =&gt; (id, mapUdf(id,</span><br><span class="line">attr)) &#125;</span><br><span class="line"><span class="keyword">val</span> newGraph =  <span class="type">Graph</span>(newVertices, graph.edges)</span><br></pre></td></tr></table></figure>
+
+<p>相反，使用 mapVertices保存索引：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> newGraph = graph.mapVertices((id, attr)  =&gt; mapUdf(id, attr))</span><br></pre></td></tr></table></figure>
+
+<p>这些操作经常被用来初始化图的特定计算或者去除不必要的属性。例如，给定一个将出度作为顶点的属性图（我们之后将介绍如何构建这样的图），我们初始化它作为 PageRank：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Given a graph where the vertex property is the out-degree</span></span><br><span class="line"><span class="keyword">val</span> inputGraph: <span class="type">Graph</span>[<span class="type">Int</span>, <span class="type">String</span>] =</span><br><span class="line">    graph.outerJoinVertices(graph.outDegrees)((vid,  _ _,  degOpt)  =&gt; degOpt.getOrElse(<span class="number">0</span>))</span><br><span class="line"><span class="comment">// Construct a graph where each edge contains the weight</span></span><br><span class="line"><span class="comment">// and each vertex is the initial PageRank</span></span><br><span class="line"><span class="keyword">val</span> outputGraph: <span class="type">Graph</span>[<span class="type">Double</span>, <span class="type">Double</span>] =</span><br><span class="line">    inputGraph.mapTriplets(triplet  =&gt; <span class="number">1.0</span> / triplet.srcAttr).mapVertices((id, _ _) =&gt; <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="结构操作"><a href="#结构操作" class="headerlink" title="结构操作"></a><strong>结构操作</strong></h4><p>当前 GraphX 只支持一组简单的常用结构化操作，我们希望将来增加更多的操作。以下是基本的结构运算符的列表。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span></span>: <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subgraph</span></span>(epred: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>,<span class="type">ED</span>]  =&gt;  <span class="type">Boolean</span>, vpred: (<span class="type">VertexId</span>, <span class="type">VD</span>)  =&gt;  <span class="type">Boolean</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mask</span></span>[<span class="type">VD2</span>, <span class="type">ED2</span>](other: <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED2</span>]): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">groupEdges</span></span>(merge: (<span class="type">ED</span>, <span class="type">ED</span>)  =&gt;  <span class="type">ED</span>): <span class="type">Graph</span>[<span class="type">VD</span>,<span class="type">ED</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该reverse操作符返回一个新图,新图的边的方向都反转了。这是非常实用的，例如，试图计算逆向PageRank。因为反向操作不修改顶点或边属性或改变的边的数目，它的实现不需要数据移动或复制。</p>
+<p>该子图subgraph将顶点和边的预测作为参数，并返回一个图，它只包含满足了顶点条件的顶点图（值为true），以及满足边条件 并连接顶点的边。subgraph子运算符可应用于很多场景，以限制图表的顶点和边是我们感兴趣的，或消除断开的链接。例如，在下面的代码中，我们删除已损坏的链接：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an RDD for the vertices</span></span><br><span class="line"><span class="keyword">val</span> users: <span class="type">RDD</span>[(<span class="type">VertexId</span>, (<span class="type">String</span>, <span class="type">String</span>))] =</span><br><span class="line">        sc.parallelize( <span class="type">Array</span>((<span class="number">3</span>L, (<span class="string">"rxin"</span>, <span class="string">"student"</span>)), (<span class="number">7</span>L, (<span class="string">"jgonzal"</span>,<span class="string">"postdoc"</span>)),(<span class="number">5</span>L, (<span class="string">"franklin"</span>, <span class="string">"prof"</span>)), (<span class="number">2</span>L, (<span class="string">"istoica"</span>, <span class="string">"prof"</span>)),(<span class="number">4</span>L, (<span class="string">"peter"</span>, <span class="string">"student"</span>))))</span><br><span class="line"><span class="comment">// Create an RDD for edges</span></span><br><span class="line"><span class="keyword">val</span> relationships: <span class="type">RDD</span>[<span class="type">Edge</span>[<span class="type">String</span>]] =</span><br><span class="line">        sc.parallelize( <span class="type">Array</span>( <span class="type">Edge</span>(<span class="number">3</span>L, <span class="number">7</span>L, <span class="string">"collab"</span>), <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">3</span>L, <span class="string">"advisor"</span>),<span class="type">Edge</span>(<span class="number">2</span>L, <span class="number">5</span>L, <span class="string">"colleague"</span>),  <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">7</span>L, <span class="string">"pi"</span>),<span class="type">Edge</span>(<span class="number">4</span>L, <span class="number">0</span>L, <span class="string">"student"</span>), <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">0</span>L, <span class="string">"colleague"</span>)))</span><br><span class="line"><span class="comment">// Define a default user in case there are relationship with missing user</span></span><br><span class="line"><span class="keyword">val</span> defaultUser = (<span class="string">"John Doe"</span>, <span class="string">"Missing"</span>)</span><br><span class="line"><span class="comment">// Build the initial Graph</span></span><br><span class="line"><span class="keyword">val</span> graph =  <span class="type">Graph</span>(users, relationships, defaultUser)</span><br><span class="line"><span class="comment">// Notice that there is a user 0 (for which we have no information) connected to users</span></span><br><span class="line"><span class="comment">// 4 (peter) and 5 (franklin).</span></span><br><span class="line">graph.triplets.map(</span><br><span class="line">    triplet  =&gt; triplet.srcAttr._1 + <span class="string">" is the "</span> + triplet.attr + <span class="string">" of "</span> + triplet.dstAttr._1</span><br><span class="line">).collect.foreach(println(_ _))</span><br><span class="line"><span class="comment">// Remove missing vertices as well as the edges to connected to them</span></span><br><span class="line"><span class="keyword">val</span> validGraph = graph.subgraph(vpred = (id, attr)  =&gt; attr._2 != <span class="string">"Missing"</span>)</span><br><span class="line"><span class="comment">// The valid subgraph will disconnect users 4 and 5 by removing user 0</span></span><br><span class="line">validGraph.vertices.collect.foreach(println(_ _))</span><br><span class="line">validGraph.triplets.map(</span><br><span class="line">    triplet  =&gt; triplet.srcAttr._1 + <span class="string">" is the "</span> + triplet.attr + <span class="string">" of "</span> + triplet.dstAttr._1</span><br><span class="line">).collect.foreach(println(_ _))</span><br></pre></td></tr></table></figure>
+
+<p>注意，在上面的例子中，仅提供了顶点条件。如果不提供顶点或边的条件，在subgraph 操作中默认为 真 。</p>
+<p>mask操作返回一个包含输入图中所有的顶点和边的图。这可以用来和subgraph一起使用，以限制基于属性的另一个相关图。例如，我们用去掉顶点的图来运行联通分量，并且限制输出为合法的子图。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Run Connected Components</span></span><br><span class="line"><span class="keyword">val</span> ccGraph = graph.connectedComponents()  <span class="comment">// No longer contains missing field</span></span><br><span class="line"><span class="comment">// Remove missing vertices as well as the edges to connected to them</span></span><br><span class="line"><span class="keyword">val</span> validGraph = graph.subgraph(vpred = (id, attr)  =&gt; attr._2 != <span class="string">"Missing"</span>)</span><br><span class="line"><span class="comment">// Restrict the answer to the valid subgraph</span></span><br><span class="line"><span class="keyword">val</span> validCCGraph = ccGraph.mask(validGraph)</span><br></pre></td></tr></table></figure>
+
+<p>该 groupEdges操作合并在多重图中的平行边（即重复顶点对之间的边）。在许多数值计算的应用中，平行的边缘可以加入 （他们的权重的会被汇总）为单条边从而降低了图形的大小。</p>
+<h4 id="Join-操作"><a href="#Join-操作" class="headerlink" title="Join 操作"></a><strong>Join 操作</strong></h4><p>在许多情况下，有必要从外部集合（RDDS）中加入图形数据。例如，我们可能有额外的用户属性，想要与现有的图形合并，或者我们可能需要从一个图选取一些顶点属性到另一个图。这些任务都可以使用来 join 经操作完成。下面我们列出的关键联接运算符：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">joinVertices</span></span>[<span class="type">U</span>](table: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">U</span>)])(map: (<span class="type">VertexId</span>, <span class="type">VD</span>, <span class="type">U</span>)  =&gt; <span class="type">VD</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">outerJoinVertices</span></span>[<span class="type">U</span>, <span class="type">VD2</span>](table: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">U</span>)])(map: (<span class="type">VertexId</span>, <span class="type">VD</span>,  <span class="type">Option</span>[<span class="type">U</span>])  =&gt;  <span class="type">VD2</span>): <span class="type">Graph</span>[<span class="type">VD2</span>, <span class="type">ED</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该 joinVertices运算符连接与输入RDD的顶点，并返回一个新的图，新图的顶点属性是通过用户自定义的 map功能作用在被连接的顶点上。没有匹配的RDD保留其原始值。</p>
+<p>需要注意的是，如果RDD顶点包含多于一个的值，其中只有一个将会被使用。因此，建议在输入的RDD在初始为唯一的时候，使用下面的 pre-index 所得到的值以加快后续join。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> nonUniqueCosts: <span class="type">RDD</span>[(<span class="type">VertexID</span>, <span class="type">Double</span>)]</span><br><span class="line"><span class="keyword">val</span> uniqueCosts: <span class="type">VertexRDD</span>[<span class="type">Double</span>] = </span><br><span class="line">        graph.vertices.aggregateUsingIndex(nonUnique, (a,b) =&gt; a + b)</span><br><span class="line"><span class="keyword">val</span> joinedGraph = graph.joinVertices(uniqueCosts)(</span><br><span class="line">        (id, oldCost, extraCost)  =&gt; oldCost + extraCost)</span><br></pre></td></tr></table></figure>
+
+<p>更一般 outerJoinVertices操作类似于joinVertices，除了将用户定义的map函数应用到所有的顶点，并且可以改变顶点的属性类型。因为不是所有的顶点可能会在输入匹配值RDD的mpa函数接受一个Optin类型。例如，我们可以通过</p>
+<p>用 outDegree 初始化顶点属性来设置一个图的 PageRank。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> outDegrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>] = graph.outDegrees</span><br><span class="line"><span class="keyword">val</span> degreeGraph = graph.outerJoinVertices(outDegrees) &#123; </span><br><span class="line">    (id, oldAttr, outDegOpt)  =&gt;</span><br><span class="line">        outDegOpt  <span class="keyword">match</span> &#123;</span><br><span class="line">            <span class="keyword">case</span>  <span class="type">Some</span>(outDeg)  =&gt; outDeg</span><br><span class="line">            <span class="keyword">case</span>  <span class="type">None</span>  =&gt; <span class="number">0</span>  <span class="comment">// No outDegree means zero outDegree</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>您可能已经注意到，在上面的例子中采用了多个参数列表的curried函数模式（例如，f(a)(b)）。虽然我们可以有同样写f(a)(b)为f(a,b)，这将意味着该类型推断b不依赖于a。其结果是，用户将需要提供类型标注给用户自定义的函数：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> joinedGraph = graph.joinVertices(uniqueCosts,</span><br><span class="line">    (id: <span class="type">VertexID</span>, oldCost: <span class="type">Double</span>, extraCost: <span class="type">Double</span>)  =&gt; oldCost + extraCost)</span><br></pre></td></tr></table></figure>
+
+<h4 id="邻居聚集"><a href="#邻居聚集" class="headerlink" title="邻居聚集"></a><strong>邻居聚集</strong></h4><p>图形计算的一个关键部分是聚集每个顶点的邻域信息。例如，我们可能想要知道每个用户追随者的数量或每个用户的追随者的平均年龄。许多图迭代算法（如PageRank，最短路径，连通分量等）反复聚集邻居节点的属性， （例如，当前的 PageRank 值，到源节点的最短路径，最小可达顶点 ID）。</p>
+<h4 id="mapReduceTriplets"><a href="#mapReduceTriplets" class="headerlink" title="mapReduceTriplets"></a><strong>mapReduceTriplets</strong></h4><p>GraphX中核心（大量优化）聚集操作是 mapReduceTriplets操作：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapReduceTriplets</span></span>[<span class="type">A</span>](</span><br><span class="line">        map: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">Iterator</span>[(<span class="type">VertexId</span>, <span class="type">A</span>)],</span><br><span class="line">        reduce: (<span class="type">A</span>, <span class="type">A</span>)  =&gt; <span class="type">A</span> </span><br><span class="line">    ): <span class="type">VertexRDD</span>[<span class="type">A</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该 mapReduceTriplets运算符将用户定义的map函数作为输入，并且将map作用到每个triplet，并可以得到triplet上所有的顶点（或者两个，或者空）的信息。为了便于优化预聚合，我们目前仅支持发往triplet的源或目的地的顶点信息。用户定义的reduce功能将合并所有目标顶点相同的信息。该mapReduceTriplets操作返回 VertexRDD [A] ，包含所有以每个顶点作为目标节点集合消息（类型 A）。没有收到消息的顶点不包含在返回 VertexRDD。</p>
+<p>需要注意的是 mapReduceTriplets需要一个附加的可选activeSet（上面没有显示,请参见API文档的详细信息），这限制了 VertexRDD地图提供的邻接边的map阶段：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activeSetOpt: <span class="type">Option</span>[(<span class="type">VertexRDD</span>[_], <span class="type">EdgeDirection</span>)] = <span class="type">None</span></span><br></pre></td></tr></table></figure>
+
+<p>该EdgeDirection指定了哪些和顶点相邻的边包含在map阶段。如果该方向是in，则用户定义的 mpa函数 将仅仅作用目标顶点在与活跃集中。如果方向是out，则该map函数将仅仅作用在那些源顶点在活跃集中的边。如果方向是 either，则map函数将仅在任一顶点在活动集中的边。如果方向是both，则map函数将仅作用在两个顶点都在活跃集中。活跃集合必须来自图的顶点中。限制计算到相邻顶点的一个子集三胞胎是增量迭代计算中非常必要，而且是GraphX 实现Pregel中的关键。</p>
+<p>在下面的例子中我们使用 mapReduceTriplets算子来计算高级用户追随者的平均年龄。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Import random graph generation library</span></span><br><span class="line"><span class="keyword">import</span>  org.apache.spark.graphx.util.<span class="type">GraphGenerators</span></span><br><span class="line"><span class="comment">// Create a graph with "age" as the vertex property. Here we use a random graph for simplicity.</span></span><br><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[<span class="type">Double</span>, <span class="type">Int</span>] =</span><br><span class="line">        <span class="type">GraphGenerators</span>.logNormalGraph(sc, numVertices = <span class="number">100</span>).mapVertices( </span><br><span class="line">            (id, _ _) =&gt; id.toDouble )</span><br><span class="line"><span class="comment">// Compute the number of older followers and their total age</span></span><br><span class="line"><span class="keyword">val</span> olderFollowers: <span class="type">VertexRDD</span>[(<span class="type">Int</span>, <span class="type">Double</span>)] = graph.mapReduceTriplets[(<span class="type">Int</span>,<span class="type">Double</span>)](</span><br><span class="line">    triplet  =&gt; &#123;  <span class="comment">// Map Function</span></span><br><span class="line">        <span class="keyword">if</span> (triplet.srcAttr &gt; triplet.dstAttr) &#123;</span><br><span class="line">            <span class="comment">// Send message to destination vertex containing counter and age</span></span><br><span class="line">            <span class="type">Iterator</span>((triplet.dstId, (<span class="number">1</span>, triplet.srcAttr)))</span><br><span class="line">        &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Don't send a message for this triplet</span></span><br><span class="line">            <span class="type">Iterator</span>.empty</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Add counter and age</span></span><br><span class="line">    (a, b)  =&gt; (a._1 + b._1, a._2 + b._2)  <span class="comment">// Reduce Function</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">// Divide total age by number of older followers to get average age of older followers</span></span><br><span class="line"><span class="keyword">val</span> avgAgeOfOlderFollowers: <span class="type">VertexRDD</span>[<span class="type">Double</span>] =</span><br><span class="line">    olderFollowers.mapValues( (id, value)  =&gt; value  </span><br><span class="line">        <span class="keyword">match</span> &#123;  <span class="keyword">case</span> (count, totalAge) =&gt; totalAge / count &#125; )</span><br><span class="line"><span class="comment">// Display the results</span></span><br><span class="line">avgAgeOfOlderFollowers.collect.foreach(println(_ _))</span><br></pre></td></tr></table></figure>
+
+<p>注意，当消息（和消息的总和）是固定尺寸的时候（例如，浮点运算和加法而不是列表和连接）时，mapReduceTriplets 操作执行。更精确地说，结果 mapReduceTriplets 最好是每个顶点度的次线性函数。</p>
+<h4 id="计算度信息"><a href="#计算度信息" class="headerlink" title="计算度信息"></a><strong>计算度信息</strong></h4><p>一个常见的聚合任务是计算每个顶点的度：每个顶点相邻边的数目。在有向图的情况下，往往需要知道入度，出度，以及总度。该GraphOps类包含一系列的运算来计算每个顶点的度的集合。例如，在下面我们计算最大的入度，出度，总度：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Define a reduce operation to compute the highest degree vertex</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max</span></span>(a: (<span class="type">VertexId</span>, <span class="type">Int</span>), b: (<span class="type">VertexId</span>, <span class="type">Int</span>)): (<span class="type">VertexId</span>, <span class="type">Int</span>) = &#123;</span><br><span class="line">    <span class="keyword">if</span> (a._2 &gt; b._2) a  <span class="keyword">else</span> b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Compute the max degrees</span></span><br><span class="line"><span class="keyword">val</span> maxInDegree: (<span class="type">VertexId</span>, <span class="type">Int</span>) = graph.inDegrees.reduce(max)</span><br><span class="line"><span class="keyword">val</span> maxOutDegree: (<span class="type">VertexId</span>, <span class="type">Int</span>) = graph.outDegrees.reduce(max)</span><br><span class="line"><span class="keyword">val</span> maxDegrees: (<span class="type">VertexId</span>, <span class="type">Int</span>) = graph.degrees.reduce(max)</span><br></pre></td></tr></table></figure>
+
+<h4 id="收集邻居"><a href="#收集邻居" class="headerlink" title="收集邻居"></a><strong>收集邻居</strong></h4><p>在某些情况下可能更容易通过收集相邻顶点和它们的属性来表达在每个顶点表示的计算。这可以通过使用容易地实现 collectNeighborIds和 collectNeighbors运算。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphOps</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighborIds</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>): <span class="type">VertexRDD</span>[<span class="type">Array</span>[<span class="type">VertexId</span>]]</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighbors</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>): <span class="type">VertexRDD</span>[ <span class="type">Array</span>[(<span class="type">VertexId</span>, <span class="type">VD</span>)] ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，这些运算计算代价非常高，因为他们包含重复信息，并且需要大量的通信。如果可能的话尽量直接使用 mapReduceTriplets。</p>
+<h4 id="缓存和清空缓存"><a href="#缓存和清空缓存" class="headerlink" title="缓存和清空缓存"></a><strong>缓存和清空缓存</strong></h4><p>在Spark中，RDDS默认并不保存在内存中。为了避免重复计算，当他们需要多次使用时，必须明确地使用缓存（见 Spark编程指南）。在GraphX中Graphs行为方式相同。当需要多次使用图形时，一定要首先调用Graph.cache。</p>
+<p>在迭代计算，为了最佳性能，也可能需要清空缓存。默认情况下，缓存的RDDS和图表将保留在内存中，直到内存压力迫使他们按照LRU顺序被删除。对于迭代计算，之前的迭代的中间结果将填补缓存。虽然他们最终将被删除，内存中的不必要的数据会使垃圾收集机制变慢。一旦它们不再需要缓存，就立即清空中间结果的缓存，这将会更加有效。这涉及物化（缓存和强迫）图形或RDD每次迭代，清空所有其他数据集，并且只使用物化数据集在未来的迭代中。然而，由于图形是由多个RDDS的组成的，正确地持续化他们将非常困难。对于迭代计算，我们推荐使用 Pregel API，它正确地 unpersists 中间结果。</p>
+<h3 id="Pregel-的-API"><a href="#Pregel-的-API" class="headerlink" title="Pregel 的 API"></a><strong>Pregel 的 API</strong></h3><p>图本质上是递归的数据结构，因为顶点的性质取决于它们的邻居，这反过来又依赖于邻居的属性。其结果是许多重要的图形算法迭代重新计算每个顶点的属性，直到定点条件满足为止。一系列图像并行方法已经被提出来表达这些迭代算法。GraphX 提供了类似与Pregel 的操作，这是 Pregel 和 GraphLab 方法的融合。</p>
+<p>从总体来看，Graphx 中的 Pregel 是一个批量同步并行消息传递抽象  约束到该图的拓扑结构。Pregel 运算符在一系列超步骤中，其中顶点收到从之前的步骤中流入消息的总和，计算出顶点属性的新值，然后在下一步中将消息发送到相邻的顶点。不同于Pregel，而是更像GraphLab消息被并行计算，并且作为edge-triplet，该消息的计算可以访问的源和目的地的顶点属性。没有收到消息的顶点在一个超级步跳过。当没有消息是，Pregel 停止迭代，并返回最终图形。</p>
+<p>请注意，不像更标准的 Pregel的实现，在GraphX中顶点只能将消息发送到邻近的顶点，并且信息构建是通过使用用户定义的消息函数并行执行。这些限制使得在 GraphX 有额外的优化。</p>
+<p>以下是类型签名 Pregel，以及一个 初始的实现 （注调用graph.cache已被删除）中：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">GraphOps</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pregel</span></span>[<span class="type">A</span>](</span><br><span class="line">    initialMsg: <span class="type">A</span>,</span><br><span class="line">    maxIter: <span class="type">Int</span> =  <span class="type">Int</span>. <span class="type">MaxValue</span>,</span><br><span class="line">    activeDir: <span class="type">EdgeDirection</span> =  <span class="type">EdgeDirection</span>. <span class="type">Out</span>)(</span><br><span class="line">        vprog: (<span class="type">VertexId</span>, <span class="type">VD</span>, <span class="type">A</span>)  =&gt;  <span class="type">VD</span>,</span><br><span class="line">        sendMsg: <span class="type">EdgeTriplet</span>[<span class="type">VD</span>, <span class="type">ED</span>]  =&gt;  <span class="type">Iterator</span>[(<span class="type">VertexId</span>, <span class="type">A</span>)],</span><br><span class="line">        mergeMsg: (<span class="type">A</span>, <span class="type">A</span>)  =&gt; <span class="type">A</span></span><br><span class="line">    ): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>] = &#123;</span><br><span class="line">        <span class="comment">// Receive the initial message at each vertex</span></span><br><span class="line">        <span class="keyword">var</span>  g  =  mapVertices(  (vid,  vdata)  =&gt;  vprog(vid,  vdata, initialMsg) ).cache()</span><br><span class="line">        <span class="comment">// compute the messages</span></span><br><span class="line">        <span class="keyword">var</span> messages = g.mapReduceTriplets(sendMsg, mergeMsg)</span><br><span class="line">        <span class="keyword">var</span> activeMessages = messages.count()</span><br><span class="line">        <span class="comment">// Loop until no messages remain or maxIterations is achieved</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> (activeMessages &gt; <span class="number">0</span> &amp;&amp; i &lt; maxIterations) &#123;</span><br><span class="line">            <span class="comment">//  Receive  the  messages:------</span></span><br><span class="line">            <span class="comment">// Run the vertex program on all vertices that receive messages</span></span><br><span class="line">            <span class="keyword">val</span> newVerts = g.vertices.innerJoin(messages)(vprog).cache()</span><br><span class="line">            <span class="comment">// Merge the new vertex values back into the graph</span></span><br><span class="line">            g  =  g.outerJoinVertices(newVerts)  &#123;  (vid,  old,  newOpt)  =&gt;  newOpt.getOrElse(old) &#125;.cache()</span><br><span class="line">            <span class="comment">//  Send  Messages:-----</span></span><br><span class="line">            --</span><br><span class="line">            <span class="comment">// Vertices that didn't receive a message above don't appear in newVerts and therefore don't</span></span><br><span class="line">            <span class="comment">// get to send messages. More precisely the map phase of mapReduceTriplets is only invoked</span></span><br><span class="line">            <span class="comment">// on edges in the activeDir of vertices in newVerts</span></span><br><span class="line">            messages = g.mapReduceTriplets(sendMsg, mergeMsg,  <span class="type">Some</span>((newVerts, activeDir))).cache()</span><br><span class="line">            activeMessages = messages.count()</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        g</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，Pregel 需要两个参数列表（即graph.pregel(list1)(list2)）。第一个参数列表中包含的配置参数包括初始信息，迭代的最大次数，以及发送消息（默认出边）的方向。第二个参数列表包含用于用户定义的接收消息（顶点程序 vprog），计算消息（sendMsg），并结合信息 mergeMsg。</p>
+<p>我们可以使用 Pregel 运算符来表达计算，如在下面的例子中的单源最短路径。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  org.apache.spark.graphx._</span><br><span class="line"><span class="comment">// Import random graph generation library</span></span><br><span class="line"><span class="keyword">import</span>  org.apache.spark.graphx.util.<span class="type">GraphGenerators</span></span><br><span class="line"><span class="comment">// A graph with edge attributes containing distances</span></span><br><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[<span class="type">Int</span>, <span class="type">Double</span>] =</span><br><span class="line">        <span class="type">GraphGenerators</span>.logNormalGraph(sc, numVertices = <span class="number">100</span>).mapEdges(e =&gt; e.attr.toDouble)</span><br><span class="line"><span class="keyword">val</span> sourceId: <span class="type">VertexId</span> = <span class="number">42</span>  <span class="comment">// The ultimate source</span></span><br><span class="line"><span class="comment">// Initialize the graph such that all vertices except the root have distance infinity.</span></span><br><span class="line"><span class="keyword">val</span> initialGraph = graph.mapVertices((id, _ _)  =&gt;  <span class="keyword">if</span> (id == sourceId) <span class="number">0.0</span>  <span class="keyword">else</span> <span class="type">Double</span>.<span class="type">PositiveInfinity</span>)</span><br><span class="line"><span class="keyword">val</span> sssp = initialGraph.pregel( <span class="type">Double</span>. <span class="type">PositiveInfinity</span>)(</span><br><span class="line">    (id, dist, newDist)  =&gt; math.min(dist, newDist),  <span class="comment">// Vertex Program</span></span><br><span class="line">    triplet  =&gt; &#123; <span class="comment">// Send Message</span></span><br><span class="line">        <span class="keyword">if</span> (triplet.srcAttr + triplet.attr &lt; triplet.dstAttr) &#123;</span><br><span class="line">            <span class="type">Iterator</span>((triplet.dstId, triplet.srcAttr + triplet.attr))</span><br><span class="line">        &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">Iterator</span>.empty</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    (a,b)  =&gt; math.min(a,b)  <span class="comment">// Merge Message</span></span><br><span class="line">)</span><br><span class="line">println(sssp.vertices.collect.mkString(<span class="string">"\n"</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Graph-Builder"><a href="#Graph-Builder" class="headerlink" title="Graph Builder"></a><strong>Graph Builder</strong></h4><p>GraphX 提供多种从RDD或者硬盘中的节点和边中构建图。默认情况下，没有哪种Graph Builder会重新划分图的边;相反，边会留在它们的默认分区（如原来的HDFS块）。Graph.groupEdges需要的图形进行重新分区，因为它假设相同的边将被放在同一个分区同一位置，所以你必须在调用Graph.partitionBy之前调用groupEdges。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span>  <span class="title">GraphLoader</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">edgeListFile</span></span>(</span><br><span class="line">        sc: <span class="type">SparkContext</span>,</span><br><span class="line">        path: <span class="type">String</span>,</span><br><span class="line">        canonicalOrientation: <span class="type">Boolean</span> =  <span class="literal">false</span>,</span><br><span class="line">        minEdgePartitions: <span class="type">Int</span> = <span class="number">1</span></span><br><span class="line">    ): <span class="type">Graph</span>[<span class="type">Int</span>, <span class="type">Int</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>GraphLoader.edgeListFile提供了一种从磁盘上边的列表载入图的方式。它解析了一个以下形式的邻接列表（源顶点ID，目的地顶点ID）对，忽略以#开头的注释行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># This is a comment</span><br><span class="line">2 1</span><br><span class="line">4 1</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+
+<p>它从指定的边创建了一个图表，自动边中提到的任何顶点。所有顶点和边的属性默认为1。canonicalOrientation参数允许重新定向边的正方向（srcId &lt; dstId），这是必需的connected-component算法。该minEdgePartitions参数指定边缘分区生成的最小数目;例如，在HDFS文件具有多个块, 那么就有多个边的分割.</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Graph</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">apply</span></span>[<span class="type">VD</span>, <span class="type">ED</span>](</span><br><span class="line">            vertices: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">VD</span>)],</span><br><span class="line">            edges: <span class="type">RDD</span>[<span class="type">Edge</span>[<span class="type">ED</span>]],</span><br><span class="line">            defaultVertexAttr: <span class="type">VD</span> =  <span class="literal">null</span></span><br><span class="line">    ): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fromEdges</span></span>[<span class="type">VD</span>, <span class="type">ED</span>](</span><br><span class="line">            edges: <span class="type">RDD</span>[<span class="type">Edge</span>[<span class="type">ED</span>]],</span><br><span class="line">            defaultValue: <span class="type">VD</span>): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">ED</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fromEdgeTuples</span></span>[<span class="type">VD</span>](</span><br><span class="line">            rawEdges: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">VertexId</span>)],</span><br><span class="line">            defaultValue: <span class="type">VD</span>,</span><br><span class="line">            uniqueEdges: <span class="type">Option</span>[<span class="type">PartitionStrategy</span>] =  <span class="type">None</span></span><br><span class="line">    ): <span class="type">Graph</span>[<span class="type">VD</span>, <span class="type">Int</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Graph.apply允许从顶点和边的RDDS中创建的图。重复的顶点会任意选择，并在边RDD中存在的顶点， 但不是顶点RDD会被赋值为默认属性。</p>
+<p>Graph.fromEdges允许从只有边的元组RDD创建的图，自动生成由边中存在的顶点，并且给这些顶点赋值为缺省值。</p>
+<p>Graph.fromEdgeTuples允许从只有边的元组的RDD图中创建图，并将的边的值赋为1，并自动创建边中所存在的顶点，并设置为缺省值。它也支持删除重边; 进行删除重边时，传入 PartitionStrategy的Some 作为uniqueEdges参数（例如，uniqueEdges=Some（PartitionStrategy.RandomVertexCut））。分区策略是必要的，因为定位在同一分区相同的边，才能使他们能够进行重复删除。</p>
+<h3 id="顶点和边-RDDs"><a href="#顶点和边-RDDs" class="headerlink" title="顶点和边 RDDs"></a><strong>顶点和边 RDDs</strong></h3><p>GraphX 公开了图中 RDD 顶点和边的视图。然而，因为GraphX将顶点和边保存在优化的数据结构，并且为这些数据结构提供额外的功能，顶点和边分别作为VertexRDD和EdgeRDD返回。在本节中，我们回顾一些这些类型的其他有用的功能。</p>
+<h4 id="VertexRDDs"><a href="#VertexRDDs" class="headerlink" title="VertexRDDs"></a><strong>VertexRDDs</strong></h4><p>该VertexRDD [A]继承RDD [(VertexID, A)]，并增加了一些额外的限制 ，每个VertexID只出现 一次 。此外，VertexRDD[A]表示一个顶点集合，其中每个顶点与类型的属性为A。在内部，这是通过将顶点属性中存储在一个可重复使用的哈希表。因此，如果两个VertexRDDs继承自相同的基类VertexRDD（例如，通过filter或mapValues ），他们可以参加在常数时间内实现合并，而不需要重新计算hash值。要充分利用这个索引数据结构，VertexRDD提供了以下附加功能：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">VertexRDD</span>[<span class="type">VD</span>]  <span class="keyword">extends</span>  <span class="title">RDD</span>[(<span class="type">VertexID</span>, <span class="type">VD</span>)] </span>&#123;</span><br><span class="line">    <span class="comment">// Filter the vertex set but preserves the internal index</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">filter</span></span>(pred: <span class="type">Tuple2</span>[<span class="type">VertexId</span>, <span class="type">VD</span>]  =&gt;  <span class="type">Boolean</span>): <span class="type">VertexRDD</span>[<span class="type">VD</span>]</span><br><span class="line">    <span class="comment">// Transform the values without changing the ids (preserves the internal index)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapValues</span></span>[<span class="type">VD2</span>](map: <span class="type">VD</span> =&gt;  <span class="type">VD2</span>): <span class="type">VertexRDD</span>[<span class="type">VD2</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mapValues</span></span>[<span class="type">VD2</span>](map: (<span class="type">VertexId</span>, <span class="type">VD</span>)  =&gt;  <span class="type">VD2</span>): <span class="type">VertexRDD</span>[<span class="type">VD2</span>]</span><br><span class="line">    <span class="comment">// Remove vertices from this set that appear in the other set</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">diff</span></span>(other: <span class="type">VertexRDD</span>[<span class="type">VD</span>]): <span class="type">VertexRDD</span>[<span class="type">VD</span>]</span><br><span class="line">    <span class="comment">// Join operators that take advantage of the internal indexing to accelerate joins (substantially)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leftJoin</span></span>[<span class="type">VD2</span>, <span class="type">VD3</span>](other: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">VD2</span>)])(f: (<span class="type">VertexId</span>, <span class="type">VD</span>, <span class="type">Option</span>[<span class="type">VD2</span>])  =&gt;  <span class="type">VD3</span>): <span class="type">VertexRDD</span>[<span class="type">VD3</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">innerJoin</span></span>[<span class="type">U</span>, <span class="type">VD2</span>](other: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">U</span>)])(f: (<span class="type">VertexId</span>, <span class="type">VD</span>, <span class="type">U</span>)  =&gt; <span class="type">VD2</span>): <span class="type">VertexRDD</span>[<span class="type">VD2</span>]</span><br><span class="line">    <span class="comment">// Use the index on this RDD to accelerate a `reduceByKey` operation on the input RDD.</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">aggregateUsingIndex</span></span>[<span class="type">VD2</span>](other: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">VD2</span>)], reduceFunc: (<span class="type">VD2</span>, <span class="type">VD2</span>)  =&gt;  <span class="type">VD2</span>): <span class="type">VertexRDD</span>[<span class="type">VD2</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，例如，如何filter操作符返回一个VertexRDD。过滤器使用的是实际通过BitSet实现的，从而复用索引和保持能快速与其他 VertexRDD 实现连接功能。 类似地，mapValues 操作不允许mapha函数改变 VertexID，从而可以复用统一HashMap中的数据结构。当两个VertexRDD派生自同一HashMap，并且是通过线性少买而非代价昂贵的逐点查询时，无论是 leftJoin 和 innerJoin 连接时能够识别 VertexRDD 。</p>
+<p>该aggregateUsingIndex操作是一种新的有效的从RDD[(VertexID,A)]构建新的VertexRDD的方式。从概念上讲，如果我在一组顶点上构建了一个VertexRDD[B]，这是一个在某些顶点RDD[(VertexID,A)]的超集，然后我可以重用该索引既聚集，随后为RDD[(VertexID, A)]建立索引。例如：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> setA: <span class="type">VertexRDD</span>[<span class="type">Int</span>] =  <span class="type">VertexRDD</span>(sc.parallelize(<span class="number">0</span>L until <span class="number">100</span>L).map(id  =&gt; (id, <span class="number">1</span>)))</span><br><span class="line"><span class="keyword">val</span> rddB: <span class="type">RDD</span>[(<span class="type">VertexId</span>, <span class="type">Double</span>)] = sc.parallelize(<span class="number">0</span>L until <span class="number">100</span>L).flatMap(id =&gt;  <span class="type">List</span>((id, <span class="number">1.0</span>), (id, <span class="number">2.0</span>)))</span><br><span class="line"><span class="comment">// There should be 200 entries in rddB</span></span><br><span class="line">rddB.count</span><br><span class="line"><span class="keyword">val</span> setB: <span class="type">VertexRDD</span>[<span class="type">Double</span>] = setA.aggregateUsingIndex(rddB, _ _ + _ _)</span><br><span class="line"><span class="comment">// There should be 100 entries in setB</span></span><br><span class="line">setB.count</span><br><span class="line"><span class="comment">// Joining A and B should now be fast!</span></span><br><span class="line"><span class="keyword">val</span> setC: <span class="type">VertexRDD</span>[<span class="type">Double</span>] = setA.innerJoin(setB)((id, a, b)  =&gt; a + b)</span><br></pre></td></tr></table></figure>
+
+<h4 id="EdgeRDDs"><a href="#EdgeRDDs" class="headerlink" title="EdgeRDDs"></a><strong>EdgeRDDs</strong></h4><p>该EdgeRDD [ED，VD] ，它继承RDD[Edge[ED],以各种分区策略PartitionStrategy将边划分成不同的块。在每个分区中，边属性和邻接结构，分别存储，这使得更改属性值时，能够最大限度的复用。</p>
+<p>EdgeRDD 是提供的三个额外的函数：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Transform the edge attributes while preserving the structure</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mapValues</span></span>[<span class="type">ED2</span>](f: <span class="type">Edge</span>[<span class="type">ED</span>]  =&gt;  <span class="type">ED2</span>): <span class="type">EdgeRDD</span>[<span class="type">ED2</span>, <span class="type">VD</span>]</span><br><span class="line"><span class="comment">// Revere the edges reusing both attributes and structure</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse</span></span>: <span class="type">EdgeRDD</span>[<span class="type">ED</span>, <span class="type">VD</span>]</span><br><span class="line"><span class="comment">// Join two `EdgeRDD`s partitioned using the same partitioning strategy.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">innerJoin</span></span>[<span class="type">ED2</span>, <span class="type">ED3</span>](other: <span class="type">EdgeRDD</span>[<span class="type">ED2</span>, <span class="type">VD</span>])(f: (<span class="type">VertexId</span>, <span class="type">VertexId</span>,  <span class="type">ED</span>, <span class="type">ED2</span>) =&gt; <span class="type">ED3</span>): <span class="type">EdgeRDD</span>[<span class="type">ED3</span>, <span class="type">VD</span>]</span><br></pre></td></tr></table></figure>
+
+<p>在大多数应用中，我们发现，在 EdgeRDD 中的操作是通过图形运算符来实现，或依靠在基类定义的 RDD 类操作。</p>
+<h3 id="优化图的表示"><a href="#优化图的表示" class="headerlink" title="优化图的表示"></a><strong>优化图的表示</strong></h3><p>关于 GraphX 中如何表示分布式图结构的详细描述，这个话题超出了本指南的范围，一些高层次的理解可能有助于设计可扩展的算法设计以及 API 的最佳利用。GraphX 采用顶点切的方法来分发图划分：</p>
+<p><img src="http://static.zybuluo.com/EVA001/1o9lezkybqq3vm2qw1ldwkrc/image_1cctlmkuj6441qf71cfv1f2ot9l2n.png" alt></p>
+<p>不通过边划分图，GraphX 沿顶点来划分图，这样可以减少顶点之间的通信和存储开销。逻辑上，这对应于将边分配到不同的机器，并允许顶点跨越多个机器。分配边的确切方法取决于PartitionStrategy并有多个权衡各种试探法。用户可以通过重新分区图与不同的策略之间进行选择Graph.partitionBy操作。默认分区策略是按照图的构造，使用图中初始的边。但是，用户可以方便地切换到二维-分区或GraphX中其他启发式分区方法。</p>
+<p><img src="http://static.zybuluo.com/EVA001/ar7369pbgau2zrh013aslx2w/image_1cctlnrcka0r18eo1r251lkp14pc3k.png" alt></p>
+<p>一旦边被划分，并行图计算的关键挑战在于有效的将每个顶点属性和边的属性连接起来。由于在现实世界中，边的数量多于顶点的数量，我们把顶点属性放在边中。因为不是所有的分区将包含所有顶点相邻的边的信息，我们在内部维护一个路由表，这个表确定在哪里广播顶点信息，执行 triplet 和 mapReduceTriplets 的连接操作。</p>
+<h3 id="图算法"><a href="#图算法" class="headerlink" title="图算法"></a><strong>图算法</strong></h3><p>GraphX 包括一组图形算法来简化分析任务。该算法被包含于org.apache.spark.graphx.lib包中，并可直接通过 GraphOps而被Graph中的方法调用。本节介绍这些算法以及如何使用它们。</p>
+<h4 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a><strong>PageRank</strong></h4><p>PageRank记录了图中每个顶点的重要性，假设一条边从u到v，代表从u传递给v的重要性。例如，如果一个Twitter用户有很多粉丝，用户排名将很高。</p>
+<p>GraphX 自带的PageRank的静态和动态的实现，放在PageRank对象中。静态的PageRank运行的固定数量的迭代，而动态的PageRank运行，直到排名收敛（即当每个迭代和上一迭代的差值，在某个范围之内时停止迭代）。GraphOps允许Graph中的方法直接调用这些算法。</p>
+<p>GraphX 还包括，我们可以将PageRank运行在社交网络数据集中。一组用户给出graphx/data/users.txt，以及一组用户之间的关系，给出了graphx/data/followers.txt。我们可以按照如下方法来计算每个用户的网页级别：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load the edges as a graph</span></span><br><span class="line"><span class="keyword">val</span> graph =  <span class="type">GraphLoader</span>.edgeListFile(sc, <span class="string">"graphx/data/followers.txt"</span>)</span><br><span class="line"><span class="comment">// Run PageRank</span></span><br><span class="line"><span class="keyword">val</span> ranks = graph.pageRank(<span class="number">0.0001</span>).vertices</span><br><span class="line"><span class="comment">// Join the ranks with the usernames</span></span><br><span class="line"><span class="keyword">val</span> users = sc.textFile(<span class="string">"graphx/data/users.txt"</span>).map &#123; line  =&gt;</span><br><span class="line">    <span class="keyword">val</span> fields = line.split(<span class="string">","</span>)(</span><br><span class="line">        fields(<span class="number">0</span>).toLong, fields(<span class="number">1</span>)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">val</span> ranksByUsername = users.join(ranks).map &#123;</span><br><span class="line">    <span class="keyword">case</span> (id, (username, rank))  =&gt; (username, rank)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Print the result</span></span><br><span class="line">println(ranksByUsername.collect().mkString(<span class="string">"\n"</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="联通分量"><a href="#联通分量" class="headerlink" title="联通分量"></a><strong>联通分量</strong></h4><p>连接分量算法标出了图中编号最低的顶点所联通的子集。例如，在社交网络中，连接分量类似集群。GraphX 包含在ConnectedComponents对象的算法，并且我们从该社交网络数据集中计算出连接组件的PageRank部分，如下所示：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load the graph as in the PageRank example</span></span><br><span class="line"><span class="keyword">val</span> graph =  <span class="type">GraphLoader</span>.edgeListFile(sc, <span class="string">"graphx/data/followers.txt"</span>)</span><br><span class="line"><span class="comment">// Find the connected components</span></span><br><span class="line"><span class="keyword">val</span> cc = graph.connectedComponents().vertices</span><br><span class="line"><span class="comment">// Join the connected components with the usernames</span></span><br><span class="line"><span class="keyword">val</span> users = sc.textFile(<span class="string">"graphx/data/users.txt"</span>).map &#123; line  =&gt;</span><br><span class="line">    <span class="keyword">val</span> fields = line.split(<span class="string">","</span>)(</span><br><span class="line">        fields(<span class="number">0</span>).toLong, fields(<span class="number">1</span>)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">val</span> ccByUsername = users.join(cc).map &#123;</span><br><span class="line">    <span class="keyword">case</span> (id, (username, cc))  =&gt; (username, cc)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Print the result</span></span><br><span class="line">println(ccByUsername.collect().mkString(<span class="string">"\n"</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="三角计数"><a href="#三角计数" class="headerlink" title="三角计数"></a><strong>三角计数</strong></h4><p>当顶点周围与有一个其他两个顶点有连线时，这个顶点是三角形的一部分。GraphX在TriangleCount对象实现了一个三角形计数算法，这个算法计算通过各顶点的三角形数目，从而提供集群的度。我们从PageRank部分计算社交网络数据集的三角形数量。注意TriangleCount要求边是规范的指向（srcId &lt; dstId），并使用 Graph.partitionBy来分割图形。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load the edges in canonical order and partition the graph for triangle count</span></span><br><span class="line"><span class="keyword">val</span> graph =  <span class="type">GraphLoader</span>.edgeListFile(sc, <span class="string">"graphx/data/followers.txt"</span>, <span class="literal">true</span>).partitionBy( <span class="type">PartitionStrategy</span>. <span class="type">RandomVertexCut</span>)</span><br><span class="line"><span class="comment">// Find the triangle count for each vertex</span></span><br><span class="line"><span class="keyword">val</span> triCounts = graph.triangleCount().vertices</span><br><span class="line"><span class="comment">// Join the triangle counts with the usernames</span></span><br><span class="line"><span class="keyword">val</span> users = sc.textFile(<span class="string">"graphx/data/users.txt"</span>).map &#123; line =&gt; </span><br><span class="line">        <span class="keyword">val</span> fields = line.split(<span class="string">","</span>)(</span><br><span class="line">            fields(<span class="number">0</span>).toLong, fields(<span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">val</span> triCountByUsername = users.join(triCounts).map &#123;  </span><br><span class="line">        <span class="keyword">case</span> (id, (username, tc)) =&gt; (username, tc)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// Print the result</span></span><br><span class="line">println(triCountByUsername.collect().mkString(<span class="string">"\n"</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>示例</strong></li>
+</ul>
+<p>假设我想从一些文本文件中构建图，只考虑图中重要关系和用户，在子图中运行的页面排名算法，然后终于返回与顶级用户相关的属性。我们可以在短短的几行 GraphX 代码中实现这一功能：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Connect to the Spark cluster</span></span><br><span class="line"><span class="keyword">val</span> sc =  <span class="keyword">new</span>  <span class="type">SparkContext</span>(<span class="string">"spark://master.amplab.org"</span>, <span class="string">"research"</span>)</span><br><span class="line"><span class="comment">// Load my user data and parse into tuples of user id and attribute list</span></span><br><span class="line"><span class="keyword">val</span> users = (sc.textFile(<span class="string">"graphx/data/users.txt"</span>).map(line  =&gt;  </span><br><span class="line">        line.split(<span class="string">","</span>)).map(  </span><br><span class="line">            parts  =&gt;  (parts.head.toLong,parts.tail) </span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line"><span class="comment">// Parse the edge data which is already in userId -&gt; userId format</span></span><br><span class="line"><span class="keyword">val</span>  followerGraph  =  <span class="type">GraphLoader</span>.edgeListFile(sc,<span class="string">"graphx/data/followers.txt"</span>)</span><br><span class="line"><span class="comment">// Attach the user attributes</span></span><br><span class="line"><span class="keyword">val</span> graph = followerGraph.outerJoinVertices(users) &#123;</span><br><span class="line">        <span class="keyword">case</span> (uid, deg,  <span class="type">Some</span>(attrList))  =&gt; attrList</span><br><span class="line">        <span class="comment">// Some users may not have attributes so we set them as empty</span></span><br><span class="line">        <span class="keyword">case</span> (uid, deg,  <span class="type">None</span>)  =&gt;  <span class="type">Array</span>.empty[<span class="type">String</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Restrict the graph to users with usernames and names</span></span><br><span class="line"><span class="keyword">val</span> subgraph = graph.subgraph(vpred = (vid, attr)  =&gt; attr.size == <span class="number">2</span>)</span><br><span class="line"><span class="comment">// Compute the PageRank</span></span><br><span class="line"><span class="keyword">val</span> pagerankGraph = subgraph.pageRank(<span class="number">0.001</span>)</span><br><span class="line"><span class="comment">// Get the attributes of the top pagerank users</span></span><br><span class="line"><span class="keyword">val</span>  userInfoWithPageRank  =</span><br><span class="line">        subgraph.outerJoinVertices(pagerankGraph.vertices) &#123;</span><br><span class="line">            <span class="keyword">case</span> (uid, attrList,  <span class="type">Some</span>(pr))  =&gt; (pr, attrList.toList)</span><br><span class="line">            <span class="keyword">case</span> (uid, attrList,  <span class="type">None</span>)  =&gt; (<span class="number">0.0</span>, attrList.toList)</span><br><span class="line">        &#125;</span><br><span class="line">println(userInfoWithPageRank.vertices.top(<span class="number">5</span>)( </span><br><span class="line">    <span class="type">Ordering</span>.by(_ _._2._1)).mkString(<span class="string">"\n"</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>翻译者：吴卓华<br>整理自：《Spark GraphX 图计算和图挖掘》</p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/2d41.html">https://www.cz5h.com/article/2d41.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GraphX/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>GraphX</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/2d41.html&title=GraphX编程指南-官方文档-整理 - 长征部落格&summary=GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基本的运算（例如，subgraph，joinVertices和mapReduceTriplets），以及在一个优化后的PregelAPI的变形。此外，GraphX 包括越来越多的图算法和 builder 构造器，以简化图形分析任务。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/2d41.html&title=GraphX编程指南-官方文档-整理 - 长征部落格&summary=GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基本的运算（例如，subgraph，joinVertices和mapReduceTriplets），以及在一个优化后的PregelAPI的变形。此外，GraphX 包括越来越多的图算法和 builder 构造器，以简化图形分析任务。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/2d41.html&title=GraphX编程指南-官方文档-整理 - 长征部落格&summary=GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基本的运算（例如，subgraph，joinVertices和mapReduceTriplets），以及在一个优化后的PregelAPI的变形。此外，GraphX 包括越来越多的图算法和 builder 构造器，以简化图形分析任务。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTklEQVR42u3aQVLEMAwEwPz/03BfaiseyVk2SvtGijhqcxkkHz8PXQc4ODg4OPgg+FFcfzZ88/zsO2e/v7rPar3g4ODg4OAT4csB4HWjIjh9b1u94ODg4ODgg+GnAWAxWJQbBSff69YLDg4ODg4Ovt5AqO6/2vAABwcHBwcHb2wUQnYNFMDBwcHBwcH7Dfo0eHQP6GsmKeDg4ODg4F8EL1+Y+6efy/WCg4ODg4MPgn9qpcBqYDmtAxwcHBwcfBC8GyjSQtNgtGvwAA4ODg4OPhGeFrg7YKy+X60jbkSAg4ODg4PfCL4aFFYPJA0inwpI4ODg4ODgE+HVQqoX/dLGxO5BBDg4ODg4+GR4F1w9oPQi3+ofrNyBAQcHBwcHvzH8qkDSPejVYFOepICDg4ODg98Q3h3Q7wKmdbQDDDg4ODg4+CB4NSCkhaTBZNcFA3BwcHBw8Enw6mA+DRy7Gw7tAAMODg4ODj4Anv5j3230dw+qHaTAwcHBwcEHwauFpBf30guAaaNk+SDAwcHBwcEHwatBozqA2NXQ2D5JAQcHBwcHvyG8OtDvXuhLBw3V74ODg4ODg0+Gd1f14t5qAOm+d9qIAAcHBwcHvzH8KK7uwCENLukBgYODg4ODPwlebdynBacHu+t74ODg4ODgT4CnhVQLrTYy0ouD4ODg4ODg4NfD0obGtoECODg4ODj4g+HVAtPBQXoh4W294ODg4ODgg+HVgUK1kKsGDm+fg4ODg4ODD4R3P5w+rwaZdl3g4ODg4OCD4E9b4ODg4ODgA9YvxJVAKnC8990AAAAASUVORK5CYII=" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTklEQVR42u3aQVLEMAwEwPz/03BfaiseyVk2SvtGijhqcxkkHz8PXQc4ODg4OPgg+FFcfzZ88/zsO2e/v7rPar3g4ODg4OAT4csB4HWjIjh9b1u94ODg4ODgg+GnAWAxWJQbBSff69YLDg4ODg4Ovt5AqO6/2vAABwcHBwcHb2wUQnYNFMDBwcHBwcH7Dfo0eHQP6GsmKeDg4ODg4F8EL1+Y+6efy/WCg4ODg4MPgn9qpcBqYDmtAxwcHBwcfBC8GyjSQtNgtGvwAA4ODg4OPhGeFrg7YKy+X60jbkSAg4ODg4PfCL4aFFYPJA0inwpI4ODg4ODgE+HVQqoX/dLGxO5BBDg4ODg4+GR4F1w9oPQi3+ofrNyBAQcHBwcHvzH8qkDSPejVYFOepICDg4ODg98Q3h3Q7wKmdbQDDDg4ODg4+CB4NSCkhaTBZNcFA3BwcHBw8Enw6mA+DRy7Gw7tAAMODg4ODj4Anv5j3230dw+qHaTAwcHBwcEHwauFpBf30guAaaNk+SDAwcHBwcEHwatBozqA2NXQ2D5JAQcHBwcHvyG8OtDvXuhLBw3V74ODg4ODg0+Gd1f14t5qAOm+d9qIAAcHBwcHvzH8KK7uwCENLukBgYODg4ODPwlebdynBacHu+t74ODg4ODgT4CnhVQLrTYy0ouD4ODg4ODg4NfD0obGtoECODg4ODj4g+HVAtPBQXoh4W294ODg4ODgg+HVgUK1kKsGDm+fg4ODg4ODD4R3P5w+rwaZdl3g4ODg4OCD4E9b4ODg4ODgA9YvxJVAKnC8990AAAAASUVORK5CYII=">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/cd06.html" rel="prev" title="Java向Oracle数据库表中插入CLOB、BLOB字段">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        Java向Oracle数据库表中插入CLOB、BLOB字段
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/Oracle/"><i class="fas fa-hashtag" aria-hidden="true"></i> Oracle</a> <a class="tag" href="/tags/CLOB/"><i class="fas fa-hashtag" aria-hidden="true"></i> CLOB</a> <a class="tag" href="/tags/BLOB/"><i class="fas fa-hashtag" aria-hidden="true"></i> BLOB</a> <a class="tag" href="/tags/SQL%E6%8F%92%E5%85%A5/"><i class="fas fa-hashtag" aria-hidden="true"></i> SQL插入</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/cc29.html" rel="prev" title="如何使用IDEA加载已有Spark项目">
+                      
+                        如何使用IDEA加载已有Spark项目
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Scala/"><i class="fas fa-hashtag" aria-hidden="true"></i> Scala</a> <a class="tag" href="/tags/Spark/"><i class="fas fa-hashtag" aria-hidden="true"></i> Spark</a> <a class="tag" href="/tags/IDEA/"><i class="fas fa-hashtag" aria-hidden="true"></i> IDEA</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'GraphX编程指南-官方文档-整理',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#图并行计算的背景"><span class="toc-text">图并行计算的背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GraphX-替换-Spark-Bagel-的-API"><span class="toc-text">GraphX 替换 Spark Bagel 的 API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从-Spark-0-9-1-迁移"><span class="toc-text">从 Spark 0.9.1 迁移</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#入门"><span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性图"><span class="toc-text">属性图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性图的例子"><span class="toc-text">属性图的例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-操作"><span class="toc-text">Graph 操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运算列表总结"><span class="toc-text">运算列表总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作"><span class="toc-text">属性操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#结构操作"><span class="toc-text">结构操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Join-操作"><span class="toc-text">Join 操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#邻居聚集"><span class="toc-text">邻居聚集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapReduceTriplets"><span class="toc-text">mapReduceTriplets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算度信息"><span class="toc-text">计算度信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集邻居"><span class="toc-text">收集邻居</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缓存和清空缓存"><span class="toc-text">缓存和清空缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pregel-的-API"><span class="toc-text">Pregel 的 API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-Builder"><span class="toc-text">Graph Builder</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顶点和边-RDDs"><span class="toc-text">顶点和边 RDDs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VertexRDDs"><span class="toc-text">VertexRDDs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EdgeRDDs"><span class="toc-text">EdgeRDDs</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化图的表示"><span class="toc-text">优化图的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图算法"><span class="toc-text">图算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PageRank"><span class="toc-text">PageRank</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#联通分量"><span class="toc-text">联通分量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三角计数"><span class="toc-text">三角计数</span></a></li></ol>
+    </li></div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

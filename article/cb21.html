@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>可视化布局算法的框架设计 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="可视化,布局算法">
+	
+	
+		<meta name="description" content="写在前面原项目是一个Web项目，采用传统的Servlet方式，后台主要完成的工作是计算节点的坐标，将节点的坐标封装成json格式由与前台进行交互。前期阶段，从前后台的数据传输方面尝试对代码进行理解，但是原始代码运行环境未知，现有的代码在运行时会有各种错误，未果，放弃。现在直接将后台的业务处理代码抽离进行抽离。目的...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/cb21.html">
+        可视化布局算法的框架设计
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年11月5日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需12分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/cb21.html" class="pageViews" data-flag-title="可视化布局算法的框架设计"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>原项目是一个Web项目，采用传统的Servlet方式，后台主要完成的工作是计算节点的坐标，将节点的坐标封装成json格式由与前台进行交互。前期阶段，从前后台的数据传输方面尝试对代码进行理解，但是原始代码运行环境未知，现有的代码在运行时会有各种错误，未果，放弃。现在直接将后台的业务处理代码抽离进行抽离。目的是形成一个最简单的可执行的布局算法效果展示的SDK</p>
+<a id="more"></a>
+
+<h3 id="整体设计"><a href="#整体设计" class="headerlink" title="整体设计"></a>整体设计</h3><p>对于布局算法的目的，就是要对给定格式的图数据（如下图）进行节点坐标的计算，计算的规则通过布局算法来实现，整个流程应该包括以下几部分：  </p>
+<ul>
+<li>格式化数据的读入及数据结构的绑定</li>
+<li>通过布局算法对数据的坐标计算</li>
+<li>坐标结果的格式化及数据的输出</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/kw5d5rbyzhcy3cfrkn15ewuo/image_1bungks3hbnq194213plujl2gqm.png" alt="image_1bungks3hbnq194213plujl2gqm.png-47.6kB"></p>
+<p>上述过程中应该涉及的数据结构(类)设计</p>
+<ul>
+<li>图结构的设计（基础数据结构）：Graph、Node、Edges</li>
+<li>绑定输入数据导上述的结构（配置类）：GraphData、BSPNodeFormatImpl</li>
+<li>布局算法设计（布局类）：FRForceLayout</li>
+<li>对算法的配置（配置类）：FRLayoutConfig</li>
+<li>输入数据的配置：DataConfig</li>
+<li>输出数据：Output</li>
+</ul>
+<h3 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h3><p><img src="http://static.zybuluo.com/EVA001/jpfkog7fr36agflpwczhl2vz/image_1bungh2ep9frdnghci9i71rt59.png" alt="image_1bungh2ep9frdnghci9i71rt59.png-35.6kB"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    gvbd.congfig    包含力导向算法的配置类(Getter和Setter)</span><br><span class="line">        LayoutConifg    所有Config类的父类,公共参数：迭代次数、是否指定迭代次数、布局长宽</span><br><span class="line">            ForceLayoutConifg</span><br><span class="line">                私有：K值、阈值、是否有向、速度</span><br><span class="line">            FRLayoutConifg</span><br><span class="line">                私有：K值、阈值、是否有向、冷却值、温度值</span><br><span class="line">    gvbd.graph      定义布局数据结构的包,包含图+边+节点等类的定义</span><br><span class="line">        </span><br><span class="line">    gvbd.data       包含图数据的格式化类、</span><br><span class="line">        </span><br><span class="line">    gvbd.layout     包含布局算法的调用类</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行流程</span></span><br><span class="line">    获得输入，之后</span><br><span class="line">    gvbd.data   对输入数据进行规整，调用：</span><br><span class="line">        gvbd.graph      实例化Graph类，Node类等</span><br><span class="line">    gvbd.layout 对节点数据进行布局，调用：</span><br><span class="line">        gvbd.congfig    对布局算法进行配置</span><br><span class="line">        gvbd.evaluate   节点价值的计算</span><br><span class="line">    布局结束之后获得全部节点的坐标数据，开始可视显示</span><br><span class="line">    使用d3/Gephi等等</span><br></pre></td></tr></table></figure>
+<p>整个后台代码可大致分为四个部分：基础数据结构、配置类、绑定类、布局类</p>
+<h3 id="基础数据结构"><a href="#基础数据结构" class="headerlink" title="基础数据结构"></a>基础数据结构</h3><p>这里要注意Graph类的成员变量只含一个Node类对象数组，对于Node类，要特别关注，其既包含节点本身的信息，也包含节点涉及的边的信息，对于边Edge类，其包含起始点和目标点(int类型)，以及权重，可以通过不同的构造函数对带权重和不带权重的两种情况进行实例化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Graph</span> </span>&#123;</span><br><span class="line">    Node[] nodes;                           <span class="comment">//节点集</span></span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> nodeId;                     <span class="comment">//节点ID</span></span><br><span class="line">	<span class="keyword">private</span> String nodeName;                <span class="comment">//节点名称</span></span><br><span class="line">	<span class="keyword">private</span> String nodeLabel;               <span class="comment">//节点标签</span></span><br><span class="line">	<span class="keyword">private</span> String nodeValue;               <span class="comment">//节点权重值</span></span><br><span class="line">	<span class="keyword">private</span> NodeLayoutData nodeLayoutData;  <span class="comment">//节点的坐标[x,y]，记录两次，非常重要</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Edge&gt; edges;               <span class="comment">//涉及的所有边，绑定输入数据</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Edge&gt; edges2;              <span class="comment">//备用</span></span><br><span class="line">	<span class="keyword">private</span> Map&lt;Edge,Float&gt; edge3;          <span class="comment">//备用，涉及的边并且带边权重的情况</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Edge</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> resource;                   <span class="comment">//节点关联边的起点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> target;                     <span class="comment">//节点关联边的终点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> weight;                   <span class="comment">//节点关联边的权重</span></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="绑定类"><a href="#绑定类" class="headerlink" title="绑定类"></a>绑定类</h3><p>这部分是将输入的格式化数据初始化为相关数据结构，即使用输入的数据实例化相关对象，主要依靠的方法是graphData.loadNodeData方法。该方法主要是传入输入数据的文件流参数，在GraphData类中默认实例化一个Graph类对象，并通过上述load方法对Graph对象的节点和边进行初始化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实例化gvbd.data.GraphData</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadNodeData</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">BufferedReader nodeDataReader,NodeFormat nodeFormat,<span class="keyword">int</span> vertexNum)</span> </span>&#123;</span><br><span class="line">	graph.createNodes(vertexNum);       <span class="comment">//按输入的节点数创建相关数量节点的图</span></span><br><span class="line">	Node [] nodes=graph.getNodes();     <span class="comment">//nodes是构造的</span></span><br><span class="line">	String nodeLine;</span><br><span class="line">	<span class="keyword">int</span> lineNo=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		nodeLine = nodeDataReader.readLine();</span><br><span class="line">		<span class="keyword">if</span>(lineNo == <span class="number">0</span>)System.out.println(nodeLine);</span><br><span class="line">		<span class="keyword">while</span> (nodeLine != <span class="keyword">null</span>) &#123;</span><br><span class="line">			Node node = nodeFormat.stringToNode(nodeLine); <span class="comment">//转换节点类型</span></span><br><span class="line">			nodes[lineNo++]=node;</span><br><span class="line">			nodeLine = nodeDataReader.readLine();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h3><p>这部分主要是调用布局算法前的先导部分，本质是对配置参数的封装，并且规定使用Getter和Setter方法进行参数赋值。另外，在赋值结束后只需在下一步布局算法调用时将该配置类的对象传入即可使布局算法得到相应的参数值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不同布局算法具有不同的参数，所以下面是有公共参数的父类，具体算法配置类应该继承此类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">LayoutConfig</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> times=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> layoutByTimes;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> width;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> times;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTimes</span><span class="params">(<span class="keyword">int</span> times)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.times = times;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLayoutByTimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> layoutByTimes;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLayoutByTimes</span><span class="params">(<span class="keyword">boolean</span> layoutByTimes)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.layoutByTimes = layoutByTimes;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWidth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> width;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> height;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.height = height;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行入口-调用流程"><a href="#执行入口-调用流程" class="headerlink" title="执行入口/调用流程"></a>执行入口/调用流程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    DataConfig.setDataPath(<span class="string">"C:\\Users\\msi\\Desktop\\xiaomi.txt"</span>); <span class="comment">//读取此txt文件</span></span><br><span class="line">    BufferedReader br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">    		<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(</span><br><span class="line">    				DataConfig.getDataPath()), <span class="string">"utf-8"</span>));</span><br><span class="line">    DataConfig.setDataReader(br);</span><br><span class="line">    DataConfig.setNodeFormat(<span class="keyword">new</span> BSPNodeFormatImpl());</span><br><span class="line"><span class="comment">//注意：此处必须和输入数据的个数完全一致，否则会在节点计算初始坐标时出错</span></span><br><span class="line">    DataConfig.setNodeNum(<span class="number">3142</span>);</span><br><span class="line">    <span class="keyword">if</span> (layoutMethod.equals(<span class="string">"FRLayout"</span>)) &#123;</span><br><span class="line">    <span class="comment">//实例化配置对象,有部分方法是继承自父类的</span></span><br><span class="line">    	FRLayoutConfig layoutConfig = <span class="keyword">new</span> FRLayoutConfig();</span><br><span class="line">    	layoutConfig.setLayoutByTimes(<span class="keyword">true</span>);</span><br><span class="line">    	layoutConfig.setDirected(<span class="keyword">false</span>);</span><br><span class="line">    	layoutConfig.setWidth(<span class="number">5000</span>);</span><br><span class="line">    	layoutConfig.setHeight(<span class="number">5000</span>);</span><br><span class="line">    	layoutConfig.setLayoutByTimes(<span class="keyword">true</span>);</span><br><span class="line">    	layoutConfig.setK(Float.parseFloat(<span class="string">"0.2"</span>));</span><br><span class="line">    	layoutConfig.setTimes(Integer.parseInt(<span class="string">"3"</span>));</span><br><span class="line">    	layoutConfig.setCool(Float.parseFloat(<span class="string">"0.8"</span>));</span><br><span class="line">    	layoutConfig.setTemperature(Integer.parseInt(<span class="string">"1"</span>));</span><br><span class="line">    <span class="comment">//按DataConfig的参数输入loadNodeData，</span></span><br><span class="line">    	GraphData graphData = <span class="keyword">new</span> GraphData();</span><br><span class="line">    <span class="comment">//包含全部的数据，点、边、关系等等；</span></span><br><span class="line">    	graphData.loadNodeData(DataConfig.getDataReader(),</span><br><span class="line">    			DataConfig.getNodeFormat(), DataConfig.getNodeNum());</span><br><span class="line">    <span class="comment">//传入已建立的图对象 和 布局算法配置对象</span></span><br><span class="line">    	Layout layout = <span class="keyword">new</span> FRForceLayout(graphData.getGraph(), layoutConfig);</span><br><span class="line">    	layout.doLayout();<span class="comment">//迭代算法</span></span><br><span class="line">    	Output.outputJson(graphData.getGraph(),<span class="string">"C:\\Users\\msi\\Desktop\\xiaomi.json"</span>);</span><br><span class="line">    	System.out.println(<span class="string">"FRLayout--end"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###　结果数据</p>
+<p>通过Output类中的转换方法，将存储结果的整个Graph对象的坐标数据转化为Json格式，并输出到文件，最后的数据如下(截取部分)：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"nodes"</span>:[&#123;<span class="attr">"name"</span>:<span class="string">"1"</span>,<span class="attr">"value"</span>:<span class="string">"小米微博组 "</span>,<span class="attr">"cy"</span>:<span class="string">"156.01001534887016"</span>,<span class="attr">"cx"</span>:<span class="string">"3166.150545142414"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"2"</span>,<span class="attr">"value"</span>:<span class="string">"神得强Steven "</span>,<span class="attr">"cy"</span>:<span class="string">"640.4571943091852"</span>,<span class="attr">"cx"</span>:<span class="string">"2949.154447954751"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"3"</span>,<span class="attr">"value"</span>:<span class="string">"MIUI论坛 "</span>,<span class="attr">"cy"</span>:<span class="string">"3570.9778335387005"</span>,<span class="attr">"cx"</span>:<span class="string">"1698.232117858166"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"4"</span>,<span class="attr">"value"</span>:<span class="string">"小米平板 "</span>,<span class="attr">"cy"</span>:<span class="string">"2063.9975461388217"</span>,<span class="attr">"cx"</span>:<span class="string">"4651.260384562792"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"5"</span>,<span class="attr">"value"</span>:<span class="string">"小米电视 "</span>,<span class="attr">"cy"</span>:<span class="string">"4817.615271549201"</span>,<span class="attr">"cx"</span>:<span class="string">"3685.092338867302"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"6"</span>,<span class="attr">"value"</span>:<span class="string">"公民大李 "</span>,<span class="attr">"cy"</span>:<span class="string">"2608.7081901026404"</span>,<span class="attr">"cx"</span>:<span class="string">"178.94341205320288"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"7"</span>,<span class="attr">"value"</span>:<span class="string">"小米电视俱乐部 "</span>,<span class="attr">"cy"</span>:<span class="string">"4989.0703708172905"</span>,<span class="attr">"cx"</span>:<span class="string">"897.1708897116042"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"8"</span>,<span class="attr">"value"</span>:<span class="string">"小米客服那些事 "</span>,<span class="attr">"cy"</span>:<span class="string">"162.15895711734697"</span>,<span class="attr">"cx"</span>:<span class="string">"1687.8496029706146"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"9"</span>,<span class="attr">"value"</span>:<span class="string">"小米空气净化器 "</span>,<span class="attr">"cy"</span>:<span class="string">"1377.3787717779344"</span>,<span class="attr">"cx"</span>:<span class="string">"1288.6280165113844"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"10"</span>,<span class="attr">"value"</span>:<span class="string">"肉肉的大飞哥 "</span>,<span class="attr">"cy"</span>:<span class="string">"4365.703702756339"</span>,<span class="attr">"cx"</span>:<span class="string">"1768.5797529564923"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"11"</span>,<span class="attr">"value"</span>:<span class="string">"love魑魅魍魉999"</span>,<span class="attr">"cy"</span>:<span class="string">"884.4260930361169"</span>,<span class="attr">"cx"</span>:<span class="string">"1918.0952190492774"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"12"</span>,<span class="attr">"value"</span>:<span class="string">"金子一言520 "</span>,<span class="attr">"cy"</span>:<span class="string">"4306.517287882674"</span>,<span class="attr">"cx"</span>:<span class="string">"857.9229659557374"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"13"</span>,<span class="attr">"value"</span>:<span class="string">"gasaraki神探2333"</span>,<span class="attr">"cy"</span>:<span class="string">"2858.0329169946035"</span>,<span class="attr">"cx"</span>:<span class="string">"3368.2338019639533"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"14"</span>,<span class="attr">"value"</span>:<span class="string">"hellen1314"</span>,<span class="attr">"cy"</span>:<span class="string">"1387.16941825711"</span>,<span class="attr">"cx"</span>:<span class="string">"2564.64775703357"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"15"</span>,<span class="attr">"value"</span>:<span class="string">"梦的一生9 "</span>,<span class="attr">"cy"</span>:<span class="string">"2898.153990200826"</span>,<span class="attr">"cx"</span>:<span class="string">"4351.388549183514"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"16"</span>,<span class="attr">"value"</span>:<span class="string">"小皮康 "</span>,<span class="attr">"cy"</span>:<span class="string">"4540.151322415267"</span>,<span class="attr">"cx"</span>:<span class="string">"4398.402966348725"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"17"</span>,<span class="attr">"value"</span>:<span class="string">"飞啊飞木有翅膀 "</span>,<span class="attr">"cy"</span>:<span class="string">"3025.8018395215827"</span>,<span class="attr">"cx"</span>:<span class="string">"657.2738586083469"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"18"</span>,<span class="attr">"value"</span>:<span class="string">"小米-惜诺"</span>,<span class="attr">"cy"</span>:<span class="string">"2601.4091892917922"</span>,<span class="attr">"cx"</span>:<span class="string">"140.32453861960772"</span>&#125;,&#123;<span class="attr">"name"</span>:<span class="string">"19"</span>,<span class="attr">"value"</span>:<span class="string">"帅得被人侃C"</span>,<span class="attr">"cy"</span>:<span class="string">"1986.1671743022102"</span>,<span class="attr">"cx"</span>:<span class="string">"738.5324574182849"</span>&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h3><p>这部分主要是按坐标绘制点线的过程，由于大量计算操作已经完成，所以基本上没有什么开销，主要是绘图的开销（渲染和GPU的因素）,总的来说选择很多，如桌面应用形式的Gephi和前端形式的d3js，在这里，主要是使用的d3js对上述结果做了简单的绘制。<br>为什么选择d3js呢，因为其对绘制做了高度的封装，所以代码非常简洁，而且速度也非常两人满意。</p>
+<h3 id="核心的坐标计算部分"><a href="#核心的坐标计算部分" class="headerlink" title="核心的坐标计算部分"></a>核心的坐标计算部分</h3><p>（待完善）<br>第一阶段：读入数据，转化为图结构 涉及的类<br><img src="http://static.zybuluo.com/EVA001/8r36c8et07pje4w0qjab4zrm/image_1buiv51cu12iueb216hc178u9tr1j.png" alt="image_1buiv51cu12iueb216hc178u9tr1j.png-21kB"></p>
+<p>第二阶段：坐标的计算<br><img src="http://static.zybuluo.com/EVA001/36wjm1n51elvkhb9fpsprfe9/image_1buj2gidb1vpm1kfs1bnb1qpc12rk20.png" alt="image_1buj2gidb1vpm1kfs1bnb1qpc12rk20.png-20.2kB"></p>
+<pre><code>要计算：两节点之间的斥力、引力（斥力和引力与距离的关系如上图所示）
+距离越远，引力越大斥力越小。
+距离越近，引力越小斥力越大。
+上图第一象限的表达式：f = + k/(d*d)     引力为正
+第四象限的表达式：f = - (k*k)/d         斥力为负</code></pre>
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\65fe.html" title="初识图数据的可视化" rel="bookmark">初识图数据的可视化</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/cb21.html">https://www.cz5h.com/article/cb21.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>可视化</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>布局算法</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/cb21.html&title=可视化布局算法的框架设计 - 长征部落格&summary=写在前面原项目是一个Web项目，采用传统的Servlet方式，后台主要完成的工作是计算节点的坐标，将节点的坐标封装成json格式由与前台进行交互。前期阶段，从前后台的数据传输方面尝试对代码进行理解，但是原始代码运行环境未知，现有的代码在运行时会有各种错误，未果，放弃。现在直接将后台的业务处理代码抽离进行抽离。目的是形成一个最简单的可执行的布局算法效果展示的SDK" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/cb21.html&title=可视化布局算法的框架设计 - 长征部落格&summary=写在前面原项目是一个Web项目，采用传统的Servlet方式，后台主要完成的工作是计算节点的坐标，将节点的坐标封装成json格式由与前台进行交互。前期阶段，从前后台的数据传输方面尝试对代码进行理解，但是原始代码运行环境未知，现有的代码在运行时会有各种错误，未果，放弃。现在直接将后台的业务处理代码抽离进行抽离。目的是形成一个最简单的可执行的布局算法效果展示的SDK" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/cb21.html&title=可视化布局算法的框架设计 - 长征部落格&summary=写在前面原项目是一个Web项目，采用传统的Servlet方式，后台主要完成的工作是计算节点的坐标，将节点的坐标封装成json格式由与前台进行交互。前期阶段，从前后台的数据传输方面尝试对代码进行理解，但是原始代码运行环境未知，现有的代码在运行时会有各种错误，未果，放弃。现在直接将后台的业务处理代码抽离进行抽离。目的是形成一个最简单的可执行的布局算法效果展示的SDK" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACP0lEQVR42u3aS5bCQAgAwNz/0s4B5s0LP81IV++iMVK4QeB6HXoucHBwcHDwRfCreH498I/3o5+rPi8bLzg4ODg4+EZ4uAAIBppNxN3rU/GCg4ODg4NvhkcDny5AorB2vODg4ODg4OBXFZhtcICDg4ODg4M/X8BMDxTAwcHBwcHBBxr0QwsE2e97fJICDg4ODg7+j+DVhsFT1+V4wcHBwcHBF8G7Jzpg6C4KjsULDg4ODg6+CF4tEKYbB91BRTg+cHBwcHDwA+DZQO/uq0Kqg4v0JAUcHBwcHPyL4dUBQhRcXfibbkiAg4ODg4NvhFcb+lMDhO7AItzIAAcHBwcHXwR/V2GShVYLpfQPAA4ODg4OvhDeDWysUZBshJQHCuDg4ODg4AvhU4VCNJFTCwHtAgYcHBwcHPwL4dnAoonI3v+xhgc4ODg4OPhCePaP/3TCsg2HsQIGHBwcHBx8AfzdA4BqIrLPu70GBwcHBwdfDK8GPtVAqC4qhBcFwMHBwcHBD4BHgVMJ6w4c2pMUcHBwcHDwRfAuOJuQaoMi3agABwcHBwdfBO+ebqMhm9h2YsDBwcHBwRfBr+LpJqDaaGgPPMDBwcHBwRfCpwqMbCNjarAQThw4ODg4OPhieLRh3y0oogsJ1YFCuoABBwcHBwc/GJ5tVFS/r7twAA4ODg4ODj5fsFQLl/QgAxwcHBwcfDE8O1DoLuhNLRCGCx9wcHBwcPCF8GphkH1/aqEgW7iAg4ODg4NvhJ92wMHBwcHBF5wfgOmEn+7WqOsAAAAASUVORK5CYII=" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACP0lEQVR42u3aS5bCQAgAwNz/0s4B5s0LP81IV++iMVK4QeB6HXoucHBwcHDwRfCreH498I/3o5+rPi8bLzg4ODg4+EZ4uAAIBppNxN3rU/GCg4ODg4NvhkcDny5AorB2vODg4ODg4OBXFZhtcICDg4ODg4M/X8BMDxTAwcHBwcHBBxr0QwsE2e97fJICDg4ODg7+j+DVhsFT1+V4wcHBwcHBF8G7Jzpg6C4KjsULDg4ODg6+CF4tEKYbB91BRTg+cHBwcHDwA+DZQO/uq0Kqg4v0JAUcHBwcHPyL4dUBQhRcXfibbkiAg4ODg4NvhFcb+lMDhO7AItzIAAcHBwcHXwR/V2GShVYLpfQPAA4ODg4OvhDeDWysUZBshJQHCuDg4ODg4AvhU4VCNJFTCwHtAgYcHBwcHPwL4dnAoonI3v+xhgc4ODg4OPhCePaP/3TCsg2HsQIGHBwcHBx8AfzdA4BqIrLPu70GBwcHBwdfDK8GPtVAqC4qhBcFwMHBwcHBD4BHgVMJ6w4c2pMUcHBwcHDwRfAuOJuQaoMi3agABwcHBwdfBO+ebqMhm9h2YsDBwcHBwRfBr+LpJqDaaGgPPMDBwcHBwRfCpwqMbCNjarAQThw4ODg4OPhieLRh3y0oogsJ1YFCuoABBwcHBwc/GJ5tVFS/r7twAA4ODg4ODj5fsFQLl/QgAxwcHBwcfDE8O1DoLuhNLRCGCx9wcHBwcPCF8GphkH1/aqEgW7iAg4ODg4NvhJ92wMHBwcHBF5wfgOmEn+7WqOsAAAAASUVORK5CYII=">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/6e50.html" rel="prev" title="替代Websocket的解决方案：GoEasy">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        替代Websocket的解决方案：GoEasy
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/WebSocket/"><i class="fas fa-hashtag" aria-hidden="true"></i> WebSocket</a> <a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 可视化</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/5dff.html" rel="prev" title="Python的一些注意事项">
+                      
+                        Python的一些注意事项
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Python/"><i class="fas fa-hashtag" aria-hidden="true"></i> Python</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '可视化布局算法的框架设计',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体设计"><span class="toc-text">整体设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体结构"><span class="toc-text">整体结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础数据结构"><span class="toc-text">基础数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定类"><span class="toc-text">绑定类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置类"><span class="toc-text">配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行入口-调用流程"><span class="toc-text">执行入口&#x2F;调用流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示结果"><span class="toc-text">显示结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心的坐标计算部分"><span class="toc-text">核心的坐标计算部分</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

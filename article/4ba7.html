@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>GraphX具体功能的代码使用实例-Scala实现 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="Scala,整合,实践,GraphX">
+	
+	
+		<meta name="description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/4ba7.html">
+        GraphX具体功能的代码使用实例-Scala实现
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年5月11日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约4.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需24分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/4ba7.html" class="pageViews" data-flag-title="GraphX具体功能的代码使用实例-Scala实现"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年2月29日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。</p>
+<a id="more"></a>
+
+<p>本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添加了自己的理解和认识，并且在Pregel模型编程部分结合运行结果对其运行流程做了一定梳理，来意图理解其执行机制。</p>
+<p>下面，是ben程序代码中使用到的主要程序部分，即定义出一个简单的图结构，并构造一个图Graph[VD,ED]，对具体功能的实现均放置在代码的后半部分，主要包括一下几部分：</p>
+<ul>
+<li>Property Operators</li>
+<li>Structural Operators</li>
+<li>Computing Degree</li>
+<li>Collecting Neighbors</li>
+<li>Join Operators</li>
+<li>mapReduceTriplets</li>
+<li>aggregateMessages</li>
+<li>Pregel API Functions</li>
+</ul>
+<p>主程序代码如下：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.log4j.&#123;<span class="type">Level</span>, <span class="type">Logger</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.graphx._</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">RDD_println</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//屏蔽日志</span></span><br><span class="line">    <span class="type">Logger</span>.getLogger(<span class="string">"org.apache.spark"</span>).setLevel(<span class="type">Level</span>.<span class="type">ERROR</span>)</span><br><span class="line">    <span class="type">Logger</span>.getLogger(<span class="string">"org.eclipse.jetty.server"</span>).setLevel(<span class="type">Level</span>.<span class="type">OFF</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置运行环境</span></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"XXXAppName"</span>).setMaster(<span class="string">"local"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置顶点和边，注意顶点和边都是用元组定义的Array</span></span><br><span class="line">    <span class="comment">//顶点的数据类型</span></span><br><span class="line">    <span class="keyword">val</span> vertexArray = <span class="type">Array</span>(</span><br><span class="line">      (<span class="number">1</span>L, (<span class="string">"Alice"</span>, <span class="number">28</span>)),(<span class="number">2</span>L, (<span class="string">"Bob"</span>, <span class="number">27</span>)),</span><br><span class="line">      (<span class="number">3</span>L, (<span class="string">"Charlie"</span>, <span class="number">65</span>)),(<span class="number">4</span>L, (<span class="string">"David"</span>, <span class="number">42</span>)),</span><br><span class="line">      (<span class="number">5</span>L, (<span class="string">"Ed"</span>, <span class="number">55</span>)),(<span class="number">6</span>L, (<span class="string">"Fran"</span>, <span class="number">50</span>))</span><br><span class="line">    )</span><br><span class="line">    <span class="comment">//边的数据类型</span></span><br><span class="line">    <span class="keyword">val</span> edgeArray = <span class="type">Array</span>(</span><br><span class="line">      <span class="type">Edge</span>(<span class="number">2</span>L, <span class="number">1</span>L, <span class="number">7</span>),<span class="type">Edge</span>(<span class="number">2</span>L, <span class="number">4</span>L, <span class="number">2</span>),<span class="type">Edge</span>(<span class="number">3</span>L, <span class="number">2</span>L, <span class="number">4</span>),</span><br><span class="line">      <span class="type">Edge</span>(<span class="number">3</span>L, <span class="number">6</span>L, <span class="number">3</span>),<span class="type">Edge</span>(<span class="number">4</span>L, <span class="number">1</span>L, <span class="number">1</span>),<span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">2</span>L, <span class="number">2</span>),</span><br><span class="line">      <span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">3</span>L, <span class="number">8</span>),<span class="type">Edge</span>(<span class="number">5</span>L, <span class="number">6</span>L, <span class="number">3</span>)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造vertexRDD和edgeRDD</span></span><br><span class="line">    <span class="keyword">val</span> vertexRDD: <span class="type">RDD</span>[(<span class="type">Long</span>, (<span class="type">String</span>, <span class="type">Int</span>))] = sc.parallelize(vertexArray)</span><br><span class="line">    <span class="keyword">val</span> edgeRDD: <span class="type">RDD</span>[<span class="type">Edge</span>[<span class="type">Int</span>]] = sc.parallelize(edgeArray)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造图Graph[VD,ED]</span></span><br><span class="line">    <span class="keyword">val</span> graph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">Int</span>), <span class="type">Int</span>] = <span class="type">Graph</span>(vertexRDD, edgeRDD)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//----------------- Property Operators -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- Structural Operators -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- Computing Degree -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- Collecting Neighbors -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- Join Operators -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- mapReduceTriplets -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- aggregateMessages -----------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//----------------- Pregel API Functions -----------------</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Property-Operators"><a href="#Property-Operators" class="headerlink" title="Property Operators"></a><strong>Property Operators</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">graph.edges.foreach(println)</span><br><span class="line">println</span><br><span class="line">graph.vertices.foreach(println)</span><br><span class="line">println</span><br><span class="line">graph.triplets.foreach(println)</span><br><span class="line">println</span><br><span class="line">graph.triplets.foreach(e =&gt; prin(<span class="string">s"edge(<span class="subst">$&#123;e.srcId&#125;</span>,<span class="subst">$&#123;e.dstId&#125;</span>)\tage(<span class="subst">$&#123;e.srcAttr._2&#125;</span>,<span class="subst">$&#123;e.dstAttr._2&#125;</span>)"</span>))</span><br><span class="line"><span class="comment">//---- vertexRDD.foreach ----原始的vertexRDD保持顺序</span></span><br><span class="line"><span class="comment">//1 name=Alice age=28</span></span><br><span class="line"><span class="comment">//2 name=Bob age=27</span></span><br><span class="line"><span class="comment">//3 name=Charlie age=65</span></span><br><span class="line"><span class="comment">//4 name=David age=42</span></span><br><span class="line"><span class="comment">//5 name=Ed age=55</span></span><br><span class="line"><span class="comment">//6 name=Fran age=50</span></span><br><span class="line"><span class="comment">//---- edgeRDD.foreach ----</span></span><br><span class="line"><span class="comment">//  2 to 1 w=7</span></span><br><span class="line"><span class="comment">//2 to 4 w=2</span></span><br><span class="line"><span class="comment">//3 to 2 w=4</span></span><br><span class="line"><span class="comment">//3 to 6 w=3</span></span><br><span class="line"><span class="comment">//4 to 1 w=1</span></span><br><span class="line"><span class="comment">//5 to 2 w=2</span></span><br><span class="line"><span class="comment">//5 to 3 w=8</span></span><br><span class="line"><span class="comment">//5 to 6 w=3</span></span><br><span class="line"><span class="comment">//---- graph.vertices.foreach ----生成graph之后顺序被打乱</span></span><br><span class="line"><span class="comment">//4 name=David age=42</span></span><br><span class="line"><span class="comment">//1 name=Alice age=28</span></span><br><span class="line"><span class="comment">//6 name=Fran age=50</span></span><br><span class="line"><span class="comment">//3 name=Charlie age=65</span></span><br><span class="line"><span class="comment">//5 name=Ed age=55</span></span><br><span class="line"><span class="comment">//2 name=Bob age=27</span></span><br><span class="line"><span class="comment">//---- graph.edges.foreach ----</span></span><br><span class="line"><span class="comment">//  2 to 1 w=7</span></span><br><span class="line"><span class="comment">//2 to 4 w=2</span></span><br><span class="line"><span class="comment">//3 to 2 w=4</span></span><br><span class="line"><span class="comment">//3 to 6 w=3</span></span><br><span class="line"><span class="comment">//4 to 1 w=1</span></span><br><span class="line"><span class="comment">//5 to 2 w=2</span></span><br><span class="line"><span class="comment">//5 to 3 w=8</span></span><br><span class="line"><span class="comment">//5 to 6 w=3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//take(n) 按与按顺序！取出前 n 个</span></span><br><span class="line">graph.edges.take(<span class="number">3</span>).foreach(println)</span><br><span class="line"></span><br><span class="line"><span class="comment">// mapVertices 对Vertices进行map操作</span></span><br><span class="line"><span class="comment">// 对整个顶点集的 某一部分 进行批量操作</span></span><br><span class="line">graph.vertices.foreach( x =&gt; println(x))</span><br><span class="line"><span class="comment">// 不改变顺序的进行map操作</span></span><br><span class="line">graph.mapVertices&#123;</span><br><span class="line">  <span class="keyword">case</span> (id, (name, age)) =&gt; (id, (name, age+<span class="number">10</span>))</span><br><span class="line">&#125;.vertices.collect.foreach(v =&gt; println(<span class="string">s"<span class="subst">$&#123;v._2._1&#125;</span> is <span class="subst">$&#123;v._2._2&#125;</span>"</span>))</span><br><span class="line"><span class="comment">//collect可有可无</span></span><br><span class="line"><span class="comment">//mapVertices&#123;case()=&gt; ()&#125; 这种必须用&#123;&#125;</span></span><br><span class="line"><span class="comment">//但是对于 mapVertices&#123; () =&gt; () &#125; 这种也可以用 mapVertices( () =&gt; () )</span></span><br><span class="line"></span><br><span class="line">graph.mapEdges&#123;</span><br><span class="line">  e=&gt;e.attr*<span class="number">2</span></span><br><span class="line">&#125;.edges.collect.foreach(e =&gt; println(<span class="string">s"<span class="subst">$&#123;e.srcId&#125;</span> to <span class="subst">$&#123;e.dstId&#125;</span> att <span class="subst">$&#123;e.attr&#125;</span>"</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Structural-Operators"><a href="#Structural-Operators" class="headerlink" title="Structural Operators"></a><strong>Structural Operators</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始图结构</span></span><br><span class="line">graph.edges.foreach(println)</span><br><span class="line">println</span><br><span class="line"><span class="comment">// 满足要求的子图结构 这里只用到了 参数epred</span></span><br><span class="line"><span class="keyword">val</span> sub = graph.subgraph( epred = e =&gt; e.srcId &gt; e.dstId )</span><br><span class="line">sub.edges.foreach(println)</span><br><span class="line"></span><br><span class="line"><span class="comment">//println("原图顶点数："+graph.vertices.count()+"\t子图顶点数："+sub.vertices.count())</span></span><br><span class="line"><span class="comment">//println("原图边数："+graph.edges.count()+"\t子图边："+sub.edges.count())</span></span><br><span class="line"><span class="comment">//原图顶点数：6	子图顶点数：6</span></span><br><span class="line"><span class="comment">//原图边数：8	子图边：5</span></span><br><span class="line"><span class="comment">//分析：过滤掉了3条边，但是仍然包含全部顶点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误的写法：   subgraph( epred = e =&gt; e.srcId &gt; e.dstId, vpred = (id,(_,_)) =&gt; id &gt; 4 )</span></span><br><span class="line"><span class="keyword">val</span> sub2 = graph.subgraph( epred = e =&gt; e.srcId &gt; e.dstId, vpred = (id,_) =&gt; id &gt; <span class="number">4</span> )</span><br><span class="line"><span class="comment">//println("原图顶点数："+graph.vertices.count()+"\t子图顶点数："+sub2.vertices.count())</span></span><br><span class="line"><span class="comment">//println("原图边数："+graph.edges.count()+"\t子图边："+sub2.edges.count())</span></span><br><span class="line"><span class="comment">//原图顶点数：6	子图顶点数：2</span></span><br><span class="line"><span class="comment">//原图边数：8	子图边：0</span></span><br><span class="line"><span class="comment">//分析：同时有epred和vpred两个条件，最终只剩两点，且无边连接，即边数为0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">graph.edges.foreach(println)</span><br><span class="line">println</span><br><span class="line">graph.edges.reverse.foreach(println)</span><br><span class="line"><span class="comment">//Edge(2,1,7)</span></span><br><span class="line"><span class="comment">//Edge(2,4,2)</span></span><br><span class="line"><span class="comment">//Edge(3,2,4)</span></span><br><span class="line"><span class="comment">//Edge(3,6,3)</span></span><br><span class="line"><span class="comment">//Edge(4,1,1)</span></span><br><span class="line"><span class="comment">//Edge(5,2,2)</span></span><br><span class="line"><span class="comment">//Edge(5,3,8)</span></span><br><span class="line"><span class="comment">//Edge(5,6,3)</span></span><br><span class="line"><span class="comment">// reverse之后，是边的入点出点 相互交换，即边进行翻转</span></span><br><span class="line"><span class="comment">//Edge(1,2,7)</span></span><br><span class="line"><span class="comment">//Edge(1,4,1)</span></span><br><span class="line"><span class="comment">//Edge(2,3,4)</span></span><br><span class="line"><span class="comment">//Edge(2,5,2)</span></span><br><span class="line"><span class="comment">//Edge(3,5,8)</span></span><br><span class="line"><span class="comment">//Edge(4,2,2)</span></span><br><span class="line"><span class="comment">//Edge(6,3,3)</span></span><br><span class="line"><span class="comment">//Edge(6,5,3)</span></span><br><span class="line"><span class="comment">// 注意：graph.vertices 没有reverse这个方法，即不能对顶点进行翻转</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Computing-Degree"><a href="#Computing-Degree" class="headerlink" title="Computing Degree"></a><strong>Computing Degree</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出全部 ( 度数 , 该度的个数 )</span></span><br><span class="line">graph.outDegrees.foreach( x =&gt; println(x))</span><br><span class="line"></span><br><span class="line">graph.degrees.foreach( x =&gt; println(x))</span><br><span class="line"></span><br><span class="line">println</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为什么这样设计</span></span><br><span class="line"><span class="comment">// 因为：跟的是graph.degrees，即格式为 (VertexId, Int)，</span></span><br><span class="line"><span class="comment">// 所以对其的处理的参数 max(参数a:参数b):(结果)，均为此格式</span></span><br><span class="line"><span class="comment">// 得到最大度的节点：首先需要一个比较两点度大小的函数 max()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max</span></span>(a: (<span class="type">VertexId</span>, <span class="type">Int</span>), b: (<span class="type">VertexId</span>, <span class="type">Int</span>)): (<span class="type">VertexId</span>, <span class="type">Int</span>) = &#123;</span><br><span class="line">  <span class="keyword">if</span> (a._2 &gt; b._2) a <span class="keyword">else</span> b</span><br><span class="line">&#125;</span><br><span class="line">println(graph.degrees.reduce(max))<span class="comment">//foreach( x =&gt; println(x))</span></span><br><span class="line">println(graph.inDegrees.reduce(max))<span class="comment">//foreach( x =&gt; println(x))</span></span><br><span class="line">println(graph.outDegrees.reduce(max))<span class="comment">//foreach( x =&gt; println(x))</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Collecting-Neighbors"><a href="#Collecting-Neighbors" class="headerlink" title="Collecting Neighbors"></a><strong>Collecting Neighbors</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GraphOps实现的，即是属于 graph 的方法</span></span><br><span class="line"></span><br><span class="line">graph.collectNeighborIds(<span class="type">EdgeDirection</span>.<span class="type">Out</span>).foreach( x =&gt; &#123;</span><br><span class="line">  print(x._1+<span class="string">" cnt="</span>)</span><br><span class="line">  x._2.foreach(print)</span><br><span class="line">  println</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 按出度，找到的点的邻居节点</span></span><br><span class="line"><span class="comment">//4 cnt=1</span></span><br><span class="line"><span class="comment">//1 cnt=</span></span><br><span class="line"><span class="comment">//6 cnt=</span></span><br><span class="line"><span class="comment">//3 cnt=26</span></span><br><span class="line"><span class="comment">//5 cnt=236</span></span><br><span class="line"><span class="comment">//2 cnt=14</span></span><br><span class="line">println</span><br><span class="line">graph.collectNeighborIds(<span class="type">EdgeDirection</span>.<span class="type">Either</span>).foreach( x =&gt; &#123;</span><br><span class="line">  print(x._1+<span class="string">" cnt="</span>)</span><br><span class="line">  x._2.foreach(print)</span><br><span class="line">  println</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 按出入度，不能用Both，要用Either</span></span><br><span class="line"><span class="comment">//4 cnt=21</span></span><br><span class="line"><span class="comment">//1 cnt=24</span></span><br><span class="line"><span class="comment">//6 cnt=35</span></span><br><span class="line"><span class="comment">//3 cnt=265</span></span><br><span class="line"><span class="comment">//5 cnt=236</span></span><br><span class="line"><span class="comment">//2 cnt=1435</span></span><br><span class="line"></span><br><span class="line">println</span><br><span class="line">graph.collectNeighbors(<span class="type">EdgeDirection</span>.<span class="type">Either</span>).foreach( x =&gt; &#123;</span><br><span class="line">  print(x._1+<span class="string">" cnt="</span>)</span><br><span class="line">  x._2.foreach(print) <span class="comment">//collectNeighbors 找到的邻居是全属性，而不仅是ID</span></span><br><span class="line">  println</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//4 cnt=(2,(Bob,27))(1,(Alice,28))</span></span><br><span class="line"><span class="comment">//1 cnt=(2,(Bob,27))(4,(David,42))</span></span><br><span class="line"><span class="comment">//6 cnt=(3,(Charlie,65))(5,(Ed,55))</span></span><br><span class="line"><span class="comment">//3 cnt=(2,(Bob,27))(6,(Fran,50))(5,(Ed,55))</span></span><br><span class="line"><span class="comment">//5 cnt=(2,(Bob,27))(3,(Charlie,65))(6,(Fran,50))</span></span><br><span class="line"><span class="comment">//2 cnt=(1,(Alice,28))(4,(David,42))(3,(Charlie,65))(5,(Ed,55))</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Join-Operators"><a href="#Join-Operators" class="headerlink" title="Join Operators"></a><strong>Join Operators</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性重置为0</span></span><br><span class="line"><span class="keyword">val</span> rawGraph = graph.mapVertices((id,_) =&gt; <span class="number">0</span>)</span><br><span class="line">rawGraph.vertices.foreach(println)</span><br><span class="line">println</span><br><span class="line">rawGraph.joinVertices[<span class="type">Int</span>](rawGraph.degrees)((_,_,outDeg) =&gt; outDeg).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,0)</span></span><br><span class="line"><span class="comment">//(1,0)</span></span><br><span class="line"><span class="comment">//(6,0)</span></span><br><span class="line"><span class="comment">//(3,0)</span></span><br><span class="line"><span class="comment">//(5,0)</span></span><br><span class="line"><span class="comment">//(2,0)</span></span><br><span class="line"><span class="comment">// joinVertices 按degree使用join操作 加入到 rawGraph 中</span></span><br><span class="line"><span class="comment">//(4,2)</span></span><br><span class="line"><span class="comment">//(1,2)</span></span><br><span class="line"><span class="comment">//(6,2)</span></span><br><span class="line"><span class="comment">//(3,3)</span></span><br><span class="line"><span class="comment">//(5,3)</span></span><br><span class="line"><span class="comment">//(2,4)</span></span><br><span class="line">rawGraph.outerJoinVertices(rawGraph.degrees)((_,_,outDeg) =&gt; outDeg).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,Some(2))</span></span><br><span class="line"><span class="comment">//(1,Some(2))</span></span><br><span class="line"><span class="comment">//(6,Some(2))</span></span><br><span class="line"><span class="comment">//(3,Some(3))</span></span><br><span class="line"><span class="comment">//(5,Some(3))</span></span><br><span class="line"><span class="comment">//(2,Some(4)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//进阶用法   </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//顶点用 类对象来代替，利用到 outerJoinVertices</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> inDegrees: <span class="type">VertexRDD</span>[<span class="type">Int</span>] = graph.inDegrees</span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span>(<span class="params">name: <span class="type">String</span>, age: <span class="type">Int</span>, inDeg: <span class="type">Int</span>, outDeg: <span class="type">Int</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">//创建一个新图，顶点VD的数据类型为User，并从graph做类型转换</span></span></span><br><span class="line"><span class="class"><span class="title">//</span> <span class="title">Graph</span>[<span class="type">User</span>, <span class="type">Int</span>] <span class="title">即</span> <span class="title">Graph</span>[<span class="type">VD</span>，<span class="type">ED</span>]<span class="title">，意思是顶点由User类代替，ED是Int类型</span></span></span><br><span class="line"><span class="class"><span class="title">val</span> <span class="title">ugraph</span></span>: <span class="type">Graph</span>[<span class="type">User</span>, <span class="type">Int</span>] = graph.mapVertices &#123; <span class="keyword">case</span> (id, (name, age)) =&gt; <span class="type">User</span>(name, age, <span class="number">0</span>, &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//initialUserGraph与inDegrees、outDegrees（RDD）进行连接，并修改initialUserGraph中inDeg值、outD值</span></span><br><span class="line"><span class="comment">//outerJoinVertices 这个方法属于 Graph 类型的方法</span></span><br><span class="line"><span class="keyword">val</span> userGraph = ugraph.outerJoinVertices(ugraph.inDegrees) &#123;</span><br><span class="line">  <span class="comment">//required: (graphx.VertexId, User, Option[Int])</span></span><br><span class="line">  <span class="keyword">case</span> (id, u, in) =&gt; <span class="type">User</span>(u.name, u.age, in.getOrElse(<span class="number">0</span>), u.outDeg)</span><br><span class="line">&#125;.outerJoinVertices(ugraph.outDegrees) &#123;</span><br><span class="line">  <span class="keyword">case</span> (id, u, out) =&gt; <span class="type">User</span>(u.name, u.age, u.inDeg,out.getOrElse(<span class="number">0</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">println(<span class="string">"连接图顶点的属性："</span>)</span><br><span class="line">userGraph.vertices.collect.foreach(v =&gt; println(<span class="string">s"<span class="subst">$&#123;v._2.name&#125;</span> inDeg: <span class="subst">$&#123;v._2.inDeg&#125;</span>  outDeg: v._2.outDeg&#125;"</span>))</span><br><span class="line"></span><br><span class="line">println(<span class="string">"出度和入读相同的："</span>)</span><br><span class="line">userGraph.vertices.filter &#123;</span><br><span class="line">      <span class="comment">//此处应该格式为 (graphx.VertexId, User)</span></span><br><span class="line">  <span class="keyword">case</span> (id, u) =&gt; u.inDeg == u.outDeg</span><br><span class="line">&#125;.collect.foreach &#123;</span><br><span class="line">  <span class="keyword">case</span> (id, property) =&gt; println(property.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mapReduceTriplets"><a href="#mapReduceTriplets" class="headerlink" title="mapReduceTriplets"></a><strong>mapReduceTriplets</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在早的GraphX版本中我们计算邻居聚合使用mapReduceTriplets操作;</span></span><br><span class="line"><span class="comment">//注意：当前版本 Graph已经不存在MapReduceTriplets这个方法</span></span><br><span class="line"><span class="comment">//    libraryDependencies += "org.apache.spark" %% "spark-core" % "2.2.0"</span></span><br><span class="line"><span class="comment">//    libraryDependencies += "org.apache.spark" %% "spark-graphx" % "2.2.0"</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//mapReduceTriplets</span></span><br><span class="line"><span class="comment">// 操作应用用户定义的map函数到每一个triplet ，使用用户定义的reduce函数聚合产生 messages。。</span></span><br><span class="line"><span class="comment">// 然而，我们发现用户返回迭代器是昂贵的，它抑制了我们应用额外优化(例如，本地顶点的重新编号)的能</span></span><br><span class="line"><span class="comment">// 在 aggregateMessages 中我们引进了EdgeContext，其暴露triplet属性，也明确了函数发送信息的源和顶点//。</span></span><br><span class="line"><span class="comment">// 除此之外，我们移除了字节码检测，取而代之的是要求用户指明哪个triplet属性被需要。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[<span class="type">Int</span>, <span class="type">Float</span>] = ...</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">msgFun</span></span>(triplet: <span class="type">Triplet</span>[<span class="type">Int</span>, <span class="type">Float</span>]): <span class="type">Iterator</span>[(<span class="type">Int</span>, <span class="type">String</span>)] = &#123;</span><br><span class="line">  <span class="type">Iterator</span>((triplet.dstId, <span class="string">"Hi"</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reduceFun</span></span>(a: <span class="type">Int</span>, b: <span class="type">Int</span>): <span class="type">Int</span> = a + b</span><br><span class="line"><span class="keyword">val</span> result = graph.mapReduceTriplets[<span class="type">String</span>](msgFun, reduceFun)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">msgFun</span></span>(t: <span class="type">EdgeContext</span>[(<span class="type">String</span>,<span class="type">Int</span>), <span class="type">Int</span>, <span class="type">Int</span>]) &#123;</span><br><span class="line">  t.sendToSrc(<span class="number">100</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reduceFun</span></span>(a: <span class="type">Int</span>, b: <span class="type">Int</span>): <span class="type">Int</span> = a + b</span><br><span class="line"><span class="keyword">val</span> result = graph.aggregateMessages[<span class="type">Int</span>](msgFun, reduceFun)</span><br><span class="line"></span><br><span class="line">result.foreach(println)</span><br></pre></td></tr></table></figure>
+
+<h3 id="aggregateMessages"><a href="#aggregateMessages" class="headerlink" title="aggregateMessages"></a><strong>aggregateMessages</strong></h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//对每个节点的邻接点的属性进行聚合统计</span></span><br><span class="line"><span class="comment">//老版本使用 mapReduceTriplets</span></span><br><span class="line"><span class="keyword">val</span> oldFlowers: <span class="type">VertexRDD</span>[(<span class="type">Int</span>,<span class="type">Double</span>)] = graph.mapReduceTriplets[(<span class="type">Int</span>,<span class="type">Double</span>)]&#123;</span><br><span class="line">    triplet =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (triplet.srcAttr &gt; triplet.dstAttr) &#123;</span><br><span class="line">        <span class="type">Iterator</span>((triplet.dstId, (<span class="number">1</span>, triplet.srcAttr )))</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">Iterator</span>.empty</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    (a,b) =&gt; (a._1+b._1, a._2+b._2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在使用 aggregateMessages 代替</span></span><br><span class="line"><span class="comment">// 首先生成一个随机图</span></span><br><span class="line"><span class="keyword">val</span> g: <span class="type">Graph</span>[<span class="type">Double</span>,<span class="type">Int</span>] = <span class="type">GraphGenerators</span>.logNormalGraph(sc, numVertices = <span class="number">100</span>).mapVertices( d,_) =&gt; id.toDouble )</span><br><span class="line"><span class="comment">//g.edges.foreach(println)</span></span><br><span class="line"><span class="comment">//println</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">msgFun</span></span>(triplet: <span class="type">EdgeContext</span>[<span class="type">Double</span>, <span class="type">Int</span>, (<span class="type">Int</span>,<span class="type">Double</span>)]) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (triplet.srcAttr &gt; triplet.dstAttr) &#123;</span><br><span class="line">    triplet.sendToDst((<span class="number">1</span>, triplet.srcAttr ))</span><br><span class="line">    <span class="comment">//注意：原先的 Iterator((triplet.dstId, (1, triplet.srcAttr ))) 上述代码替换，作用完全一样</span></span><br><span class="line">    <span class="comment">//sendToDst 意思为向 目标点 发送消息</span></span><br><span class="line">    <span class="comment">//println("Iterator(("+triplet.dstId+", (1, "+triplet.srcAttr+" )))");</span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="type">Iterator</span>.empty</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 有个问题：写成函数定义的形式 下面代码总是出错</span></span><br><span class="line"><span class="comment">// def reduceFun(a:Int,b:Double): (Int,Double) = (a._1+b._1, a._2+b._2)</span></span><br><span class="line"><span class="comment">// aggregateMessages[OOO] OOO处的类型，会附加到图g类型之后，</span></span><br><span class="line"><span class="comment">// 即：g为 Double,Int --&gt;  result为 Double,Int,OOO</span></span><br><span class="line"><span class="keyword">val</span> result = g.aggregateMessages[(<span class="type">Int</span>,<span class="type">Double</span>)](msgFun, (a,b) =&gt; (a._1+b._1,a._2+b._2))</span><br><span class="line"></span><br><span class="line"><span class="comment">//result.collect.foreach(println)</span></span><br><span class="line"><span class="comment">//上述代码执行完后，形如(45,2913.0)，已经是reduce完成的状态，如果下面继续计算平均值，直接后项除项即可</span></span><br><span class="line"><span class="comment">//(19,(45,2913.0))</span></span><br><span class="line"><span class="comment">//(39,(45,2873.0))</span></span><br><span class="line"><span class="comment">//(34,(32,2102.0))</span></span><br><span class="line"><span class="comment">//(4,(62,3466.0))</span></span><br><span class="line"><span class="comment">//(71,(12,1028.0))</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//result现在是(Int,Double)形式，现在对Double元素即value</span></span><br><span class="line"><span class="comment">//这里的的match-case类似于switch-case</span></span><br><span class="line"><span class="comment">//对于avg:VertexRDD[Double]，后项变量类型可以省去不写</span></span><br><span class="line"><span class="keyword">val</span> avg:<span class="type">VertexRDD</span>[<span class="type">Double</span>] = result.mapValues(</span><br><span class="line">  (_,value) =&gt; <span class="comment">//这句话意思是前项保持不动，对后项value即形如(12,1028.0)的部分进行加工</span></span><br><span class="line">    value <span class="keyword">match</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> (count,total) =&gt; total/count</span><br><span class="line">    &#125;</span><br><span class="line">) <span class="comment">//整体返回值avg类型为(Int,Double)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//avg.collect.foreach(println)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面不使用随机图，使用开头自定义的图结构时：</span></span><br><span class="line"></span><br><span class="line">graph.triplets.foreach(e =&gt; intln(<span class="string">s"edge(<span class="subst">$&#123;e.srcId&#125;</span>,<span class="subst">$&#123;e.dstId&#125;</span>)\tage(<span class="subst">$&#123;e.srcAttr._2&#125;</span>,<span class="subst">$&#123;e.dstAttr._2&#125;</span>)"</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">msgFun</span></span>(triplet: <span class="type">EdgeContext</span>[(<span class="type">String</span>,<span class="type">Int</span>), <span class="type">Int</span>, (<span class="type">Int</span>,<span class="type">Double</span>)]) &#123;</span><br><span class="line">  <span class="keyword">if</span> (triplet.srcAttr._2 &gt; triplet.dstAttr._2) &#123;</span><br><span class="line">    triplet.sendToDst((<span class="number">1</span>, triplet.srcAttr._2 ))</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="type">Iterator</span>.empty</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">val</span> result = graph.aggregateMessages[(<span class="type">Int</span>,<span class="type">Double</span>)](msgFun, (a,b) =&gt; (a._1+b._1,a._2+b._2))</span><br><span class="line">println</span><br><span class="line">result.collect.foreach(println)</span><br><span class="line"><span class="comment">//分析：原始图结构</span></span><br><span class="line"><span class="comment">//((2,(Bob,27)),(1,(Alice,28)),7)</span></span><br><span class="line"><span class="comment">//((2,(Bob,27)),(4,(David,42)),2)</span></span><br><span class="line"><span class="comment">//((3,(Charlie,65)),(2,(Bob,27)),4)   年龄条件符合：顶点2 邻居的Age为 65</span></span><br><span class="line"><span class="comment">//((3,(Charlie,65)),(6,(Fran,50)),3)  年龄条件符合：顶点6 邻居的Age为 65</span></span><br><span class="line"><span class="comment">//((4,(David,42)),(1,(Alice,28)),1)   年龄条件符合：顶点1 邻居的Age为 42     = 42  1个邻居</span></span><br><span class="line"><span class="comment">//((5,(Ed,55)),(2,(Bob,27)),2)        年龄条件符合：顶点2 邻居的Age为 65+55  = 120 2个邻居</span></span><br><span class="line"><span class="comment">//((5,(Ed,55)),(3,(Charlie,65)),8)</span></span><br><span class="line"><span class="comment">//((5,(Ed,55)),(6,(Fran,50)),3)       年龄条件符合：顶点6 邻居的Age为 65+55  = 120 2个邻居</span></span><br><span class="line"><span class="comment">//上述计算的意义是：找到每个顶点用户的比自身年龄大的邻居节点用户的年龄之和，以及邻居数；</span></span><br><span class="line"><span class="comment">//所以，result为：</span></span><br><span class="line"><span class="comment">//(1,(1,42.0))</span></span><br><span class="line"><span class="comment">//(6,(2,120.0))</span></span><br><span class="line"><span class="comment">//(2,(2,120.0))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//继续求平均值</span></span><br><span class="line"><span class="keyword">val</span> avg:<span class="type">VertexRDD</span>[<span class="type">Double</span>] = result.mapValues(</span><br><span class="line">  (_,value) =&gt;</span><br><span class="line">    value <span class="keyword">match</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> (count,total) =&gt; total/count</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line">println</span><br><span class="line">avg.collect.foreach(println)</span><br><span class="line"><span class="comment">//上述计算的意义是：找到每个顶点用户的比自身年龄大的邻居节点用户的平均年龄，即原本的计算目的</span></span><br><span class="line"><span class="comment">//结果为：</span></span><br><span class="line"><span class="comment">// (1,42.0)</span></span><br><span class="line"><span class="comment">// (6,60.0)</span></span><br><span class="line"><span class="comment">// (2,60.0)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Pregel-API-Functions"><a href="#Pregel-API-Functions" class="headerlink" title="Pregel API Functions"></a><strong>Pregel API Functions</strong></h3><ul>
+<li><strong>Shortest path</strong></li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// ShortestPath 没有被封装成方法，需要自己实现</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> sourceId: <span class="type">VertexId</span> = <span class="number">5</span>L <span class="comment">// 定义源点</span></span><br><span class="line"><span class="comment">// 用一个新图initialGraph 来初始化 顶点5 同其他顶点间的距离：本身距离为0，其他距离为MAX</span></span><br><span class="line"><span class="keyword">val</span> initialGraph = graph.mapVertices((id,_) =&gt; <span class="keyword">if</span> (id == sourceId) <span class="number">0.0</span> <span class="keyword">else</span> uble.<span class="type">PositiveInfinity</span>)</span><br><span class="line"><span class="comment">//initialGraph.vertices.foreach(println)</span></span><br><span class="line"><span class="comment">//(4,Infinity)</span></span><br><span class="line"><span class="comment">//(1,Infinity)</span></span><br><span class="line"><span class="comment">//(6,Infinity)</span></span><br><span class="line"><span class="comment">//(3,Infinity)</span></span><br><span class="line"><span class="comment">//(5,0.0)</span></span><br><span class="line"><span class="comment">//(2,Infinity)</span></span><br><span class="line"><span class="comment">//initialGraph.triplets.foreach(println)</span></span><br><span class="line"><span class="comment">//((2,Infinity),(1,Infinity),7)</span></span><br><span class="line"><span class="comment">//((2,Infinity),(4,Infinity),2)</span></span><br><span class="line"><span class="comment">//((3,Infinity),(2,Infinity),4)</span></span><br><span class="line"><span class="comment">//((3,Infinity),(6,Infinity),3)</span></span><br><span class="line"><span class="comment">//((4,Infinity),(1,Infinity),1)</span></span><br><span class="line"><span class="comment">//((5,0.0),(2,Infinity),2)</span></span><br><span class="line"><span class="comment">//((5,0.0),(3,Infinity),8)</span></span><br><span class="line"><span class="comment">//((5,0.0),(6,Infinity),3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Unspecified value parameters: vprog:</span></span><br><span class="line"><span class="comment">// 第一部分：(graphx.VertexId, Double, Double) =&gt; Double,</span></span><br><span class="line"><span class="comment">// 第二部分：sendMsg: EdgeTriplet[Double, Int] =&gt; Iterator[(graphx.VertexId, Double)],</span></span><br><span class="line"><span class="comment">// 第三部分：mergeMsg: (Double, Double) =&gt; Double</span></span><br><span class="line"><span class="keyword">val</span> sssp = initialGraph.pregel(<span class="type">Double</span>.<span class="type">PositiveInfinity</span>)(</span><br><span class="line">  (id, dist, newDist) =&gt; &#123;math.min(dist, newDist)&#125;,</span><br><span class="line">  triplet =&gt; &#123;  <span class="comment">// 计算权重</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (triplet.srcAttr + triplet.attr &lt; triplet.dstAttr) &#123;</span><br><span class="line">      println(<span class="string">"Iterator(("</span>+triplet.dstId+<span class="string">", "</span>+triplet.srcAttr+<span class="string">" + "</span>+triplet.attr+<span class="string">"))"</span>)</span><br><span class="line">      <span class="comment">//triplet.attr即边的权重，不断加入triplet.attr，最后就能找到最短路径</span></span><br><span class="line">      <span class="type">Iterator</span>((triplet.dstId, triplet.srcAttr + triplet.attr))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      println(<span class="string">"Iterator.empty"</span>)</span><br><span class="line">      <span class="type">Iterator</span>.empty</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  (a,b) =&gt; math.min(a,b) <span class="comment">// 更新点⑤到该点的距离</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//解释下过程，拿Triplets结构来说</span></span><br><span class="line"><span class="comment">//((2,Infinity),(1,Infinity),7)</span></span><br><span class="line"><span class="comment">//((2,Infinity),(4,Infinity),2)</span></span><br><span class="line"><span class="comment">//((3,Infinity),(2,Infinity),4)</span></span><br><span class="line"><span class="comment">//((3,Infinity),(6,Infinity),3)</span></span><br><span class="line"><span class="comment">//((4,Infinity),(1,Infinity),1)</span></span><br><span class="line"><span class="comment">//((5,0.0),(2,Infinity),2)</span></span><br><span class="line"><span class="comment">//((5,0.0),(3,Infinity),8)</span></span><br><span class="line"><span class="comment">//((5,0.0),(6,Infinity),3)</span></span><br><span class="line"><span class="comment">//首先由于前五行，顶点的attr均为Infinity，所以sendMsg中的Iterator均是empty空迭代</span></span><br><span class="line"><span class="comment">//第六行，0+2&lt;Infinity，满足条件，传递（0+2=2）到入点，即变为((5,0.0),(2,2),2)，意为5到点2距2</span></span><br><span class="line"><span class="comment">//第七行，0+8&lt;Infinity，满足条件，传递（0+8=8）到入点，即变为((5,0.0),(3,8),8)，意为5到点3距8</span></span><br><span class="line"><span class="comment">//第八行，0+2&lt;Infinity，满足条件，传递（0+2=2）到入点，即变为((5,0.0),(6,3),3)，意为5到点6距3</span></span><br><span class="line"><span class="comment">//==进行mergeMsg步骤== 注意现在更新为：</span></span><br><span class="line"><span class="comment">//((2,2),(1,Infinity),7)</span></span><br><span class="line"><span class="comment">//((2,2),(4,Infinity),2)</span></span><br><span class="line"><span class="comment">//((3,8),(2,2),4)</span></span><br><span class="line"><span class="comment">//((3,8),(6,3),3)</span></span><br><span class="line"><span class="comment">//((4,Infinity),(1,Infinity),1)</span></span><br><span class="line"><span class="comment">//((5,0.0),(2,2),2)</span></span><br><span class="line"><span class="comment">//((5,0.0),(3,8),8)</span></span><br><span class="line"><span class="comment">//((5,0.0),(6,3),3)</span></span><br><span class="line"><span class="comment">//第一行，2+7&lt;Infinity，满足条件，传递（2+7=9）到入点，即变为((2,2),(1,9),7)，意为5到点1距离为2=9</span></span><br><span class="line"><span class="comment">//第二行，2+2&lt;Infinity，满足条件，传递（2+2=4）到入点，即变为((2,2),(4,4),2)，意为5到点4距离为2=4</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 8+4&gt;2</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 8+3&gt;3</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 Infinity无法比较</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 0+2=2</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 0+8=8</span></span><br><span class="line"><span class="comment">//Iterator.empty 因为 0+3=3</span></span><br><span class="line"><span class="comment">//==进行mergeMsg步骤== 注意现在更新为：</span></span><br><span class="line"><span class="comment">//((2,2),(1,9),7)</span></span><br><span class="line"><span class="comment">//((2,2),(4,4),2)</span></span><br><span class="line"><span class="comment">//((3,8),(2,2),4)</span></span><br><span class="line"><span class="comment">//((3,8),(6,3),3)</span></span><br><span class="line"><span class="comment">//((4,4),(1,9),1)</span></span><br><span class="line"><span class="comment">//((5,0.0),(2,2),2)</span></span><br><span class="line"><span class="comment">//((5,0.0),(3,8),8)</span></span><br><span class="line"><span class="comment">//((5,0.0),(6,3),3)</span></span><br><span class="line"><span class="comment">//第一行：Iterator.empty 因为 2+7=9</span></span><br><span class="line"><span class="comment">//第二行：Iterator.empty 因为 2+2=4</span></span><br><span class="line"><span class="comment">//第三行：Iterator.empty 因为 8+4&gt;2</span></span><br><span class="line"><span class="comment">//第四行：Iterator.empty 因为 8+3&gt;3</span></span><br><span class="line"><span class="comment">//第五行：4+1&lt;9，满足条件，传递（4+1=5）到入点，即变为((4,4),(1,5),1)，意为5到点1距离由9更新为5</span></span><br><span class="line"><span class="comment">//第六行：Iterator.empty 因为 0+2=2</span></span><br><span class="line"><span class="comment">//第七行：Iterator.empty 因为 0+8=8</span></span><br><span class="line"><span class="comment">//第八行：Iterator.empty 因为 0+3=3</span></span><br><span class="line"><span class="comment">//==进行mergeMsg步骤== 注意现在更新为：</span></span><br><span class="line"><span class="comment">//((2,2),(1,5),7)</span></span><br><span class="line"><span class="comment">//((2,2),(4,4),2)</span></span><br><span class="line"><span class="comment">//((3,8),(2,2),4)</span></span><br><span class="line"><span class="comment">//((3,8),(6,3),3)</span></span><br><span class="line"><span class="comment">//((4,4),(1,5),1)</span></span><br><span class="line"><span class="comment">//((5,0.0),(2,2),2)</span></span><br><span class="line"><span class="comment">//((5,0.0),(3,8),8)</span></span><br><span class="line"><span class="comment">//((5,0.0),(6,3),3)</span></span><br><span class="line"><span class="comment">//此时，每个顶点的格式即（顶点id，顶点5到该顶点的最短距离），即最短路径算法完成</span></span><br><span class="line"></span><br><span class="line">sssp.vertices.foreach(println)</span><br><span class="line"><span class="comment">//最终输出的结果:</span></span><br><span class="line"><span class="comment">//(4,4.0)</span></span><br><span class="line"><span class="comment">//(1,5.0)</span></span><br><span class="line"><span class="comment">//(6,3.0)</span></span><br><span class="line"><span class="comment">//(3,8.0)</span></span><br><span class="line"><span class="comment">//(5,0.0)</span></span><br><span class="line"><span class="comment">//(2,2.0)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>PageRank</strong></li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PageRank 有封装好的方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//注意PageRank的参数，其实可以用精度来理解，这个值越小rank计算越精确，但计算时间也越长</span></span><br><span class="line">graph.pageRank(<span class="number">0.01</span>).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,0.9727164143364966)</span></span><br><span class="line"><span class="comment">//(1,1.7757164399923602)</span></span><br><span class="line"><span class="comment">//(6,1.0009207604397985)</span></span><br><span class="line"><span class="comment">//(3,0.7024005336419639)</span></span><br><span class="line"><span class="comment">//(5,0.5473250911495823)</span></span><br><span class="line"><span class="comment">//(2,1.0009207604397985)</span></span><br><span class="line">graph.pageRank(<span class="number">0.05</span>).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,0.9993165004824702)</span></span><br><span class="line"><span class="comment">//(1,1.700587005467996)</span></span><br><span class="line"><span class="comment">//(6,0.9890640077195239)</span></span><br><span class="line"><span class="comment">//(3,0.7430041814088131)</span></span><br><span class="line"><span class="comment">//(5,0.5789642972016725)</span></span><br><span class="line"><span class="comment">//(2,0.9890640077195239)</span></span><br><span class="line">graph.pageRank(<span class="number">0.1</span>).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,1.035409289731306)</span></span><br><span class="line"><span class="comment">//(1,1.5453030618621122)</span></span><br><span class="line"><span class="comment">//(6,1.0247865028119143)</span></span><br><span class="line"><span class="comment">//(3,0.7698396167465112)</span></span><br><span class="line"><span class="comment">//(5,0.5998750260362425)</span></span><br><span class="line"><span class="comment">//(2,1.0247865028119143)</span></span><br><span class="line">graph.pageRank(<span class="number">0.5</span>).vertices.foreach(println)</span><br><span class="line"><span class="comment">//(4,0.9999999999999999)</span></span><br><span class="line"><span class="comment">//(1,0.9999999999999999)</span></span><br><span class="line"><span class="comment">//(6,0.9999999999999999)</span></span><br><span class="line"><span class="comment">//(3,0.9999999999999999)</span></span><br><span class="line"><span class="comment">//(5,0.9999999999999999)</span></span><br><span class="line"><span class="comment">//(2,0.9999999999999999)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>TrangleCount</strong></li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TrangleCount 有封装好的方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意，老版本GraphX需要 srcID&lt;dstID，有些教程还是这样说的，但是2.x已经没有这个要求</span></span><br><span class="line">graph.triangleCount().vertices.foreach(println)</span><br><span class="line"><span class="comment">//输出结果：</span></span><br><span class="line"><span class="comment">//(4,1) 意思为顶点4 外接一个三角形</span></span><br><span class="line"><span class="comment">//(1,1) ..</span></span><br><span class="line"><span class="comment">//(6,1) ..</span></span><br><span class="line"><span class="comment">//(3,2) 意思为顶点2 外接两个三角形</span></span><br><span class="line"><span class="comment">//(5,2) ..</span></span><br><span class="line"><span class="comment">//(2,2) ..</span></span><br></pre></td></tr></table></figure>
+
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/4ba7.html">https://www.cz5h.com/article/4ba7.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B4%E5%90%88/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>整合</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>实践</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GraphX/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>GraphX</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/4ba7.html&title=GraphX具体功能的代码使用实例-Scala实现 - 长征部落格&summary=GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/4ba7.html&title=GraphX具体功能的代码使用实例-Scala实现 - 长征部落格&summary=GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/4ba7.html&title=GraphX具体功能的代码使用实例-Scala实现 - 长征部落格&summary=GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aMXLDMAwEQP//00mfRsCBGjnQsnNsh1xV5wM/Py9dH3BwcHBw8EXwT7guNyh+7+rvf9+fnhccHBwcHHwjvBwAwoN2QVffT88LDg4ODg6+GX4ZAIoHqT6gLmx8XnBwcHBwcPD4QZwqOMDBwcHBwcHvCzDdQHOq2AAHBwcHB38zPA0QVweuvt/d77FJCjg4ODg4+BfB4wtzD71+/GYjODg4ODj4F8CnqxtgphcHxucFBwcHBwdfBE8DQjpAmBYO0/OBg4ODg4NvhJ8a0J+GdD8XDxTAwcHBwcH/ITwtHqoPpFswpMXG7Q0MODg4ODj4F8OnA4C0mGgHkDBQgYODg4ODb4R3f+BPi4JucEmDVXugAA4ODg4OvgCeFg5d6Kmi4/gkBRwcHBwcfAH8roOkgaf7uTjAgIODg4ODL4BPB/Lj4r+5ygMMcHBwcHDwxfDuRnGQGAaj4wEGHBwcHBx8ATwNMNOiYFpMlB8QODg4ODj4Qvjp19MioXshsHxRABwcHBwcfDE8LRSqAef0vuOBAjg4ODg4+CL4qR/+3UJiekGgvD84ODg4OPgi+HRVA0wabNILBuDg4ODg4G+A3z0AiIv/Q4HpsogABwcHBwdfAJ8GjiowvTCYXhwoNzDg4ODg4OAL4OkA4VQBkV4YLAcjcHBwcHBw8LwIGO7X/T+3BxhwcHBwcPAF8PSgKSQdfICDg4ODg2+GdwuE6f/pXhCYFiTg4ODg4OAb4WkwOFU8pBcM2kUIODg4ODj4IvjbFjg4ODg4+IL1C0hVAz3P6LXsAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aMXLDMAwEQP//00mfRsCBGjnQsnNsh1xV5wM/Py9dH3BwcHBw8EXwT7guNyh+7+rvf9+fnhccHBwcHHwjvBwAwoN2QVffT88LDg4ODg6+GX4ZAIoHqT6gLmx8XnBwcHBwcPD4QZwqOMDBwcHBwcHvCzDdQHOq2AAHBwcHB38zPA0QVweuvt/d77FJCjg4ODg4+BfB4wtzD71+/GYjODg4ODj4F8CnqxtgphcHxucFBwcHBwdfBE8DQjpAmBYO0/OBg4ODg4NvhJ8a0J+GdD8XDxTAwcHBwcH/ITwtHqoPpFswpMXG7Q0MODg4ODj4F8OnA4C0mGgHkDBQgYODg4ODb4R3f+BPi4JucEmDVXugAA4ODg4OvgCeFg5d6Kmi4/gkBRwcHBwcfAH8roOkgaf7uTjAgIODg4ODL4BPB/Lj4r+5ygMMcHBwcHDwxfDuRnGQGAaj4wEGHBwcHBx8ATwNMNOiYFpMlB8QODg4ODj4Qvjp19MioXshsHxRABwcHBwcfDE8LRSqAef0vuOBAjg4ODg4+CL4qR/+3UJiekGgvD84ODg4OPgi+HRVA0wabNILBuDg4ODg4G+A3z0AiIv/Q4HpsogABwcHBwdfAJ8GjiowvTCYXhwoNzDg4ODg4OAL4OkA4VQBkV4YLAcjcHBwcHBw8LwIGO7X/T+3BxhwcHBwcPAF8PSgKSQdfICDg4ODg2+GdwuE6f/pXhCYFiTg4ODg4OAb4WkwOFU8pBcM2kUIODg4ODj4IvjbFjg4ODg4+IL1C0hVAz3P6LXsAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/4900.html" rel="prev" title="提交Spark任务的三种方式">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        提交Spark任务的三种方式
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/Spark/"><i class="fas fa-hashtag" aria-hidden="true"></i> Spark</a> <a class="tag" href="/tags/IDEA/"><i class="fas fa-hashtag" aria-hidden="true"></i> IDEA</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/cd06.html" rel="prev" title="Java向Oracle数据库表中插入CLOB、BLOB字段">
+                      
+                        Java向Oracle数据库表中插入CLOB、BLOB字段
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Oracle/"><i class="fas fa-hashtag" aria-hidden="true"></i> Oracle</a> <a class="tag" href="/tags/CLOB/"><i class="fas fa-hashtag" aria-hidden="true"></i> CLOB</a> <a class="tag" href="/tags/BLOB/"><i class="fas fa-hashtag" aria-hidden="true"></i> BLOB</a> <a class="tag" href="/tags/SQL%E6%8F%92%E5%85%A5/"><i class="fas fa-hashtag" aria-hidden="true"></i> SQL插入</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'GraphX具体功能的代码使用实例-Scala实现',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Property-Operators"><span class="toc-text">Property Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Structural-Operators"><span class="toc-text">Structural Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Computing-Degree"><span class="toc-text">Computing Degree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collecting-Neighbors"><span class="toc-text">Collecting Neighbors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Join-Operators"><span class="toc-text">Join Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mapReduceTriplets"><span class="toc-text">mapReduceTriplets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aggregateMessages"><span class="toc-text">aggregateMessages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pregel-API-Functions"><span class="toc-text">Pregel API Functions</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

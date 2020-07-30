@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+      <meta name="robots" content="noindex,nofollow">
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>标签：R语言 - 长征部落格</title>
+ 
+	
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+
+  
+  <div class="ctrl"></div>
+  <center>🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌕</center>
+  
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+        
+
+
+<div class="l_main">
+  
+    
+      
+  <section class="post-list ">
+    
+      
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box   reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/article/528.html">
+      使用R语言转存Excel到MySQL
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年6月19日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约983字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需7分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/528.html" class="pageViews" data-flag-title="使用R语言转存Excel到MySQL"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>花了两天时间写了一个Excel数据转换脚本，原需求除了要把数据转存到Mysql中，还要对每一条数据进行拆分和重组，并不容易。最终我利用R语言完成了这个小需求，本着总结学习的想法，在此处将多余逻辑删除，抽离出了最基本的Excel转存Mysql的功能，这样也可以算一个小轮子了。（仅做学习用，Navicat等工具可以直接导入Excel）</p>
+      
+        
+          <div class="button readmore">
+            <a href="/article/528.html" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
+        
+      
+    </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/R%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> R语言</a>
+        
+          <a href="/tags/SQL%E6%8F%92%E5%85%A5/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> SQL插入</a>
+        
+          <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 数据处理</a>
+        
+      </div>
+     -->
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box   reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/article/64af.html">
+      R语言的学习路线
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年8月27日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.7k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需10分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/64af.html" class="pageViews" data-flag-title="R语言的学习路线"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h4 id="初级入门"><a href="#初级入门" class="headerlink" title="初级入门"></a>初级入门</h4><blockquote>
+<p>《An Introduction to R》，这是官方的入门小册子。其有中文版，由丁国徽翻译，译名为《R导论》。《R4Beginners》，这本小册子有中文版应该叫《R入门》。除此之外，还可以去读刘思喆的《153分钟学会R》。这本书收集了R初学者提问频率最高的153个问题。为什么叫153分钟呢？因为最初作者写了153个问题，阅读一个问题花费1分钟时间，全局下来也就是153分钟了。</p>
+</blockquote>
+      
+        
+          <div class="button readmore">
+            <a href="/article/64af.html" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
+        
+      
+    </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/R%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> R语言</a>
+        
+      </div>
+     -->
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
+    
+  
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="https://translate.google.com/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+  <section class="widget category  widget-blur desktop">
+    
+  <header>
+    
+      <a href="/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box" title="/categories/C-C/" href="/categories/C-C/" id="categoriesC-C"><div class="name">C/C++</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Daily-Life/" href="/categories/Daily-Life/" id="categoriesDaily-Life"><div class="name">Daily_Life</div><div class="badge">(24)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Hadoop%E7%9B%B8%E5%85%B3/" href="/categories/Hadoop%E7%9B%B8%E5%85%B3/" id="categoriesHadoopE79BB8E585B3"><div class="name">Hadoop相关</div><div class="badge">(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Hexo%E7%9B%B8%E5%85%B3/" href="/categories/Hexo%E7%9B%B8%E5%85%B3/" id="categoriesHexoE79BB8E585B3"><div class="name">Hexo相关</div><div class="badge">(13)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/JQuery/" href="/categories/JQuery/" id="categoriesJQuery"><div class="name">JQuery</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" id="categoriesJava-E695B0E68DAEE5BA93"><div class="name">Java/数据库</div><div class="badge">(15)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/ML-R%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/ML-R%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesML-RE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">ML/R学习笔记</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Mini-ITX%E5%B0%8F%E9%92%A2%E7%82%AE/" href="/categories/Mini-ITX%E5%B0%8F%E9%92%A2%E7%82%AE/" id="categoriesMini-ITXE5B08FE992A2E782AE"><div class="name">Mini-ITX小钢炮</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesPythonE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">Python学习笔记</div><div class="badge">(13)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesSparkE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">Spark学习笔记</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/" id="categoriesE5A4A7E695B0E68DAEE79BB8E585B3"><div class="name">大数据相关</div><div class="badge">(17)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" id="categoriesE5BBBAE7AB99E7BB84E7BD91"><div class="name">建站组网</div><div class="badge">(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" id="categoriesE7A094E7A9B6E696B9E59091"><div class="name">研究方向</div><div class="badge">(39)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+  
+  <section class="widget tagcloud  widget-blur desktop">
+    
+  <header>
+    
+      <a href="/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">文章标签</span></a>
+    
+  </header>
+
+
+    <div class="content">
+      <a href="/tags/BLOB/" style="font-size: 5px; color: #999">BLOB</a> <a href="/tags/C-C/" style="font-size: 9.09px; color: #868686">C/C++</a> <a href="/tags/CLOB/" style="font-size: 5px; color: #999">CLOB</a> <a href="/tags/CMakeList/" style="font-size: 5px; color: #999">CMakeList</a> <a href="/tags/CSC/" style="font-size: 7.73px; color: #8d8d8d">CSC</a> <a href="/tags/CSS/" style="font-size: 5px; color: #999">CSS</a> <a href="/tags/CUDA/" style="font-size: 5px; color: #999">CUDA</a> <a href="/tags/CentOS/" style="font-size: 6.36px; color: #939393">CentOS</a> <a href="/tags/Chrome%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">Chrome插件</a> <a href="/tags/Collection/" style="font-size: 5px; color: #999">Collection</a> <a href="/tags/Cuda/" style="font-size: 7.73px; color: #8d8d8d">Cuda</a> <a href="/tags/D3/" style="font-size: 9.09px; color: #868686">D3</a> <a href="/tags/Demo/" style="font-size: 5px; color: #999">Demo</a> <a href="/tags/EJS%E6%A8%A1%E6%9D%BF/" style="font-size: 5px; color: #999">EJS模板</a> <a href="/tags/Error/" style="font-size: 5px; color: #999">Error</a> <a href="/tags/Flume/" style="font-size: 7.73px; color: #8d8d8d">Flume</a> <a href="/tags/GitHub/" style="font-size: 6.36px; color: #939393">GitHub</a> <a href="/tags/Github/" style="font-size: 5px; color: #999">Github</a> <a href="/tags/GraphX/" style="font-size: 7.73px; color: #8d8d8d">GraphX</a> <a href="/tags/HA/" style="font-size: 5px; color: #999">HA</a> <a href="/tags/HTML/" style="font-size: 10.45px; color: #808080">HTML</a> <a href="/tags/HTPC/" style="font-size: 6.36px; color: #939393">HTPC</a> <a href="/tags/Hadoop/" style="font-size: 9.09px; color: #868686">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 13.18px; color: #747474">Hexo</a> <a href="/tags/Hive/" style="font-size: 5px; color: #999">Hive</a> <a href="/tags/IDEA/" style="font-size: 15.91px; color: #686868">IDEA</a> <a href="/tags/IndexedRDD/" style="font-size: 5px; color: #999">IndexedRDD</a> <a href="/tags/Indigo/" style="font-size: 7.73px; color: #8d8d8d">Indigo</a> <a href="/tags/JDK/" style="font-size: 5px; color: #999">JDK</a> <a href="/tags/JQuery/" style="font-size: 9.09px; color: #868686">JQuery</a> <a href="/tags/Java/" style="font-size: 11.82px; color: #7a7a7a">Java</a> <a href="/tags/JavaScript/" style="font-size: 11.82px; color: #7a7a7a">JavaScript</a> <a href="/tags/Kafka/" style="font-size: 13.18px; color: #747474">Kafka</a> <a href="/tags/Kettle/" style="font-size: 7.73px; color: #8d8d8d">Kettle</a> <a href="/tags/LeanCloud/" style="font-size: 7.73px; color: #8d8d8d">LeanCloud</a> <a href="/tags/Linux/" style="font-size: 5px; color: #999">Linux</a> <a href="/tags/Makefile/" style="font-size: 5px; color: #999">Makefile</a> <a href="/tags/Mapreduce/" style="font-size: 5px; color: #999">Mapreduce</a> <a href="/tags/Maven/" style="font-size: 7.73px; color: #8d8d8d">Maven</a> <a href="/tags/Memory/" style="font-size: 9.09px; color: #868686">Memory</a> <a href="/tags/Merge/" style="font-size: 5px; color: #999">Merge</a> <a href="/tags/Mysql/" style="font-size: 6.36px; color: #939393">Mysql</a> <a href="/tags/NetBeans/" style="font-size: 5px; color: #999">NetBeans</a> <a href="/tags/Nginx/" style="font-size: 5px; color: #999">Nginx</a> <a href="/tags/Node/" style="font-size: 5px; color: #999">Node</a> <a href="/tags/Nvidia/" style="font-size: 5px; color: #999">Nvidia</a> <a href="/tags/Oracle/" style="font-size: 6.36px; color: #939393">Oracle</a> <a href="/tags/Photos/" style="font-size: 7.73px; color: #8d8d8d">Photos</a> <a href="/tags/Python/" style="font-size: 18.64px; color: #5b5b5b">Python</a> <a href="/tags/Rss/" style="font-size: 5px; color: #999">Rss</a> <a href="/tags/R%E8%AF%AD%E8%A8%80/" style="font-size: 6.36px; color: #939393">R语言</a> <a href="/tags/SBT/" style="font-size: 6.36px; color: #939393">SBT</a> <a href="/tags/SQL%E6%8F%92%E5%85%A5/" style="font-size: 6.36px; color: #939393">SQL插入</a> <a href="/tags/Scala/" style="font-size: 11.82px; color: #7a7a7a">Scala</a> <a href="/tags/SourceInsight3/" style="font-size: 5px; color: #999">SourceInsight3</a> <a href="/tags/Spark/" style="font-size: 14.55px; color: #6e6e6e">Spark</a> <a href="/tags/Sqlserver/" style="font-size: 5px; color: #999">Sqlserver</a> <a href="/tags/Storm/" style="font-size: 9.09px; color: #868686">Storm</a> <a href="/tags/Summary/" style="font-size: 13.18px; color: #747474">Summary</a> <a href="/tags/Synology/" style="font-size: 7.73px; color: #8d8d8d">Synology</a> <a href="/tags/Ubuntu/" style="font-size: 9.09px; color: #868686">Ubuntu</a> <a href="/tags/UptimeRobot/" style="font-size: 5px; color: #999">UptimeRobot</a> <a href="/tags/VMware/" style="font-size: 7.73px; color: #8d8d8d">VMware</a> <a href="/tags/Valine/" style="font-size: 6.36px; color: #939393">Valine</a> <a href="/tags/Volantis/" style="font-size: 5px; color: #999">Volantis</a> <a href="/tags/WebService/" style="font-size: 10.45px; color: #808080">WebService</a> <a href="/tags/WebSocket/" style="font-size: 9.09px; color: #868686">WebSocket</a> <a href="/tags/Writing/" style="font-size: 11.82px; color: #7a7a7a">Writing</a> <a href="/tags/Zookeeperp/" style="font-size: 5px; color: #999">Zookeeperp</a> <a href="/tags/malloc/" style="font-size: 5px; color: #999">malloc</a> <a href="/tags/recursion/" style="font-size: 5px; color: #999">recursion</a> <a href="/tags/stackoverflow/" style="font-size: 5px; color: #999">stackoverflow</a> <a href="/tags/%E4%B8%83%E7%89%9B%E4%BA%91/" style="font-size: 5px; color: #999">七牛云</a> <a href="/tags/%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/" style="font-size: 5px; color: #999">中文教程</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA/" style="font-size: 5px; color: #999">中文维基</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E6%89%A9%E5%B1%95/" style="font-size: 7.73px; color: #8d8d8d">主题扩展</a> <a href="/tags/%E5%88%9D%E4%BD%93%E9%AA%8C/" style="font-size: 5px; color: #999">初体验</a> <a href="/tags/%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/" style="font-size: 5px; color: #999">初次使用</a> <a href="/tags/%E5%89%A7%E9%80%8F/" style="font-size: 6.36px; color: #939393">剧透</a> <a href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91/" style="font-size: 6.36px; color: #939393">力导向</a> <a href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91%E5%B8%83%E5%B1%80/" style="font-size: 7.73px; color: #8d8d8d">力导向布局</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%BB%BA%E8%A1%A8/" style="font-size: 5px; color: #999">动态建表</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%B5%8B%E5%80%BC/" style="font-size: 5px; color: #999">动态赋值</a> <a href="/tags/%E5%8C%BA%E5%88%AB/" style="font-size: 5px; color: #999">区别</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 5px; color: #999">博客搭建</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 5px; color: #999">压缩</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 5px; color: #999">原理</a> <a href="/tags/%E5%8F%8C%E6%98%BE%E5%8D%A1/" style="font-size: 5px; color: #999">双显卡</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 17.27px; color: #616161">可视化</a> <a href="/tags/%E5%9B%9E%E5%BF%86/" style="font-size: 5px; color: #999">回忆</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 5px; color: #999">图床</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE/" style="font-size: 9.09px; color: #868686">图数据</a> <a href="/tags/%E5%9B%BE%E6%96%87/" style="font-size: 5px; color: #999">图文</a> <a href="/tags/%E5%9B%BE%E7%AE%80%E5%8C%96/" style="font-size: 6.36px; color: #939393">图简化</a> <a href="/tags/%E5%9F%9F%E5%90%8D/" style="font-size: 6.36px; color: #939393">域名</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 5px; color: #999">大数据</a> <a href="/tags/%E5%AE%9E%E8%B7%B5/" style="font-size: 6.36px; color: #939393">实践</a> <a href="/tags/%E5%B0%8F%E4%B8%96%E7%95%8C%E7%BD%91%E7%BB%9C/" style="font-size: 5px; color: #999">小世界网络</a> <a href="/tags/%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE/" style="font-size: 6.36px; color: #939393">层次数据</a> <a href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/" style="font-size: 11.82px; color: #7a7a7a">布局算法</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 7.73px; color: #8d8d8d">常用命令</a> <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" style="font-size: 6.36px; color: #939393">并行计算</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 6.36px; color: #939393">建站</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 20px; color: #555">总结</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 5px; color: #999">扩展</a> <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" style="font-size: 5px; color: #999">排列组合</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">插件</a> <a href="/tags/%E6%94%BB%E5%8D%9A/" style="font-size: 6.36px; color: #939393">攻博</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 5px; color: #999">教程</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 5px; color: #999">数学建模</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 5px; color: #999">数据处理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 5px; color: #999">数据集</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 6.36px; color: #939393">数组</a> <a href="/tags/%E6%95%B4%E5%90%88/" style="font-size: 10.45px; color: #808080">整合</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 5px; color: #999">旅行</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 5px; color: #999">显卡</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 6.36px; color: #939393">机器学习</a> <a href="/tags/%E6%9D%90%E6%96%99%E5%87%86%E5%A4%87/" style="font-size: 6.36px; color: #939393">材料准备</a> <a href="/tags/%E6%A6%82%E8%BF%B0/" style="font-size: 10.45px; color: #808080">概述</a> <a href="/tags/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 6.36px; color: #939393">注意事项</a> <a href="/tags/%E7%83%AD%E5%9B%BE/" style="font-size: 5px; color: #999">热图</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10.45px; color: #808080">生活</a> <a href="/tags/%E7%9F%A5%E4%B9%8E/" style="font-size: 5px; color: #999">知乎</a> <a href="/tags/%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1/" style="font-size: 5px; color: #999">站点统计</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 6.36px; color: #939393">笔记</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">第三方评论插件</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/" style="font-size: 5px; color: #999">系统设置</a> <a href="/tags/%E7%BB%84%E7%BD%91/" style="font-size: 11.82px; color: #7a7a7a">组网</a> <a href="/tags/%E7%BB%86%E8%8A%82%E5%B1%82%E6%AC%A1/" style="font-size: 5px; color: #999">细节层次</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 5px; color: #999">编程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 5px; color: #999">美食</a> <a href="/tags/%E7%BE%A4%E6%99%96/" style="font-size: 5px; color: #999">群晖</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 5px; color: #999">翻译</a> <a href="/tags/%E8%81%94%E7%BD%91/" style="font-size: 6.36px; color: #939393">联网</a> <a href="/tags/%E8%83%A1%E4%B9%B1%E8%AF%84%E4%BB%B7/" style="font-size: 6.36px; color: #939393">胡乱评价</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 5px; color: #999">脑裂</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 5px; color: #999">脚本</a> <a href="/tags/%E8%8A%82%E6%97%A5/" style="font-size: 6.36px; color: #939393">节日</a> <a href="/tags/%E8%8A%82%E7%82%B9%E6%A6%82%E7%8E%87/" style="font-size: 5px; color: #999">节点概率</a> <a href="/tags/%E8%8A%82%E7%82%B9%E8%BF%9E%E6%8E%A5/" style="font-size: 5px; color: #999">节点连接</a> <a href="/tags/%E8%8A%B1%E9%87%8C%E8%83%A1%E5%93%A8/" style="font-size: 5px; color: #999">花里胡哨</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 5px; color: #999">英语</a> <a href="/tags/%E8%8D%B7%E5%85%B0/" style="font-size: 10.45px; color: #808080">荷兰</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 6.36px; color: #939393">装机</a> <a href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/" style="font-size: 6.36px; color: #939393">观后感</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 5px; color: #999">评论系统</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 20px; color: #555">调试</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/" style="font-size: 5px; color: #999">贝叶斯公式</a> <a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 11.82px; color: #7a7a7a">路由</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 13.18px; color: #747474">转载</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 5px; color: #999">软件</a> <a href="/tags/%E8%BE%B9%E8%BF%87%E6%BB%A4/" style="font-size: 5px; color: #999">边过滤</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 5px; color: #999">运动</a> <a href="/tags/%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 5px; color: #999">重定向</a> <a href="/tags/%E9%87%8D%E7%BD%AE%E7%89%88%E6%9C%AC/" style="font-size: 5px; color: #999">重置版本</a> <a href="/tags/%E9%9B%85%E6%80%9D/" style="font-size: 5px; color: #999">雅思</a> <a href="/tags/%E9%9B%86%E7%BE%A4/" style="font-size: 9.09px; color: #868686">集群</a> <a href="/tags/%E9%9F%B3%E9%A2%91/" style="font-size: 5px; color: #999">音频</a>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+
+		</div>
+		<div class="social-wrapper">
+			<!--图虫--><a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<a style="font-size:17px;margin-top:3px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 285.6k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/579108094839029.jpg"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
