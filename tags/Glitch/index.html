@@ -13,6 +13,8 @@
   <!------------------------------------- SEO相关 --------///////////////////////////////////---->
   
     
+      <meta name="robots" content="noindex,nofollow">
+    
   
   <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
   <meta name="renderer" content="webkit">
@@ -28,13 +30,9 @@
 
   
  
-  <title>WebService获取数据实例及WSDL文件解读 - 长征部落格</title>
+  <title>标签：Glitch - 长征部落格</title>
  
 	
-		<meta name="keywords" content="总结,WebService">
-	
-	
-		<meta name="description" content="网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService ">
 	
 
   <!------------------------------------- feed  --------///////////////////////////////////---->
@@ -277,12 +275,25 @@
     <div class="body-wrapper">
         
 
+
 <div class="l_main">
   
-
-  
-    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+    
       
+  <section class="post-list ">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box   reveal ">
+  
 
 
   <section class="meta">
@@ -291,13 +302,11 @@
     <div class="meta" id="header-meta">
       
         
-  
-    <h1 class="title">
-      <a href="/article/c314.html">
-        WebService获取数据实例及WSDL文件解读
-      </a>
-    </h1>
-  
+  <h2 class="title">
+    <a href="/article/6868.html">
+      快速建站“新玩具”—glitch.me
+    </a>
+  </h2>
 
 
       
@@ -316,23 +325,10 @@
           
         
           
-            
-  
-  <div class="new-meta-item category">
-    <a href="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>Java/数据库</p>
-    </a>
-  </div>
-
-
-          
-        
-          
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>2017年4月15日</p>
+    <p>2020年8月6日</p>
   </a>
 </div>
 
@@ -343,19 +339,19 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约401字</p>
+      <p>大约981字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需5分钟</p>
+      <p>阅读需7分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
     <a class="notlink">
       <i class="fas fa-fire" aria-hidden="true"></i>
-      <p><span id="article/c314.html" class="pageViews" data-flag-title="WebService获取数据实例及WSDL文件解读"></span></p>
+      <p><span id="article/6868.html" class="pageViews" data-flag-title="快速建站“新玩具”—glitch.me"></span></p>
     </a>
   </div>
 
@@ -363,12 +359,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
-  <a class="notlink">
-    <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
-  </a>
-</div>
+            
 
           
         
@@ -380,255 +371,48 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          <h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><p>这是一个汇总webservice的网站:<a href="http://www.webxml.com.cn" target="_blank" rel="external nofollow noopener noreferrer">http://www.webxml.com.cn</a><br>里面有非常多可以供调用的WebService<br><img src="http://static.zybuluo.com/EVA001/2af6ck0fjnuobs3jmlt74v8w/1.png" alt="1.png-147.3kB"> </p>
-<a id="more"></a>
-
-<h4 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h4><p>点进某个服务，针对这个服务的方法都有非常详细的方法说明，完整说明以文件的形式列出：<br><img src="http://static.zybuluo.com/EVA001/crc4us6ib41os3fulskgmbsz/2.png" alt="2.png-27.6kB"><br>点进某个具体方法是调用接口的具体方式，例如SOAP方式以及Http的Post或者Get方式等等，通常是使用Http进行请求，这种方式返回的结果就是结果本身。（SOAP方式返回结果还有一层soap的标签）<br> <img src="http://static.zybuluo.com/EVA001/kby0nv544wgqhkouqvmhul7l/3.png" alt="3.png-13.8kB"></p>
-<h4 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h4><p>在这个页面可以进行对方法的调用测试<br><img src="http://static.zybuluo.com/EVA001/tqr1423lwup455vo8fs9klf6/4.png" alt="4.png-2.8kB"> </p>
-<h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><p><img src="http://static.zybuluo.com/EVA001/72u5ercnpelxzzbs6szyhmot/5.png" alt="5.png-369.1kB"><br>对此种调用方式进行分析<br>上述直接在浏览器中显示的是POST方式；<br>调用返回的数据格式为XML，还可以支持JSON格式（这个示例只能返回XML）；<br>上述服务是采用C#写的，并且发布环境是IIS；<br>上述getRegionCountry方法只是该天气服务的一个方法；</p>
-<h4 id="接口描述文件："><a href="#接口描述文件：" class="headerlink" title="接口描述文件："></a>接口描述文件：</h4><p><img src="http://static.zybuluo.com/EVA001/unzphssfk5v7u7o8d1zuoiy3/6.png" alt="6.png-58kB"><br>对于全部方法的描述，在没有说明文档时，可以参考接口描述文件(WSDL)，对于规范的WebService服务都可以使用“WebService地址”+“?WSDL”的方式访问到该文件，该文件详细的描述了：<br>服务中包含的所有方法；<br>方法传入的参数类型<br>方法调用的路径等等；</p>
-<h4 id="分析整个WSDL文档："><a href="#分析整个WSDL文档：" class="headerlink" title="分析整个WSDL文档："></a>分析整个WSDL文档：</h4><p><img src="http://static.zybuluo.com/EVA001/kcbmzbvnymdg3mwjwix0lz8k/7.png" alt="7.png-38.2kB"><br><img src="http://static.zybuluo.com/EVA001/v4hc2mkvmeuvasz92kl2ucm1/8.png" alt="8.png-29.9kB"><br><img src="http://static.zybuluo.com/EVA001/hwc04cj7qe7v6o1ibq066xuk/9.png" alt="9.png-75.3kB"> </p>
-<h4 id="代码中调用"><a href="#代码中调用" class="headerlink" title="代码中调用"></a>代码中调用</h4><p>本质还是实现一次Http请求,故非常简单,只需要使用代码发送一次请求即可(默认是POST方式)<br><img src="http://static.zybuluo.com/EVA001/kqc2qpnyitzgg8mhzjz75i20/10.png" alt="10.png-69.8kB"> </p>
-
-
-      <center><br><br>
-        <style>.wp-r{
-
-          font-size: 20px!important;
-          font-weight: 700!important;
-     
-        }</style>
-			<div id="wpac-rating"></div>
-			<script type="text/javascript">
-			wpac_init = window.wpac_init || [];
-			wpac_init.push({widget: 'Rating', id: 24440});
-			(function() {
-				if ('WIDGETPACK_LOADED' in window) return;
-				WIDGETPACK_LOADED = true;
-				var mc = document.createElement('script');
-				mc.type = 'text/javascript';
-				mc.async = true;
-				mc.src = 'https://embed.widgetpack.com/widget.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-			})();
-			</script>
-			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
-			<br><br></center>
-
-          
-            <br>
-			
-  
-    
-    <style>
-.popular-posts{
-    margin-left: 21px !important;
-}
-.popular-posts a{
-    padding-left: 1px !important;
-}
-
-</style>
-
-  
-  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
-  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
-      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
-  </header>
-    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1772.html" title="如何开发并发布REST风格的WebService" rel="bookmark">如何开发并发布REST风格的WebService</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7b5b.html" title="Web接口开发的相关事项" rel="bookmark">Web接口开发的相关事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4735.html" title="关于图中节点间的概率求解问题" rel="bookmark">关于图中节点间的概率求解问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li></ul>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-<section class="widget copyright  desktop mobile">
-  <div class="content">
-    
-      <blockquote>
-        
-          
-            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            
-          
-        
-          
-            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/c314.html">https://www.cz5h.com/article/c314.html</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-          
-        </div>
-        
-          <br>
-          
-
-
-  <section class="meta" id="footer-meta">
-    <div class="new-meta-box">
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>今天在 YouTube 看了一个谷歌的开发视频，里面主讲者用 Glitch.me 做了代码的演示平台，所以自然地通过视频下方的演示链接，接触到了 Glitch，初步使用过后，我觉得这和 now.sh 等功能差不多，专为Web静态页面提供快速发布服务。目前我看百度里对其介绍的文章基本没有，那我就来介绍一下它吧！</p>
       
         
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%80%BB%E7%BB%93/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>总结</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/WebService/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>WebService</p></a></div>
-
-
-        
-      
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/c314.html&title=WebService获取数据实例及WSDL文件解读 - 长征部落格&summary=网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService " target="_blank">
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/c314.html&title=WebService获取数据实例及WSDL文件解读 - 长征部落格&summary=网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService " target="_blank">
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/c314.html&title=WebService获取数据实例及WSDL文件解读 - 长征部落格&summary=网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService " target="_blank">
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
-          
-        </a>
-      
-    
-      
-        
-        <fancybox>
-          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aO3LDMAwFQN3/0k4fT4b4JYrgZWdJlrF08wbg9frQdYGDg4ODgy+CX8X19sIfrp/un65/v9+tFxwcHBwcfCM8HACChUYLj16fqhccHBwcHHwzPFr4qeBTIdH3HyHZesHBwcHBwcHT3682OMDBwcHBwcHvDzDTAwVwcHBwcHDwgQZ9M+B0f++2SQo4ODg4OPg/gpcPzN30uVwvODg4ODj4Inh3TQ34o42Fdr3g4ODg4OCL4NWAUN2QbsOhWx84ODg4OPhmeDWAnH64Csk+156kgIODg4ODPwhebTB0D+BFN2i6IQEODg4ODr4JPhUUqoOBqaAUbmSAg4ODg4MvhEcLmD6wl32uO8AABwcHBwffBM82/KsDgqng0z1ICA4ODg4OvgkeHRxkg8XU4KB6cKCc3MDBwcHBwR8Enyr0t74XXeFABg4ODg4OvhA+PfDvNiyqn9MBBhwcHBwc/MHw6YBQ3ahqwyG9QeDg4ODg4Avh1cDR3YBuAMr+IeDg4ODg4Jvh3cZEtZGQbih0Bwrg4ODg4OAL4dmGQff+1AGBcKMCHBwcHBx8Eby7ogEm+75wYyG7MeDg4ODg4IvgV3FVGwjdIJQNLMdGBDg4ODg4+AL4dMDoBpupgwPhDgw4ODg4OPgCeLRhXw0u2cFCdaCQDjDg4ODg4ODg442M0/PpjQQHBwcHBwe//iqIdNdtAQYcHBwcHPwGeHag0D3QN92wONYJDg4ODg6+EF4NBtHBfbXQbnACBwcHBwffDP+0BQ4ODg4OvmB9AQdvg66R/T9zAAAAAElFTkSuQmCC" target="_blank">
-            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aO3LDMAwFQN3/0k4fT4b4JYrgZWdJlrF08wbg9frQdYGDg4ODgy+CX8X19sIfrp/un65/v9+tFxwcHBwcfCM8HACChUYLj16fqhccHBwcHHwzPFr4qeBTIdH3HyHZesHBwcHBwcHT3682OMDBwcHBwcHvDzDTAwVwcHBwcHDwgQZ9M+B0f++2SQo4ODg4OPg/gpcPzN30uVwvODg4ODj4Inh3TQ34o42Fdr3g4ODg4OCL4NWAUN2QbsOhWx84ODg4OPhmeDWAnH64Csk+156kgIODg4ODPwhebTB0D+BFN2i6IQEODg4ODr4JPhUUqoOBqaAUbmSAg4ODg4MvhEcLmD6wl32uO8AABwcHBwffBM82/KsDgqng0z1ICA4ODg4OvgkeHRxkg8XU4KB6cKCc3MDBwcHBwR8Enyr0t74XXeFABg4ODg4OvhA+PfDvNiyqn9MBBhwcHBwc/MHw6YBQ3ahqwyG9QeDg4ODg4Avh1cDR3YBuAMr+IeDg4ODg4Jvh3cZEtZGQbih0Bwrg4ODg4OAL4dmGQff+1AGBcKMCHBwcHBx8Eby7ogEm+75wYyG7MeDg4ODg4IvgV3FVGwjdIJQNLMdGBDg4ODg4+AL4dMDoBpupgwPhDgw4ODg4OPgCeLRhXw0u2cFCdaCQDjDg4ODg4ODg442M0/PpjQQHBwcHBwe//iqIdNdtAQYcHBwcHPwGeHag0D3QN92wONYJDg4ODg6+EF4NBtHBfbXQbnACBwcHBwffDP+0BQ4ODg4OvmB9AQdvg66R/T9zAAAAAElFTkSuQmCC">
-          </a>
-        </fancybox>
-      
-    
-  </div>
-</div>
-
-
+          <div class="button readmore">
+            <a href="/article/6868.html" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
         
       
     </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/%E6%95%99%E7%A8%8B/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 教程</a>
+        
+          <a href="/tags/Glitch/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Glitch</a>
+        
+      </div>
+     -->
   </section>
+</article>
 
-
-        
-        
-          <div class="prev-next">
-            
-              <section class="prev">
-                <span class="art-item-left">
-                  <h4>
-                    <a href="/article/1772.html" rel="prev" title="如何开发并发布REST风格的WebService">
-                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                      
-                        如何开发并发布REST风格的WebService
-                      
-                    </a>
-                  </h4>
-                  
-                    
-                    <h6 class="tags">
-                      &nbsp;<a class="tag" href="/tags/%E6%80%BB%E7%BB%93/"><i class="fas fa-hashtag" aria-hidden="true"></i> 总结</a> <a class="tag" href="/tags/WebService/"><i class="fas fa-hashtag" aria-hidden="true"></i> WebService</a>
-                    </h6>
-                  
-                </span>
-              </section>
-            
-            
-              <section class="next">
-                <span class="art-item-right" aria-hidden="true">
-                  <h4>
-                    <a href="/article/92b2.html" rel="prev" title="Oracle复杂 Merge Into  | no listener | ORA-00001">
-                      
-                        Oracle复杂 Merge Into  | no listener | ORA-00001
-                      
-                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                    </a>
-                  </h4>
-                  
-                    
-                    <h6 class="tags">
-                      <a class="tag" href="/tags/Oracle/"><i class="fas fa-hashtag" aria-hidden="true"></i> Oracle</a> <a class="tag" href="/tags/Merge/"><i class="fas fa-hashtag" aria-hidden="true"></i> Merge</a> <a class="tag" href="/tags/Error/"><i class="fas fa-hashtag" aria-hidden="true"></i> Error</a>&nbsp;
-                    </h6>
-                  
-                </span>
-              </section>
-            
           </div>
         
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
-
-  <article class="post white-box comments  ">
-    <section class="article typo">
-      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
-      
-      
-      
-      
-        <section id="comments">
-          <div id="valine_container" class="valine_thread">
-            <i class="fas fa-spinner fa-spin fa-fw"></i>
-          </div>
-        </section>
-      
-    </section>
-  </article>
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: 'WebService获取数据实例及WSDL文件解读',
-      tools: true
-    }
-  </script>
-
-
+    
+  
 </div>
 <aside class="l_side">
   
@@ -761,6 +545,55 @@
   
     
     
+  
+  <section class="widget category  widget-blur desktop">
+    
+  <header>
+    
+      <a href="/categories/"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class="name">文章分类</span></a>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box" title="/categories/C-C/" href="/categories/C-C/" id="categoriesC-C"><div class="name">C/C++</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Daily-Life/" href="/categories/Daily-Life/" id="categoriesDaily-Life"><div class="name">Daily_Life</div><div class="badge">(24)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Hadoop%E7%9B%B8%E5%85%B3/" href="/categories/Hadoop%E7%9B%B8%E5%85%B3/" id="categoriesHadoopE79BB8E585B3"><div class="name">Hadoop相关</div><div class="badge">(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Hexo%E7%9B%B8%E5%85%B3/" href="/categories/Hexo%E7%9B%B8%E5%85%B3/" id="categoriesHexoE79BB8E585B3"><div class="name">Hexo相关</div><div class="badge">(13)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/JQuery/" href="/categories/JQuery/" id="categoriesJQuery"><div class="name">JQuery</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" id="categoriesJava-E695B0E68DAEE5BA93"><div class="name">Java/数据库</div><div class="badge">(15)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/ML-R%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/ML-R%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesML-RE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">ML/R学习笔记</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Mini-ITX%E5%B0%8F%E9%92%A2%E7%82%AE/" href="/categories/Mini-ITX%E5%B0%8F%E9%92%A2%E7%82%AE/" id="categoriesMini-ITXE5B08FE992A2E782AE"><div class="name">Mini-ITX小钢炮</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesPythonE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">Python学习笔记</div><div class="badge">(13)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" href="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesSparkE5ADA6E4B9A0E7AC94E8AEB0"><div class="name">Spark学习笔记</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/" id="categoriesE5A4A7E695B0E68DAEE79BB8E585B3"><div class="name">大数据相关</div><div class="badge">(17)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" id="categoriesE5BBBAE7AB99E7BB84E7BD91"><div class="name">建站组网</div><div class="badge">(10)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" id="categoriesE7A094E7A9B6E696B9E59091"><div class="name">研究方向</div><div class="badge">(39)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
 <section class="widget qrcode  widget-blur desktop mobile">
   
   <header>
@@ -784,18 +617,18 @@
   
     
     
-
-  <section class="widget toc-wrapper  widget-blur desktop">
+  
+  <section class="widget tagcloud  widget-blur desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+      <a href="/tags/"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class="name">文章标签</span></a>
     
   </header>
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#网址"><span class="toc-text">网址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#概览"><span class="toc-text">概览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试使用"><span class="toc-text">测试使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试结果"><span class="toc-text">测试结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接口描述文件："><span class="toc-text">接口描述文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分析整个WSDL文档："><span class="toc-text">分析整个WSDL文档：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码中调用"><span class="toc-text">代码中调用</span></a></li></ol>
+      <a href="/tags/BLOB/" style="font-size: 5px; color: #999">BLOB</a> <a href="/tags/C-C/" style="font-size: 9.09px; color: #868686">C/C++</a> <a href="/tags/CLOB/" style="font-size: 5px; color: #999">CLOB</a> <a href="/tags/CMakeList/" style="font-size: 5px; color: #999">CMakeList</a> <a href="/tags/CSC/" style="font-size: 7.73px; color: #8d8d8d">CSC</a> <a href="/tags/CSS/" style="font-size: 5px; color: #999">CSS</a> <a href="/tags/CUDA/" style="font-size: 5px; color: #999">CUDA</a> <a href="/tags/CentOS/" style="font-size: 6.36px; color: #939393">CentOS</a> <a href="/tags/Chrome%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">Chrome插件</a> <a href="/tags/Collection/" style="font-size: 5px; color: #999">Collection</a> <a href="/tags/Cuda/" style="font-size: 7.73px; color: #8d8d8d">Cuda</a> <a href="/tags/D3/" style="font-size: 9.09px; color: #868686">D3</a> <a href="/tags/Demo/" style="font-size: 5px; color: #999">Demo</a> <a href="/tags/EJS%E6%A8%A1%E6%9D%BF/" style="font-size: 5px; color: #999">EJS模板</a> <a href="/tags/Error/" style="font-size: 5px; color: #999">Error</a> <a href="/tags/Flume/" style="font-size: 7.73px; color: #8d8d8d">Flume</a> <a href="/tags/GitHub/" style="font-size: 6.36px; color: #939393">GitHub</a> <a href="/tags/Github/" style="font-size: 5px; color: #999">Github</a> <a href="/tags/Glitch/" style="font-size: 5px; color: #999">Glitch</a> <a href="/tags/GraphX/" style="font-size: 7.73px; color: #8d8d8d">GraphX</a> <a href="/tags/HA/" style="font-size: 5px; color: #999">HA</a> <a href="/tags/HTML/" style="font-size: 10.45px; color: #808080">HTML</a> <a href="/tags/HTPC/" style="font-size: 6.36px; color: #939393">HTPC</a> <a href="/tags/Hadoop/" style="font-size: 9.09px; color: #868686">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 13.18px; color: #747474">Hexo</a> <a href="/tags/Hive/" style="font-size: 5px; color: #999">Hive</a> <a href="/tags/IDEA/" style="font-size: 15.91px; color: #686868">IDEA</a> <a href="/tags/IndexedRDD/" style="font-size: 5px; color: #999">IndexedRDD</a> <a href="/tags/Indigo/" style="font-size: 7.73px; color: #8d8d8d">Indigo</a> <a href="/tags/JDK/" style="font-size: 5px; color: #999">JDK</a> <a href="/tags/JQuery/" style="font-size: 9.09px; color: #868686">JQuery</a> <a href="/tags/Java/" style="font-size: 11.82px; color: #7a7a7a">Java</a> <a href="/tags/JavaScript/" style="font-size: 11.82px; color: #7a7a7a">JavaScript</a> <a href="/tags/Kafka/" style="font-size: 13.18px; color: #747474">Kafka</a> <a href="/tags/Kettle/" style="font-size: 7.73px; color: #8d8d8d">Kettle</a> <a href="/tags/LeanCloud/" style="font-size: 7.73px; color: #8d8d8d">LeanCloud</a> <a href="/tags/Linux/" style="font-size: 5px; color: #999">Linux</a> <a href="/tags/Makefile/" style="font-size: 5px; color: #999">Makefile</a> <a href="/tags/Mapreduce/" style="font-size: 5px; color: #999">Mapreduce</a> <a href="/tags/Maven/" style="font-size: 7.73px; color: #8d8d8d">Maven</a> <a href="/tags/Memory/" style="font-size: 9.09px; color: #868686">Memory</a> <a href="/tags/Merge/" style="font-size: 5px; color: #999">Merge</a> <a href="/tags/Mysql/" style="font-size: 6.36px; color: #939393">Mysql</a> <a href="/tags/NetBeans/" style="font-size: 5px; color: #999">NetBeans</a> <a href="/tags/Nginx/" style="font-size: 5px; color: #999">Nginx</a> <a href="/tags/Node/" style="font-size: 5px; color: #999">Node</a> <a href="/tags/Nvidia/" style="font-size: 5px; color: #999">Nvidia</a> <a href="/tags/Oracle/" style="font-size: 6.36px; color: #939393">Oracle</a> <a href="/tags/Photos/" style="font-size: 7.73px; color: #8d8d8d">Photos</a> <a href="/tags/Python/" style="font-size: 18.64px; color: #5b5b5b">Python</a> <a href="/tags/Rss/" style="font-size: 5px; color: #999">Rss</a> <a href="/tags/R%E8%AF%AD%E8%A8%80/" style="font-size: 6.36px; color: #939393">R语言</a> <a href="/tags/SBT/" style="font-size: 6.36px; color: #939393">SBT</a> <a href="/tags/SQL%E6%8F%92%E5%85%A5/" style="font-size: 6.36px; color: #939393">SQL插入</a> <a href="/tags/Scala/" style="font-size: 11.82px; color: #7a7a7a">Scala</a> <a href="/tags/SourceInsight3/" style="font-size: 5px; color: #999">SourceInsight3</a> <a href="/tags/Spark/" style="font-size: 14.55px; color: #6e6e6e">Spark</a> <a href="/tags/Sqlserver/" style="font-size: 5px; color: #999">Sqlserver</a> <a href="/tags/Storm/" style="font-size: 9.09px; color: #868686">Storm</a> <a href="/tags/Summary/" style="font-size: 13.18px; color: #747474">Summary</a> <a href="/tags/Synology/" style="font-size: 7.73px; color: #8d8d8d">Synology</a> <a href="/tags/Ubuntu/" style="font-size: 9.09px; color: #868686">Ubuntu</a> <a href="/tags/UptimeRobot/" style="font-size: 5px; color: #999">UptimeRobot</a> <a href="/tags/VMware/" style="font-size: 7.73px; color: #8d8d8d">VMware</a> <a href="/tags/Valine/" style="font-size: 6.36px; color: #939393">Valine</a> <a href="/tags/Volantis/" style="font-size: 5px; color: #999">Volantis</a> <a href="/tags/WebService/" style="font-size: 10.45px; color: #808080">WebService</a> <a href="/tags/WebSocket/" style="font-size: 9.09px; color: #868686">WebSocket</a> <a href="/tags/Writing/" style="font-size: 11.82px; color: #7a7a7a">Writing</a> <a href="/tags/Zookeeperp/" style="font-size: 5px; color: #999">Zookeeperp</a> <a href="/tags/malloc/" style="font-size: 5px; color: #999">malloc</a> <a href="/tags/recursion/" style="font-size: 5px; color: #999">recursion</a> <a href="/tags/stackoverflow/" style="font-size: 5px; color: #999">stackoverflow</a> <a href="/tags/%E4%B8%83%E7%89%9B%E4%BA%91/" style="font-size: 5px; color: #999">七牛云</a> <a href="/tags/%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/" style="font-size: 5px; color: #999">中文教程</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA/" style="font-size: 5px; color: #999">中文维基</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E6%89%A9%E5%B1%95/" style="font-size: 7.73px; color: #8d8d8d">主题扩展</a> <a href="/tags/%E5%88%9D%E4%BD%93%E9%AA%8C/" style="font-size: 5px; color: #999">初体验</a> <a href="/tags/%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/" style="font-size: 5px; color: #999">初次使用</a> <a href="/tags/%E5%89%A7%E9%80%8F/" style="font-size: 6.36px; color: #939393">剧透</a> <a href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91/" style="font-size: 6.36px; color: #939393">力导向</a> <a href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91%E5%B8%83%E5%B1%80/" style="font-size: 7.73px; color: #8d8d8d">力导向布局</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%BB%BA%E8%A1%A8/" style="font-size: 5px; color: #999">动态建表</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%B5%8B%E5%80%BC/" style="font-size: 5px; color: #999">动态赋值</a> <a href="/tags/%E5%8C%BA%E5%88%AB/" style="font-size: 5px; color: #999">区别</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 5px; color: #999">博客搭建</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 5px; color: #999">压缩</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 5px; color: #999">原理</a> <a href="/tags/%E5%8F%8C%E6%98%BE%E5%8D%A1/" style="font-size: 5px; color: #999">双显卡</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 17.27px; color: #616161">可视化</a> <a href="/tags/%E5%9B%9E%E5%BF%86/" style="font-size: 5px; color: #999">回忆</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 5px; color: #999">图床</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE/" style="font-size: 9.09px; color: #868686">图数据</a> <a href="/tags/%E5%9B%BE%E6%96%87/" style="font-size: 5px; color: #999">图文</a> <a href="/tags/%E5%9B%BE%E7%AE%80%E5%8C%96/" style="font-size: 6.36px; color: #939393">图简化</a> <a href="/tags/%E5%9F%9F%E5%90%8D/" style="font-size: 6.36px; color: #939393">域名</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 5px; color: #999">大数据</a> <a href="/tags/%E5%AE%9E%E8%B7%B5/" style="font-size: 6.36px; color: #939393">实践</a> <a href="/tags/%E5%B0%8F%E4%B8%96%E7%95%8C%E7%BD%91%E7%BB%9C/" style="font-size: 5px; color: #999">小世界网络</a> <a href="/tags/%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE/" style="font-size: 6.36px; color: #939393">层次数据</a> <a href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/" style="font-size: 11.82px; color: #7a7a7a">布局算法</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 7.73px; color: #8d8d8d">常用命令</a> <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" style="font-size: 6.36px; color: #939393">并行计算</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 6.36px; color: #939393">建站</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 20px; color: #555">总结</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 5px; color: #999">扩展</a> <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" style="font-size: 5px; color: #999">排列组合</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">插件</a> <a href="/tags/%E6%94%BB%E5%8D%9A/" style="font-size: 6.36px; color: #939393">攻博</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 6.36px; color: #939393">教程</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 5px; color: #999">数学建模</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 5px; color: #999">数据处理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 5px; color: #999">数据集</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 6.36px; color: #939393">数组</a> <a href="/tags/%E6%95%B4%E5%90%88/" style="font-size: 10.45px; color: #808080">整合</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 5px; color: #999">旅行</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 5px; color: #999">显卡</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 6.36px; color: #939393">机器学习</a> <a href="/tags/%E6%9D%90%E6%96%99%E5%87%86%E5%A4%87/" style="font-size: 6.36px; color: #939393">材料准备</a> <a href="/tags/%E6%A6%82%E8%BF%B0/" style="font-size: 10.45px; color: #808080">概述</a> <a href="/tags/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" style="font-size: 6.36px; color: #939393">注意事项</a> <a href="/tags/%E7%83%AD%E5%9B%BE/" style="font-size: 5px; color: #999">热图</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10.45px; color: #808080">生活</a> <a href="/tags/%E7%9F%A5%E4%B9%8E/" style="font-size: 5px; color: #999">知乎</a> <a href="/tags/%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1/" style="font-size: 5px; color: #999">站点统计</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 6.36px; color: #939393">笔记</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" style="font-size: 5px; color: #999">第三方评论插件</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/" style="font-size: 5px; color: #999">系统设置</a> <a href="/tags/%E7%BB%84%E7%BD%91/" style="font-size: 11.82px; color: #7a7a7a">组网</a> <a href="/tags/%E7%BB%86%E8%8A%82%E5%B1%82%E6%AC%A1/" style="font-size: 5px; color: #999">细节层次</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 5px; color: #999">编程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 5px; color: #999">美食</a> <a href="/tags/%E7%BE%A4%E6%99%96/" style="font-size: 5px; color: #999">群晖</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 5px; color: #999">翻译</a> <a href="/tags/%E8%81%94%E7%BD%91/" style="font-size: 6.36px; color: #939393">联网</a> <a href="/tags/%E8%83%A1%E4%B9%B1%E8%AF%84%E4%BB%B7/" style="font-size: 6.36px; color: #939393">胡乱评价</a> <a href="/tags/%E8%84%91%E8%A3%82/" style="font-size: 5px; color: #999">脑裂</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 5px; color: #999">脚本</a> <a href="/tags/%E8%8A%82%E6%97%A5/" style="font-size: 6.36px; color: #939393">节日</a> <a href="/tags/%E8%8A%82%E7%82%B9%E6%A6%82%E7%8E%87/" style="font-size: 5px; color: #999">节点概率</a> <a href="/tags/%E8%8A%82%E7%82%B9%E8%BF%9E%E6%8E%A5/" style="font-size: 5px; color: #999">节点连接</a> <a href="/tags/%E8%8A%B1%E9%87%8C%E8%83%A1%E5%93%A8/" style="font-size: 5px; color: #999">花里胡哨</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 5px; color: #999">英语</a> <a href="/tags/%E8%8D%B7%E5%85%B0/" style="font-size: 10.45px; color: #808080">荷兰</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 6.36px; color: #939393">装机</a> <a href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/" style="font-size: 6.36px; color: #939393">观后感</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 5px; color: #999">评论系统</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 20px; color: #555">调试</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/" style="font-size: 5px; color: #999">贝叶斯公式</a> <a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 11.82px; color: #7a7a7a">路由</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 13.18px; color: #747474">转载</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 5px; color: #999">软件</a> <a href="/tags/%E8%BE%B9%E8%BF%87%E6%BB%A4/" style="font-size: 5px; color: #999">边过滤</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 5px; color: #999">运动</a> <a href="/tags/%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 5px; color: #999">重定向</a> <a href="/tags/%E9%87%8D%E7%BD%AE%E7%89%88%E6%9C%AC/" style="font-size: 5px; color: #999">重置版本</a> <a href="/tags/%E9%9B%85%E6%80%9D/" style="font-size: 5px; color: #999">雅思</a> <a href="/tags/%E9%9B%86%E7%BE%A4/" style="font-size: 9.09px; color: #868686">集群</a> <a href="/tags/%E9%9F%B3%E9%A2%91/" style="font-size: 5px; color: #999">音频</a>
     </div>
   </section>
 
@@ -1008,7 +841,7 @@
 
 
 
- 
+
       <script>setLoadingBarProgress(60);</script>
     </div>
     <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
@@ -1153,36 +986,6 @@ if(true){
 
 
 
-
-  
-    
-<script src="/js/valine.js"></script>
-
-  
-  <script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var notify = 'true' == true;
-  var verify = 'true' == true;
-  var valine = new Valine();
-  valine.init({
-    el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
-    
-    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
-    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
-    placeholder: "快来评论吧~",
-    pageSize:'7',
-    avatar:'retro',
-    lang:'zh-cn',
-	visitor: 'true',
-    highlight:'true'
-  })
-  </script>
 
 
 

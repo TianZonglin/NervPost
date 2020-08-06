@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.cz5h.com/"/>
-  <updated>2020-08-06T21:47:35.297Z</updated>
+  <updated>2020-08-06T21:49:14.905Z</updated>
   <id>https://www.cz5h.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.cz5h.com/article/6868.html"/>
     <id>https://www.cz5h.com/article/6868.html</id>
     <published>2020-08-05T22:00:00.000Z</published>
-    <updated>2020-08-06T21:47:35.297Z</updated>
+    <updated>2020-08-06T21:49:14.905Z</updated>
     
     <content type="html"><![CDATA[<p>今天在 YouTube 看了一个谷歌的开发视频，里面主讲者用 Glitch.me 做了代码的演示平台，所以自然地通过视频下方的演示链接，接触到了 Glitch，初步使用过后，我觉得这和 now.sh 等功能差不多，专为Web静态页面提供快速发布服务。目前我看百度里对其介绍的文章基本没有，那我就来介绍一下它吧！</p><a id="more"></a><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200806194610.png"></fancybox><p>部分内容翻译自官方的说明，可不是我瞎编的！</p><h3 id="Glitch到能干啥？"><a href="#Glitch到能干啥？" class="headerlink" title="Glitch到能干啥？"></a><strong>Glitch到能干啥？</strong></h3><h4 id="创建Web应用的工具"><a href="#创建Web应用的工具" class="headerlink" title="创建Web应用的工具"></a><strong>创建Web应用的工具</strong></h4><ul><li><p>其可以让所有人都能够使用此“开发工具”，因此其足够简单、易用。完善的代码补全提醒、健全的团队管理功能是其基本功能。除此之外，Glitch其实是一个协作式编程环境，只需要使用浏览器的开发页面，就可以构建从静态网页到结合全栈Node框架的所有应用。</p></li><li><p>第二个令我惊讶的特性是“多人协作开发”的功能，Glitch在这里真正做到了实时多人在线开发，这个功能还是很吸引人的。</p></li><li><p>第三点则是应用的“即时上线”功能，这里要吐槽下国内的Coding，使用静态部署一小时只有十次配额，对于Glitch，这将是无限的、实时的、无需我们干预的过程，Glitch本质上没有部署或发布的概念，修改后即生效。</p></li><li><p>第四点黑科技则是“和已有IDE的无缝结合”，例如可以在VSCode中使用插件来将Glitch的web开发页面搬到VSCode中，其余操作完全无影响。再比如结合Github，直接导入已有的代码进行构建。</p></li></ul><h4 id="友好、创造性的社区"><a href="#友好、创造性的社区" class="headerlink" title="友好、创造性的社区"></a><strong>友好、创造性的社区</strong></h4><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200806223446.png"></fancybox><p>Glitch已经包含了非常多的有趣的项目，包含了各种分类的各种内容，以游戏为例，其允许我们直接看到、使用到游戏渲染后的内容，这也算是Glitch的黑科技吧，如果你对某个项目感兴趣，那么将其内化并加以完善在Glitch上也是非常容易就能实现的！</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200806223620.png"></fancybox><h3 id="Glitch怎么用？"><a href="#Glitch怎么用？" class="headerlink" title="Glitch怎么用？"></a><strong>Glitch怎么用？</strong></h3><p>详细讲解其用法是不现实的，这里就两个关键功能来对Glitch做个简单的讲解。</p><h4 id="快速发布静态页"><a href="#快速发布静态页" class="headerlink" title="快速发布静态页"></a><strong>快速发布静态页</strong></h4><p>有多快速呢？基本上就是“新建项目-&gt;编辑index.html-&gt;获得页面链接”就结束了。具体登陆时可以直接用Github登陆，其不会再有附加账号的要求。新建项目后会发现有个双栏的开发页面，所有工作都可以在这个页面完成，而且重点是左侧部分，功能基本都在这块。</p><p>以 <a href="https://github.com/iamcn/iamchinese" target="_blank" rel="external nofollow noopener noreferrer">iamchinese</a> 项目为例，修改完index.html后，随即打开左侧头像旁边的<code>Share</code>下拉框，选择<code>LiveAPP</code>，即可复制当前的页面链接，即：<a href="https://iamchinese.glitch.me" target="_blank" rel="external nofollow noopener noreferrer">https://iamchinese.glitch.me</a>，如果对默认名称不满意，可以直接修改一个可用的名称（即修改最左上角的项目名称）。</p><h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a><strong>绑定域名</strong></h4><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200806233316.png"></fancybox><p>左下角，点击 Tools -&gt; Custom Domains，输入你的域名，即可以获得进一步的绑定信息。你会发现以下内容，至此应该有域名的朋友就知道怎么做了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">At your domain registrar </span><br><span class="line">you&#39;ll need to create a CNAME record </span><br><span class="line">for ihave.diedin.icu pointing to </span><br><span class="line">peyk2z9el29xvm93.preview.edgeapp.net</span><br></pre></td></tr></table></figure><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200806233419.png"></fancybox><p>需要注意的是，Glitch已说明如果你想直接访问<code>preview.edgeapp.net</code>这个链接，那么你只会得到<code>Not Found</code>。其只能在CNAME下生效。这里我用Dnspod，只需要添加一个CNAME即可。解析后即可访问 <a href="http://ihave.diedin.icu" target="_blank" rel="external nofollow noopener noreferrer">ihave.diedin.icu</a>。</p><p>至此，其主要功能“快速发布静态页面”就基本介绍完毕，各种扩展、功能大家可以自己去慢慢探索。</p><p><strong>不过据不可靠消息称，Glitch在国内无法访问，未验证。</strong></p>]]></content>
     
@@ -35,9 +35,9 @@
       <category term="建站组网" scheme="https://www.cz5h.com/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/"/>
     
     
-      <category term="Summary" scheme="https://www.cz5h.com/tags/Summary/"/>
+      <category term="教程" scheme="https://www.cz5h.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="Ubuntu" scheme="https://www.cz5h.com/tags/Ubuntu/"/>
+      <category term="Glitch" scheme="https://www.cz5h.com/tags/Glitch/"/>
     
   </entry>
   
