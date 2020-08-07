@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Glitch </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Glitch </tag>
             
         </tags>
       
@@ -1824,9 +1824,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> 集群 </tag>
+            
+            <tag> 调试 </tag>
             
             <tag> Spark </tag>
             
@@ -2176,9 +2176,9 @@
       
         <tags>
             
-            <tag> 层次数据 </tag>
-            
             <tag> 并行计算 </tag>
+            
+            <tag> 层次数据 </tag>
             
             <tag> 力导向 </tag>
             
@@ -3484,9 +3484,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
@@ -3801,9 +3801,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> Hadoop </tag>
+            
+            <tag> 调试 </tag>
             
             <tag> IDEA </tag>
             
@@ -3913,11 +3913,11 @@
       
         <tags>
             
-            <tag> VMware </tag>
+            <tag> 集群 </tag>
             
             <tag> 调试 </tag>
             
-            <tag> 集群 </tag>
+            <tag> VMware </tag>
             
         </tags>
       
@@ -3996,11 +3996,11 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> Hadoop </tag>
             
             <tag> 集群 </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -4054,9 +4054,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
@@ -4382,9 +4382,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 排列组合 </tag>
             
