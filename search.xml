@@ -1283,9 +1283,9 @@
             
             <tag> 路由 </tag>
             
-            <tag> Synology </tag>
-            
             <tag> HTPC </tag>
+            
+            <tag> Synology </tag>
             
         </tags>
       
@@ -1853,9 +1853,9 @@
       
         <tags>
             
-            <tag> 集群 </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> 集群 </tag>
             
             <tag> Spark </tag>
             
@@ -3513,9 +3513,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -3830,9 +3830,9 @@
       
         <tags>
             
-            <tag> Hadoop </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> Hadoop </tag>
             
             <tag> IDEA </tag>
             
@@ -3942,11 +3942,11 @@
       
         <tags>
             
-            <tag> 集群 </tag>
+            <tag> VMware </tag>
             
             <tag> 调试 </tag>
             
-            <tag> VMware </tag>
+            <tag> 集群 </tag>
             
         </tags>
       
@@ -4025,11 +4025,11 @@
       
         <tags>
             
+            <tag> 调试 </tag>
+            
             <tag> Hadoop </tag>
             
             <tag> 集群 </tag>
-            
-            <tag> 调试 </tag>
             
         </tags>
       
@@ -4083,9 +4083,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
