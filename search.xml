@@ -2205,9 +2205,9 @@
       
         <tags>
             
-            <tag> 层次数据 </tag>
-            
             <tag> 并行计算 </tag>
+            
+            <tag> 层次数据 </tag>
             
             <tag> 力导向 </tag>
             
@@ -3872,33 +3872,6 @@
     
     
     <entry>
-      <title>Spark安装之问题</title>
-      <link href="/article/b086.html"/>
-      <url>/article/b086.html</url>
-      
-        <content type="html"><![CDATA[<p>厦门大学数据库实验室教程<br>有几个坑</p><p>SparkSQL context 在执行sql语句时，现在使用spark.sql()替换sqlContext.sal()</p><a id="more"></a><p>sparkapp使用sbt打包<br>simple.sbt<br>直接使用教程中的sbt依赖版本即可，即此处无所谓，不过最好是和本机配置版本一致<br>sbt package<br>打包运行时一定要注意联网！！<br>注意执行此打包命令的位置，要在sparkapp目录下！！<br>即在有simple.sbt的目录位置执行sbt package命令</p><p>spark.sql<br>执行时目前需要开启hadoop，原理未知，不开会报错</p><p>sbt<br>第一次安装时，直接官网下，现在教程中说的bug已经没有了，会卡住无输出，是正常的，时间非常慢！<br>第一次打包时，下载的依赖非常多，不断输出，但非常慢！</p><p>完成次教程全部都在①台机器上<br>还未进行集群配置</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据相关 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 调试 </tag>
-            
-            <tag> Spark </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ETL工具~Kettle调研</title>
       <link href="/article/d21a.html"/>
       <url>/article/d21a.html</url>
@@ -3918,6 +3891,33 @@
             <tag> 概述 </tag>
             
             <tag> Kettle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spark安装之问题</title>
+      <link href="/article/b086.html"/>
+      <url>/article/b086.html</url>
+      
+        <content type="html"><![CDATA[<p>厦门大学数据库实验室教程<br>有几个坑</p><p>SparkSQL context 在执行sql语句时，现在使用spark.sql()替换sqlContext.sal()</p><a id="more"></a><p>sparkapp使用sbt打包<br>simple.sbt<br>直接使用教程中的sbt依赖版本即可，即此处无所谓，不过最好是和本机配置版本一致<br>sbt package<br>打包运行时一定要注意联网！！<br>注意执行此打包命令的位置，要在sparkapp目录下！！<br>即在有simple.sbt的目录位置执行sbt package命令</p><p>spark.sql<br>执行时目前需要开启hadoop，原理未知，不开会报错</p><p>sbt<br>第一次安装时，直接官网下，现在教程中说的bug已经没有了，会卡住无输出，是正常的，时间非常慢！<br>第一次打包时，下载的依赖非常多，不断输出，但非常慢！</p><p>完成次教程全部都在①台机器上<br>还未进行集群配置</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 调试 </tag>
+            
+            <tag> Spark </tag>
             
         </tags>
       
@@ -4054,9 +4054,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> CentOS </tag>
+            
+            <tag> 调试 </tag>
             
             <tag> 联网 </tag>
             
