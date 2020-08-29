@@ -31,6 +31,35 @@
     
     
     <entry>
+      <title>极简WEB文件管理工具（群晖）——TinyManager</title>
+      <link href="/article/b940.html"/>
+      <url>/article/b940.html</url>
+      
+        <content type="html"><![CDATA[<p>在之前<a href="https://www.cz5h.com/article/f2f2.html">《导出七牛云资源到本地》</a>的文章中，我已经将文件全部转存到了群晖中，搭配Nginx已经可以实现直链访问。前几天又把自己电脑上存在的有用的软件包全部上传到了群晖，至此我的软件包文件夹已经有三四百个文件/安装包，除了直链访问，我迫切的需要一款简洁轻量的Web文件管理工具，最终 Tiny File Manager 完美的实现了我的需求。</p><a id="more"></a><h3 id="安装TinyManager"><a href="#安装TinyManager" class="headerlink" title="安装TinyManager"></a><strong>安装TinyManager</strong></h3><p>该项目已在Github开源，<a href="https://tinyfilemanager.github.io/" target="_blank" rel="external nofollow noopener noreferrer">主页地址</a>。安装非常的简单，直接<a href>下载最新版Zip包</a>，完成后解压，将整体目录改个名字比如“pan”，然后放入需要管理的文件的上一级，然后使用 WebStation 在该目录起一个Nginx容器+php环境，做完之后即可通过路径访问了。</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829141132.png"></fancybox><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829141550.png"></fancybox><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h3><p>经过上述安装，不需要配置即可通过 <code>domain:6543/pan/index.php</code> 访问（index可不写，6543需要路由器配置映射）登陆页面。初始的登陆密码是 <code>admin/admin@123</code> 和 <code>user/12345</code> 对应两个级别的用户。</p><h4 id="1-配置密码"><a href="#1-配置密码" class="headerlink" title="1. 配置密码"></a><strong>1. 配置密码</strong></h4><p>直接在群晖打开 <code>index.php</code> 进行编辑（config.php 中的也要对应修改），在27行，找到以下代码：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$auth_users = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'admin'</span> =&gt; <span class="string">'$c9a9qa2v9W18YaYkqI5cEG/ufAviA912PDly1JWwLPgh6324231hqFG'</span>, <span class="comment">//admin@123</span></span><br><span class="line">    <span class="string">'user'</span> =&gt; <span class="string">'$2dasidqwioev9W18YaYkqI5cEG/uf14y1JWwLPgh6pMzzJ42412hqFG'</span> <span class="comment">//12345</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>去到<a href="https://tinyfilemanager.github.io/docs/pwd.html" target="_blank" rel="external nofollow noopener noreferrer">该页面</a>，生成你想设置密码的加密字符串，然后回来将其替换到对应位置（箭头右边部分）即可完成密码修改。</p><h4 id="2-修改语言"><a href="#2-修改语言" class="headerlink" title="2. 修改语言"></a><strong>2. 修改语言</strong></h4><p>登陆文件管理Web页面，一定要用admin登陆，右上角下拉点击设置进入该页面选择语言，以及其他设置。</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829142833.png"></fancybox><h4 id="3-配置管理根目录"><a href="#3-配置管理根目录" class="headerlink" title="3. 配置管理根目录"></a><strong>3. 配置管理根目录</strong></h4><p>在 <code>config.php</code> 中找到以下代码，<code>/tools</code> 即表示 Manager 初始进入的目录只有 tools，剩下的其他目录不可见。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Line 53</span></span><br><span class="line"><span class="comment">// use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'</span></span><br><span class="line">$root_path = $_SERVER[<span class="string">'DOCUMENT_ROOT'</span>].<span class="string">'/tools'</span>;</span><br></pre></td></tr></table></figure><h3 id="修改源码加以完善"><a href="#修改源码加以完善" class="headerlink" title="修改源码加以完善"></a><strong>修改源码加以完善</strong></h3><p>由于主体就一个php文件，所以比较容易修改，原页面主要的问题有以下几个：</p><ul><li>文件类型对应的图标太丑</li><li>文件操作区的按钮重复</li><li>修改根目录后文件直链出错</li><li>最底部的操作区没实际意义</li></ul><h4 id="1-修改文件类型对应的图标"><a href="#1-修改文件类型对应的图标" class="headerlink" title="1. 修改文件类型对应的图标"></a><strong>1. 修改文件类型对应的图标</strong></h4><p>这里首先引入最新版本的 font-awsome 图标，在index中的适当位置加入（以下代码需要在官网注册后才能得到）：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://kit.fontawesome.com/xxxxxx.js"</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>然后在 2612 行找到 <code>function fm_get_file_icon_class($path)</code> 函数，全部类型对应的图标均在此修改即可。</p><h4 id="2-删除没用的部分"><a href="#2-删除没用的部分" class="headerlink" title="2. 删除没用的部分"></a><strong>2. 删除没用的部分</strong></h4><p>对我来说，文件的下载和直链，两部分完全相同，所以操作区的下载按钮直接删掉（复制其实也没用）。还有页面最底部的操作区也没用，直接删掉，对应到源码主要是以下几部分，直接注释掉即可：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Line 1947 - 删除对文件夹的复制</span><br><span class="line"><span class="comment">&lt;!--&lt;a title="&lt;?php echo lng('CopyTo')?&gt;..." href="?p=&amp;amp;copy=&lt;?php echo urlencode(trim(FM_PATH . '/' . $f, '/')) ?&gt;"&gt;&lt;i class="fa fa-files-o" aria-hidden="true"&gt;&lt;/i&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">Line 1949 - 删除对文件夹的直链</span><br><span class="line"><span class="comment">&lt;!--&lt;a title="&lt;?php echo lng('DirectLink')?&gt;" href="&lt;?php echo fm_enc(FM_ROOT_URL . '/' . (FM_PATH != '' ? '/' . FM_PATH : '') . '/' . $f) ?&gt;" target="_blank"&gt;&lt;i class="fa fa-link" aria-hidden="true"&gt;&lt;/i&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line">Line 2011 - 删除对文件的复制</span><br><span class="line"><span class="comment">&lt;!--&lt;a title="&lt;?php echo lng('CopyTo') ?&gt;..."</span></span><br><span class="line"><span class="comment">    href="?p=&lt;?php echo urlencode(FM_PATH) ?&gt;&amp;amp;copy=&lt;?php echo urlencode(trim(FM_PATH . '/' . $f, '/')) ?&gt;"&gt;&lt;i class="fa fa-files-o"&gt;&lt;/i&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">Line 2015 - 删除对文件的下载</span><br><span class="line"><span class="comment">&lt;!--&lt;a title="&lt;?php echo lng('Download') ?&gt;" href="?p=&lt;?php echo urlencode(FM_PATH) ?&gt;&amp;amp;dl=&lt;?php echo urlencode($f) ?&gt;"&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt;&lt;/a&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">Line 2054 - 删除页面底部的操作区（注意注释位置）</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-12 col-sm-9"</span>&gt;</span><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;ul class="list-inline footer-action"&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt; &lt;a href="#/select-all" class="btn btn-small btn-outline-primary btn-2" onclick="select_all();return false;"&gt;&lt;i class="fa fa-check-square"&gt;&lt;/i&gt; &lt;?php echo lng('SelectAll') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;a href="#/unselect-all" class="btn btn-small btn-outline-primary btn-2" onclick="unselect_all();return false;"&gt;&lt;i class="fa fa-window-close"&gt;&lt;/i&gt; &lt;?php echo lng('UnSelectAll') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;a href="#/invert-all" class="btn btn-small btn-outline-primary btn-2" onclick="invert_all();return false;"&gt;&lt;i class="fa fa-th-list"&gt;&lt;/i&gt; &lt;?php echo lng('InvertSelection') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;input type="submit" class="hidden" name="delete" id="a-delete" value="Delete" onclick="return confirm('Delete selected files and folders?')"&gt;</span></span><br><span class="line"><span class="comment">            &lt;a href="javascript:document.getElementById('a-delete').click();" class="btn btn-small btn-outline-primary btn-2"&gt;&lt;i class="fa fa-trash"&gt;&lt;/i&gt; &lt;?php echo lng('Delete') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;input type="submit" class="hidden" name="zip" id="a-zip" value="zip" onclick="return confirm('Create archive?')"&gt;</span></span><br><span class="line"><span class="comment">            &lt;a href="javascript:document.getElementById('a-zip').click();" class="btn btn-small btn-outline-primary btn-2"&gt;&lt;i class="fa fa-file-archive-o"&gt;&lt;/i&gt; &lt;?php echo lng('Zip') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;input type="submit" class="hidden" name="tar" id="a-tar" value="tar" onclick="return confirm('Create archive?')"&gt;</span></span><br><span class="line"><span class="comment">            &lt;a href="javascript:document.getElementById('a-tar').click();" class="btn btn-small btn-outline-primary btn-2"&gt;&lt;i class="fa fa-file-archive-o"&gt;&lt;/i&gt; &lt;?php echo lng('Tar') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li class="list-inline-item"&gt;&lt;input type="submit" class="hidden" name="copy" id="a-copy" value="Copy"&gt;</span></span><br><span class="line"><span class="comment">            &lt;a href="javascript:document.getElementById('a-copy').click();" class="btn btn-small btn-outline-primary btn-2"&gt;&lt;i class="fa fa-files-o"&gt;&lt;/i&gt; &lt;?php echo lng('Copy') ?&gt; &lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">    &lt;/ul&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="3-修复直链问题"><a href="#3-修复直链问题" class="headerlink" title="3. 修复直链问题"></a><strong>3. 修复直链问题</strong></h4><p>在 <code>FM_ROOT_URL</code> 后面，将 <code>/</code> 改为 <code>/tools</code>（设置的根目录）即可。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Line 2014</span></span><br><span class="line">&lt;a title=<span class="string">"&lt;?php echo lng('DirectLink') ?&gt;"</span> </span><br><span class="line">   href=<span class="string">"&lt;?php echo fm_enc(FM_ROOT_URL . '/tools' . (FM_PATH != '' ? '/' . FM_PATH : '') . '/' . $f) ?&gt;"</span> </span><br><span class="line">   target=<span class="string">"_blank"</span>&gt;</span><br><span class="line">  &lt;i class="fa fa-link"&gt;&lt;/i&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure><h4 id="4-最终的精简效果"><a href="#4-最终的精简效果" class="headerlink" title="4. 最终的精简效果"></a><strong>4. 最终的精简效果</strong></h4><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829144337.png"></fancybox>]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站组网 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 群晖 </tag>
+            
+            <tag> 文件管理 </tag>
+            
+            <tag> PHP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>东北亚离战争到底有多远？</title>
       <link href="/article/abcd.html"/>
       <url>/article/abcd.html</url>
@@ -829,7 +858,7 @@
       
       <categories>
           
-          <category> Hexo相关 </category>
+          <category> 建站组网 </category>
           
       </categories>
       
@@ -1022,9 +1051,9 @@
             
             <tag> 荷兰 </tag>
             
-            <tag> 注意事项 </tag>
-            
             <tag> 装机 </tag>
+            
+            <tag> 注意事项 </tag>
             
         </tags>
       
@@ -2232,13 +2261,13 @@
       
         <tags>
             
+            <tag> 并行计算 </tag>
+            
             <tag> 层次数据 </tag>
             
             <tag> 力导向 </tag>
             
             <tag> 图简化 </tag>
-            
-            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -3540,9 +3569,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
@@ -3969,9 +3998,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
             <tag> 集群 </tag>
             
@@ -4083,9 +4112,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> 调试 </tag>
-            
             <tag> 联网 </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -4110,9 +4139,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
