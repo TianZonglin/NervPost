@@ -30,7 +30,7 @@
 
   
  
-  <title>标签：CUDA - 长征部落格</title>
+  <title>标签：Cuda - 长征部落格</title>
  
 	
 	
@@ -288,6 +288,10 @@
         
           
         
+          
+        
+          
+        
       
     
     
@@ -305,8 +309,8 @@
       
         
   <h2 class="title">
-    <a href="/article/483a.html">
-      快速重置乌班图和GL开发环境
+    <a href="/article/c85a.html">
+      构建CUDA项目二周目翻车记录
     </a>
   </h2>
 
@@ -330,7 +334,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>2020年7月23日</p>
+    <p>2020年2月22日</p>
   </a>
 </div>
 
@@ -341,19 +345,19 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约5.3k字</p>
+      <p>大约961字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需25分钟</p>
+      <p>阅读需7分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
     <a class="notlink">
       <i class="fas fa-fire" aria-hidden="true"></i>
-      <p><span id="article/483a.html" class="pageViews" data-flag-title="快速重置乌班图和GL开发环境"></span></p>
+      <p><span id="article/c85a.html" class="pageViews" data-flag-title="构建CUDA项目二周目翻车记录"></span></p>
     </a>
   </div>
 
@@ -375,16 +379,11 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <fancybox>
-<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200809190237.png">
-</fancybox>
-
-
-<p>这是一份完整的Ubuntu安装手册，可以帮助你快速初始化系统到可用状态，此手册包含两部分，包括Ubuntu系统的安装及配置、及GL相关开发环境的初始化。为了使行文更加清晰，文中插图全部以链接形式呈现，该手册仍然在完善中并已开源在Github。</p>
+      <p>继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。</p>
       
         
           <div class="button readmore">
-            <a href="/article/483a.html" class="flat-box">
+            <a href="/article/c85a.html" class="flat-box">
               <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
               阅读全文
             </a>
@@ -395,11 +394,241 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
+          <a href="/tags/C-C/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> C/C++</a>
+        
+          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
+        
+          <a href="/tags/Cuda/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Cuda</a>
+        
+          <a href="/tags/CMakeList/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> CMakeList</a>
+        
+      </div>
+     -->
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box   reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/article/38ca.html">
+      重新编译运行C++/Cuda混编项目
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年2月13日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需12分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/38ca.html" class="pageViews" data-flag-title="重新编译运行C++/Cuda混编项目"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>由于需要，最近得重新运行一个CUDA项目，但我苦于没有经验，只能从编译开始入门一下，不过还是不算难的，难的是原项目代码不保证质量，而且有若干无关文件，且运行环境未知、各模块的运行版本也不是很清楚，导致搞了一大堆操作（应该是正确的）最后却没跑起来，是的，这是一篇翻车笔记。</p>
+      
+        
+          <div class="button readmore">
+            <a href="/article/38ca.html" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
+        
+      
+    </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/C-C/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> C/C++</a>
+        
+          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
+        
+          <a href="/tags/Cuda/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Cuda</a>
+        
+          <a href="/tags/Makefile/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Makefile</a>
+        
+      </div>
+     -->
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box   reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/article/891.html">
+      双显卡笔电安装N卡驱动及CUDA
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年1月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需12分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/891.html" class="pageViews" data-flag-title="双显卡笔电安装N卡驱动及CUDA"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>由于工作需要，必须换操作系统了，一想到笔记本已经冗杂不堪，所以就索性重装成Linux系统，虽然显卡性能不如实验室的机器，但完全可以当做试验机，同时本身机子性能也不差，所以装个乌班图应该体验还不错。以上是我开始时的想法，后来装完了之后呢，体验总体也不错，但总归是有写麻烦，我总结一下放在开头。</p>
+      
+        
+          <div class="button readmore">
+            <a href="/article/891.html" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
+        
+      
+    </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/%E5%8F%8C%E6%98%BE%E5%8D%A1/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 双显卡</a>
+        
           <a href="/tags/Ubuntu/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Ubuntu</a>
         
-          <a href="/tags/%E6%98%BE%E5%8D%A1/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 显卡</a>
+          <a href="/tags/Nvidia/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Nvidia</a>
         
-          <a href="/tags/CUDA/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> CUDA</a>
+          <a href="/tags/Cuda/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Cuda</a>
         
       </div>
      -->
@@ -806,250 +1035,6 @@
 
 	  gtag('config', 'UA-109269848-5');
 	</script>
-
-	<!-- Hotjar Tracking Code for www.cz5h.com -->
-	<script>
-	//	(function(h,o,t,j,a,r){
-	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-	//		h._hjSettings={hjid:1710820,hjsv:6};
-	//		a=o.getElementsByTagName('head')[0];
-	//		r=o.createElement('script');r.async=1;
-	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-	//		a.appendChild(r);
-	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>
-
-
-	<div style="display:none;">
-		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
-		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
-			</div>
-	
-	<!-- end -----------------------///////////////////////////////----->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <script>setLoadingBarProgress(60);</script>
-    </div>
-    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
-  </div>
-  
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-
-
-<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
-<script type="text/javascript">
-if(true){
-    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
-    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
-    AV.init({
-        appId: leancloud_app_id,
-        appKey: leancloud_app_key
-    });
-    var pageViewsLength = $(".pageViews").length;
-    var isIndex = $(".pageViews").length > 1 ?true:false;
-    function showTime() {
-   
-        if(isIndex){
-			var cnt = $(".pageViews").length;
-            var i = 0; 
-			var interval = setInterval(function(){
-				if(i >= cnt) 
-					clearInterval(interval);
-				else
-					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
-			},500);
-
-        }else{
-            addPageViewsNum($(".pageViews"));
-        }
-    }
-    //仅显示阅读量
-    function showPageViewsNum(ele, Pageview){
-        var id = ele.attr('id').trim();
-        var query = new AV.Query("Pageview");
-        query.equalTo("post_id", id);
-        query.ascending('createdAt');
-        query.limit(1);
-        query.find().then(function (results) {
-            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
-        }, function (error) {
-             $(document.getElementById(id)).text('');
-        });
-    }
-    //追加并显示阅读量
-    function addPageViewsNum(ele){
-        var id = ele.attr('id').trim();
-        var title = ele.attr('data-flag-title').trim();
-        var query = new AV.Query("Pageview");
-        query.equalTo("post_id", id);
-        query.ascending('createdAt');
-        query.limit(1);
-        query.find().then(function (results) {
-            if (results.length == 0) {
-               saveNewPageview(id, title);
-               return;
-            }
-            var pageview = results[0];
-            var count = pageview.get("count");
-            count++;
-            pageview.set("count", count);
-            pageview.set("title", title);
-            pageview.save().then(function (pageview) {
-                $(document.getElementById(id)).text(count+"℃");
-            })
-        }, function (error) {
-            saveNewPageview(id, title);
-        })
-    }
-
-    function saveNewPageview(id, title) {
-       var Pageview = AV.Object.extend("Pageview");
-       var query = new Pageview;
-       query.save({
-           post_id: id,
-           title: title,
-           count: 1
-       }).then(function (pageview) {
-           $(document.getElementById(id)).text(pageview.count+"℃");
-       }, function (error) {
-       });
-
-    }
-
-    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
-        showTime();
-    }
-}
-</script>
-
-  <script>
-    
-    var SEARCH_SERVICE = "hexo" || "hexo";
-    var ROOT = "/" || "/";
-    if (!ROOT.endsWith('/')) ROOT += '/';
-  </script>
-
-
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
-
-
-
-
-
-
-
-  
-  
-  
-    
-<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        if ('.cover') {
-          $('.cover').backstretch(
-          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
-          {
-            duration: "5000",
-            fade: "5000"
-          });
-        } else {
-          $.backstretch(
-          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
-          {
-            duration: "5000",
-            fade: "5000"
-          });
-        }
-      });
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
-
-
-
-<!-- 复制 -->
-
-
-
-<!-- fancybox -->
-
-  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script>
-  let LAZY_LOAD_IMAGE = "";
-  $(".article-entry").find("fancybox").find("img").each(function () {
-      var element = document.createElement("a");
-      $(element).attr("data-fancybox", "gallery");
-      $(element).attr("href", $(this).attr("src"));
-      /* 图片采用懒加载处理时,
-       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
-       * 那么此处将原本的属性名src替换为对应属性名data-original,
-       * 修改如下
-       */
-       if (LAZY_LOAD_IMAGE) {
-         $(element).attr("href", $(this).attr("data-original"));
-       }
-      $(this).wrap(element);
-  });
-</script>
-
-
-
-
-
-
-
-  <script>setLoadingBarProgress(100);</script>
-</body>
-</html>
-ript>
 
 	<!-- Hotjar Tracking Code for www.cz5h.com -->
 	<script>
