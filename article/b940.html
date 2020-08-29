@@ -345,7 +345,7 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约1.5k字</p>
+      <p>大约1.6k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -365,7 +365,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-29T14:56:59+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-29T15:05:46+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2020年8月29日</p>
@@ -410,6 +410,12 @@
 <h4 id="3-配置管理根目录"><a href="#3-配置管理根目录" class="headerlink" title="3. 配置管理根目录"></a><strong>3. 配置管理根目录</strong></h4><p>在 <code>config.php</code> 中找到以下代码，<code>/tools</code> 即表示 Manager 初始进入的目录只有 tools，剩下的其他目录不可见。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Line 53</span></span><br><span class="line"><span class="comment">// use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'</span></span><br><span class="line">$root_path = $_SERVER[<span class="string">'DOCUMENT_ROOT'</span>].<span class="string">'/tools'</span>;</span><br></pre></td></tr></table></figure>
 
+<h4 id="4-修改文件夹权限"><a href="#4-修改文件夹权限" class="headerlink" title="4. 修改文件夹权限"></a><strong>4. 修改文件夹权限</strong></h4><p>此步骤很有必要，如果不改，默认的管理操作会无效，因为php文件没有相应的权限。需要在群晖的文件管理器中直接对 Manager 的工具文件夹进行权限修改（勾选上以下页面的“应用到子文件”，截图没截全）：</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829150236.png">
+</fancybox>
+
+<p>修改完之后，Web管理页面上的编辑、删除、重命名即可正常使用。</p>
 <h3 id="修改源码加以完善"><a href="#修改源码加以完善" class="headerlink" title="修改源码加以完善"></a><strong>修改源码加以完善</strong></h3><p>由于主体就一个php文件，所以比较容易修改，原页面主要的问题有以下几个：</p>
 <ul>
 <li>文件类型对应的图标太丑</li>
@@ -427,9 +433,22 @@
 <h4 id="3-修复直链问题"><a href="#3-修复直链问题" class="headerlink" title="3. 修复直链问题"></a><strong>3. 修复直链问题</strong></h4><p>在 <code>FM_ROOT_URL</code> 后面，将 <code>/</code> 改为 <code>/tools</code>（设置的根目录）即可。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Line 2014</span></span><br><span class="line">&lt;a title=<span class="string">"&lt;?php echo lng('DirectLink') ?&gt;"</span> </span><br><span class="line">   href=<span class="string">"&lt;?php echo fm_enc(FM_ROOT_URL . '/tools' . (FM_PATH != '' ? '/' . FM_PATH : '') . '/' . $f) ?&gt;"</span> </span><br><span class="line">   target=<span class="string">"_blank"</span>&gt;</span><br><span class="line">  &lt;i class="fa fa-link"&gt;&lt;/i&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 
+<br>
+
+<blockquote>
+<p>访问 <a href="https://www.cz5h.com">cz5h.com</a> 获取更多精彩内容。</p>
+</blockquote>
+<br>
+
+
 <h4 id="4-最终的精简效果"><a href="#4-最终的精简效果" class="headerlink" title="4. 最终的精简效果"></a><strong>4. 最终的精简效果</strong></h4><fancybox>
 <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829144337.png">
 </fancybox>
+
+
+
+
+
 
       <center><br><br>
         <style>.wp-r{
@@ -476,7 +495,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1c44.html" title="将群晖相册嵌入到Hexo博客中" rel="bookmark">将群晖相册嵌入到Hexo博客中</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fed3.html" title="群晖硬盘过热导致的关机保护" rel="bookmark">群晖硬盘过热导致的关机保护</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\e7a6.html" title="在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager" rel="bookmark">在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1c44.html" title="将群晖相册嵌入到Hexo博客中" rel="bookmark">将群晖相册嵌入到Hexo博客中</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\e7a6.html" title="在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager" rel="bookmark">在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fed3.html" title="群晖硬盘过热导致的关机保护" rel="bookmark">群晖硬盘过热导致的关机保护</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -832,7 +851,7 @@
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装TinyManager"><span class="toc-text">安装TinyManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-配置密码"><span class="toc-text">1. 配置密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-修改语言"><span class="toc-text">2. 修改语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置管理根目录"><span class="toc-text">3. 配置管理根目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改源码加以完善"><span class="toc-text">修改源码加以完善</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-修改文件类型对应的图标"><span class="toc-text">1. 修改文件类型对应的图标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-删除没用的部分"><span class="toc-text">2. 删除没用的部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-修复直链问题"><span class="toc-text">3. 修复直链问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-最终的精简效果"><span class="toc-text">4. 最终的精简效果</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装TinyManager"><span class="toc-text">安装TinyManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-配置密码"><span class="toc-text">1. 配置密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-修改语言"><span class="toc-text">2. 修改语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置管理根目录"><span class="toc-text">3. 配置管理根目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-修改文件夹权限"><span class="toc-text">4. 修改文件夹权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改源码加以完善"><span class="toc-text">修改源码加以完善</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-修改文件类型对应的图标"><span class="toc-text">1. 修改文件类型对应的图标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-删除没用的部分"><span class="toc-text">2. 删除没用的部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-修复直链问题"><span class="toc-text">3. 修复直链问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-最终的精简效果"><span class="toc-text">4. 最终的精简效果</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -893,7 +912,7 @@
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 292.9k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 293k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题
