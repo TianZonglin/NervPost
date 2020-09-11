@@ -365,6 +365,9 @@
     </div>
   </div>-->
   <style>
+    .l_mainxx {
+      padding: 8px !important;
+    }
     .dplayer-video-wrap {
       position: relative;
       background: #000;
@@ -374,8 +377,10 @@
     }
     .dplayer * {
         box-sizing: content-box;
+        border-radius: 8px;
     }
     .dplayer {
+      
         position: relative;
         overflow: hidden;
         -webkit-user-select: none;
@@ -404,7 +409,7 @@
       <div class="l_main" style="width: calc(100%);  padding-right: 0px;"> 
         <section class="post-list ">
         <div class="post-wrapper"> 
-        <article class="post white-box   reveal a-box"> 
+        <article class="post white-box   reveal a-box l_mainxx"> 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/DP.css">
                 <div class="video-player">
                   <div class="row">
@@ -429,7 +434,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 黑屏？没声音？点这里！</span></center>
+   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 没声音？点这里！</span></center>
 </div>
  
   <div class="a-body l_body">
@@ -2126,7 +2131,7 @@ if(true){
     });
     
     $("#btnV").click(function(){
-       if($("#btnV").html()=="↑ 黑屏？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
+       if($("#btnV").html()=="↑ 没声音？点这里！"){
         dp.play();
         dp.volume(0.4);
         $("#btnV").html("↑ 太吵了，关掉！");
