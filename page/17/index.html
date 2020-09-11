@@ -405,7 +405,7 @@
         <section class="post-list ">
         <div class="post-wrapper"> 
         <article class="post white-box   reveal a-box"> 
-            <link rel="stylesheet" href="/static/DP.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/DP.css">
                 <div class="video-player">
                   <div class="row">
                     <div class="col l8 offset-l2 m10 offset-m1 s12">
@@ -415,7 +415,8 @@
                     </div>
                   </div>
                 </div>
-            <script src="/static/DP.js"></script>
+              <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/hls.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/DP.js"></script>
         </article></div>
          
         </section></div>
@@ -542,9 +543,9 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
-        
           <a href="/tags/CentOS/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> CentOS</a>
+        
+          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
         
           <a href="/tags/%E8%81%94%E7%BD%91/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 联网</a>
         
@@ -657,9 +658,9 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/VMware/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> VMware</a>
-        
           <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
+        
+          <a href="/tags/VMware/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> VMware</a>
         
       </div>
      -->
@@ -2106,13 +2107,24 @@ if(true){
 
 
 
-  <script>$(function(){const dp = new DPlayer({container:document.getElementById("dplayer"),autoplay:!0,theme:"#42b983",loop:!1,lang:"zh-cn",preload:"auto",volume:Number("0"),video:{
-    url:"https://upos-sz-mirrorhw.bilivideo.com/upgcxcode/80/37/233243780/233243780-1-208.mp4?e=ig8euxZM2rNcNbhjnwdVhwdlhzT3hwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1599850480&gen=playurl&os=hwbv&oi=837395164&trid=a51cd61f6b4b4464b22cde1798342e64T&platform=html5&upsig=bdc4a5842d6b58a13c1a89397546bd4f&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=524602686&orderid=0,1&logo=80000000",pic:"",thumbnails:""}})
-     $("#btnV").click(function(){
+  <script>$(function(){ 
+    const dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        autoplay:!0,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        video: {
+            url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8',
+            type: 'hls',
+            defaultQuality: 0,
+            pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912010715.webp',
+            thumbnails: 'thumbnails.jpg',
+        },
+    });
+    
+    $("#btnV").click(function(){
        if($("#btnV").html()=="↑ 黑屏？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
         dp.play();
         dp.volume(0.2);
-        $("#btnV").html("↑ 太吵了，闭嘴！");
+        $("#btnV").html("↑ 太吵了，关掉！");
        }else{
         dp.volume(0);
         $("#btnV").html("↑ 没声音？点这里！");
@@ -2124,3 +2136,7 @@ if(true){
   <script>setLoadingBarProgress(100);</script>
 </body>
 </html>
+
+
+
+ 
