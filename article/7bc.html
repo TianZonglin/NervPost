@@ -275,7 +275,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:gray;font-size:18px;cursor:pointer;">没声音？点这里</span></center>
+   <center><span id="btnV" style="color:gray;font-size:18px;cursor:pointer;">↑ 黑屏？没声音？点这里！</span></center>
 </div>
  
   <div class="a-body l_body nocover">
@@ -1283,8 +1283,15 @@ if(true){
   <script>$(function(){const dp = new DPlayer({container:document.getElementById("dplayer"),autoplay:!0,theme:"#42b983",loop:!1,lang:"zh-cn",preload:"auto",volume:Number("0"),video:{
     url:"https://upos-sz-mirrorhw.bilivideo.com/upgcxcode/80/37/233243780/233243780-1-208.mp4?e=ig8euxZM2rNcNbhjnwdVhwdlhzT3hwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1599850480&gen=playurl&os=hwbv&oi=837395164&trid=a51cd61f6b4b4464b22cde1798342e64T&platform=html5&upsig=bdc4a5842d6b58a13c1a89397546bd4f&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=524602686&orderid=0,1&logo=80000000",pic:"",thumbnails:""}})
      $("#btnV").click(function(){
-       dp.play();
-       dp.volume(0.5);
+       if($("#btnV").html()=="↑ 黑屏？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
+        dp.play();
+        dp.volume(0.5);
+        $("#btnV").html("↑ 太吵了，闭嘴！");
+       }else{
+        dp.volume(0);
+        $("#btnV").html("↑ 没声音？点这里！");
+       }
+
      }) 
     })
   </script>  
