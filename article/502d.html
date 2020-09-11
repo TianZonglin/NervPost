@@ -271,8 +271,8 @@
  
   
  
-<div class="phone" style="margin-top: 15px;">
-   <center>🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 🌑</center>
+<div class="phoneXX" style="margin-top: 15px;">
+   <center><span id="btnV" style="color:gray;font-size:18px;cursor:pointer;">没声音？点这里</span></center>
 </div>
  
   <div class="a-body l_body nocover">
@@ -475,7 +475,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4e53.html" title="引入基于LCloud的页面访问统计" rel="bookmark">引入基于LCloud的页面访问统计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d6bd.html" title="Hexo的安装及重置恢复" rel="bookmark">Hexo的安装及重置恢复</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4e53.html" title="引入基于LCloud的页面访问统计" rel="bookmark">引入基于LCloud的页面访问统计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d6bd.html" title="Hexo的安装及重置恢复" rel="bookmark">Hexo的安装及重置恢复</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1269,9 +1269,14 @@ if(true){
 
 
 
-  <script>$(function(){new DPlayer({container:document.getElementById("dplayer"),autoplay:!0,theme:"#42b983",loop:!1,lang:"zh-cn",preload:"auto",volume:Number("0"),video:{
-    url:"https://upos-sz-mirrorhw.bilivideo.com/upgcxcode/80/37/233243780/233243780-1-208.mp4?e=ig8euxZM2rNcNbhjnwdVhwdlhzT3hwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1599850480&gen=playurl&os=hwbv&oi=837395164&trid=a51cd61f6b4b4464b22cde1798342e64T&platform=html5&upsig=bdc4a5842d6b58a13c1a89397546bd4f&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=524602686&orderid=0,1&logo=80000000",pic:"",thumbnails:""}})})</script>
-        
+  <script>$(function(){const dp = new DPlayer({container:document.getElementById("dplayer"),autoplay:!0,theme:"#42b983",loop:!1,lang:"zh-cn",preload:"auto",volume:Number("0"),video:{
+    url:"https://upos-sz-mirrorhw.bilivideo.com/upgcxcode/80/37/233243780/233243780-1-208.mp4?e=ig8euxZM2rNcNbhjnwdVhwdlhzT3hwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1599850480&gen=playurl&os=hwbv&oi=837395164&trid=a51cd61f6b4b4464b22cde1798342e64T&platform=html5&upsig=bdc4a5842d6b58a13c1a89397546bd4f&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=524602686&orderid=0,1&logo=80000000",pic:"",thumbnails:""}})
+     $("#btnV").click(function(){
+       dp.play();
+       dp.volume(0.5);
+     }) 
+    })
+  </script>  
   <script>setLoadingBarProgress(100);</script>
 </body>
 </html>
