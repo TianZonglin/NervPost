@@ -304,9 +304,9 @@
             
             <tag> Hexo </tag>
             
-            <tag> 群晖 </tag>
-            
             <tag> 插件 </tag>
+            
+            <tag> 群晖 </tag>
             
         </tags>
       
@@ -2292,11 +2292,11 @@
             
             <tag> 层次数据 </tag>
             
-            <tag> 并行计算 </tag>
-            
             <tag> 力导向 </tag>
             
             <tag> 图简化 </tag>
+            
+            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -3884,9 +3884,9 @@
       
         <tags>
             
-            <tag> Zookeeperp </tag>
-            
             <tag> Kafka </tag>
+            
+            <tag> Zookeeperp </tag>
             
             <tag> Storm </tag>
             
@@ -4139,9 +4139,9 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> CentOS </tag>
             
             <tag> 联网 </tag>
             
