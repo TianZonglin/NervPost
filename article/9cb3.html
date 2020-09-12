@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>滥用jsdelivr之存储视频 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="HTML,Hexo,DPlayer">
+	
+	
+		<meta name="description" content="
+
+
+
+对于博客来说，媒体资源的存取方式至关重要，借助Jsdelivr加速Github上存储的图片已经是公认的方案，但对于视频来说，面对动辄几百兆的视频资源，你几乎无法找到一个免费的“视频床”，在第三方直接防盗链能力日渐完善的当下，急切需要一种折中方案。本文就借鉴前辈的尝试，将视频存放在Github之上并利用Js...">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+ 
+  
+ 
+<div class="phoneXX" style="margin-top: 15px;">
+   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！</span></center>
+</div>
+ 
+  <div class="a-body l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/9cb3.html">
+        滥用jsdelivr之存储视频
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>建站组网</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年9月11日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需13分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/9cb3.html" class="pageViews" data-flag-title="滥用jsdelivr之存储视频"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-12T19:59:05+02:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年9月12日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912195745.png">
+</fancybox>
+
+<p>对于博客来说，媒体资源的存取方式至关重要，借助Jsdelivr加速Github上存储的图片已经是公认的方案，但对于视频来说，面对动辄几百兆的视频资源，你几乎无法找到一个免费的“视频床”，在第三方直接防盗链能力日渐完善的当下，急切需要一种折中方案。本文就借鉴前辈的尝试，将视频存放在Github之上并利用Jsdelivr实现加速，并利用DPlayer将其插入到自己的博客中。</p>
+<a id="more"></a>
+
+<h3 id="核心问题"><a href="#核心问题" class="headerlink" title="核心问题"></a><strong>核心问题</strong></h3><ul>
+<li>Github上传限制20M（网页）</li>
+<li>Jsdelivr对加速资源的限制20M</li>
+<li>Jsdelivr对MP4等视频格式的解码并不让人满意</li>
+</ul>
+<h3 id="Github网页上传限制"><a href="#Github网页上传限制" class="headerlink" title="Github网页上传限制"></a>Github网页上传限制</h3><p>老生常谈，网页不行就用Git工具，强烈推荐使用 Git Bash，<a href="https://git-scm.com/download" target="_blank" rel="external nofollow noopener noreferrer">Git下载地址</a>。</p>
+<p>这里推荐重新新建一个仓库来存储视频，如果被认定滥用而封禁，也只会影响这一个仓库，所以还是新建一个仓库。</p>
+<p>然后，在本地 git clone xxxx.git，下载到本地。</p>
+<p>在将视频资源放进文件夹内，</p>
+<p>在文件夹内新建 push.bat 写入如下代码，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m<span class="string">"%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%"</span></span><br><span class="line">git push -u origin master -f</span><br></pre></td></tr></table></figure>
+
+<p>双击bat即可强制推送本地全部内容到Github仓库。使用Git方式上传，可以摆脱20M上传大小的限制，不过即便上传成功，Jsdelivr仍然对加速的资源有所限制，要解决这个问题，就需要进入到本文的核心了，即视频分片。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912194643.png">
+</fancybox>
+
+<p>如果你觉得小于20M的mp4视频就可以被加速，那你就错了（涉及第三个问题），Jsdelivr对MP4的处理好像并不好，如<a href="https://github.com/TianZonglin/Ubuntu-Installog/blob/master/dd.mp4" target="_blank" rel="external nofollow noopener noreferrer">上图的视频</a>（视频正常）大小满足存储和加速条件，但通过jsdelivr链接访问后，居然只剩下音轨了。。</p>
+<p><a href="https://cdn.jsdelivr.net/gh/TianZonglin/Ubuntu-Installog/dd.mp4" target="_blank" rel="external nofollow noopener noreferrer">https://cdn.jsdelivr.net/gh/TianZonglin/Ubuntu-Installog/dd.mp4</a></p>
+<h3 id="视频切片以便于jsd加速"><a href="#视频切片以便于jsd加速" class="headerlink" title="视频切片以便于jsd加速"></a><strong>视频切片以便于jsd加速</strong></h3><p>首先，这不是简单的视频切分，这涉及到HLS技术，解释如下：</p>
+<blockquote>
+<p>HLS 的工作原理是把整个流分成一个个小的基于 HTTP 的文件来下载，每次只下载一些。当媒体流正在播放时，客户端可以选择从许多不同的备用源中以不同的速率下载同样的资源，允许流媒体会话适应不同的数据速率。在开始一个流媒体会话时，客户端会下载一个包含元数据的 extended M3U (m3u8) playlist文件，用于寻找可用的媒体流。HLS 只请求基本的 HTTP 报文，与实时传输协议（RTP）不同，HLS 可以穿过任何允许 HTTP 数据通过的防火墙或者代理服务器。它也很容易使用内容分发网络来传输媒体流。</p>
+</blockquote>
+<p>在我们的场景中，可以理解为视频的 url 就是 playlist 的链接地址，而 playlist 可以看做是视频分片的索引，如此大的视频被拆分，即绕过存储的单位件大小限制，同时也符合Jsdelivr对资源的要求，这样存储的视频，就可以“变相”的将Github做为视频床了。</p>
+<p>如何实现？</p>
+<h4 id="首先获取ffmpeg工具"><a href="#首先获取ffmpeg工具" class="headerlink" title="首先获取ffmpeg工具"></a><strong>首先获取ffmpeg工具</strong></h4><p>这里我用“获取”而不是“安装”，因为对于Windows来说，其已经被构建成可用的exe了，主要是几个exe，这里我们只使用 ffmpeg.exe，下载地址在<a href="https://ffmpeg.zeranoe.com/builds/" target="_blank" rel="external nofollow noopener noreferrer">这里</a>，下载Build压缩包之后，直接在压缩软件中查看bin目录下的内容，会发现有三个exe文件，只需要拖出 ffmpeg.exe 即可。</p>
+<h4 id="文件放置和测试"><a href="#文件放置和测试" class="headerlink" title="文件放置和测试"></a><strong>文件放置和测试</strong></h4><p>在第一节中克隆的空白项目中，（以下文件名皆可自定义）新建个文件夹 MV-Queen，将原视频放进去，将 ffmpeg.exe 放进去，准备工作完成。</p>
+<p>在此目录下，右键选择 Git_Bash_here（没有？请花亿分钟百度下然后重装下Git），然后将 ffmpeg.exe 直接拖入黑框中，回车，会显示ffmpeg的信息，如果你觉着这样麻烦也可以配置环境变量，这里不再赘述。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912194958.png">
+</fancybox>
+
+<h4 id="执行分片"><a href="#执行分片" class="headerlink" title="执行分片"></a><strong>执行分片</strong></h4><p>第一步：mp4转成ts格式，一对一转换，转换后大小没什么变化。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i 你的名字.mp4 -vcodec copy -acodec copy -vbsf h264_mp4toannexb 你的名字.ts</span><br></pre></td></tr></table></figure>
+
+<p>第二步，按间隔分片，1对N，下面的5即“每个分片5秒”，可以自己切换。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 你的名字.ts -c copy -map 0 -f segment -segment_list playlist.m3u8 -segment_time 5 你的名字%03d.ts</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>这里如果直接输入ffmpeg是不能用的，我们首先拖动 ffmpeg.exe 到黑框中，这时会在 gitbash 中出现个路径，然后把上面的命令（ffmpeg后面的）复制到路径之后即可运行。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912183411.png">
+</fancybox>
+
+<p>关于MP4的参数，务必满足视频编码为H264，音视频编码为AAC（YouTube下载的视频默认即此格式），如果不是请用格式工厂进行转换，具体详见<a href="http://www.moetuan.cn/index.php/554.html#jsDelivr%E4%B8%8EGitHub%E9%83%BD%E6%98%8E%E7%99%BD%EF%BC%8C%E9%82%A3%E6%A0%87%E9%A2%98%E9%87%8C%E7%9A%84FFmpeg%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" target="_blank" rel="external nofollow noopener noreferrer">王同学的文章</a>。</p>
+<p><strong>最后一步：</strong></p>
+<p>删掉或移除原视频和转换后的ts视频（两个最大的视频文件）以及 ffmpeg.exe，都移除去，剩下的就只有playlist和一大堆分片，之后点击之前的 push.bat 即可完成上传。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912184040.png">
+</fancybox>
+
+<h4 id="使用DPlayer插入到博客"><a href="#使用DPlayer插入到博客" class="headerlink" title="使用DPlayer插入到博客"></a><strong>使用DPlayer插入到博客</strong></h4><p>再次明确，这不是单纯的视频切分，如果你不信，可以尝试访问单独的视频分片（应该是乱码）：</p>
+<p><a href="https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/abc001.ts" target="_blank" rel="external nofollow noopener noreferrer">https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/abc001.ts</a></p>
+<p>当然，直接试图访问m3u8链接也是不行的，这里需要 hls.js 。</p>
+<p><a href="https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8" target="_blank" rel="external nofollow noopener noreferrer">https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8</a></p>
+<blockquote>
+<p>hls.js 是一款基于 Media Source Extensions 开发的，用于实现 HTTP Live Streaming 开源JavaScript类库。它可以实现将MPEG-2 和 AAC/MP3码流变成自制的 MP4的分片。并且可以直接绑定在Video 上，实现播放。</p>
+</blockquote>
+<p>在这里，我们使用DPlayer，只需要在引入 DPlayer.js 之前，引入 hls.js 即可，即：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/gh/你的路径或CDN/DP.css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dplayer"</span> <span class="attr">class</span>=<span class="string">"dplayer-video dplayer dplayer-no-danmaku dplayer-paused"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/gh/你的路径或CDN/jquery-3.5.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/gh/你的路径或CDN/hls.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/gh/你的路径或CDN/DP.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>别忘了构造代码（注意这里的type选择hls）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    <span class="keyword">const</span> dp = <span class="keyword">new</span> DPlayer(&#123;</span><br><span class="line">      container: <span class="built_in">document</span>.getElementById(<span class="string">'dplayer'</span>),</span><br><span class="line">      autoplay:!<span class="number">0</span>,<span class="attr">theme</span>:<span class="string">"#42b983"</span>,<span class="attr">loop</span>:<span class="literal">true</span>,<span class="attr">lang</span>:<span class="string">"zh-cn"</span>,<span class="attr">preload</span>:<span class="string">"auto"</span>,<span class="attr">volume</span>:<span class="built_in">Number</span>(<span class="string">"0"</span>),</span><br><span class="line">      video: &#123;</span><br><span class="line">          url: <span class="string">'https://cdn.jsdelivr.net/gh/你的m3u8链接/playlist.m3u8'</span>,</span><br><span class="line">          type: <span class="string">'hls'</span>,</span><br><span class="line">          defaultQuality: <span class="number">0</span>,</span><br><span class="line">          pic: <span class="string">'https://cdn.jsdelivr.net/gh/你的视频的初始未播放的画面（封面）.webp'</span>,</span><br><span class="line">          thumbnails: <span class="string">'thumbnails.jpg'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>针对自动播放问题，Chrome已经是禁止声音的自动播放了，也就是说，除非你静音，否则通常形式的video标签都无法在chrome中自动播放内容（iframe等除外），这里我的解决方式是，<strong>静音播放 + 按钮提醒</strong>，在视频下面加一行提示字符，然后利用dp的API做一下简单的控制（我把默认控制栏全部删掉了）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=<span class="string">"btnV"</span> style=<span class="string">"color:#676767;font-size:16px;cursor:pointer;"</span>&gt;↑ 画面不动？没声音？点这里！&lt;<span class="regexp">/span&gt; </span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  $("#btnV").click(function()&#123;</span></span><br><span class="line"><span class="regexp">     if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！")&#123;</span></span><br><span class="line"><span class="regexp">      dp.play();</span></span><br><span class="line"><span class="regexp">      dp.volume(0.4);</span></span><br><span class="line"><span class="regexp">      $("#btnV").html("↑ 太吵了，关掉！");</span></span><br><span class="line"><span class="regexp">     &#125;else&#123;</span></span><br><span class="line"><span class="regexp">      dp.volume(0);</span></span><br><span class="line"><span class="regexp">      $("#btnV").html("↑ 没声音？点这里！");</span></span><br><span class="line"><span class="regexp">     &#125;</span></span><br><span class="line"><span class="regexp">  &#125;) </span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Dplayer样式"><a href="#Dplayer样式" class="headerlink" title="Dplayer样式"></a><strong>Dplayer样式</strong></h4><p>为了极简化播放器，我将DPlayer的全部操作区间都给删掉了（display:none），这样就让视频区显得更加的纯粹，不告诉你你都不知道是视频，样式可以直接拷贝，代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.dplayer-controller</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.dplayer-controller-mask</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.dplayer-bezel</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.dplayer-notice</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="最终效果（jsd加速）"><a href="#最终效果（jsd加速）" class="headerlink" title="最终效果（jsd加速）"></a><strong>最终效果（<a href="https://github.com/TianZonglin/bibabo/tree/master/MV-5min-100m-Queen" target="_blank" rel="external nofollow noopener noreferrer">jsd加速</a>）</strong></h4><p>视频画面右键统计信息-&gt;查看数据源！</p>
+  <style>
+    .l_mainxx {
+      padding: 8px !important;
+    }
+    .dplayer-video-wrap {
+      position: relative;
+      background: #000;
+      font-size: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .dplayer * {
+        box-sizing: content-box;
+        border-radius: 5px;
+    }
+    .dplayer {
+
+        position: relative;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        line-height: 1;
+    }
+    .dplayer-controller{
+      display: none !important;
+    }
+    .dplayer-controller-mask{
+      display: none !important;
+    }
+    .dplayer-bezel{
+      display: none !important;
+    }
+    .dplayer-notice{
+      display: none !important;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/DP.css">
+
+  <div id="dplayer2" class="dplayer-video dplayer dplayer-no-danmaku dplayer-paused"></div><br>
+  <center><span id="btnV2" style="color:#676767;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！</span> </center>
+
+  <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/jquery-3.5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/hls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/DP.js"></script>
+  <script>
+    $(function(){ 
+      const dp = new DPlayer({
+        container: document.getElementById('dplayer2'),
+        autoplay:!0,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        video: {
+            url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8',
+            type: 'hls',
+            defaultQuality: 0,
+            pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912010715.webp',
+            thumbnails: 'thumbnails.jpg',
+        },
+    });
+    $("#btnV2").click(function(){
+       if($("#btnV2").html()=="↑ 没声音？点这里！"){
+        dp.play();
+        dp.volume(0.4);
+        $("#btnV2").html("↑ 太吵了，关掉！");
+       }else{
+        dp.volume(0);
+        $("#btnV2").html("↑ 没声音？点这里！");
+       }
+    }) 
+  })
+  </script>  
+
+
+
+
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcf0.html" title="JQuery基础概念知识" rel="bookmark">JQuery基础概念知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/9cb3.html">https://www.cz5h.com/article/9cb3.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/HTML/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>HTML</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/DPlayer/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>DPlayer</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/9cb3.html&title=滥用jsdelivr之存储视频 - 长征部落格&summary=
+
+
+
+对于博客来说，媒体资源的存取方式至关重要，借助Jsdelivr加速Github上存储的图片已经是公认的方案，但对于视频来说，面对动辄几百兆的视频资源，你几乎无法找到一个免费的“视频床”，在第三方直接防盗链能力日渐完善的当下，急切需要一种折中方案。本文就借鉴前辈的尝试，将视频存放在Github之上并利用Jsdelivr实现加速，并利用DPlayer将其插入到自己的博客中。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/9cb3.html&title=滥用jsdelivr之存储视频 - 长征部落格&summary=
+
+
+
+对于博客来说，媒体资源的存取方式至关重要，借助Jsdelivr加速Github上存储的图片已经是公认的方案，但对于视频来说，面对动辄几百兆的视频资源，你几乎无法找到一个免费的“视频床”，在第三方直接防盗链能力日渐完善的当下，急切需要一种折中方案。本文就借鉴前辈的尝试，将视频存放在Github之上并利用Jsdelivr实现加速，并利用DPlayer将其插入到自己的博客中。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/9cb3.html&title=滥用jsdelivr之存储视频 - 长征部落格&summary=
+
+
+
+对于博客来说，媒体资源的存取方式至关重要，借助Jsdelivr加速Github上存储的图片已经是公认的方案，但对于视频来说，面对动辄几百兆的视频资源，你几乎无法找到一个免费的“视频床”，在第三方直接防盗链能力日渐完善的当下，急切需要一种折中方案。本文就借鉴前辈的尝试，将视频存放在Github之上并利用Jsdelivr实现加速，并利用DPlayer将其插入到自己的博客中。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACR0lEQVR42u3aMXKEQAwEQP7/aTu3A6TR3tknejOgAPVGU9JeXw9dFzg4ODg4+CL4Fa5fHyw+797/+XxaLzg4ODg4+EZ4OQAMYVXQ3ftpveDg4ODg4JvhtwGgeN0NIFXYuF5wcHBwcHDwcmOg20BoBxJwcHBwcHDw4wHm1KDhVGACBwcHBwd/AjwNEGngOP2/t01SwMHBwcHB/xE8PjD3R9dxveDg4ODg4Ivg05UGjGoDohtYbv8LDg4ODg6+CH5qgD8tuLqB0wMG4ODg4ODgm+B3jf50QD8NLOlBwvJAARwcHBwcfAE8HSCkBXQ36HRDAhwcHBwcfBM8HdB3C+sGm+5GlOsFBwcHBwdfBE8DyLShcOqAQdsBDg4ODg7+APipRsMUkAaV9kABHBwcHBz8g+HpAD9tNJweYMQBBhwcHBwcfAE8BXULqAaaq7nKGw4ODg4ODv5geLfwVzUc3h5gwMHBwcHBPwB+ahCfBpu0MVHeIHBwcHBw8IXwtMGQvj8NQmmjAxwcHBwc/AnwUw3/6XdPBShwcHBwcPAnwLsHAk4dHEgbFO1GBTg4ODg4+CL4dHULqw4epgcMwMHBwcHBnwC/wvWuRkJ3gNEeKICDg4ODgy+AdwPLqetTG1jeOHBwcHBw8MXw7oC/OziYfmd6AAEcHBwcHBx8PtBP/9et++UBBhwcHBwcfBE8bTSkwaU7+AAHBwcHB98M7w4U4sb+cIPiYAUODg4ODr4QngaDFFQNMtPGAzg4ODg4+Gb40xY4ODg4OPiC9Q2/WQYQIGfl4QAAAABJRU5ErkJggg==" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACR0lEQVR42u3aMXKEQAwEQP7/aTu3A6TR3tknejOgAPVGU9JeXw9dFzg4ODg4+CL4Fa5fHyw+797/+XxaLzg4ODg4+EZ4OQAMYVXQ3ftpveDg4ODg4JvhtwGgeN0NIFXYuF5wcHBwcHDwcmOg20BoBxJwcHBwcHDw4wHm1KDhVGACBwcHBwd/AjwNEGngOP2/t01SwMHBwcHB/xE8PjD3R9dxveDg4ODg4Ivg05UGjGoDohtYbv8LDg4ODg6+CH5qgD8tuLqB0wMG4ODg4ODgm+B3jf50QD8NLOlBwvJAARwcHBwcfAE8HSCkBXQ36HRDAhwcHBwcfBM8HdB3C+sGm+5GlOsFBwcHBwdfBE8DyLShcOqAQdsBDg4ODg7+APipRsMUkAaV9kABHBwcHBz8g+HpAD9tNJweYMQBBhwcHBwcfAE8BXULqAaaq7nKGw4ODg4ODv5geLfwVzUc3h5gwMHBwcHBPwB+ahCfBpu0MVHeIHBwcHBw8IXwtMGQvj8NQmmjAxwcHBwc/AnwUw3/6XdPBShwcHBwcPAnwLsHAk4dHEgbFO1GBTg4ODg4+CL4dHULqw4epgcMwMHBwcHBnwC/wvWuRkJ3gNEeKICDg4ODgy+AdwPLqetTG1jeOHBwcHBw8MXw7oC/OziYfmd6AAEcHBwcHBx8PtBP/9et++UBBhwcHBwcfBE8bTSkwaU7+AAHBwcHB98M7w4U4sb+cIPiYAUODg4ODr4QngaDFFQNMtPGAzg4ODg4+Gb40xY4ODg4OPiC9Q2/WQYQIGfl4QAAAABJRU5ErkJggg==">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/e7a6.html" rel="prev" title="在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager">
+                      
+                        在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E7%BE%A4%E6%99%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 群晖</a> <a class="tag" href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"><i class="fas fa-hashtag" aria-hidden="true"></i> 百度网盘</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '滥用jsdelivr之存储视频',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心问题"><span class="toc-text">核心问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github网页上传限制"><span class="toc-text">Github网页上传限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频切片以便于jsd加速"><span class="toc-text">视频切片以便于jsd加速</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先获取ffmpeg工具"><span class="toc-text">首先获取ffmpeg工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件放置和测试"><span class="toc-text">文件放置和测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行分片"><span class="toc-text">执行分片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用DPlayer插入到博客"><span class="toc-text">使用DPlayer插入到博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dplayer样式"><span class="toc-text">Dplayer样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最终效果（jsd加速）"><span class="toc-text">最终效果（jsd加速）</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/csdnn.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 295.4k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: 'true',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>$(function(){ 
+    const dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        autoplay:!0,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        video: {
+            url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8',
+            type: 'hls',
+            defaultQuality: 0,
+            pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200912010715.webp',
+            thumbnails: 'thumbnails.jpg',
+        },
+    });
+    
+    $("#btnV").click(function(){
+       if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
+        dp.play();
+        dp.volume(0.4);
+        $("#btnV").html("↑ 太吵了，关掉！");
+       }else{
+        dp.volume(0);
+        $("#btnV").html("↑ 没声音？点这里！");
+       }
+
+     }) 
+    })
+  </script>  
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
+
+
+
+ 

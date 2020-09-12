@@ -266,7 +266,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 没声音？点这里！</span></center>
+   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！</span></center>
 </div>
  
   <div class="a-body l_body nocover">
@@ -437,7 +437,7 @@
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 293.2k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 295.4k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题
@@ -830,7 +830,7 @@ if(true){
     });
     
     $("#btnV").click(function(){
-       if($("#btnV").html()=="↑ 没声音？点这里！"){
+       if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
         dp.play();
         dp.volume(0.4);
         $("#btnV").html("↑ 太吵了，关掉！");
