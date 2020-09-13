@@ -2290,9 +2290,9 @@
       
         <tags>
             
-            <tag> 层次数据 </tag>
-            
             <tag> 并行计算 </tag>
+            
+            <tag> 层次数据 </tag>
             
             <tag> 力导向 </tag>
             
@@ -2848,6 +2848,31 @@
     
     
     <entry>
+      <title>Python的一些注意事项</title>
+      <link href="/article/5dff.html"/>
+      <url>/article/5dff.html</url>
+      
+        <content type="html"><![CDATA[<pre><code>注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。</code></pre><a id="more"></a><h4 id="使用字典来代替-switch-语句"><a href="#使用字典来代替-switch-语句" class="headerlink" title="使用字典来代替 switch 语句"></a><strong>使用字典来代替 switch 语句</strong></h4><pre><code>方法：    使用字典的key代替 switch中的case示例：    switcher = {        0 : &apos;Go left&apos;,        1 : &apos;Go right&apos;,        2 : &apos;Go straght&apos;    }使用key选择分支：    print(switcher[0])缺点：    模拟不了default分支解决：    使用get方法，并指定匹配不到key时的返回值    print(switcher.get(5, &apos;Unknown&apos;)) #输出 Unknown仍有缺点：    只能简单赋值，无法书写代码段完备的示例：    将原有字符串部分均使用函数进行返回    代码：        def goleft():            return &apos;goleft&apos;        def goright():            return &apos;goright&apos;        def gostraght():            return &apos;gostraght&apos;        def default():            return &apos;default&apos;        注意：定义顺序必，函数必须先进行定义        switcher1 = {            0 : goleft,            1 : goright,            2 : gostraght        }        print( switcher1.get(5, default)() ) #输出default    注意：        调用形式，函数式编程 ：switcher1.get(5, default)()         由于get到的是函数名，所以需要加()显式调用</code></pre><h4 id="列表推导式：（Pythonic）"><a href="#列表推导式：（Pythonic）" class="headerlink" title="列表推导式：（Pythonic）"></a><strong>列表推导式：（Pythonic）</strong></h4><pre><code>场景：    通过已经存在的列表，生成新的列表示例：    对[1,2,3,4,5]全部元素进行平方实现：    其他可以实现的方式：map+filter推导式实现:    a = [1,2,3,4,5,6]    b = [i*i for i in a] # [ 关于i的表达式 for i in 列表 ]    print(b)    #输出：[1, 4, 9, 16, 25, 36]    b = [i*i for i in a if i&gt;3] # [ 关于i的表达式 for i in 列表 if 关于i的判断 ]    print(b)    #输出：[16, 25, 36]注意：    如果对于set进行集合推导式代码：    a = {1,2,3,4,5,6}    b = {i*i for i in a} # [ 关于i的表达式 for i in 列表 ]    print(b)    #输出：{1, 4, 36, 9, 16, 25}其他；    元组，列表，字典，集合，都可以被推导    对于字典：        stu = {            &apos;Tom&apos;:18,            &apos;Jack&apos;:13,            &apos;Kimmy&apos;:15        }    提取key：        stub = { key for key,value in stu }        会报错，字典不能直接被解包遍历，需要使用items()方法    代码：        print( { key for key,value in stu.items() } )        #{&apos;Tom&apos;, &apos;Kimmy&apos;, &apos;Jack&apos;}        print( { value:key for key,value in stu.items() } )        #{18: &apos;Tom&apos;, 13: &apos;Jack&apos;, 15: &apos;Kimmy&apos;} 键值互换        print( ( key for key,value in stu.items() ) )        #&lt;generator object &lt;genexpr&gt; at 0x0000000000B36B48&gt;</code></pre><h4 id="None-空类型-type-NoneType"><a href="#None-空类型-type-NoneType" class="headerlink" title="None 空类型 type=NoneType"></a><strong>None 空类型 type=NoneType</strong></h4><pre><code>注意:    在类型和字符串方面：不是&apos;&apos;,不是[],不是0,不是false验证：    def fun1():        pass        #函数没有return，返回None    def fun2():        return      #return后不跟变量，返回None    print(fun1())   #返回None    print(fun2())   #返回None判断a = []为空的方式    正确的方式        if not a:            print(&apos;None&apos;)         else:            print(&apos;NotNone----&apos;)     错误的方式        if a is None:            print(&apos;None&apos;)         else:            print(&apos;NotNone&apos;) #a=[]时，并不能判空注意：    print(bool(None))   #Fasle    print(bool([]))     #Fasle    python中每个类型都和True False有对应关系：None = False验证一：    class Test():        pass    test = Test()    if test:        print(&apos;NotNone&apos;)    else:        print(&apos;None&apos;)    #输出：NotNone    print(bool(test))   #True    print(bool(Test())) #True验证二：（添加__len__方法）    class Test():        def __len__(self):            return 0    test = Test()    if test:        print(&apos;NotNone&apos;)    else:        print(&apos;None&apos;)    #输出：None    print(bool(test))   #False    print(bool(Test())) #False结论：    上述表明，实例化后使用if并不一定能判空，其取决于类内的定义    特别是__len__()和__bool__()方法，会决定实例化后返回的布尔取值注意：    __len__(self)方法返回值：只能返回整形或布尔值    触发函数：        bool(Test()),在没有__bool__()时调用对象的__len__()        len(Test()),在没有__bool__()时调用对象的__len__()混合：    class Test():        def __bool__(self):            return True         def __len__(self):            return False    test = Test()    print(bool(Test())) #输出：True结论：    __bool__()方法优先级高于__len__()方法，如果有bool方法存在那么优先使用bool的返回值</code></pre><h4 id="装饰器的副作用"><a href="#装饰器的副作用" class="headerlink" title="装饰器的副作用"></a><strong>装饰器的副作用</strong></h4><pre><code>使用自定义的装饰器    import time    def decorator(func):        def wrapper():            &apos;&apos;&apos;                wrapper的描述            &apos;&apos;&apos;            print(time.time())            func()        return wrapper验证一：    def f1():        &apos;&apos;&apos;            描述f1的作用等等        &apos;&apos;&apos;        print(&apos;f1.__name__:&apos;,f1.__name__)    f1() # 输出：f1    print(help(f1))    #输出：描述f1的作用等等验证二：    @decorator    def f2():        &apos;&apos;&apos;            描述f2的作用等等        &apos;&apos;&apos;        print(&apos;f2.__name__:&apos;,f2.__name__)    f2() # 输出：wrapper    # &gt;&gt;&gt; help(len)可以查看len()函数的说明    print(help(f2))    #输出：“wrapper的描述”结论：    由上可知，装饰器会盖面原有函数的本身性质，函数名注释等等定义无副作用的装饰器：    方法：        在自定义装饰器中添加装饰器@wraps    代码：        import time        from functools import wraps        def decorator(func):            &apos;&apos;&apos;                装饰器的注释            &apos;&apos;&apos;            @wraps(func) #添加装饰器，可以带参数            def wrapper():                print(time.time())                func()            return wrapper    验证：        @decorator        def f1():            &apos;&apos;&apos;                描述f1的作用等等            &apos;&apos;&apos;            print(&apos;f1.__name__:&apos;,f1.__name__)        f1() # 输出：f1        print(help(f1)) #输出：描述f1的作用等等    @wraps装饰器：        原先的装饰器直接执行的wrapper函数，添加@wraps装饰器之后，        首先执行warps装饰器，其可以获得被装饰函数的全部信息，所以可以将原被修饰的函数的全部信息进行保留</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用Python实现神经网络(待续)</title>
       <link href="/article/ccc3.html"/>
       <url>/article/ccc3.html</url>
@@ -2867,31 +2892,6 @@
             <tag> 机器学习 </tag>
             
             <tag> 笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Python的一些注意事项</title>
-      <link href="/article/5dff.html"/>
-      <url>/article/5dff.html</url>
-      
-        <content type="html"><![CDATA[<pre><code>注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。</code></pre><a id="more"></a><h4 id="使用字典来代替-switch-语句"><a href="#使用字典来代替-switch-语句" class="headerlink" title="使用字典来代替 switch 语句"></a><strong>使用字典来代替 switch 语句</strong></h4><pre><code>方法：    使用字典的key代替 switch中的case示例：    switcher = {        0 : &apos;Go left&apos;,        1 : &apos;Go right&apos;,        2 : &apos;Go straght&apos;    }使用key选择分支：    print(switcher[0])缺点：    模拟不了default分支解决：    使用get方法，并指定匹配不到key时的返回值    print(switcher.get(5, &apos;Unknown&apos;)) #输出 Unknown仍有缺点：    只能简单赋值，无法书写代码段完备的示例：    将原有字符串部分均使用函数进行返回    代码：        def goleft():            return &apos;goleft&apos;        def goright():            return &apos;goright&apos;        def gostraght():            return &apos;gostraght&apos;        def default():            return &apos;default&apos;        注意：定义顺序必，函数必须先进行定义        switcher1 = {            0 : goleft,            1 : goright,            2 : gostraght        }        print( switcher1.get(5, default)() ) #输出default    注意：        调用形式，函数式编程 ：switcher1.get(5, default)()         由于get到的是函数名，所以需要加()显式调用</code></pre><h4 id="列表推导式：（Pythonic）"><a href="#列表推导式：（Pythonic）" class="headerlink" title="列表推导式：（Pythonic）"></a><strong>列表推导式：（Pythonic）</strong></h4><pre><code>场景：    通过已经存在的列表，生成新的列表示例：    对[1,2,3,4,5]全部元素进行平方实现：    其他可以实现的方式：map+filter推导式实现:    a = [1,2,3,4,5,6]    b = [i*i for i in a] # [ 关于i的表达式 for i in 列表 ]    print(b)    #输出：[1, 4, 9, 16, 25, 36]    b = [i*i for i in a if i&gt;3] # [ 关于i的表达式 for i in 列表 if 关于i的判断 ]    print(b)    #输出：[16, 25, 36]注意：    如果对于set进行集合推导式代码：    a = {1,2,3,4,5,6}    b = {i*i for i in a} # [ 关于i的表达式 for i in 列表 ]    print(b)    #输出：{1, 4, 36, 9, 16, 25}其他；    元组，列表，字典，集合，都可以被推导    对于字典：        stu = {            &apos;Tom&apos;:18,            &apos;Jack&apos;:13,            &apos;Kimmy&apos;:15        }    提取key：        stub = { key for key,value in stu }        会报错，字典不能直接被解包遍历，需要使用items()方法    代码：        print( { key for key,value in stu.items() } )        #{&apos;Tom&apos;, &apos;Kimmy&apos;, &apos;Jack&apos;}        print( { value:key for key,value in stu.items() } )        #{18: &apos;Tom&apos;, 13: &apos;Jack&apos;, 15: &apos;Kimmy&apos;} 键值互换        print( ( key for key,value in stu.items() ) )        #&lt;generator object &lt;genexpr&gt; at 0x0000000000B36B48&gt;</code></pre><h4 id="None-空类型-type-NoneType"><a href="#None-空类型-type-NoneType" class="headerlink" title="None 空类型 type=NoneType"></a><strong>None 空类型 type=NoneType</strong></h4><pre><code>注意:    在类型和字符串方面：不是&apos;&apos;,不是[],不是0,不是false验证：    def fun1():        pass        #函数没有return，返回None    def fun2():        return      #return后不跟变量，返回None    print(fun1())   #返回None    print(fun2())   #返回None判断a = []为空的方式    正确的方式        if not a:            print(&apos;None&apos;)         else:            print(&apos;NotNone----&apos;)     错误的方式        if a is None:            print(&apos;None&apos;)         else:            print(&apos;NotNone&apos;) #a=[]时，并不能判空注意：    print(bool(None))   #Fasle    print(bool([]))     #Fasle    python中每个类型都和True False有对应关系：None = False验证一：    class Test():        pass    test = Test()    if test:        print(&apos;NotNone&apos;)    else:        print(&apos;None&apos;)    #输出：NotNone    print(bool(test))   #True    print(bool(Test())) #True验证二：（添加__len__方法）    class Test():        def __len__(self):            return 0    test = Test()    if test:        print(&apos;NotNone&apos;)    else:        print(&apos;None&apos;)    #输出：None    print(bool(test))   #False    print(bool(Test())) #False结论：    上述表明，实例化后使用if并不一定能判空，其取决于类内的定义    特别是__len__()和__bool__()方法，会决定实例化后返回的布尔取值注意：    __len__(self)方法返回值：只能返回整形或布尔值    触发函数：        bool(Test()),在没有__bool__()时调用对象的__len__()        len(Test()),在没有__bool__()时调用对象的__len__()混合：    class Test():        def __bool__(self):            return True         def __len__(self):            return False    test = Test()    print(bool(Test())) #输出：True结论：    __bool__()方法优先级高于__len__()方法，如果有bool方法存在那么优先使用bool的返回值</code></pre><h4 id="装饰器的副作用"><a href="#装饰器的副作用" class="headerlink" title="装饰器的副作用"></a><strong>装饰器的副作用</strong></h4><pre><code>使用自定义的装饰器    import time    def decorator(func):        def wrapper():            &apos;&apos;&apos;                wrapper的描述            &apos;&apos;&apos;            print(time.time())            func()        return wrapper验证一：    def f1():        &apos;&apos;&apos;            描述f1的作用等等        &apos;&apos;&apos;        print(&apos;f1.__name__:&apos;,f1.__name__)    f1() # 输出：f1    print(help(f1))    #输出：描述f1的作用等等验证二：    @decorator    def f2():        &apos;&apos;&apos;            描述f2的作用等等        &apos;&apos;&apos;        print(&apos;f2.__name__:&apos;,f2.__name__)    f2() # 输出：wrapper    # &gt;&gt;&gt; help(len)可以查看len()函数的说明    print(help(f2))    #输出：“wrapper的描述”结论：    由上可知，装饰器会盖面原有函数的本身性质，函数名注释等等定义无副作用的装饰器：    方法：        在自定义装饰器中添加装饰器@wraps    代码：        import time        from functools import wraps        def decorator(func):            &apos;&apos;&apos;                装饰器的注释            &apos;&apos;&apos;            @wraps(func) #添加装饰器，可以带参数            def wrapper():                print(time.time())                func()            return wrapper    验证：        @decorator        def f1():            &apos;&apos;&apos;                描述f1的作用等等            &apos;&apos;&apos;            print(&apos;f1.__name__:&apos;,f1.__name__)        f1() # 输出：f1        print(help(f1)) #输出：描述f1的作用等等    @wraps装饰器：        原先的装饰器直接执行的wrapper函数，添加@wraps装饰器之后，        首先执行warps装饰器，其可以获得被装饰函数的全部信息，所以可以将原被修饰的函数的全部信息进行保留</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -3884,9 +3884,9 @@
       
         <tags>
             
-            <tag> Kafka </tag>
-            
             <tag> Zookeeperp </tag>
+            
+            <tag> Kafka </tag>
             
             <tag> Storm </tag>
             
@@ -4139,9 +4139,9 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> CentOS </tag>
             
             <tag> 联网 </tag>
             
