@@ -451,7 +451,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\24fd.html" title="Kafka集群常用命令" rel="bookmark">Kafka集群常用命令</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3e6b.html" title="zkp,kfk,stm联通的问题" rel="bookmark">zkp,kfk,stm联通的问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d1cb.html" title="kafka的使用" rel="bookmark">kafka的使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d21a.html" title="ETL工具~Kettle调研" rel="bookmark">ETL工具~Kettle调研</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\24fd.html" title="Kafka集群常用命令" rel="bookmark">Kafka集群常用命令</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d1cb.html" title="kafka的使用" rel="bookmark">kafka的使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3e6b.html" title="zkp,kfk,stm联通的问题" rel="bookmark">zkp,kfk,stm联通的问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d21a.html" title="ETL工具~Kettle调研" rel="bookmark">ETL工具~Kettle调研</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1234,7 +1234,7 @@ if(true){
   <script>$(function(){ 
     const dp = new DPlayer({
         container: document.getElementById('dplayer'),
-        autoplay:!0,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
         video: {
             url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8',
             type: 'hls',
@@ -1247,7 +1247,7 @@ if(true){
     $("#btnV").click(function(){
        if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
         dp.play();
-        dp.volume(0.4);
+        dp.volume(0.6);
         $("#btnV").html("↑ 太吵了，关掉！");
        }else{
         dp.volume(0);

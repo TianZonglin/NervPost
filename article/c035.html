@@ -487,7 +487,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1279,7 +1279,7 @@ if(true){
   <script>$(function(){ 
     const dp = new DPlayer({
         container: document.getElementById('dplayer'),
-        autoplay:!0,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
         video: {
             url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/MV-5min-100m-Queen/playlist.m3u8',
             type: 'hls',
@@ -1292,7 +1292,7 @@ if(true){
     $("#btnV").click(function(){
        if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
         dp.play();
-        dp.volume(0.4);
+        dp.volume(0.6);
         $("#btnV").html("↑ 太吵了，关掉！");
        }else{
         dp.volume(0);
