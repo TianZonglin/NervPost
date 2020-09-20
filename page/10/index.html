@@ -104,7 +104,7 @@
   <!-- end webpushr tracking code -->
 
 
-
+  
 
 <body>
   <div style="display:none;">
@@ -456,6 +456,45 @@
         
 
 <div class="l_main">
+  <article class="post white-box reveal " style="padding: 15px 24px;">
+    <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#2196f3; "><span class="lit_slashNum">Il</span><a href="/movies/index.html" style="font-size:22px;color:#2196f3;">近期の观影</a><span class="lit_slashNum">lI</span></span>
+    <style>  
+      .lit_slashNum{ 
+ 
+        color:#2196f3; 
+        animation: changeshadow 2s  ease-in  infinite ;
+        /* 其它浏览器兼容性前缀 */
+        -webkit-animation: changeshadow 1s linear infinite;
+        -moz-animation: changeshadow 1s linear infinite;
+        -ms-animation: changeshadow 1s linear infinite;
+        -o-animation: changeshadow 1s linear infinite;
+      }  
+      .isshow{
+        display:none;
+      }
+      @keyframes changeshadow {  
+          0%{ text-shadow: 0 0 4px #2196f3}  
+          50%{ text-shadow: 0 0 40px #2196f3}  
+          100%{ text-shadow: 0 0 4px #2196f3}  
+      }
+      @media screen and (max-width: 600px) {
+          .rtt {
+              display:none;
+          }
+          .isshow{
+            display:inline;
+          }
+      }
+    </style> 
+    <div class="isshow"><section class="meta">    
+    <h2 class="title">
+      <a href="/movies/index.html">近期の观影</a>
+    </h2>
+    </section><hr></div> 
+    <section style="position:relative;" class="article typo" id="topcontent">
+        
+    </section>
+  </article>
   
   <section class="post-list ">
     
@@ -464,6 +503,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -576,6 +616,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -691,6 +732,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -807,6 +849,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -917,6 +960,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -1100,6 +1144,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -1213,6 +1258,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -1325,6 +1371,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -1438,6 +1485,7 @@
         
           <div class="post-wrapper">
             <article class="post white-box   reveal ">
+
   
 
 
@@ -2231,6 +2279,10 @@ if(true){
 
      }) 
     })
+
+    //文章列表置顶部分
+    $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+
   </script>  
   <script>setLoadingBarProgress(100);</script>
 <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BOnj-eggfSffwynCnx50b5iLiyvY0k2IQS1HTBzHUPGh1KuaRGXtuTWsXevOwWJB7tbd_RQf2HpqwK58CN-h7jM' });</script><!-- end webpushr code -->
