@@ -367,7 +367,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-22T01:07:25+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-22T02:00:22+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2020年9月22日</p>
@@ -389,6 +389,8 @@
           
           <blockquote>
     <p>光影之中品百味人生。 <a target="_blank" href="https://github.com/TianZonglin/hexo-douban-list" rel="external nofollow noopener noreferrer">// 本页使用 hexo-douban-list 插件构建</a></p>
+    <div id="appid" style="display: none;">WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz</div>
+    <div id="appkey" style="display: none;">ycqjmtEfUxuxD3IY97oRkrdO</div>
 </blockquote>
 <style>
     
@@ -4442,6 +4444,7 @@
  
 </div>
 
+
 <script>
     /**
  * Created by myths on 18-2-8.
@@ -4557,29 +4560,31 @@ for (var i = 0; i < firstpages.length; i++) {
 </script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/valine.js"></script>
-<script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = "nick,mail,link".split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var notify = 'true' == true;;
-  var verify = 'true' == true;;
-  var valine = new Valine();
-  valine.init({
-    el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
-    appId: config.douban.movie.valine_id,
-    appKey: config.douban.movie.valine_key,
-    placeholder: "如有需要，可在此留言反馈",
-    pageSize:'5',
-    avatar:'retro',
-    lang:'zh-cn',
-    visitor: 'true',
-    highlight: 'true'
-  })
+<script> 
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = "nick,mail,link".split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;;
+    var verify = 'true' == true;;
+    var valine = new Valine();
+    valine.init({
+        el: '#valine_container',
+        notify: notify,
+        verify: verify,
+        guest_info: guest_info,
+        appId: document.getElementById("appid").innerHTML,
+        appKey: document.getElementById("appkey").innerHTML,
+        placeholder: "如有需要，可在此留言反馈",
+        pageSize:'5',
+        avatar:'retro',
+        lang:'zh-cn',
+        visitor: 'true',
+        highlight: 'true'
+    })
 </script>
+
+ 
 
       <center><br><br>
         <style>.wp-r{
