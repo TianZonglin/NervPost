@@ -456,8 +456,8 @@
         
 
 <div class="l_main">
-  <article class="post white-box reveal reveal2" style="padding: 15px 24px;">
-    <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#2196f3; "><span class="lit_slashNum">♫ </span><a href="/movies/index.html" style="font-size:22px;color:#2196f3;">近期の观影</a></span>
+  <article class="post white-box reveal reveal2" style="padding: 10px 24px;min-height: 70px;">
+    <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#2196f3; "><span class="lit_slashNum">♘ </span><a href="/movies/index.html" style="font-size:22px;color:#2196f3;">近期の观影</a></span>
     <style>  
       .lit_slashNum{ 
  
@@ -470,6 +470,17 @@
         -o-animation: changeshadow 1s linear infinite;
       }  
       .isshow{
+        display:none;
+      }
+      .hexo-socials-item{
+        border-bottom: 0px !important;
+        padding: 0px;
+      }
+      .hexo-douban-item{
+        border-bottom: 0px !important;
+        padding: 0px;
+      }
+      .ititle{
         display:none;
       }
       @keyframes changeshadow {  
@@ -495,6 +506,17 @@
     </h2>
     </section><hr></div> 
     <section style="position:relative;" class="article typo" id="topcontent">
+        
+    </section>
+  </article>
+  <article class="post white-box reveal reveal2" style="padding: 10px 24px;min-height: 70px;">
+    <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#2196f3; "><span class="lit_slashNum">♘ </span><a href="/socials/index.html" style="font-size:22px;color:#2196f3;">键盘侠の魂</a></span> 
+    <div class="isshow"><section class="meta" style="margin-bottom: 5px;">    
+    <h2 class="title">
+      <a href="/socials/index.html">键盘侠の魂</a>
+    </h2>
+    </section><hr></div> 
+    <section style="position:relative;" class="article typo" id="topcontent2">
         
     </section>
   </article>
@@ -1405,8 +1427,8 @@
       
         
   <h2 class="title">
-    <a href="/article/d81.html">
-      Python的正则表达式
+    <a href="/article/8830.html">
+      Python的JSON处理
     </a>
   </h2>
 
@@ -1441,19 +1463,19 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约3.2k字</p>
+      <p>大约567字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需18分钟</p>
+      <p>阅读需6分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
     <a class="notlink">
       <i class="fas fa-fire" aria-hidden="true"></i>
-      <p><span id="article/d81.html" class="pageViews" data-flag-title="Python的正则表达式"></span></p>
+      <p><span id="article/8830.html" class="pageViews" data-flag-title="Python的JSON处理"></span></p>
     </a>
   </div>
 
@@ -1479,7 +1501,7 @@
       
         
           <div class="button readmore">
-            <a href="/article/d81.html" class="flat-box">
+            <a href="/article/8830.html" class="flat-box">
               <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
               阅读全文
             </a>
@@ -2182,8 +2204,15 @@ if(true){
     })
 
     //文章列表置顶部分
-    $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
 
+      
+
+    $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    $('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
+    setTimeout(function () {
+      $(".rtt").show();
+    }, 3000);
+    
   </script>  
   <script>setLoadingBarProgress(100);</script>
 <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BOnj-eggfSffwynCnx50b5iLiyvY0k2IQS1HTBzHUPGh1KuaRGXtuTWsXevOwWJB7tbd_RQf2HpqwK58CN-h7jM' });</script><!-- end webpushr code -->
