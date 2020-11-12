@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="Volantis" version="1.7.4(from 1.6)">
+ 
+
+
+
+  <meta charset="utf-8">
+ 
+  
+  
+  
+  <!------------------------------------- SEO相关 --------///////////////////////////////////---->
+  
+    
+  
+  <!------------------------------------- 渲染优化 --------///////////////////////////////////---->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <!------------------------------------- 页面元数据  --------///////////////////////////////////---->
+  
+
+  
+ 
+  <title>给你的Win平板安装ChromeOS系统 - 长征部落格</title>
+ 
+	
+		<meta name="keywords" content="ChromeOS,安装">
+	
+	
+		<meta name="description" content="
+
+
+
+
+你是否觉得你的Win10平板性能太弱、娱乐性没有（跑不动）、用触屏不爽（屏太小）、系统掉电超快、想丢掉却又不舍得？拯救你鸡肋平板的方法来了！给你的平板换装ChromeOS，你会拥有全新的平板体验，或许你会再次对你的平板爱不释手！">
+	
+
+  <!------------------------------------- feed  --------///////////////////////////////////---->
+  
+  
+    <link rel="alternate" href="/atom.xml" title="长征部落格">
+  
+
+  <!----------------------------------- import meta --------///////////////////////////////////---->
+
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+
+  <!-- import link -->
+  
+
+
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+</head>
+
+<!-- start webpushr tracking code --> 
+<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";
+  fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
+  webpushr('setup',{'key':'BOnj-eggfSffwynCnx50b5iLiyvY0k2IQS1HTBzHUPGh1KuaRGXtuTWsXevOwWJB7tbd_RQf2HpqwK58CN-h7jM' });</script>
+  <style>
+     .Right_bell{
+      display: none !important;
+     }
+  </style>
+  <!-- end webpushr tracking code -->
+
+
+  
+
+<body>
+  <div style="display:none;">
+	  <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+  </div>
+  
+  <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+
+      
+        <a class="logo flat-box" target="_self" href="/">
+          
+            <img class="logo" src="/title.svg">
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="h-list">
+          
+          
+            <li>
+              <a class="nav flat-box" href="/" id="home">
+                <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/archives" id="archives">
+                <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+                <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+                <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+                <i class="fas fa-at fa-fw"></i>&nbsp;关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+                <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
+                <i class="fas fa-route fa-fw"></i>&nbsp;导航
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+                <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+              </a>
+            </li>
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索Anything">
+        </form>
+      </div>
+
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+        
+          <li>
+            <a class="nav flat-box" href="/" id="home">
+              <i class="fas fa-flag fa-fw"></i>&nbsp;主页
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/archives" id="archives">
+              <i class="fas fa-archive fa-fw"></i>&nbsp;归档
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
+              <i class="fas fa-book-dead fa-fw"></i>&nbsp;日志
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
+              <i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
+              <i class="fas fa-at fa-fw"></i>&nbsp;关于
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+              <i class="fas fa-server fa-fw"></i>&nbsp;旧版
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/feed/sub.html" id="feedsub.html">
+              <i class="fas fa-rss fa-fw"></i>&nbsp;订阅
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
+              <i class="fas fa-tools fa-fw"></i>&nbsp;工具
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/nav.html" id="nav.html">
+              <i class="fas fa-route fa-fw"></i>&nbsp;导航
+            </a>
+          </li>
+        
+          <li>
+            <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
+              <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;云端
+            </a>
+          </li>
+        
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+ 
+  
+ 
+<div class="phoneXX" style="margin-top: 15px;">
+   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#676767;" href="/article/9cb3.html">教程</a>）</span></center>
+</div>
+ 
+  <div class="a-body l_body nocover">
+    <div class="body-wrapper">
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/b192.html">
+        给你的Win平板安装ChromeOS系统
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cz5h.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Tzloop</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Daily-Life/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Daily_Life</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年11月9日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需9分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/b192.html" class="pageViews" data-flag-title="给你的Win平板安装ChromeOS系统"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-13T00:41:43+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年11月13日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/Screenshot 2020-11-09 at 08.40.47 (1).png">
+</fancybox>
+
+
+<p>你是否觉得你的Win10平板性能太弱、娱乐性没有（跑不动）、用触屏不爽（屏太小）、系统掉电超快、想丢掉却又不舍得？拯救你鸡肋平板的方法来了！给你的平板换装ChromeOS，你会拥有全新的平板体验，或许你会再次对你的平板爱不释手！</p>
+<a id="more"></a>
+
+<p>我的机器配置：</p>
+<ul>
+<li>CPU: Intel Core m3-6Y30</li>
+<li>Mem: 4GB</li>
+</ul>
+<p>详细外貌及参数可在<a href="https://post.smzdm.com/p/548619/" target="_blank" rel="external nofollow noopener noreferrer">这里</a>找到。</p>
+<h3 id="啰嗦几句"><a href="#啰嗦几句" class="headerlink" title="啰嗦几句"></a><strong>啰嗦几句</strong></h3><p>Win10平板，在过去有段时间像雨后春笋般在市场上出现，以酷比魔方为代表的平板厂商，号称已经可以达到苏菲婆的体验了，我用的这个已经算是高端寨本了，但对我来说还是“小”！Windows就不应该出现在这么小的屏幕上，另外由于性能原因，娱乐性也几乎没有，不过让我欣慰的是这个本子可以流畅玩红色警戒，有很长一段时间我都是外接24寸屏幕玩红警的，当然本子会超级烫。</p>
+<p>总之，体验就是，你能在这个小本子上满足一切Win的“日常”需求，而且还可以触屏！但是，时间一久，触屏的新鲜感过了，我就迅速对其失去兴趣了，一个重要的原因就是搭载 Windows 耗电是真的快，充电线就跟电源线一样了，拔不得。综上，在我有了台式机之后（笔记本装Ubuntu了），这个本子就彻底被打入冷宫了。</p>
+<p><strong>但是天不绝此本，ChromeOS来了！</strong></p>
+<p>Chrome OS 在今天其实已经不新鲜了，甚至在我三年前买这个平板的时候就已经出现了，但是，ChromeOS 在这几年发展了非常多的东西，包括 ARC+ 等等技术在内，直到其开始兼容安卓应用开始，其才逐渐形成比较明显的、有优势的系统特性。我会在之后写一篇 ChromeOS 使用体验的文章，这里直接列几个优点：</p>
+<ul>
+<li>可以得到全系统目前最好的原生 Chrome 浏览器体验（一点也不开玩笑）！</li>
+<li>可以兼容 80% 安卓应用，Appstore或许没有，但可以直接安装apk！</li>
+<li>可以以极低的功耗运行，真的可以做“移动”平板了！</li>
+<li>触屏更加接近安卓体验，比win10不知道好到哪里去了！</li>
+<li>娱乐性剧增，办公性下降，这正是我想要的！</li>
+<li>开机速度巨快！</li>
+</ul>
+<p><strong>如何知道自己的电脑能不能装呢？</strong></p>
+<p>答案是基本就没有不能装的！只是你没找到对应的系统（代号），去<a href="https://zh.wikipedia.org/wiki/Chromebook" target="_blank" rel="external nofollow noopener noreferrer">维基的 Chromebook 页面</a>，去找你的型号对应的厂家型号的<strong>ChromeOS代号</strong>，比如我的：</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201112231645.png">
+</fancybox>
+
+<p>如果不幸列表内没有你的CPU型号，那你就只能找个相近的型号了（CPU代数优先），如何辨认是几代CPU？举个例子，i5-7200u是七代CPU，i7-6700hq是六代CPU，而我的 m3-6Y30 同样是六代CPU。</p>
+<p>得到你的对应安装的<strong>版本代号</strong>，接下来就开始安装了！</p>
+<h3 id="开始安装ChromeOS！"><a href="#开始安装ChromeOS！" class="headerlink" title="开始安装ChromeOS！"></a><strong>开始安装ChromeOS！</strong></h3><h4 id="一、安装启动系统"><a href="#一、安装启动系统" class="headerlink" title="一、安装启动系统"></a><strong>一、安装启动系统</strong></h4><p>目前，市面上的全部 Chromebook 都是出厂即带系统，也就是说，ChromeOS 和 OSX 一样，没有第三方正版系统，当然 ChromeOS 实际体验中根本没有正版认证的附加功能等等，也没有提示让你注册的东西。也就是说，Google 没有提供BIOS安装套件，但这并不影响骚操作安装方法，即：通过另一个系统来安装！</p>
+<p><strong>1. 制作U盘启动</strong></p>
+<p>这里我用我现成的 UbuntuMate 的安装盘，（如果你没有，请用UtraISO写盘工具製作U盘啓动盘，默认是GPT分区）</p>
+<p><strong>2. 将ChromeOS相关文件同样放进启动盘</strong></p>
+<p>这一步当然可以在进入Ubuntu系统后再去下载，但是我们直接放进启动盘内就无需再在安装时联网下载了。</p>
+<p>在启动盘内新建 Chrome OS（注意大小写空格）文件夹，然后放入以下两个文件<strong>（解压之后）</strong>。</p>
+<ul>
+<li><a href="https://github.com/sebanc/brunch/releases" target="_blank" rel="external nofollow noopener noreferrer">Chrome 安装框架</a></li>
+<li><a href="https://cros-updates-serving.appspot.com/" target="_blank" rel="external nofollow noopener noreferrer">Chrome OS 恢复镜像</a>，按你的版本代号，下载最新版本（Recovery那列的最大的数字）</li>
+</ul>
+<p><strong>3. 平板插入U盘，装机</strong></p>
+<p>BIOS修改启动项等等不再赘述，关键：到Ubuntu的Grub界面，直接点击<strong>不安装进入系统</strong>，我们不需要安装UbuntuMate，我们只进去借助其环境运行我们的脚本。</p>
+<p>进去之后，在Home文件夹内找到 cdrom-&gt;ChromeOS，在此文件夹下新建个 install.sh 将以下代码放进去，淡然你也可以一条条执行，都一样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install figlet</span><br><span class="line">sudo apt-get install pv</span><br><span class="line">sudo apt-get install cgpt</span><br><span class="line">sudo bash chromeos-install.sh -src cave_recovery.bin -dst /dev/sda</span><br><span class="line">注意：你的recovery.bin要对应你下载的bin文件名称，可能很长，无所谓的。</span><br></pre></td></tr></table></figure>
+
+<p>即：</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/57352354353.png">
+</fancybox>
+
+<p>之后回车，开始安装，中间会卡住询问你是否继续，键入 yes 继续，出现以下信息之后，即安装完成，之后便可以点击重启，然后拔掉U盘。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/534243525345345345.png">
+</fancybox>
+
+<p><strong>4. 安装结束</strong></p>
+<p>再次开机后，即可进入 ChromeOS 配置引导界面。</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201112235318.png">
+</fancybox>
+
+
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h3><p>如果你可以找到对应你机器CPU型号的 Chromebook 机器，那么恭喜你，百分百可以顺利安装成功，如果没有，那么也不要怕，如果你懂一点Linux知识就会发现这个安装过程是真的非常简单，这个 xxx_recovery.bin 不行那就换另一个试试，总会找到的！</p>
+<p>到今天为止，ChromeOS我也用了四五天了，头两天一度想要换掉这个系统，因为发现Play商店里的适配应用少的可怜，但后面发现 ChromeOS 早就可以直接安装第三方apk了！（有几率安装不成功那就是真的不适配），像QQ和微信在Play商店里是没有的，但经我测试全系列版本的移动端QQ均可以正常在ChromeOS上使用！</p>
+<fancybox>
+<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4n8795v3847584.png">
+</fancybox>
+
+<p>下篇文章我就来写一下关于 ChromeOS 的绝佳使用体验！</p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br></center>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38f4.html" title="将博客搬至CSDN" rel="bookmark">将博客搬至CSDN</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8996.html" title="美国是如何一步步成为超级大国的" rel="bookmark">美国是如何一步步成为超级大国的</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/b192.html">https://www.cz5h.com/article/b192.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ChromeOS/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>ChromeOS</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%89%E8%A3%85/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>安装</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/b192.html&title=给你的Win平板安装ChromeOS系统 - 长征部落格&summary=
+
+
+
+
+你是否觉得你的Win10平板性能太弱、娱乐性没有（跑不动）、用触屏不爽（屏太小）、系统掉电超快、想丢掉却又不舍得？拯救你鸡肋平板的方法来了！给你的平板换装ChromeOS，你会拥有全新的平板体验，或许你会再次对你的平板爱不释手！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/b192.html&title=给你的Win平板安装ChromeOS系统 - 长征部落格&summary=
+
+
+
+
+你是否觉得你的Win10平板性能太弱、娱乐性没有（跑不动）、用触屏不爽（屏太小）、系统掉电超快、想丢掉却又不舍得？拯救你鸡肋平板的方法来了！给你的平板换装ChromeOS，你会拥有全新的平板体验，或许你会再次对你的平板爱不释手！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/b192.html&title=给你的Win平板安装ChromeOS系统 - 长征部落格&summary=
+
+
+
+
+你是否觉得你的Win10平板性能太弱、娱乐性没有（跑不动）、用触屏不爽（屏太小）、系统掉电超快、想丢掉却又不舍得？拯救你鸡肋平板的方法来了！给你的平板换装ChromeOS，你会拥有全新的平板体验，或许你会再次对你的平板爱不释手！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3aUbLCMAgF0O5/074VOMmFdJ6lJ3/qmHLwB4Hr89JzgYODg4ODD4JfxRM/MLzn2+fdeMHBwcHBwSfCU8Dq9er9XfjqeXG84ODg4ODgg+HLAmBRWFQDTBNbjRccHBwcHBx8v4FQvT9NMDg4ODg4OHjhorDAOTVQAAcHBwcHB+836NOA0oHDz05SwMHBwcHBfwheXpj7p9fleMHBwcHBwQfBT5/q4sDu99rxgYODg4ODD4KfHhisBvzVxkQ30eDg4ODg4JPh6cA9XQRIA0/v2/5BwMHBwcHBB8FXDzg1cKg2KNJElQcK4ODg4ODgA+DVwcFuIqqJPjWIAAcHBwcHnwhPBwLdwX1a+FQLoWUBAw4ODg4OPhheHcifvq96Pzg4ODg4+BvgpwuObgOj2giJCxhwcHBwcPAHw6uN/GoA1cLn1IIBODg4ODj4G+DpAL/bkEgbDrcVMODg4ODg4A+CpwF1GxPpIkGauGVCwMHBwcHBB8G7F6cNiU/xpIOH7coNHBwcHBz8wfD0j/wp6F2J2R4ogIODg4ODD4CngO5AoVs4VRcCwcHBwcHBJ8K7p7qA1y2gqj8MODg4ODj4JPhVPHclYDkQ6C4CgoODg4ODD4RXG/dpAKcXAsHBwcHBwcGDP/LFhsFdiYvvAwcHBwcHBy8v7nUbEccHCuDg4ODg4C+GpwOEuxoQ288HBwcHBwcfDO82EroBpo2HOB5wcHBwcPCB8LseXF0ISAus8mIAODg4ODj4g+FvO+Dg4ODg4APOH/b7QgxnsLSyAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3aUbLCMAgF0O5/074VOMmFdJ6lJ3/qmHLwB4Hr89JzgYODg4ODD4JfxRM/MLzn2+fdeMHBwcHBwSfCU8Dq9er9XfjqeXG84ODg4ODgg+HLAmBRWFQDTBNbjRccHBwcHBx8v4FQvT9NMDg4ODg4OHjhorDAOTVQAAcHBwcHB+836NOA0oHDz05SwMHBwcHBfwheXpj7p9fleMHBwcHBwQfBT5/q4sDu99rxgYODg4ODD4KfHhisBvzVxkQ30eDg4ODg4JPh6cA9XQRIA0/v2/5BwMHBwcHBB8FXDzg1cKg2KNJElQcK4ODg4ODgA+DVwcFuIqqJPjWIAAcHBwcHnwhPBwLdwX1a+FQLoWUBAw4ODg4OPhheHcifvq96Pzg4ODg4+BvgpwuObgOj2giJCxhwcHBwcPAHw6uN/GoA1cLn1IIBODg4ODj4G+DpAL/bkEgbDrcVMODg4ODg4A+CpwF1GxPpIkGauGVCwMHBwcHBB8G7F6cNiU/xpIOH7coNHBwcHBz8wfD0j/wp6F2J2R4ogIODg4ODD4CngO5AoVs4VRcCwcHBwcHBJ8K7p7qA1y2gqj8MODg4ODj4JPhVPHclYDkQ6C4CgoODg4ODD4RXG/dpAKcXAsHBwcHBwcGDP/LFhsFdiYvvAwcHBwcHBy8v7nUbEccHCuDg4ODg4C+GpwOEuxoQ288HBwcHBwcfDO82EroBpo2HOB5wcHBwcPCB8LseXF0ISAus8mIAODg4ODj4g+FvO+Dg4ODg4APOH/b7QgxnsLSyAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/5613.html" rel="prev" title="重写Hexo豆瓣影评插件及npm发布">
+                      
+                        重写Hexo豆瓣影评插件及npm发布
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Node/"><i class="fas fa-hashtag" aria-hidden="true"></i> Node</a> <a class="tag" href="/tags/hexo-douban-list/"><i class="fas fa-hashtag" aria-hidden="true"></i> hexo-douban-list</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '给你的Win平板安装ChromeOS系统',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于博主</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/oiuydtsrk.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget grid  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">文档导航</span>
+    
+  </header>
+
+
+  <div class="content">
+    <ul class="grid navigation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>
+          
+          去往主页
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives" href="/archives" id="archives">
+          
+            <i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/links/logs.html" href="/links/logs.html" id="linkslogs.html">
+          
+            <i class="fas fa-book-dead fa-fw" aria-hidden="true"></i>
+          
+          更新日志
+        </a></li>
+      
+        <li><a class="flat-box" title="https://old.cz5h.com" href="https://old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank" id="https:old.cz5h.com">
+          
+            <i class="fas fa-server fa-fw" aria-hidden="true"></i>
+          
+          旧版博客
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+
+    
+      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+
+    
+      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;height:104.5px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
+  
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#啰嗦几句"><span class="toc-text">啰嗦几句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始安装ChromeOS！"><span class="toc-text">开始安装ChromeOS！</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、安装启动系统"><span class="toc-text">一、安装启动系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/csdnn.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200305230433.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 298.1k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+  <script type="text/javascript">
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <div class="copyright">
+	<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script async src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+
+	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+	<div style="display:none;">
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+			</div>
+	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.ascending('createdAt');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/agl9x-pmmny.webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'7',
+    avatar:'retro',
+    lang:'zh-cn',
+	visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>$(function(){ 
+    const dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+        video: {
+            url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/champions/playlist.m3u8',
+            type: 'hls',
+            defaultQuality: 0,
+            pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
+            thumbnails: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
+        },
+    });
+    
+    $("#btnV").click(function(){
+       if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
+        dp.play();
+        dp.volume(0.6);
+        $("#btnV").html("↑ 太吵了，关掉！");
+       }else{
+        dp.volume(0);
+        $("#btnV").html("↑ 没声音？点这里！");
+       }
+
+     }) 
+    })
+
+    //文章列表置顶部分
+
+      
+
+    $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    $('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
+    
+
+    
+  </script>  
+  <script>setLoadingBarProgress(100);</script>
+<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BOnj-eggfSffwynCnx50b5iLiyvY0k2IQS1HTBzHUPGh1KuaRGXtuTWsXevOwWJB7tbd_RQf2HpqwK58CN-h7jM' });</script><!-- end webpushr code -->
+</body>
+</html>
+
+
+
+ 
