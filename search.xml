@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>极米Z4X观看奈飞油管の完美教程</title>
+      <link href="/article/b15f.html"/>
+      <url>/article/b15f.html</url>
+      
+        <content type="html"><![CDATA[<p>翻遍网络没找到正确的教程，有必要自己写写了。通过此方案，你可以用你的<strong>极米Z4X直接观看YouTubeTV、Netflix</strong>，完美解决极米Z4X海外体验差的痛点！本文包括全部文件的下载地址，极米Z4X完全可以照搬，对于其他型号，执行步骤相似、方案完全可行。</p><a id="more"></a><h3 id="基本的认知"><a href="#基本的认知" class="headerlink" title="基本的认知"></a><strong>基本的认知</strong></h3><p>有人说YouTubeTV可以直接在原厂固件安装，是这样的，但问题是缺少谷歌框架你就无法登陆谷歌账号，无法体验Chrome投屏！所以体验差十万八千里。</p><p>也有人说用手机看youtube再投屏也可以，是这样的，但问题是如果你只是手机用小飞机，那么手机看youtube时就和电视不在一个局域网内了，也就无法投屏；即便你用路由器fq，确实是可以看，但第一画质很低，第二你的投影依旧是个显示器，并没有挖掘其本身的性能（2+8G并不差）！</p><p>还有人说，如果你的机器安卓版本太低，那就没希望了，因为 youtubeTV 在 Andorid 5.1 以下的系统都不支持了。（实际是可以的！） </p><p>目前公认/极米官方论坛的说法是只有比较新的投影支持海外版固件的互刷，也就是说官方结论：<strong>极米Z4X及一些早起型号无法通过刷固件方式来获得海外体验</strong>，那么谷歌安装器的路子呢（软件方式）？大部分文章或帖子都没给出明确答案，不过阅读了大量的帖子之后发现，软件方式同样有几个公认的模糊地带：</p><ul><li>极米Z4X能否安装谷歌框架？</li><li>能否正常使用谷歌商店？</li><li>能否安装YoutubeTV？</li><li>能否安装Netflix？</li></ul><p>其他型号同理，理论上是一样的问题，但我无法测试。总之，先说结论：以上看YT看NF全部是可行的，至少我的Z4X全部可以做到！<strong>重点就是你安装软件的版本需要和你机器安卓版本相对应！</strong>，另外，在我们开始软件安装前，我强烈建议你将你的极米Z4X刷成精简系统（在原厂包基础上的精简），这样一是可以有更多空间和性能来供后期youtube和奈飞的使用，二是官方最新固件貌似会在安装谷歌框架时出现问题。</p><h3 id="精简你的固件系统"><a href="#精简你的固件系统" class="headerlink" title="精简你的固件系统"></a><strong>精简你的固件系统</strong></h3><p>这部分是通用的，因为这里面共享了大部分型号的固件，此精简固件删掉了全部（奇异果等等）第三方内置应用，只保留了基础的功能性APP，安装后会发现系统占用才300M，性能储备充足！</p><p>原厂包+精简包，下载地址：<br>链接：<a href="https://pan.baidu.com/s/1wta4E5DVbfcB4UIKFhbgkQ" target="_blank" rel="external nofollow noopener noreferrer">https://pan.baidu.com/s/1wta4E5DVbfcB4UIKFhbgkQ</a><br>提取码：92ty</p><p>找到你的型号对应的文件，下载下来并解压，就是两个bin文件。</p><p><strong>下面开始刷机：</strong></p><ol start="0"><li>准备：U盘 2.0 fat32格式  16G或以下（纯净U盘），刷之前格式化下！</li><li>将原厂包的bin文件放入格式化完的U盘。</li><li>断开极米投影设备的所有网络，有线网络和无线网络（否则刷完还会有开机广告）！</li><li>把U盘插到投影USB2.0接口，在当前（还未刷）系统下进入设置-&gt;系统升级-&gt;U盘升级，来触发刷机；</li><li>耐心等待刷机完成，大概十分钟左右。（亲测不需要重配遥控器，但如果有必要请重新匹配遥控器）</li><li>拔掉U盘，删除此时U盘内的全部文件（格式化），再拷贝精简包的bin文件到U盘；</li><li>在当前（已刷成原厂固件）系统下进入设置-&gt;系统升级-&gt;U盘升级，来触发刷机；</li><li>这次的刷机完成后，精简系统就刷完了。</li><li>默认当贝影视桌面+自带当贝市场，对后续操作十分友好！</li></ol><p>OK！现在你已经得到了非常纯净的固件系统，此时你的投影仪应该会比之前要流畅的多，且使用过程非常舒服，自带当贝安装软件非常方便，下面我们就来装一些软件，来做下一步的准备工作。</p><h3 id="安装实用工具和谷歌框架"><a href="#安装实用工具和谷歌框架" class="headerlink" title="安装实用工具和谷歌框架"></a><strong>安装实用工具和谷歌框架</strong></h3><p>直接在当贝搜索：<strong>3S一键ROOT</strong>、<strong>RE文件管理器</strong>（注意不是ES！）。找到后安装即可。<br>首先用一键ROOT获取权限（必须），无所谓保修不保修，我用了三年了就没出过问题。<br>之后，是一个可选步骤，用RE挂载局域网的共享文件夹（SMB），这样做的目的是，我用电脑将apk下载到指定文件夹内之后，直接就能用RE管理器看到并点击安装！<br>当然，你也可以用当贝的“远程推送”功能，在浏览器页面上传文件。或者你不嫌麻烦用U盘拷贝。</p><p>以上步骤其实就是root了一下，下面就开始安装Google框架了</p><p>从此处开始，你需要到你的投影设置页面，去看你机器的安卓版本，并记住！如果你是安卓4.x，那么务必不要去下载最新版的谷歌安装器(最新版本号为4.0)，请下载3.0的谷歌安装器，一般长这样【图】。安装方式是半手动的弹出一系列谷歌软件让你安装，<strong>此刻你的网络环境应该是十分科学的</strong>，不然你会卡着不动。</p><p><strong>谷歌安装器：</strong><a href="https://cn.apksum.com/download/com.goplaycn.googleinstall_4.7_free" target="_blank" rel="external nofollow noopener noreferrer">https://cn.apksum.com/download/com.goplaycn.googleinstall_4.7_free</a></p><p>整个过程走完，谷歌框架就完美安装上了，这时大概率你会发现，你的谷歌商店会显示“从服务器检索信息出错”，没关系，不影响！</p><h3 id="安装匹配的海外应用"><a href="#安装匹配的海外应用" class="headerlink" title="安装匹配的海外应用"></a><strong>安装匹配的海外应用</strong></h3><p>原则：安卓版本&lt;=极米系统的安装版本；推荐使用 <a href="http://www.apkmirror.com" target="_blank" rel="external nofollow noopener noreferrer">www.apkmirror.com</a> 来检索我们所需要的软件，该网站有全部版本的apk备份，并且提供详细的对应支持的安卓版本！</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201125042907.png" alt></p><p>NOW，让我们找几个应用体验下：Netflix、YouTubeTV只要安卓版本不超出，都是可以正常安装的！<br>如果你是Z4X（安卓4.3），那么可以直接用一下链接：</p><p><strong>Netflix：</strong><br><a href="https://www.apkmirror.com/apk/netflix-inc/netflix/netflix-3-16-6-build-5382-release/netflix-3-16-6-build-5382-android-apk-download/download/" target="_blank" rel="external nofollow noopener noreferrer">https://www.apkmirror.com/apk/netflix-inc/netflix/netflix-3-16-6-build-5382-release/netflix-3-16-6-build-5382-android-apk-download/download/</a></p><p><strong>YouTubeTV：</strong><br><a href="https://drive.google.com/a/ka8.hk/uc?authuser=0&amp;id=1aIeXGKyEH9H1ita9Ifj5iW-EYz_tFJw0&amp;export=download" target="_blank" rel="external nofollow noopener noreferrer">https://drive.google.com/a/ka8.hk/uc?authuser=0&amp;id=1aIeXGKyEH9H1ita9Ifj5iW-EYz_tFJw0&amp;export=download</a></p><p>注：这原本是解决其他低版本安卓设备问题的 Smart youtubeTV，我尝试安装在Z4X上，发现运行非常稳定。其内置四个youtubeTV模式，我选用的是第四个（LITE Alt），LITE Main模式会非常卡顿。</p><p>其他的任何软件，<strong>只要支持你设备的安卓版本</strong>，都可以顺利的安装成功！</p><p>全部安装完之后，你会发现，虽然我们的谷歌商店是不可用的状态，但登陆youtube账号时并没有出现问题，登陆之后就和原生安卓TV的youtube体验完全相同了！实测播放画质最高可到1920x1080，帧率最高30，所以会有一点点卡顿的感觉。</p><p>对于Netflix，同样需要注意，这里装的是安卓版，非TV应用（TV应用最低支持安卓5）。不过在清晰度和流畅度方面，Netflix的表现非常好！我没找到怎么看视频码率信息，但视频是很清晰的，而且非常流畅，目测稳定30fps。由于是安卓应用，所以遥控体验不太好，搭配个无线鼠标就非常惬意了！</p><p>整体上观看YT和NF时，投影的发热量是比较明显的，但是Z4X屁股里有个大风扇，散热效果非常不错，所以问题不大。</p><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h3><p>至此，你原来那台充斥着捆绑应用和广告的极米投影，摇身一变，变成了拥有 youtubeTV + Netflix 的电视投影！要知道小米、亚马逊等推出的电视棒，功能也不过如此（当然更强悍，安卓版本都是7.0起步了），能看 youtubeTV 和 Netflix 的投影，完全可以当做电视了！所以，如果你也想“全面升级”你的极米投影，那就参考本文开干吧，和从前那个鸡肋的原厂固件系统说拜拜，全新的体验在等着你！Peace.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Daily_Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 极米投影 </tag>
+            
+            <tag> 刷机 </tag>
+            
+            <tag> YouTube </tag>
+            
+            <tag> 谷歌框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三界官场现形记</title>
       <link href="/article/9e2f.html"/>
       <url>/article/9e2f.html</url>
@@ -2019,9 +2050,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> 集群 </tag>
+            
+            <tag> 调试 </tag>
             
             <tag> Spark </tag>
             
@@ -2373,11 +2404,11 @@
             
             <tag> 层次数据 </tag>
             
+            <tag> 并行计算 </tag>
+            
             <tag> 力导向 </tag>
             
             <tag> 图简化 </tag>
-            
-            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -3679,9 +3710,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
@@ -3996,9 +4027,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> Hadoop </tag>
+            
+            <tag> 调试 </tag>
             
             <tag> IDEA </tag>
             
@@ -4108,11 +4139,11 @@
       
         <tags>
             
-            <tag> VMware </tag>
+            <tag> 集群 </tag>
             
             <tag> 调试 </tag>
             
-            <tag> 集群 </tag>
+            <tag> VMware </tag>
             
         </tags>
       
@@ -4191,11 +4222,11 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> Hadoop </tag>
             
             <tag> 集群 </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -4249,9 +4280,9 @@
       
         <tags>
             
-            <tag> VMware </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> VMware </tag>
             
         </tags>
       
