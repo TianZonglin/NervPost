@@ -2290,9 +2290,9 @@
             
             <tag> 调试 </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Maven </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -2462,11 +2462,11 @@
             
             <tag> 调试 </tag>
             
+            <tag> Maven </tag>
+            
             <tag> GitHub </tag>
             
             <tag> NetBeans </tag>
-            
-            <tag> Maven </tag>
             
         </tags>
       
@@ -4251,9 +4251,9 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> CentOS </tag>
             
             <tag> 联网 </tag>
             
@@ -4608,9 +4608,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数组 </tag>
             
             <tag> 排列组合 </tag>
             
