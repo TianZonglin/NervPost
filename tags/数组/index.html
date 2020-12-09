@@ -522,9 +522,9 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/tags/%E6%95%B0%E7%BB%84/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 数组</a>
+        
+          <a href="/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
           <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 排列组合</a>
         
@@ -955,9 +955,9 @@
 	<!-- end -----------------------///////////////////////////////----->
 
 
-
-
-
+	<script>
+		//
+	</script>
 
 
 
@@ -1203,6 +1203,16 @@ if(true){
       
 
     $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+        window.open("https://www.cz5h.com/movies/index.html");
+      });
+    }
+
+    
+
     //$('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
     
 

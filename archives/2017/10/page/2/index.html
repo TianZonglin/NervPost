@@ -1058,9 +1058,9 @@
 	<!-- end -----------------------///////////////////////////////----->
 
 
-
-
-
+	<script>
+		//
+	</script>
 
 
 
@@ -1314,6 +1314,16 @@ if(true){
       
 
     $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+        window.open("https://www.cz5h.com/movies/index.html");
+      });
+    }
+
+    
+
     //$('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
     
 
