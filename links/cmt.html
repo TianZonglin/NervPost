@@ -28,13 +28,9 @@
 
   
  
-  <title>Python基本的变量类型 - 长征部落格</title>
+  <title>评论 - 长征部落格</title>
  
 	
-		<meta name="keywords" content="Python">
-	
-	
-		<meta name="description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。">
 	
 
   <!------------------------------------- feed  --------///////////////////////////////////---->
@@ -297,7 +293,7 @@
   
 
   
-    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+    <article id="page" class="post white-box   article-type-page" itemscope itemprop="blogPost">
       
 
 
@@ -309,8 +305,8 @@
         
   
     <h1 class="title">
-      <a href="/article/8da4.html">
-        Python基本的变量类型
+      <a href="/links/cmt.html">
+        评论
       </a>
     </h1>
   
@@ -333,14 +329,6 @@
         
           
             
-  
-  <div class="new-meta-item category">
-    <a href="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>Python学习笔记</p>
-    </a>
-  </div>
-
 
           
         
@@ -348,7 +336,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>2017年9月27日</p>
+    <p>2020年12月12日</p>
   </a>
 </div>
 
@@ -359,19 +347,19 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约2k字</p>
+      <p>大约230字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需12分钟</p>
+      <p>阅读需5分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
     <a class="notlink">
       <i class="fas fa-fire" aria-hidden="true"></i>
-      <p><span id="article/8da4.html" class="pageViews" data-flag-title="Python基本的变量类型"></span></p>
+      <p><span id="links/cmt.html" class="pageViews" data-flag-title="评论"></span></p>
     </a>
   </div>
 
@@ -379,10 +367,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-20T13:25:17+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2020年12月20日</p>
   </a>
 </div>
 
@@ -399,203 +387,117 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <pre><code>注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。</code></pre><a id="more"></a>
+           
 
 
-<h3 id="初识："><a href="#初识：" class="headerlink" title="初识："></a>初识：</h3><pre><code>    print(&apos;hello world&apos;)
-    print(&quot;hello world&quot;)
-    print(&apos;hello&apos;,&apos;world&apos;)
-错误方式：
-    ERROR:print &apos;hello&apos;
-    ERROR:print &quot;hello&quot;</code></pre><h3 id="Python基本数据类型："><a href="#Python基本数据类型：" class="headerlink" title="Python基本数据类型："></a>Python基本数据类型：</h3><ul>
-<li>类型：    Number包括整数+小数</li>
-<li>整数：    int</li>
-<li>浮点数：float（不分精度）</li>
-<li>布尔型：bool</li>
-<li>复数：    complex // 36j</li>
-</ul>
-<h4 id="简单运算"><a href="#简单运算" class="headerlink" title="简单运算"></a>简单运算</h4><pre><code>判断数据类型 type(param)
-类型合并原则：
-    向精度更高的方向合并，结果为高精度
-示例：
-    type(1+1.1111111)  为float类型
-    type(1*1.1111111) 为float类型
-    type(2/2) float
-    type(2//2) int 结果为整形
 
-    2/2 = 1.0
-    2//2 = 1
+<section class="st" id="comments">
+ 
 
-    1//2 = 0 
-    1/2 = 0.5
-    注意：
-        符号 /  自动转换类型
-        符号 // 整除，向下取整
-注意：
-    Python2中有long类型，3版本后去掉
-    错误的方式：数字+字符串，这里不同于Java，不能直接相加</code></pre><h4 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h4><pre><code>形式：
-    int类型的不同进制
-示例：
-    type(0xFFFFF) 均为int类型
-    但是，其默认转为进制计算，如下：
-        &gt;&gt;&gt; 0xFFFFF
-        1048575
-注意：
-    逗号运算符，自动拼为元组
-    &gt;&gt;&gt; 0x0,&apos;1&apos;
-    (0, &apos;1&apos;)
-    可以混合，可以识别元组</code></pre><h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><pre><code>表示：
-    二进制 [b]  0b0101 = 十进制 5 
-    八进制 [o]  0o10   = 十进制 8 
-    16进制 [x]  0xF    = 十进制 15
+	<div style="text-align:center;line-height: 1;">
+		<b><span style="font-size:25px;color:#3f51b5;">★ </span></b>
+		<span style="font-size:21px;color:#3f51b5;"> 全 站 评 论 汇 总 </span>
+		<b><span style="font-size:25px;color:#3f51b5;"> ★</span></b><br>
+	</div>
+	<hr style="margin-bottom: 0px !important;">
 
-转换-利用方法   
-    任意进制-&gt;二进制：bin() bin(10) = &apos;0b1010&apos;
-    任意进制-&gt;十进制：int()
-    任意进制-&gt;16进制：hex()
-    任意进制-&gt;八进制：oct()</code></pre><h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><pre><code>形式：
-    True  ERROR:true.TRUE
+	<div id="post-123" class="article-card article-type-post cc" itemprop="blogPost">
+    <script src="https://old.cz5h.com/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="https://old.cz5h.com/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+	<div id="allinshow">
+	<script>
+	 
+	AV.init({
+		appId:'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz', 
+		appKey:'ycqjmtEfUxuxD3IY97oRkrdO'
+	});
+	//console.log(window.AV);
+	var query = new AV.Query("Comment");
+	query.descending("createdAt");//升序
+	query.find().then(function(data){
+	  //查询的结果数据 data
+	  //将data转成json格式
+	 var jsondata = JSON.parse(JSON.stringify(data));
+	//console.log(data);
+	function formatDate(time){
+		var date = new Date(time);
 
-转化：
-    int(True) = 1     bool(1) = True
+		var year = date.getFullYear(),
+			month = date.getMonth() + 1,//月份是从0开始的
+			day = date.getDate(),
+			hour = date.getHours(),
+			min = date.getMinutes(),
+			sec = date.getSeconds();
+		 
+		var newTime = year + '年' +
+					month + '月' +
+					day + '日' +
+					hour + '点' +
+					min + '分' ;//+
+					//sec;
+		return newTime;         
+	}
+	for(var p in data){//遍历json数组时，这么写p为索引，0,1
+		if(data[p].attributes.nick!="Administrator"){
+			//console.log(data[p].attributes.url);
+			$('#allinshow').append('<div><a href='
+					+data[p].attributes.link
+					+'><b>'
+					+data[p].attributes.nick
+					+"</b></a>&nbsp;于&nbsp;<b><a>"
+					+formatDate(data[p].attributes.insertedAt)
+					+"</a></b>&nbsp;在&nbsp;<b><a href="
+					+data[p].attributes.url.replace(" ", "%20")
+					+">该页面</a></b>&nbsp;说："
+					+data[p].attributes.comment
+					+"</div>");
 
-注意：
-    无论正负小数，只要非零，皆为True
-示例：
-    &gt;&gt;&gt; bool(&apos;&apos;)
-    False
-    &gt;&gt;&gt; bool(&apos;a&apos;)
-    True
-    &gt;&gt;&gt; bool([]) //列表
-    False
-    &gt;&gt;&gt; bool([1,2,3])
-    True
+		}
+	}
 
-注意：
-    False = 0 . [] . {} . &apos;&apos; 。 None 均为假</code></pre><h4 id="字符串-str"><a href="#字符串-str" class="headerlink" title="字符串:str"></a>字符串:str</h4><pre><code>形式：
-    &apos;&apos;单引号
-    &quot;&quot;双引号   
-    &apos;&apos;&apos;-&apos;&apos;&apos;或者&quot;&quot;&quot;-&quot;&quot;&quot;三引号 含换行的字符串输入
-示例：
-    正确的:&quot; It&apos;s me.&quot;
-    正确的:&apos; It\&apos;s me.&apos; 可以转义
-    正确的:&apos; He is &quot;. &apos; 双引号在内
+	},function(err) {
+	  //错误信息 err
+	  //console.log('err');
+	});
+	 
+	</script>
+		</div>
+		 
+</div></section>
 
-三引号：
-    可以在代码中换行输入
-    代码：
-        &gt;&gt;&gt; &apos;&apos;&apos;2&apos;
-        22&apos;
-        222222&apos;
-        2&apos;&apos;&apos;&apos;&apos;
-        &quot;2&apos;\n22&apos;\n222222&apos;\n2&quot;
+<section class="comments" id="comments" style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 5px #bbbbbb;border-radius: 5px;border-left-width: 10px;margin-left: 0px;margin-right: 0px;">
+ 
+ 
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: true,
+		verify: true,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在这里输入你想说的话~",
+		pageSize:"10",
+		avatar:"retro"
+	  })
+	  </script>
+ 
+</section>
 
-显示换行：
-    需要使用print
-    代码：
-        &gt;&gt;&gt; &quot;2&apos;\n22&apos;\n222222&apos;\n2&quot;
-        &quot;2&apos;\n22&apos;\n222222&apos;\n2&quot;
-        &gt;&gt;&gt; print(&quot;2&apos;\n22&apos;\n222222&apos;\n2&quot;)
-        2&apos;
-        22&apos;
-        222222&apos;
-        2
+<br>
 
-IDLE特点：
-    使用\也可以换行
-    代码：
-        &gt;&gt;&gt; &apos;hello\
-        world&apos;
-        &apos;helloworld&apos;
-注意：
-    转义字符，与语言本身有冲突
-    \n  \&apos;  \t 
-    单个斜杠：\\    &apos;\\t&apos;= &apos;\t&apos;
-应用：    
-    文件路径不允许单个\出现 C:\\windows
-    print(&apos;C:\\windows&apos;)
-    print(r&apos;C:\windows&apos;) 字符加r之后，可以忽略转义分歧</code></pre><h4 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h4><pre><code>形式：
-    运算符：只有 + * 没有 - /
-    取单值：[index]
-    取多值：[m:n]
-    串合并：&apos;a&apos;+&apos;b&apos; = &apos;ab&apos;
-    串分割：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   示例：</span><br><span class="line"></span><br><span class="line">str[index]：直接转为字符数组，</span><br><span class="line"></span><br><span class="line">&#39;who&#39;[ 0] &#x3D; &#39;w&#39;  参数为正·是数组下标</span><br><span class="line">&#39;who&#39;[-1] &#x3D; &#39;o&#39;  参数为负·是从右起第几个</span><br><span class="line"></span><br><span class="line">str[ m : n ]：截取一段，只有m或n时都不会返回单值</span><br><span class="line">str[ 起始 : 长度 ] ：</span><br><span class="line">	不写起始 str[__: 长度 ]，默认为str[0 : 长度 ]</span><br><span class="line">	不写长度 str[起始 : __ ]，默认为str[起始 : 截取到最右 ]</span><br><span class="line">&#39;who&#39;[0:0] &#x3D; &#39;&#39; </span><br><span class="line">	注意第一个参数取得不是下标，&#39;who&#39;[0:] &#x3D; &#39;who&#39;</span><br><span class="line">	注意第二个参数取得不是下标，&#39;who&#39;[0:0] 不是 &#39;who&#39;[ 0] </span><br><span class="line">&#39;who&#39;[0:3] &#x3D; &#39;who&#39;</span><br><span class="line">&#39;who&#39;[0:-2] &#x3D; &#39;w&#39;  </span><br><span class="line">	从右起拿掉2位之后剩余‘w’</span><br><span class="line">&#39;who&#39;[0:10] </span><br><span class="line">	多余位数自动丢弃，不会报错</span><br><span class="line">&#39;who&#39;[3:-2] &#x3D; &#39;&#39;        </span><br><span class="line">	从左开始，数三位是o，从o开始，往左数两个，为&#39;&#39; </span><br><span class="line">&#39;who&#39;[-3:-2] &#x3D; &#39;w&#39;      </span><br><span class="line">	从右开始，数三位是&#39;&#39;，从&#39;&#39;开始，即等效于&#39;who&#39;[0:-2] 从右往左数两个，为&#39;w&#39; </span><br><span class="line">&#39;who&#39;[-2:] &#x3D; &#39;ho&#39;   </span><br><span class="line">	从w开始，截取到最右：ho</span><br></pre></td></tr></table></figure>
-<h4 id="元组tuple"><a href="#元组tuple" class="headerlink" title="元组tuple"></a>元组tuple</h4><pre><code>多种方式：
-    &lt;class &apos;list&apos;&gt; 列表[]    元素可以混合
-    &lt;class &apos;tuple&apos;&gt;元组()    元素可以混合
-全空类型：
-    () , []
-定义方式：
-    type([1,2,3,&apos;a&apos;,False])
-    [1,2,3,[True,&apos;b&apos;],&apos;a&apos;] 嵌套列表
-    [,,,] 不能为空
-访问方式：
-    [1,2,3,4][0] = 1            取单值时，取出元素本身
-    [1,2,3,4][0:3] = [1,2,3]    取多值时，取出仍为列表
-操作方式：同串类似
-    + 操作 ：[1,2]+[3,4] = [1, 2, 3, 4]
-    * 操作 ：[1,2]*2 = [1, 2, 1, 2]     [1,2]*2 = []
-    上述操作结果均为一层列表包裹</code></pre><h4 id="列表和元组的区别："><a href="#列表和元组的区别：" class="headerlink" title="列表和元组的区别："></a>列表和元组的区别：</h4><pre><code>对待单元素的处理不同
-    type((&apos;a&apos;)) -- &lt;class &apos;str&apos;&gt; 作为运算符括号处理，规定
-    type([&apos;a&apos;]) -- &lt;class &apos;list&apos;&gt; 
-    定义单元素元组 type((&apos;a&apos;,)) = (&apos;a&apos;)
-赋值的区别
-    元组(1,2)[0] = 1 是错误的，不支持赋值
-    列表[1,2][0] = 1 正确，结果为[2,2]</code></pre><h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><pre><code>int，float，bool，complex   简单类型
-str，list，tuple            称之为“序列”
-“序列”的共有操作：
-    取单值          序列[m]         有序号，有序
-    取多值(切片)    序列[m：n]      高级用法 序列[m：n：p] 
-共有的高级方法：
-    判断序列是否在本序列：in     
-        &apos;a&apos; in &apos;abc&apos;或者2 in [1,2,3]或者2 in (1,2,3)
-        2 in [1,2,3] = True 反之：2 not in [1,2,3] = False
-    得到序列长度：
-        len(()) = 0     len(&apos;1234&apos;) = 4 
-    得到序列最大最小元素：
-        max(),min() 去包装的返回值
-        max(&apos;abcd&apos;) = &apos;d&apos;                 按ASCII（ord(&apos;&apos;)）码值，空格等照样
-        max([(1,2),(1,2,3)]) = (1,2,3)    元组长度最大</code></pre><h4 id="无序：集合"><a href="#无序：集合" class="headerlink" title="无序：集合"></a>无序：集合</h4><pre><code>type({1,2,3,4}) = &lt;class &apos;set&apos;&gt;
 
-特性：
-    无序        序列操作方式不适用 集合，集合元素没有一个固定下标
-    不重复      {1,1,2,2,3,4} = {1,2,3,4}
-    公共        len(),  in, not in
-    集合运算    - &amp; |
-运算：
-    差集    {1,2,3} - {1} = {2,3}
-    交集    {1,2} &amp; {2,3} = {2}
-    并集    {1,2} | {2,3} = {1,2,3}
-    上述运算符中均不能出现{}空集合，另外结果会自动去掉重复
-注意：
-    直接使用{}定义的不是空集合，其类型为字典：&lt;class &apos;dict&apos;&gt;
-    定义空集合：set()，即为type(set()) = &lt;class &apos;set&apos;&gt;
-    列表内不能含有列表或者字典元素
-        {1,{1,2,3}}是错的，可以含有元组，字符串和整形的混合</code></pre><h4 id="无序：字典"><a href="#无序：字典" class="headerlink" title="无序：字典"></a>无序：字典</h4><pre><code>不是序列，类似于集合，但不同
-定义方式：
-    {&apos;name&apos;:&apos;tom&apos;,&apos;sex&apos;:&apos;wm&apos;}  type类型是   &lt;class &apos;dict&apos;&gt;
 
-取值：通过Key访问Value
-    {&apos;name&apos;:&apos;tom&apos;,&apos;sex&apos;:&apos;wm&apos;}[&apos;name&apos;] = &apos;tom&apos;
-    {(1,2):&apos;a&apos;,&apos;name&apos;:&apos;b&apos;,&apos;sex&apos;:&apos;wm&apos;}[(1,2)] = &apos;a&apos;
-    {&apos;name&apos;:&apos;a&apos;,&apos;name&apos;:&apos;b&apos;,&apos;sex&apos;:&apos;wm&apos;}[&apos;name&apos;] = &apos;b&apos;
-    字典不能有重复键值对，如果重复，运算之前会自动去重
-    字典的Key必须为不可变类型  int,str,tuple  list和set不行   
-    字典的Value类型不限        {2:{2:&apos;a&apos;}}[2][2] = &apos;a&apos;
-    定义空字典：直接{}         type({}) = &lt;class &apos;dict&apos;&gt;</code></pre><h4 id="基本类型总结"><a href="#基本类型总结" class="headerlink" title="基本类型总结"></a>基本类型总结</h4><pre><code>int，float，bool，complex       
-1            1.2             False      20j
-str，list，tuple                
-&apos;a&apos;          [1,2]  列表     (1,2) 元组    
-set，dict                       
-{1,2} 集合   {1:&quot;2&quot;}字典
 
-不可变类型
-    整形 布尔型 字符串 元组  int,bool,str,tuple
-可变类型
-    列表 集合 字典 [list],{set},{dict}
-
-集合 无序，无索引，不能切片
-字典 类似集合，不是序列</code></pre>
 
       <center><br><br>
         <style>.wp-r{
@@ -622,61 +524,6 @@ set，dict
 			<br><br></center>
 
           
-            <br>
-			
-  
-    
-    <style>
-.popular-posts{
-    margin-left: 21px !important;
-}
-.popular-posts a{
-    padding-left: 1px !important;
-}
-
-</style>
-
-  
-  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
-  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
-      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
-  </header>
-    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8bff.html" title="Python的函数" rel="bookmark">Python的函数</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7ad3.html" title="Python的项目代码结构" rel="bookmark">Python的项目代码结构</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d81.html" title="Python的正则表达式" rel="bookmark">Python的正则表达式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8830.html" title="Python的JSON处理" rel="bookmark">Python的JSON处理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2582.html" title="Python的控制流" rel="bookmark">Python的控制流</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c301.html" title="Python的闭包" rel="bookmark">Python的闭包</a></h3></div></li></ul>
-    </div>
-  </section>
-
-  
-
-  
-    
-    
-<section class="widget copyright  desktop mobile">
-  <div class="content">
-    
-      <blockquote>
-        
-          
-            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            
-          
-        
-          
-            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/8da4.html">https://www.cz5h.com/article/8da4.html</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-          
         </div>
         
           <br>
@@ -688,9 +535,6 @@ set，dict
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Python</p></a></div>
-
 
         
       
@@ -702,7 +546,7 @@ set，dict
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/8da4.html&title=Python基本的变量类型 - 长征部落格&summary=注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。" target="_blank">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/links/cmt.html&title=评论 - 长征部落格&summary=" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
           
@@ -710,7 +554,7 @@ set，dict
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/8da4.html&title=Python基本的变量类型 - 长征部落格&summary=注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。" target="_blank">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/links/cmt.html&title=评论 - 长征部落格&summary=" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
           
@@ -718,7 +562,7 @@ set，dict
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/8da4.html&title=Python基本的变量类型 - 长征部落格&summary=注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。" target="_blank">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/links/cmt.html&title=评论 - 长征部落格&summary=" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
           
@@ -728,8 +572,8 @@ set，dict
       
         
         <fancybox>
-          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aS27DMAwFwNz/0u2+QCE+UumHHu0Sx7ZG2TyQfH08dL3AwcHBwcEXwV/N9e2Dv1w/3Xf6/vS8dL/g4ODg4OAb4eUA0ASkoNP93f2Cg4ODg4Nvhh8DQPj7UzBJYeP9goODg4ODg5cLA2kBIQ4k4ODg4ODg4GN4WlCYNhTAwcHBwcHBLxToh4Gn+75f76SAg4ODg4P/IXi60kBz+3N7v+Dg4ODg4Ivg05UGkrQAkT73+F5wcHBwcPBF8FsN/OmG0wZEd8AAHBwcHBx8Mzwt3KcHkkLS3407KeDg4ODg4P8QfrthkA4Q3BokiAsR4ODg4ODgC+Dpi6rXU2j3IMqFDHBwcHBw8MXwdzcW0uBye0ABHBwcHBx8E7waKLqBZgroBpVjQwEcHBwcHHwxfNqwrwK7jYh2AQUcHBwcHHwhfDw4d/mgXuEqBypwcHBwcPBF8FvBoVug6BYcxgEGHBwcHBz8gfDqfWnj/lYAOn4GBwcHBwdfCH93QyEtJHQHDuIAAw4ODg4OvhCeFhrSAn836KSBCBwcHBwc/Inw6Uo3PB0QKBcqwMHBwcHBF8GnqwpOBwWnAQocHBwcHPwJ8J8KKHHhP2z8l98LDg4ODg6+EH4rcKSB51ZjoXxw4ODg4ODgi+HVgv00UJzumzYU4gADDg4ODg7+YPi0sNAdGKgeEDg4ODg4OPi9gftuEJo2PsDBwcHBwTfD04bCtKHfbUC0/xBwcHBwcPCF8G4wSA/iXQ2IckEEHBwcHBx8EfxpCxwcHBwcfMH6BJ1hBwF7HnNgAAAAAElFTkSuQmCC" target="_blank">
-            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTElEQVR42u3aS27DMAwFwNz/0u2+QCE+UumHHu0Sx7ZG2TyQfH08dL3AwcHBwcEXwV/N9e2Dv1w/3Xf6/vS8dL/g4ODg4OAb4eUA0ASkoNP93f2Cg4ODg4Nvhh8DQPj7UzBJYeP9goODg4ODg5cLA2kBIQ4k4ODg4ODg4GN4WlCYNhTAwcHBwcHBLxToh4Gn+75f76SAg4ODg4P/IXi60kBz+3N7v+Dg4ODg4Ivg05UGkrQAkT73+F5wcHBwcPBF8FsN/OmG0wZEd8AAHBwcHBx8Mzwt3KcHkkLS3407KeDg4ODg4P8QfrthkA4Q3BokiAsR4ODg4ODgC+Dpi6rXU2j3IMqFDHBwcHBw8MXwdzcW0uBye0ABHBwcHBx8E7waKLqBZgroBpVjQwEcHBwcHHwxfNqwrwK7jYh2AQUcHBwcHHwhfDw4d/mgXuEqBypwcHBwcPBF8FvBoVug6BYcxgEGHBwcHBz8gfDqfWnj/lYAOn4GBwcHBwdfCH93QyEtJHQHDuIAAw4ODg4OvhCeFhrSAn836KSBCBwcHBwc/Inw6Uo3PB0QKBcqwMHBwcHBF8GnqwpOBwWnAQocHBwcHPwJ8J8KKHHhP2z8l98LDg4ODg6+EH4rcKSB51ZjoXxw4ODg4ODgi+HVgv00UJzumzYU4gADDg4ODg7+YPi0sNAdGKgeEDg4ODg4OPi9gftuEJo2PsDBwcHBwTfD04bCtKHfbUC0/xBwcHBwcPCF8G4wSA/iXQ2IckEEHBwcHBx8EfxpCxwcHBwcfMH6BJ1hBwF7HnNgAAAAAElFTkSuQmCC">
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACOklEQVR42u3aQU4DQQwEwP3/p+EOQhm3nZB4a29EsJkaLla3r6+bPhc4ODg4OPgi+BU+v1744/O/fi/93qnzgoODg4ODb4QfDwAP4I8uKH3/1HnBwcHBwcE3w08HiOpA0R10xs4LDg4ODg4OHg9AKRAcHBwcHBz89fCpogAcHBwcHBx8vlA4LRCqB5wamMDBwcHBwe8A7y7cvfrnf99sBAcHBwcHfwP4VBFwGjBUP58qLMDBwcHBwTfC0wFhqthP/756PnBwcHBw8M3wFPpuiwPjhQI4ODg4OPgC+HRwkL5/PIgABwcHBwf/YHi1OEgHk/SiqkXEwyADHBwcHBx8Ebx6sDSgmL7Y9HvBwcHBwcE3wZ9dLJxe5LMLC3BwcHBw8DvBT180FUBMXWB7gAEHBwcHB/8geLfYrxb/aaCRDlbg4ODg4OB3gKdBfze4SAOLsQEGHBwcHBx8Abwa+FeD/+qg0w00HhYK4ODg4ODgi+BTC3THgUBxQaD7OTg4ODg4+J3g1UWB8QI/HJzahQI4ODg4OPhieHWRoLtoMB5UgIODg4ODL4J3n3QhoFr4jw1Q4ODg4ODgi+BX+HQPki4KtgcqcHBwcHDwhfC06O8GElOFxvF5wcHBwcHBF8O7A0S3OHj24gE4ODg4ODj46xb2Ti8qLhTAwcHBwcHBrxQ6VUwcLyiAg4ODg4MvhqdBQjdQSC+g/A8BBwcHBwdfCJ9azKsGDGmQEV8kODg4ODj4IvjdHnBwcHBw8AXPN2tkBhDM0Bc9AAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACOklEQVR42u3aQU4DQQwEwP3/p+EOQhm3nZB4a29EsJkaLla3r6+bPhc4ODg4OPgi+BU+v1744/O/fi/93qnzgoODg4ODb4QfDwAP4I8uKH3/1HnBwcHBwcE3w08HiOpA0R10xs4LDg4ODg4OHg9AKRAcHBwcHBz89fCpogAcHBwcHBx8vlA4LRCqB5wamMDBwcHBwe8A7y7cvfrnf99sBAcHBwcHfwP4VBFwGjBUP58qLMDBwcHBwTfC0wFhqthP/756PnBwcHBw8M3wFPpuiwPjhQI4ODg4OPgC+HRwkL5/PIgABwcHBwf/YHi1OEgHk/SiqkXEwyADHBwcHBx8Ebx6sDSgmL7Y9HvBwcHBwcE3wZ9dLJxe5LMLC3BwcHBw8DvBT180FUBMXWB7gAEHBwcHB/8geLfYrxb/aaCRDlbg4ODg4OB3gKdBfze4SAOLsQEGHBwcHBx8Abwa+FeD/+qg0w00HhYK4ODg4ODgi+BTC3THgUBxQaD7OTg4ODg4+J3g1UWB8QI/HJzahQI4ODg4OPhieHWRoLtoMB5UgIODg4ODL4J3n3QhoFr4jw1Q4ODg4ODgi+BX+HQPki4KtgcqcHBwcHDwhfC06O8GElOFxvF5wcHBwcHBF8O7A0S3OHj24gE4ODg4ODj46xb2Ti8qLhTAwcHBwcHBrxQ6VUwcLyiAg4ODg4MvhqdBQjdQSC+g/A8BBwcHBwdfCJ9azKsGDGmQEV8kODg4ODj4IvjdHnBwcHBw8AXPN2tkBhDM0Bc9AAAAAElFTkSuQmCC">
           </a>
         </fancybox>
       
@@ -745,49 +589,6 @@ set，dict
 
 
         
-        
-          <div class="prev-next">
-            
-              <section class="prev">
-                <span class="art-item-left">
-                  <h4>
-                    <a href="/article/f569.html" rel="prev" title="Python的变量">
-                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                      
-                        Python的变量
-                      
-                    </a>
-                  </h4>
-                  
-                    
-                    <h6 class="tags">
-                      &nbsp;<a class="tag" href="/tags/Python/"><i class="fas fa-hashtag" aria-hidden="true"></i> Python</a>
-                    </h6>
-                  
-                </span>
-              </section>
-            
-            
-              <section class="next">
-                <span class="art-item-right" aria-hidden="true">
-                  <h4>
-                    <a href="/article/64af.html" rel="prev" title="R语言的学习路线">
-                      
-                        R语言的学习路线
-                      
-                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                    </a>
-                  </h4>
-                  
-                    
-                    <h6 class="tags">
-                      <a class="tag" href="/tags/R%E8%AF%AD%E8%A8%80/"><i class="fas fa-hashtag" aria-hidden="true"></i> R语言</a>&nbsp;
-                    </h6>
-                  
-                </span>
-              </section>
-            
-          </div>
         
       </section>
     </article>
@@ -823,13 +624,6 @@ set，dict
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
-
-  <script>
-    window.subData = {
-      title: 'Python基本的变量类型',
-      tools: true
-    }
-  </script>
 
 
 </div>
@@ -987,20 +781,6 @@ set，dict
   
     
     
-
-  <section class="widget toc-wrapper  widget-blur desktop">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
-    
-  </header>
-
-
-    <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识："><span class="toc-text">初识：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python基本数据类型："><span class="toc-text">Python基本数据类型：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单运算"><span class="toc-text">简单运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进制"><span class="toc-text">进制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进制转换"><span class="toc-text">进制转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔类型"><span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串-str"><span class="toc-text">字符串:str</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串操作方法"><span class="toc-text">字符串操作方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组tuple"><span class="toc-text">元组tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表和元组的区别："><span class="toc-text">列表和元组的区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无序：集合"><span class="toc-text">无序：集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无序：字典"><span class="toc-text">无序：字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本类型总结"><span class="toc-text">基本类型总结</span></a></li></ol></li></ol>
-    </div>
-  </section>
 
 
   
@@ -1213,7 +993,7 @@ set，dict
 
 
 
- 
+
       <script>setLoadingBarProgress(60);</script>
     </div>
     <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
