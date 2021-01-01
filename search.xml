@@ -3741,9 +3741,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -4170,11 +4170,11 @@
       
         <tags>
             
+            <tag> VMware </tag>
+            
             <tag> 调试 </tag>
             
             <tag> 集群 </tag>
-            
-            <tag> VMware </tag>
             
         </tags>
       
@@ -4284,9 +4284,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> 联网 </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> 联网 </tag>
             
         </tags>
       
@@ -4311,9 +4311,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
