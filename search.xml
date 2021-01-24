@@ -2435,11 +2435,11 @@
             
             <tag> 层次数据 </tag>
             
+            <tag> 并行计算 </tag>
+            
             <tag> 力导向 </tag>
             
             <tag> 图简化 </tag>
-            
-            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -4029,9 +4029,9 @@
             
             <tag> Kafka </tag>
             
-            <tag> Storm </tag>
-            
             <tag> Zookeeperp </tag>
+            
+            <tag> Storm </tag>
             
             <tag> 整合 </tag>
             
