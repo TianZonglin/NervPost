@@ -286,7 +286,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#676767;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#676767;" href="/article/9cb3.html">教程</a>）</span></center>
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
 </div>
  
   <div class="a-body l_body nocover">
@@ -351,13 +351,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约6.3k字</p>
+      <p>大约6.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需35分钟</p>
+      <p>阅读需36分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
@@ -371,7 +371,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T15:35:39+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T16:02:25+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年2月2日</p>
@@ -397,8 +397,13 @@
 </blockquote>
 <h4 id="修改颜色"><a href="#修改颜色" class="headerlink" title="修改颜色"></a><strong>修改颜色</strong></h4><ul>
 <li>直接全局替换 #2196f3 to #ff0000，换成过年的大红色，之后可以再替换回来，前提是你的主题内原先没有其他的标签是 #ff0000 这个颜色,否则换回来就乱套了。 </li>
-<li>背景渐变 less/_base.less linear-gradient(#c00000, #111f4c, #c00000);</li>
+<li>其他：</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">题头 &#x2F;&#x2F;_config.yml</span><br><span class="line">地图 &#x2F;&#x2F;qrcodeMap.ejs</span><br><span class="line">layout.ejs</span><br><span class="line">&lt;div class&#x3D;&quot;phoneXX&quot; style&#x3D;&quot;margin-top: 15px;&quot;&gt;</span><br><span class="line">   &lt;center&gt;&lt;span id&#x3D;&quot;btnV&quot; style&#x3D;&quot;color:#c99d9d;font-size:16px;cursor:pointer;&quot;&gt;↑ 画面不动？没声音？点这里！（&lt;a style&#x3D;&quot;text-decoration: none;color:#c99d9d;&quot; href&#x3D;&quot;&#x2F;article&#x2F;9cb3.html&quot;&gt;教程&lt;&#x2F;a&gt;）&lt;&#x2F;span&gt;&lt;&#x2F;center&gt;&lt;!--#676767--&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">less&#x2F;_base.less </span><br><span class="line">body &#123;</span><br><span class="line">  background-color: #c00000;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;@theme_background;</span><br><span class="line">  &#x2F;*background-image: linear-gradient(#c00000, #111f4c, #c00000); 标准的语法（必须放在最后）background-image: linear-gradient(#000000, #111f4c, #000000); *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 <h4 id="主页置顶区域（豆瓣影评）"><a href="#主页置顶区域（豆瓣影评）" class="headerlink" title="主页置顶区域（豆瓣影评）"></a><strong>主页置顶区域（豆瓣影评）</strong></h4><figure class="highlight javascript"><figcaption><span>~\Volantis\themes\volantis\layout\index.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">&lt;%- partial(<span class="string">'_pre'</span>) %&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'l_main&lt;%- page.sidebar == false ? '</span> no_sidebar<span class="string">' : '</span><span class="string">' %&gt;'</span>&gt;</span><br><span class="line">  &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"post white-box reveal "</span>&gt;</span><br><span class="line">    &lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"article typo"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-entry"</span> itemprop=<span class="string">"articleBody"</span>&gt;</span><br><span class="line">        <span class="comment">//顶部内容</span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>section&gt;</span><br><span class="line">  &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/从以下开始即主页文章列表</span></span><br><span class="line"><span class="regexp">  &lt;%- partial('_partial/</span>archive<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/side<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/footer<span class="string">', null, &#123;cache: !config.relative_link&#125;) %&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
