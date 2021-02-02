@@ -357,7 +357,7 @@
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需34分钟</p>
+      <p>阅读需35分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
@@ -371,10 +371,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-21T01:00:38+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T13:52:19+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年9月21日</p>
+    <p>本页文档最后更新于：2021年2月2日</p>
   </a>
 </div>
 
@@ -395,6 +395,7 @@
 <blockquote>
 <p>主题名称：Volantis<br>最新版本：x.x<br>当前版本：<a href="https://github.com/xaoxuu/hexo-theme-volantis/releases/tag/1.7.4" target="_blank" rel="external nofollow noopener noreferrer"><strong>1.7.4</strong></a><br>初始版本：<a href="https://github.com/xaoxuu/hexo-theme-volantis/releases/tag/1.6.0" target="_blank" rel="external nofollow noopener noreferrer">1.6.0</a><br>最后修改：见本页更新日期</p>
 </blockquote>
+<h4 id="修改颜色"><a href="#修改颜色" class="headerlink" title="修改颜色"></a><strong>修改颜色</strong></h4><p>直接全局替换 #2196f3 to #ff0000，换成过年的大红色，之后可以再替换回来，前提是你的主题内原先没有其他的标签是 #ff0000 这个颜色,否则换回来就乱套了。 </p>
 <h4 id="主页置顶区域（豆瓣影评）"><a href="#主页置顶区域（豆瓣影评）" class="headerlink" title="主页置顶区域（豆瓣影评）"></a><strong>主页置顶区域（豆瓣影评）</strong></h4><figure class="highlight javascript"><figcaption><span>~\Volantis\themes\volantis\layout\index.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">&lt;%- partial(<span class="string">'_pre'</span>) %&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'l_main&lt;%- page.sidebar == false ? '</span> no_sidebar<span class="string">' : '</span><span class="string">' %&gt;'</span>&gt;</span><br><span class="line">  &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"post white-box reveal "</span>&gt;</span><br><span class="line">    &lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"article typo"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-entry"</span> itemprop=<span class="string">"articleBody"</span>&gt;</span><br><span class="line">        <span class="comment">//顶部内容</span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>section&gt;</span><br><span class="line">  &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/从以下开始即主页文章列表</span></span><br><span class="line"><span class="regexp">  &lt;%- partial('_partial/</span>archive<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/side<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/footer<span class="string">', null, &#123;cache: !config.relative_link&#125;) %&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -459,7 +460,7 @@
 
 <p>巧妙的解决方式：<strong>遮罩屏蔽</strong></p>
 <p>新建个相同大小的div块，然后重叠放置在原插件上面（利用z-index），背景设置成透明即可。代码如下：</p>
-<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcodeMap.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">... ...</span><br><span class="line">&lt;!--遮罩部分--&gt;</span><br><span class="line">&lt;div style=<span class="string">"width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br><span class="line"><span class="regexp">&lt;!--地图插件部分--&gt;</span></span><br><span class="line"><span class="regexp">&lt;div style="z-index:1;position:relative;display:inline-block;width:209px;"&gt;</span></span><br><span class="line"><span class="regexp">	&lt;!--原始插件代码--&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">" src="</span><span class="comment">//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=2196f3" async="async"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcodeMap.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">... ...</span><br><span class="line">&lt;!--遮罩部分--&gt;</span><br><span class="line">&lt;div style=<span class="string">"width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br><span class="line"><span class="regexp">&lt;!--地图插件部分--&gt;</span></span><br><span class="line"><span class="regexp">&lt;div style="z-index:1;position:relative;display:inline-block;width:209px;"&gt;</span></span><br><span class="line"><span class="regexp">	&lt;!--原始插件代码--&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">" src="</span><span class="comment">//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=ff0000" async="async"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="内嵌页访问模式"><a href="#内嵌页访问模式" class="headerlink" title="内嵌页访问模式"></a><strong>内嵌页访问模式</strong></h4><p>这是针对几个自定义页面祭出的访问方式，主要有几点考虑：</p>
@@ -472,9 +473,9 @@
 
 
 <btns rounded grid5>
-<a href="/cv.html"><img style="background:#2196f3;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/source.gif" alt>WEB / RESUME</a>
+<a href="/cv.html"><img style="background:#ff0000;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/source.gif" alt>WEB / RESUME</a>
 
- <a href="/maps.html"><img style="background:#2196f3;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/0.gif" alt>Page Analyse</a>		
+ <a href="/maps.html"><img style="background:#ff0000;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/0.gif" alt>Page Analyse</a>		
  <a href="/monitor.html"><img style="background:black;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/gif-pc-8.gif" alt>全站点状态监控！</a>	
  
 </btns>
@@ -586,7 +587,7 @@
 
 
 <h4 id="右侧添加地图小插件"><a href="#右侧添加地图小插件" class="headerlink" title="右侧添加地图小插件"></a><strong>右侧添加地图小插件</strong></h4><p>我是直接借用的 qrcode 插件的代码。直接修改以下文件：</p>
-<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcode.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(<span class="string">'_pre'</span>) %&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"widget &lt;%- item.class %&gt; &lt;%- page.widget_style %&gt; &lt;%- page.widget_platform %&gt;"</span>&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'header'</span>, &#123;<span class="attr">item</span>: item&#125;) %&gt;</span><br><span class="line">  &lt;div style=<span class="string">'padding:5 5 5 5;height:104.5px;'</span>&gt;</span><br><span class="line">	---- 添加地图插件 ----</span><br><span class="line">	---- 注意调整宽度 ----</span><br><span class="line">	&lt;div style=<span class="string">"display:inline-block;width:209px;"</span>&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=2196f3"</span> <span class="keyword">async</span>=<span class="string">"async"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>div&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcode.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(<span class="string">'_pre'</span>) %&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"widget &lt;%- item.class %&gt; &lt;%- page.widget_style %&gt; &lt;%- page.widget_platform %&gt;"</span>&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'header'</span>, &#123;<span class="attr">item</span>: item&#125;) %&gt;</span><br><span class="line">  &lt;div style=<span class="string">'padding:5 5 5 5;height:104.5px;'</span>&gt;</span><br><span class="line">	---- 添加地图插件 ----</span><br><span class="line">	---- 注意调整宽度 ----</span><br><span class="line">	&lt;div style=<span class="string">"display:inline-block;width:209px;"</span>&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=ff0000"</span> <span class="keyword">async</span>=<span class="string">"async"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>div&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -814,36 +815,6 @@
   
     
     
-<section class="widget jiaoliu  widget-blur desktop mobile">
-  
-  <header>
-    
-      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class="name">探讨交流</span>
-    
-  </header>
-
-
-  <div class="content" style="padding-left: 16px;padding-right: 14px;">
-    <ul class="grid navigation">
-      
-        <li>
-          <fancybox>
-            <a data-fancybox="0" href="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/jiaoliu.png" target="_blank" rel="external nofollow noopener noreferrer" style=" border: 0px; padding: 0px; ">
-              <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/jiaoliu.png">
-            </a>
-            </fancybox>
-            <span style=" font-weight: 600;font-size: 12px;color: #2196F3;float: right; margin-bottom: 5px;">两个新群</span>
-        </li>
-      
-    </ul>
-  </div>
-</section>
-
-  
-
-  
-    
-    
 <section class="widget text  widget-blur desktop mobile">
   
   <header>
@@ -886,8 +857,10 @@
 
   <div style="padding:5 5 5 5;height:104.5px;">
   <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
-<div style="z-index:1;position:relative;display:inline-block;width:209px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script></div>
-  
+<div style="z-index:1;position:relative;display:inline-block;width:209px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=007eff&amp;cr1=fff600&amp;crb1=fff600&amp;crh1=fff600&amp;sx=0&amp;rs=30&amp;as=70&amp;rg=40&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
   </div>
 </section>
 
@@ -930,7 +903,7 @@
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#本博客修改日志（倒序）"><span class="toc-text">本博客修改日志（倒序）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主页置顶区域（豆瓣影评）"><span class="toc-text">主页置顶区域（豆瓣影评）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B站视频自适应样式"><span class="toc-text">B站视频自适应样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首页新增近期动态幻灯片"><span class="toc-text">首页新增近期动态幻灯片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#恢复原来的标签网络"><span class="toc-text">恢复原来的标签网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章页结束后加入评价"><span class="toc-text">文章页结束后加入评价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主题调整为灰色调"><span class="toc-text">主题调整为灰色调</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改主页下拉图标不居中"><span class="toc-text">修改主页下拉图标不居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加单独的页面访问统计"><span class="toc-text">添加单独的页面访问统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#屏蔽访客插件点击"><span class="toc-text">屏蔽访客插件点击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内嵌页访问模式"><span class="toc-text">内嵌页访问模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改相关文章的部分"><span class="toc-text">修改相关文章的部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新主题版本1-7-4"><span class="toc-text">更新主题版本1.7.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义Footer样式和信息"><span class="toc-text">自定义Footer样式和信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger模块也添加头部"><span class="toc-text">Blogger模块也添加头部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger图不必非得是方形"><span class="toc-text">Blogger图不必非得是方形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改页头Logo的样式"><span class="toc-text">修改页头Logo的样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改页头下边缘阴影"><span class="toc-text">修改页头下边缘阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#底部上线PV统计"><span class="toc-text">底部上线PV统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页头搜索框样式"><span class="toc-text">页头搜索框样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码显示去掉行号"><span class="toc-text">代码显示去掉行号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改目录缩进"><span class="toc-text">修改目录缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改阅读更多按钮"><span class="toc-text">修改阅读更多按钮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger组件样式修改"><span class="toc-text">Blogger组件样式修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tab键入的code块样式"><span class="toc-text">Tab键入的code块样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改横向滚动条的样式"><span class="toc-text">修改横向滚动条的样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#右侧添加地图小插件"><span class="toc-text">右侧添加地图小插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是旧版博客的日志"><span class="toc-text">以下是旧版博客的日志</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2020年2月"><span class="toc-text">2020年2月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年12月"><span class="toc-text">2019年12月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年7月"><span class="toc-text">2019年7月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年5月"><span class="toc-text">2019年5月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年6月"><span class="toc-text">2018年6月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年5月"><span class="toc-text">2018年5月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年4月"><span class="toc-text">2018年4月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年12月"><span class="toc-text">2017年12月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年11月"><span class="toc-text">2017年11月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年10月"><span class="toc-text">2017年10月</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#本博客修改日志（倒序）"><span class="toc-text">本博客修改日志（倒序）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改颜色"><span class="toc-text">修改颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主页置顶区域（豆瓣影评）"><span class="toc-text">主页置顶区域（豆瓣影评）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B站视频自适应样式"><span class="toc-text">B站视频自适应样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首页新增近期动态幻灯片"><span class="toc-text">首页新增近期动态幻灯片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#恢复原来的标签网络"><span class="toc-text">恢复原来的标签网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章页结束后加入评价"><span class="toc-text">文章页结束后加入评价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主题调整为灰色调"><span class="toc-text">主题调整为灰色调</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改主页下拉图标不居中"><span class="toc-text">修改主页下拉图标不居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加单独的页面访问统计"><span class="toc-text">添加单独的页面访问统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#屏蔽访客插件点击"><span class="toc-text">屏蔽访客插件点击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内嵌页访问模式"><span class="toc-text">内嵌页访问模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改相关文章的部分"><span class="toc-text">修改相关文章的部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新主题版本1-7-4"><span class="toc-text">更新主题版本1.7.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义Footer样式和信息"><span class="toc-text">自定义Footer样式和信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger模块也添加头部"><span class="toc-text">Blogger模块也添加头部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger图不必非得是方形"><span class="toc-text">Blogger图不必非得是方形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改页头Logo的样式"><span class="toc-text">修改页头Logo的样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改页头下边缘阴影"><span class="toc-text">修改页头下边缘阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#底部上线PV统计"><span class="toc-text">底部上线PV统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页头搜索框样式"><span class="toc-text">页头搜索框样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码显示去掉行号"><span class="toc-text">代码显示去掉行号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改目录缩进"><span class="toc-text">修改目录缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改阅读更多按钮"><span class="toc-text">修改阅读更多按钮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blogger组件样式修改"><span class="toc-text">Blogger组件样式修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tab键入的code块样式"><span class="toc-text">Tab键入的code块样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改横向滚动条的样式"><span class="toc-text">修改横向滚动条的样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#右侧添加地图小插件"><span class="toc-text">右侧添加地图小插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是旧版博客的日志"><span class="toc-text">以下是旧版博客的日志</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2020年2月"><span class="toc-text">2020年2月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年12月"><span class="toc-text">2019年12月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年7月"><span class="toc-text">2019年7月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2019年5月"><span class="toc-text">2019年5月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年6月"><span class="toc-text">2018年6月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年5月"><span class="toc-text">2018年5月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2018年4月"><span class="toc-text">2018年4月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年12月"><span class="toc-text">2017年12月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年11月"><span class="toc-text">2017年11月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2017年10月"><span class="toc-text">2017年10月</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1113,10 +1086,7 @@
 	</script>
 
 
-	<div style="display:none;">
-		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080" async="async"></script>
-		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
-			</div>
+ 
 	
 	<!-- end -----------------------///////////////////////////////----->
 
