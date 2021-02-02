@@ -371,7 +371,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T13:52:19+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-02T15:35:39+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年2月2日</p>
@@ -395,7 +395,10 @@
 <blockquote>
 <p>主题名称：Volantis<br>最新版本：x.x<br>当前版本：<a href="https://github.com/xaoxuu/hexo-theme-volantis/releases/tag/1.7.4" target="_blank" rel="external nofollow noopener noreferrer"><strong>1.7.4</strong></a><br>初始版本：<a href="https://github.com/xaoxuu/hexo-theme-volantis/releases/tag/1.6.0" target="_blank" rel="external nofollow noopener noreferrer">1.6.0</a><br>最后修改：见本页更新日期</p>
 </blockquote>
-<h4 id="修改颜色"><a href="#修改颜色" class="headerlink" title="修改颜色"></a><strong>修改颜色</strong></h4><p>直接全局替换 #2196f3 to #ff0000，换成过年的大红色，之后可以再替换回来，前提是你的主题内原先没有其他的标签是 #ff0000 这个颜色,否则换回来就乱套了。 </p>
+<h4 id="修改颜色"><a href="#修改颜色" class="headerlink" title="修改颜色"></a><strong>修改颜色</strong></h4><ul>
+<li>直接全局替换 #2196f3 to #ff0000，换成过年的大红色，之后可以再替换回来，前提是你的主题内原先没有其他的标签是 #ff0000 这个颜色,否则换回来就乱套了。 </li>
+<li>背景渐变 less/_base.less linear-gradient(#c00000, #111f4c, #c00000);</li>
+</ul>
 <h4 id="主页置顶区域（豆瓣影评）"><a href="#主页置顶区域（豆瓣影评）" class="headerlink" title="主页置顶区域（豆瓣影评）"></a><strong>主页置顶区域（豆瓣影评）</strong></h4><figure class="highlight javascript"><figcaption><span>~\Volantis\themes\volantis\layout\index.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">&lt;%- partial(<span class="string">'_pre'</span>) %&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'l_main&lt;%- page.sidebar == false ? '</span> no_sidebar<span class="string">' : '</span><span class="string">' %&gt;'</span>&gt;</span><br><span class="line">  &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"post white-box reveal "</span>&gt;</span><br><span class="line">    &lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"article typo"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-entry"</span> itemprop=<span class="string">"articleBody"</span>&gt;</span><br><span class="line">        <span class="comment">//顶部内容</span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>section&gt;</span><br><span class="line">  &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/从以下开始即主页文章列表</span></span><br><span class="line"><span class="regexp">  &lt;%- partial('_partial/</span>archive<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/side<span class="string">') %&gt;</span></span><br><span class="line"><span class="string">&lt;%- partial('</span>_partial/footer<span class="string">', null, &#123;cache: !config.relative_link&#125;) %&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -1236,14 +1239,14 @@ if(true){
       $(function(){
         if ('.cover') {
           $('.cover').backstretch(
-          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34349090.webp"],
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/9358d21421f08c89a4af74fa3aeb3e45.jpg"],
           {
             duration: "5000",
             fade: "5000"
           });
         } else {
           $.backstretch(
-          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34349090.webp"],
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/9358d21421f08c89a4af74fa3aeb3e45.jpg"],
           {
             duration: "5000",
             fade: "5000"
