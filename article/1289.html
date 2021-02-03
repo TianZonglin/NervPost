@@ -35,7 +35,7 @@
   <title>Spark集群从搭建到任务提交-第N次记录 - 长征部落格</title>
  
 	
-		<meta name="keywords" content="集群,调试,Spark,IDEA">
+		<meta name="keywords" content="调试,集群,Spark,IDEA">
 	
 	
 		<meta name="description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，">
@@ -707,7 +707,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
 
 
         
@@ -912,23 +912,21 @@
   
     
     
-<section class="widget qrcodeMap  widget-blur desktop">
-  
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
   <header>
     
-      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
     
   </header>
 
 
-  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
-  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
-<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
-<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
-</div>
-  </div>
-</section>
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#集群环境"><span class="toc-text">集群环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点安装Scala环境"><span class="toc-text">主节点安装Scala环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点配置Spark"><span class="toc-text">主节点配置Spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝分发调试集群"><span class="toc-text">拷贝分发调试集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-项目打包"><span class="toc-text">IDEA 项目打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误，IDEA远程连接失败"><span class="toc-text">错误，IDEA远程连接失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查一"><span class="toc-text">错误排查一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查二"><span class="toc-text">错误排查二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查三"><span class="toc-text">错误排查三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回到IDEA提交问题"><span class="toc-text">回到IDEA提交问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他各种问题"><span class="toc-text">其他各种问题</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -958,21 +956,23 @@
   
     
     
-
-  <section class="widget toc-wrapper  widget-blur desktop">
-    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
     
   </header>
 
 
-    <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#集群环境"><span class="toc-text">集群环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点安装Scala环境"><span class="toc-text">主节点安装Scala环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点配置Spark"><span class="toc-text">主节点配置Spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝分发调试集群"><span class="toc-text">拷贝分发调试集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-项目打包"><span class="toc-text">IDEA 项目打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误，IDEA远程连接失败"><span class="toc-text">错误，IDEA远程连接失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查一"><span class="toc-text">错误排查一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查二"><span class="toc-text">错误排查二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查三"><span class="toc-text">错误排查三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回到IDEA提交问题"><span class="toc-text">回到IDEA提交问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他各种问题"><span class="toc-text">其他各种问题</span></a></li></ol>
-    </div>
-  </section>
-
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
 
   
 
