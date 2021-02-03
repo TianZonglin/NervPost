@@ -661,7 +661,7 @@ function send() {
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bc.html" title="VMware虚拟机相关问题" rel="bookmark">VMware虚拟机相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd8a.html" title="CentOS集群相关问题" rel="bookmark">CentOS集群相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bc.html" title="VMware虚拟机相关问题" rel="bookmark">VMware虚拟机相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd8a.html" title="CentOS集群相关问题" rel="bookmark">CentOS集群相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1408,30 +1408,7 @@ if(true){
 
   <script>
 	$(function(){ 
-		const dp = new DPlayer({
-			container: document.getElementById('dplayer'),
-			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
-			video: {
-				url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/watchsky/playlist.m3u8',//'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/champions/playlist.m3u8',
-				type: 'hls',
-				defaultQuality: 0,
-				pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-				thumbnails: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-			},
-		});
-		
-		$("#btnV").click(function(){
-		   if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
-			dp.play();
-			dp.volume(0.6);
-			$("#btnV").html("↑ 太吵了，关掉！");
-		   }else{
-			dp.volume(0);
-			$("#btnV").html("↑ 没声音？点这里！");
-		   }
-
-		 }) 
-		
+	
 
 		//文章列表置顶部分
 

@@ -371,7 +371,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-03T19:42:43+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-03T20:50:24+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年2月3日</p>
@@ -393,8 +393,7 @@
           
           <blockquote>
     <p>光影之中品百味人生。 <a target="_blank" href="https://github.com/TianZonglin/hexo-douban-list" rel="external nofollow noopener noreferrer">// 本页使用 hexo-douban-list 插件构建</a></p>
-    <div id="appid" style="display: none;">WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz</div>
-    <div id="appkey" style="display: none;">ycqjmtEfUxuxD3IY97oRkrdO</div>
+ 
 </blockquote>
 <style>
  
@@ -4962,33 +4961,32 @@ for (var i = 0; i < firstpages.length; i++) {
 
 </script>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/valine.js"></script>
-<script> 
-    var GUEST_INFO = ['nick','mail','link'];
-    var guest_info = "nick,mail,link".split(',').filter(function(item){
-        return GUEST_INFO.indexOf(item) > -1
-    });
-    var notify = 'true' == true;;
-    var verify = 'true' == true;;
-    var valine = new Valine();
-    valine.init({
-        el: '#valine_container',
-        notify: notify,
-        verify: verify,
-        guest_info: guest_info,
-        appId: document.getElementById("appid").innerHTML,
-        appKey: document.getElementById("appkey").innerHTML,
-        placeholder: "如有需要，可在此留言反馈",
-        pageSize:'5',
-        avatar:'retro',
-        lang:'zh-cn',
-        visitor: 'true',
-        highlight: 'true'
-    })
 
- 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/valine.js"></script>
+	<script> 
+		var GUEST_INFO = ['nick','mail','link'];
+		var guest_info = "nick,mail,link".split(',').filter(function(item){
+			return GUEST_INFO.indexOf(item) > -1
+		});
+		var notify = 'true' == true;;
+		var verify = 'true' == true;;
+		var valine = new Valine();
+		valine.init({
+			el: '#valine_container',
+			notify: notify,
+			verify: verify,
+			guest_info: guest_info,
+			appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+			appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+			placeholder: "如有需要，可在此留言反馈",
+			pageSize:'5',
+			avatar:'retro',
+			lang:'zh-cn',
+			visitor: 'true',
+			highlight: 'true'
+		})
+	</script>
 
-</script>
 
  
 
@@ -5569,30 +5567,7 @@ if(true){
 
   <script>
 	$(function(){ 
-		const dp = new DPlayer({
-			container: document.getElementById('dplayer'),
-			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
-			video: {
-				url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/watchsky/playlist.m3u8',//'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/champions/playlist.m3u8',
-				type: 'hls',
-				defaultQuality: 0,
-				pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-				thumbnails: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-			},
-		});
-		
-		$("#btnV").click(function(){
-		   if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
-			dp.play();
-			dp.volume(0.6);
-			$("#btnV").html("↑ 太吵了，关掉！");
-		   }else{
-			dp.volume(0);
-			$("#btnV").html("↑ 没声音？点这里！");
-		   }
-
-		 }) 
-		
+	
 
 		//文章列表置顶部分
 
