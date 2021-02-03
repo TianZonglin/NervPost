@@ -143,43 +143,43 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/archives" id="https:www.cz5h.comarchives">
+              <a class="nav flat-box" href="/archives" id="archives">
                 <i class="fas fa-archive fa-fw"></i>&nbsp;<b>归档</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/links/logs.html" id="https:www.cz5h.comlinkslogs.html">
+              <a class="nav flat-box" href="/links/logs.html" id="linkslogs.html">
                 <i class="fas fa-book-dead fa-fw"></i>&nbsp;<b>日志</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/friends/index.html" id="https:www.cz5h.comfriendsindex.html">
+              <a class="nav flat-box" href="/friends/index.html" id="friendsindex.html">
                 <i class="fas fa-user-friends fa-fw"></i>&nbsp;<b>友链</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/links/about.html" id="https:www.cz5h.comlinksabout.html">
+              <a class="nav flat-box" href="/links/about.html" id="linksabout.html">
                 <i class="fas fa-at fa-fw"></i>&nbsp;<b>关于</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/csc/index.html" id="https:www.cz5h.comcscindex.html">
+              <a class="nav flat-box" href="/csc/index.html" id="cscindex.html">
                 <i class="fas fa-tools fa-fw"></i>&nbsp;<b>工具</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/nav.html" id="https:www.cz5h.comnav.html">
+              <a class="nav flat-box" href="/nav.html" id="nav.html">
                 <i class="fas fa-route fa-fw"></i>&nbsp;<b>导航</b>
               </a>
             </li>
           
             <li>
-              <a class="nav flat-box" href="https://www.cz5h.com/links/site.html" id="https:www.cz5h.comlinkssite.html">
+              <a class="nav flat-box" href="/links/site.html" id="linkssite.html">
                 <i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;<b>云端</b>
               </a>
             </li>
@@ -1296,10 +1296,83 @@ if(true){
 
   
 	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-	<canvas id="header_canvas" style="position:absolute;bottom:0;z-index: 1;width:1366;height:400"></canvas>
+	<canvas id="header_canvas" style="position:fixed;bottom:0;z-index: -1;"></canvas>
 	<script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 	<script async src="https://cdn.jsdelivr.net/gh/TianZonglin/resource/explosion.min.js"></script>
-	<script async src="https://cdn.jsdelivr.net/gh/TianZonglin/resource/rsingball.js"></script>
+	<script>
+		(function() {
+			var canvas, ctx, width, height, bubbles, animateHeader = true;
+			initHeader();
+			function initHeader() {
+				canvas = document.getElementById('header_canvas');
+				window_resize();
+				ctx = canvas.getContext('2d');
+				//建立泡泡
+				bubbles = [];
+				var num = width * 0.15;//气泡数量
+				for (var i = 0; i < num; i++) {
+					var c = new Bubble();
+					bubbles.push(c);
+				}
+				animate();
+			}
+			function animate() {
+				if ($(document).height()-($(window).scrollTop() + $(window).height())<1200) {
+					ctx.clearRect(0, 0, width, height);
+					for (var i in bubbles) {
+						bubbles[i].draw();
+					}
+					
+				}
+				requestAnimationFrame(animate);
+				
+			}
+			function window_resize() {
+				//canvas铺满窗口
+				//width = window.innerWidth;
+				//height = window.innerHeight;
+
+				// //如果需要铺满内容可以换下面这个
+				width = window.innerWidth-5;
+				height = window.innerHeight;
+
+				canvas.width = width;
+				canvas.height = height;
+			}
+			window.onresize = function(){
+				window_resize();
+			}
+			function Bubble() {
+				var _this = this;
+				(function() {
+					_this.pos = {};
+					init();
+				})();
+				function init() {
+					_this.pos.x = Math.random() * width;
+					_this.pos.y = height + Math.random() * 100;
+					_this.alpha = 0.1 + Math.random() * 0.5;//气泡透明度
+					_this.alpha_change = 0.0002 + Math.random() * 0.0005;//气泡透明度变化速度
+					_this.scale = 0.2 + Math.random() * 0.1;//气泡大小
+					_this.scale_change = Math.random() * 0.001;//气泡大小变化速度
+					_this.speed = 0.1 + Math.random() * 0.9;//气泡上升速度
+				}
+				//气泡
+				this.draw = function() {
+					if (_this.alpha <= 0) {
+						init();
+					}
+					_this.pos.y -= _this.speed;
+					_this.alpha -= _this.alpha_change;
+					_this.scale += _this.scale_change;
+					ctx.beginPath();
+					ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 10, 0, 2 * Math.PI, false);
+					ctx.fillStyle = 'rgba(255,255,255,' + _this.alpha + ')';
+					ctx.fill();
+				};
+			}
+		})();
+	</script>
 
 </body>
 </html>
