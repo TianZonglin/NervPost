@@ -727,13 +727,16 @@
 
   <div class="content">
     
-      <p>🚩  &nbsp;探索我的 <a href="/links/site.html">云端生活</a></p>
+      <p>🚩  &nbsp;当前色调 <a href="/friends/">春节红</a></p>
 
     
-      <p>🚩  &nbsp;阅读我的 <a href="/feed/sub.html">我的订阅页</a></p>
+      <p>🚩  &nbsp;互换友链 <a href="/friends/">点击前往</a></p>
 
     
-      <p>🚩  &nbsp;最新添加 <a href="/nav.html">文章标签网络</a></p>
+      <p>🚩  &nbsp;魔改日志 <a href="/links/logs.html">自定义修改</a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网络</a></p>
 
     
       <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
@@ -1226,60 +1229,77 @@ if(true){
 
 
 
-  <script>$(function(){ 
-    const dp = new DPlayer({
-        container: document.getElementById('dplayer'),
-        autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
-        video: {
-            url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/watchsky/playlist.m3u8',//'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/champions/playlist.m3u8',
-            type: 'hls',
-            defaultQuality: 0,
-            pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-            thumbnails: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
-        },
-    });
+  <script>
+	$(function(){ 
+		const dp = new DPlayer({
+			container: document.getElementById('dplayer'),
+			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
+			video: {
+				url: 'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/watchsky/playlist.m3u8',//'https://cdn.jsdelivr.net/gh/TianZonglin/bibabo/champions/playlist.m3u8',
+				type: 'hls',
+				defaultQuality: 0,
+				pic: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
+				thumbnails: 'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20201212151442.png',//'https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/aaf3x-mxny0.webp',
+			},
+		});
+		
+		$("#btnV").click(function(){
+		   if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
+			dp.play();
+			dp.volume(0.6);
+			$("#btnV").html("↑ 太吵了，关掉！");
+		   }else{
+			dp.volume(0);
+			$("#btnV").html("↑ 没声音？点这里！");
+		   }
+
+		 }) 
+		})
+
+		//文章列表置顶部分
+
+		  
+
+		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+
+		if(window.document.location.href.indexOf("movies")){}
+		else{
+		  $('body').on('click',"#linkk",function(){
+			window.open("https://www.cz5h.com/movies/index.html");
+		  });
+		}
+
+		
+
+		//$('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
+		
+		function is_mobile() {
+			var regex_match = /(nokia|iphone|android|motorola|^mot-|softbank|foma|docomo|kddi|up.browser|up.link|htc|dopod|blazer|netfront|helio|hosin|huawei|novarra|CoolPad|webos|techfaith|palmsource|blackberry|alcatel|amoi|ktouch|nexian|samsung|^sam-|s[cg]h|^lge|ericsson|philips|sagem|wellcom|bunjalloo|maui|symbian|smartphone|midp|wap|phone|windows ce|iemobile|^spice|^bird|^zte-|longcos|pantech|gionee|^sie-|portalmmm|jigs browser|hiptop|^benq|haier|^lct|operas*mobi|opera*mini|320x320|240x320|176x220)/i;
+			var u = navigator.userAgent;
+			if (null == u) {
+				return true;
+			}
+			var result = regex_match.exec(u);
+			if (null == result) {
+				return false
+			} else {
+				return true
+			}
+		}
+		if (!is_mobile()) {
+			document.write("<script async src='https://cdn.jsdelivr.net/gh/TianZonglin/resource/explosion.min.js'></script>");
+		}
+	}
     
-    $("#btnV").click(function(){
-       if($("#btnV").html()=="↑ 画面不动？没声音？点这里！"||$("#btnV").html()=="↑ 没声音？点这里！"){
-        dp.play();
-        dp.volume(0.6);
-        $("#btnV").html("↑ 太吵了，关掉！");
-       }else{
-        dp.volume(0);
-        $("#btnV").html("↑ 没声音？点这里！");
-       }
-
-     }) 
-    })
-
-    //文章列表置顶部分
-
-      
-
-    $('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
-
-    if(window.document.location.href.indexOf("movies")){}
-    else{
-      $('body').on('click',"#linkk",function(){
-        window.open("https://www.cz5h.com/movies/index.html");
-      });
-    }
-
     
-
-    //$('#topcontent2').load('./socials/index.html .hexo-socials-item:nth-child(1)');
-    
-
-    
-  </script>  
   <script>setLoadingBarProgress(100);</script>
 <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BOnj-eggfSffwynCnx50b5iLiyvY0k2IQS1HTBzHUPGh1KuaRGXtuTWsXevOwWJB7tbd_RQf2HpqwK58CN-h7jM' });</script><!-- end webpushr code -->
 
-  
+
 	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 	<canvas id="header_canvas" style="position:fixed;bottom:0;z-index: -1;"></canvas>
 	<script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-	<script async src="https://cdn.jsdelivr.net/gh/TianZonglin/resource/explosion.min.js"></script>
+	
 	<script>
 		(function() {
 			var canvas, ctx, width, height, bubbles, animateHeader = true;
