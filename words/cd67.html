@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>为什么开这个里世界？ - Hexo</title>
+<title>为什么开启这个里世界？ - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -70,7 +70,7 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            为什么开这个里世界？
+            为什么开启这个里世界？
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -89,7 +89,7 @@
         <span class="column is-narrow">
             
             
-            4 minutes read (About 539 words)
+            4 minutes read (About 660 words)
         </span>
         
     </div>
@@ -106,6 +106,47 @@
 <li>SEO，这部分不重要吧，已经是很主观的东西了。</li>
 <li>换一下头图。</li>
 </ul>
+<!--
+
+### **构建步骤**
+
+- 主项目(Volantis) hexo clean && hexo g ——> public(default)
+- 副项目(Minos) 修改root:minos/ public:minos/
+- 副项目(Minos) hexo clean && hexo g ——> public/minos
+- 移动 move public/minos public
+- 主项目(Volantis) hexo deploy 完成提交
+
+文件结构
+
+- mianHexo
+  - source
+    - _post
+  - theme
+    - volantis
+  - generate.bat
+- subHexo
+  - source
+    - _post
+  - theme
+    - minos
+- allinone.bat
+
+
+@call hexo clean >nul 2>nul
+@call hexo g >nul 2>nul
+echo Main theme rendered ...
+cd ../Volantis-minos
+@call hexo clean >nul 2>nul
+@call hexo g >nul 2>nul
+echo Sub theme rendered ...
+cd ../pure
+move ../Volantis-minos/public/words public >nul 2>nul
+echo Merge/move finished ...
+call hexo deploy
+pause
+
+-->
+
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>貌似又是一大波折腾，但都比较简单，重点是如果可以获得一个比较舒适的写作空间，那这也是值得的。</p>
 </body></html>
     
