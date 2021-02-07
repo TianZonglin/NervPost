@@ -35,9 +35,9 @@
 
 
 
-
-<link rel="icon" href="/images/favicon.ico">
-
+ 
+<link rel="icon" href="https://www.cz5h.com/favicon.ico">
+ 
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
@@ -74,6 +74,7 @@
 </head>
 <body>
     
+<base target="_self">
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
@@ -92,22 +93,18 @@
         </div>
         
         <div class="navbar-menu navbar-start">
+ 
             
-            <a style="font-weight: 600" class="navbar-item "
-               target="_blank" rel="noopener" href="https://www.cz5h.com">HOME</a>
+            <a style="font-weight: 600;" class="navbar-item" target="_blank" rel="noopener" href="https://www.cz5h.com" targe="_self">HOME</a>
             
-            <a style="font-weight: 600" class="navbar-item "
-               target="_blank" rel="noopener" href="https://www.cz5h.com/friends/index.html">FRIENDS</a>
+            <a style="font-weight: 600;" class="navbar-item" target="_blank" rel="noopener" href="https://www.cz5h.com/friends/index.html" targe="_self">FRIENDS</a>
             
-            <a style="font-weight: 600" class="navbar-item "
-               target="_blank" rel="noopener" href="https://www.cz5h.com/links/about.html">ABOUT</a>
+            <a style="font-weight: 600;" class="navbar-item" target="_blank" rel="noopener" href="https://www.cz5h.com/links/about.html" targe="_self">ABOUT</a>
             
-            <a style="font-weight: 600" class="navbar-item "
-               target="_blank" rel="noopener" href="https://www.cz5h.com/csc/index.html">TOOL</a>
+            <a style="font-weight: 600;" class="navbar-item" target="_blank" rel="noopener" href="https://www.cz5h.com/csc/index.html" targe="_self">TOOL</a>
             
-            <a style="font-weight: 600" class="navbar-item "
-               target="_blank" rel="noopener" href="https://www.cz5h.com/links/site.html">CLOUDS</a>
-            
+            <a style="font-weight: 600;" class="navbar-item" target="_blank" rel="noopener" href="https://www.cz5h.com/links/site.html" targe="_self">CLOUDS</a>
+             
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -360,7 +357,15 @@ var _hmt = _hmt || [];
     const darkmode = new Darkmode(options);
     darkmode.showWidget();
   }
-  addDarkmodeWidget()
+  addDarkmodeWidget();
+
+
+
+
+  Array.from(document.querySelectorAll('a')).forEach(anchor => {
+      anchor.setAttribute('target', '_self');
+      anchor.setAttribute('rel', '');
+  })
 </script>
     
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>

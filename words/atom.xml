@@ -125,9 +125,9 @@
     <category term="English" scheme="http://example.com/categories/English/"/>
     
     
-    <category term="introduction" scheme="http://example.com/tags/introduction/"/>
-    
     <category term="writing" scheme="http://example.com/tags/writing/"/>
+    
+    <category term="introduction" scheme="http://example.com/tags/introduction/"/>
     
   </entry>
   
@@ -148,9 +148,9 @@
     <category term="English" scheme="http://example.com/categories/English/"/>
     
     
-    <category term="writing" scheme="http://example.com/tags/writing/"/>
-    
     <category term="pitfalls" scheme="http://example.com/tags/pitfalls/"/>
+    
+    <category term="writing" scheme="http://example.com/tags/writing/"/>
     
   </entry>
   
