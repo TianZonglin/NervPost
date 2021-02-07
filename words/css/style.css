@@ -1,6 +1,10 @@
 @charset "UTF-8";
+.darkmode-layer, .darkmode-toggle {
+  z-index: 500; }
+
 body, button, input, select, textarea {
-  font-family: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif; }
+  font-family: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
+  color: #4a4a4a; }
 
 a.tag.article-tag {
   font-size: 0.9rem;
@@ -69,13 +73,13 @@ a.tag.article-tag {
 
 .article .article-more-link a {
   font-size: .9rem;
-  color: darkgray;
+  color: #4a4a4a;
   border-bottom: 1px dotted transparent; }
   .article .article-more-link a:hover {
-    border-bottom-color: darkgray; }
+    border-bottom-color: #4a4a4a; }
 
 .article .article-nav a {
-  color: darkgray;
+  color: #4a4a4a;
   position: relative;
   display: inline-block; }
 
@@ -104,7 +108,7 @@ a.tag.article-tag {
 
 .article .caption {
   display: block;
-  color: darkgray;
+  color: #4a4a4a;
   font-size: .95rem;
   text-align: center; }
 
@@ -218,14 +222,14 @@ a.tag.article-tag {
     border-left-color: black; }
   .archive .article time {
     font-size: .9rem;
-    color: darkgray; }
+    color: #4a4a4a; }
   .archive .article h6 {
     margin: 0; }
     .archive .article h6 a {
       color: inherit;
       border-bottom: 1px dotted transparent; }
       .archive .article h6 a:hover {
-        border-bottom-color: darkgray; }
+        border-bottom-color: #4a4a4a; }
 
 .footer {
   font-size: .9rem;
@@ -303,7 +307,7 @@ a.tag.article-tag {
 
 code, pre {
   font-size: 0.85rem;
-  font-family: "Source Code Pro", monospace, "Microsoft YaHei"; }
+  font-family: "Georgia", monospace, "Microsoft YaHei"; }
 
 figure.highlight {
   padding: 0;
@@ -330,7 +334,7 @@ figure.highlight {
     font-size: .8rem; }
     figure.highlight figcaption span {
       font-weight: 500;
-      font-family: "Source Code Pro", monospace, "Microsoft YaHei"; }
+      font-family: "Georgia", monospace, "Microsoft YaHei"; }
     figure.highlight figcaption a {
       float: right;
       color: #9a9a9a; }
