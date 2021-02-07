@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/words/9e2f.html</loc>
+    <lastmod>2021-02-07</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/words/cd67.html</loc>
     <lastmod>2021-02-07</lastmod>
   </url>
@@ -9,11 +13,11 @@
     <lastmod>2021-02-07</lastmod>
   </url>
   <url>
-    <loc>http://example.com/words/9e2f.html</loc>
+    <loc>http://example.com/words/8267.html</loc>
     <lastmod>2021-02-07</lastmod>
   </url>
   <url>
-    <loc>http://example.com/words/8267.html</loc>
+    <loc>http://example.com/words/32f0.html</loc>
     <lastmod>2021-02-07</lastmod>
   </url>
   <url>
@@ -25,15 +29,11 @@
     <lastmod>2021-02-07</lastmod>
   </url>
   <url>
-    <loc>http://example.com/words/32f0.html</loc>
+    <loc>http://example.com/words/1489.html</loc>
     <lastmod>2021-02-07</lastmod>
   </url>
   <url>
     <loc>http://example.com/words/9731.html</loc>
-    <lastmod>2021-02-07</lastmod>
-  </url>
-  <url>
-    <loc>http://example.com/words/1489.html</loc>
     <lastmod>2021-02-07</lastmod>
   </url>
 </urlset> 
