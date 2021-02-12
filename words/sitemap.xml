@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>https://www.cz5h.com/words/32f0.html</loc>
-    
-    <lastmod>2021-02-07</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cz5h.com/words/8267.html</loc>
     
     <lastmod>2021-02-07</lastmod>
@@ -38,6 +31,13 @@
   
   <url>
     <loc>https://www.cz5h.com/words/e86a.html</loc>
+    
+    <lastmod>2021-02-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cz5h.com/words/32f0.html</loc>
     
     <lastmod>2021-02-07</lastmod>
     
@@ -88,20 +88,6 @@
   </url>
   
   <url>
-    <loc>https://www.cz5h.com/words/tags/introduction/</loc>
-    <lastmod>2021-02-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cz5h.com/words/tags/writing/</loc>
-    <lastmod>2021-02-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.cz5h.com/words/tags/presentation/</loc>
     <lastmod>2021-02-12</lastmod>
     <changefreq>daily</changefreq>
@@ -117,6 +103,20 @@
   
   <url>
     <loc>https://www.cz5h.com/words/tags/pitfalls/</loc>
+    <lastmod>2021-02-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cz5h.com/words/tags/writing/</loc>
+    <lastmod>2021-02-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cz5h.com/words/tags/introduction/</loc>
     <lastmod>2021-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
