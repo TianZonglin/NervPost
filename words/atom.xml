@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>长征部落格</title>
   
-  
+  <subtitle>保持怀疑，独立思考</subtitle>
   <link href="https://www.cz5h.com/words/atom.xml" rel="self"/>
   
   <link href="https://www.cz5h.com/words/"/>
@@ -125,9 +125,9 @@
     <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
     
     
-    <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
-    
     <category term="introduction" scheme="https://www.cz5h.com/words/tags/introduction/"/>
+    
+    <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
     
   </entry>
   
@@ -148,9 +148,9 @@
     <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
     
     
-    <category term="pitfalls" scheme="https://www.cz5h.com/words/tags/pitfalls/"/>
-    
     <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
+    
+    <category term="pitfalls" scheme="https://www.cz5h.com/words/tags/pitfalls/"/>
     
   </entry>
   
