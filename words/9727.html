@@ -21,9 +21,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214024641.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023455.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023603.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023515.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023538.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023603.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023620.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023632.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023646.png">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023928.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214024036.png">
 <meta property="article:published_time" content="2021-02-11T23:00:00.000Z">
-<meta property="article:modified_time" content="2021-02-14T02:13:05.488Z">
+<meta property="article:modified_time" content="2021-02-14T12:02:04.554Z">
 <meta property="article:author" content="长征部落格">
 <meta property="article:tag" content="presentation">
 <meta property="article:tag" content="research">
@@ -188,13 +188,13 @@
 <p>But AS YOU CAN SEE, with these projections, we can’t get what we want, it’s just some points with no meaning. It can be a very good one, with high quality, but what does it SHOW to us?<br>How do we know how the dimensions of the dataset relate to those clusters we see?<br>With only projections, we can’t. So, we need projection-explanations, basically they add information to the projection-scatterplot to help us read what we see in it.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023455.png"></p>
 <p>Well, there are many available methods ,like biplot axes, it provides a global explanations, meanwhile like tooltips methods, could provide local information but need more interactions.  Here in order to get local explanations and not introduce too many interactions. we used a kind of image-based sulotion, we handle the projections as pixels view, and build a mechinasim to compute local dimensional information. </p>
-<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023603.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023515.png"></p>
 <p>As you can see, the dimensionality reduction could be represented as D to P(D), P is actually the project method like PCA or t–SNE. Now we need to clearify our basic principle, that is </p>
 <blockquote>
 <p>Good projections should preserve similarity between D and P(D).</p>
 </blockquote>
 <p>Here we compute similarity by 2D neighborhood, points in the circle are called Vi, then we can find all matching points MIUi in high-dimensional data. <strong>Why do we do that?</strong> Because we know that projections should preserve neighborhoods. As you can see in the bottom-left figure, Obviously, the bottom case is better than the top one. It preserves neighborhoods.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023515.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023538.png"></p>
 <p>In Detail, after we get Vi and MIUi, we can use different model to compute the explanations. Here we create six methods, include fan.de.ril and dasilva’s methods.</p>
 <ul>
 <li>Distance contribution</li>
@@ -203,7 +203,7 @@
 <li>Dimensions correlation</li>
 </ul>
 <p>And how we represent our result? It’s easy: We use colors to show the explanation and use luminance to show confidence. <strong>So what’s the confidence in out method?</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023538.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023603.png"></p>
 <p>Ok, the fundamental idea is: If the explanation of one point that only influenced by one factor, Then the confidence should be high. On the contrary, like the border area, it should be dark. Because they’re influenced by different factors.</p>
 <p>This is the basic idea, but of course, in different methods we created, we use different formula to achieve this design.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210214023620.png"></p>
