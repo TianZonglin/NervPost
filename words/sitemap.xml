@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://www.cz5h.com/words/0.html</loc>
-    
-    <lastmod>2021-02-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cz5h.com/words/28d8.html</loc>
     
     <lastmod>2021-02-13</lastmod>
@@ -109,6 +102,20 @@
   </url>
   
   <url>
+    <loc>https://www.cz5h.com/words/tags/presentation/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cz5h.com/words/tags/slides/</loc>
+    <lastmod>2021-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cz5h.com/words/tags/%E7%9E%8E%E5%86%99/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
@@ -124,20 +131,6 @@
   
   <url>
     <loc>https://www.cz5h.com/words/tags/%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cz5h.com/words/tags/presentation/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cz5h.com/words/tags/slides/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -179,14 +172,14 @@
   </url>
   
   <url>
-    <loc>https://www.cz5h.com/words/tags/research/</loc>
+    <loc>https://www.cz5h.com/words/tags/description/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.cz5h.com/words/tags/description/</loc>
+    <loc>https://www.cz5h.com/words/tags/research/</loc>
     <lastmod>2021-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
