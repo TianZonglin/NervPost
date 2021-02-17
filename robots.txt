@@ -16,7 +16,7 @@ Disallow: /words/archives/
 Disallow: /words/categories/
 Disallow: /words/tags/
 Disallow: /words/about/
-Sitemap: https://www.cz5h.com/sitemap.xml
-Sitemap: https://www.cz5h.com/baidusitemap.xml
-Sitemap: https://www.cz5h.com/words/sitemap.xml
-Sitemap: https://www.cz5h.com/words/baidusitemap.xml
+Sitemap: https://www.cxmoe.com/sitemap.xml
+Sitemap: https://www.cxmoe.com/baidusitemap.xml
+Sitemap: https://www.cxmoe.com/words/sitemap.xml
+Sitemap: https://www.cxmoe.com/words/baidusitemap.xml

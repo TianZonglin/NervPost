@@ -2,10 +2,10 @@
 window.Config = {
 
   // 站点名
-  SiteName: '长征部落格（服务监控:15）',
+  SiteName: '程序萌部落（服务监控:15）',
 
   // 站点链接
-  SiteUrl: 'https://www.cz5h.com',
+  SiteUrl: 'https://www.cxmoe.com',
 
   // UptimeRobot Api Keys
   // 支持 Monitor-Specific 和 Read-Only 两只 Api Key
@@ -39,8 +39,8 @@ window.Config = {
   Navi: [
  
    // {
-   //   text: '长征部落格',
-   //   url: 'https://www.cz5h.com'
+   //   text: '程序萌部落',
+   //   url: 'https://www.cxmoe.com'
    // }
   ]
 };

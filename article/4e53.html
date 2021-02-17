@@ -32,7 +32,7 @@
 
   
  
-  <title>引入基于LCloud的页面访问统计 - 长征部落格</title>
+  <title>引入基于LCloud的页面访问统计 - 程序萌部落</title>
  
 	
 		<meta name="keywords" content="JavaScript,JQuery,LeanCloud">
@@ -44,7 +44,7 @@
   <!------------------------------------- feed  --------///////////////////////////////////---->
   
   
-    <link rel="alternate" href="/atom.xml" title="长征部落格">
+    <link rel="alternate" href="/atom.xml" title="程序萌部落">
   
 
   <!----------------------------------- import meta --------///////////////////////////////////---->
@@ -249,7 +249,7 @@
           </li>
         
           <li>
-            <a class="nav flat-box" href="https://old.cz5h.com" target="_blank" rel="noopener" id="https:old.cz5h.com">
+            <a class="nav flat-box" href="https://old.cz5h.com" id="https:old.cz5h.com" rel="external nofollow noopener noreferrer" target="_blank">
               <i class="fas fa-server fa-fw"></i>&nbsp;旧版
             </a>
           </li>
@@ -334,7 +334,7 @@
           
             
 <div class="new-meta-item author">
-  <a href="https://www.cz5h.com" rel="nofollow">
+  <a href="https://www.cxmoe.com" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
     <p>Tzloop</p>
   </a>
@@ -389,10 +389,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-28T05:24:14+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-17T18:19:15+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年3月28日</p>
+    <p>本页文档最后更新于：2021年2月17日</p>
   </a>
 </div>
 
@@ -423,7 +423,7 @@
 
 <p><strong>注意：</strong>以上只有部署后访问才有作用，在本地访问无效果。</p>
 <h3 id="LeanCloud并发查询429错误"><a href="#LeanCloud并发查询429错误" class="headerlink" title="LeanCloud并发查询429错误"></a><strong>LeanCloud并发查询429错误</strong></h3><p>这是第二次遇到了，每次鼓捣LeanCloud都会出现这个问题，主要还是其对访问做了限制。错误主要出现在列表页面，因为会同时查询多篇文章的访问量，所以会导致触发429错误。</p>
-<p><strong>我上次的解决方案：</strong><a href="https://www.cz5h.com/article/502d.html#%E5%9C%A8each%E5%BE%AA%E7%8E%AF%E4%B8%AD%E8%BF%9B%E8%A1%8C%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C">应对LeanCloud对于查询性能的限制</a></p>
+<p><strong>我上次的解决方案：</strong><a href="https://www.cxmoe.com/article/502d.html#%E5%9C%A8each%E5%BE%AA%E7%8E%AF%E4%B8%AD%E8%BF%9B%E8%A1%8C%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C">应对LeanCloud对于查询性能的限制</a></p>
 <p>具体只需修改以下代码：</p>
 <figure class="highlight javascript"><figcaption><span>~\volantis\_third-party\lc_visitors.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">&lt;!--循环间隔地控制查询的触发--&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showTime</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(isIndex)&#123;</span><br><span class="line">		<span class="keyword">var</span> cnt = $(<span class="string">".pageViews"</span>).length;</span><br><span class="line">		<span class="keyword">var</span> i = <span class="number">0</span>; </span><br><span class="line">		<span class="keyword">var</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(i &gt;= cnt) </span><br><span class="line">				clearInterval(interval);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				showPageViewsNum($($(<span class="string">".pageViews"</span>)[i++]), AV.Object.extend(<span class="string">"Pageview"</span>));</span><br><span class="line">		&#125;,<span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		addPageViewsNum($(<span class="string">".pageViews"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure>
 
@@ -476,7 +476,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\502d.html" title="应对LeanCloud对于处理性能的限制" rel="bookmark">应对LeanCloud对于处理性能的限制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d6bd.html" title="Hexo的安装及重置恢复" rel="bookmark">Hexo的安装及重置恢复</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\502d.html" title="应对LeanCloud对于处理性能的限制" rel="bookmark">应对LeanCloud对于处理性能的限制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b1f1.html" title="谈一谈本站的来历" rel="bookmark">谈一谈本站的来历</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d6bd.html" title="Hexo的安装及重置恢复" rel="bookmark">Hexo的安装及重置恢复</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -500,7 +500,7 @@
           
         
           
-            <p><b>本文永久链接是：</b><br><a href="https://www.cz5h.com/article/4e53.html">https://www.cz5h.com/article/4e53.html</a></p>
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/4e53.html">https://www.cxmoe.com/article/4e53.html</a></p>
           
         
       </blockquote>
@@ -536,7 +536,7 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cz5h.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 长征部落格&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 程序萌部落&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
           
@@ -544,7 +544,7 @@
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cz5h.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 长征部落格&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 程序萌部落&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
           
@@ -552,7 +552,7 @@
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cz5h.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 长征部落格&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/4e53.html&title=引入基于LCloud的页面访问统计 - 程序萌部落&summary=由于本主题（Volantis）使用的 Valine 暂时仍然无法正常开启 Counter 页面计数，所以，在单一页面上展示出该页面的访问量就成了一个问题。不蒜子是个解决方式，但其加载巨慢而且仍属于个人维护、并不稳定。所以综合到最后，选择采用 LeanCloud 来完成这一功能。其主要思路就是访问页面时到对应的 LeanCloud 数据表中更新访问次数。不过暂时只能记录PV值。" target="_blank">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
           
@@ -562,8 +562,8 @@
       
         
         <fancybox>
-          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACSklEQVR42u3dQW7DMAwEQP//0+29gWEtKTcJPbqlkGGOctlSBHL8PHQd4ODg4ODgg+BHcaXP/93/UtDJ38/2lesFBwcHBwcfCF8OABfwqwJTUPWATusFBwcHBwcfDE8DSBV0BVuFx/WCg4ODg4ODH6uBYfdz4ODg4ODg4PsDTLUh0b14AAcHBwcHB6836KuBo9t4ePtNCjg4ODg4+AfBuwN+//1524AfODg4ODj4F8PvWmlQqQaUuC5wcHBwcPBB8NVBu2pgSN+za3BgObmBg4ODg4MPhqf70gNM910d2OVz4ODg4ODgg+CrhaYX+e8aELj8IsDBwcHBwQfB00ZECql+vq1RAQ4ODg4OPgieXsivHkS1sF0DBuDg4ODg4E+Apw3+auC4a4AgHVQABwcHBwefCN/d2E+fiwHF+sDBwcHBwSfCdweHakMjbVDEFxfg4ODg4OCD4NVA0Q0e6YFXLyxe9oGDg4ODgw+CV//BX127DiZtPJzuBwcHBwcHHwjf1rBvFlz9ApbfAw4ODg4OPhjeDRDthv9iIKleaICDg4ODgz8Bvtq4T4NHeiDdBQ4ODg4OPhneXasH1j2Abe8HBwcHBwcfBO8Gg/hivjggUH0fODg4ODj4E+BpYEmh1YGDtDECDg4ODg7+ZPjdjYI0uOweXAAHBwcHBwc/ygGoeyDpe8HBwcHBwcH7P8iWvmf1YiGuHxwcHBwcfDA8DQRVeHeVBwnAwcHBwcEHwrsDfulF/q4BvvaAHzg4ODg4+BfDn7bAwcHBwcEHrF8CdUTfGzdUKQAAAABJRU5ErkJggg==" target="_blank">
-            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACSklEQVR42u3dQW7DMAwEQP//0+29gWEtKTcJPbqlkGGOctlSBHL8PHQd4ODg4ODgg+BHcaXP/93/UtDJ38/2lesFBwcHBwcfCF8OABfwqwJTUPWATusFBwcHBwcfDE8DSBV0BVuFx/WCg4ODg4ODH6uBYfdz4ODg4ODg4PsDTLUh0b14AAcHBwcHB6836KuBo9t4ePtNCjg4ODg4+AfBuwN+//1524AfODg4ODj4F8PvWmlQqQaUuC5wcHBwcPBB8NVBu2pgSN+za3BgObmBg4ODg4MPhqf70gNM910d2OVz4ODg4ODgg+CrhaYX+e8aELj8IsDBwcHBwQfB00ZECql+vq1RAQ4ODg4OPgieXsivHkS1sF0DBuDg4ODg4E+Apw3+auC4a4AgHVQABwcHBwefCN/d2E+fiwHF+sDBwcHBwSfCdweHakMjbVDEFxfg4ODg4OCD4NVA0Q0e6YFXLyxe9oGDg4ODgw+CV//BX127DiZtPJzuBwcHBwcHHwjf1rBvFlz9ApbfAw4ODg4OPhjeDRDthv9iIKleaICDg4ODgz8Bvtq4T4NHeiDdBQ4ODg4OPhneXasH1j2Abe8HBwcHBwcfBO8Gg/hivjggUH0fODg4ODj4E+BpYEmh1YGDtDECDg4ODg7+ZPjdjYI0uOweXAAHBwcHBwc/ygGoeyDpe8HBwcHBwcH7P8iWvmf1YiGuHxwcHBwcfDA8DQRVeHeVBwnAwcHBwcEHwrsDfulF/q4BvvaAHzg4ODg4+BfDn7bAwcHBwcEHrF8CdUTfGzdUKQAAAABJRU5ErkJggg==">
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACQ0lEQVR42u3aSw7CMAwFwN7/0nAAhOKfBHUnO1raerKynnO9HroucHBwcHDwRfCruD5emPzf6fe393TrBQcHBwcH3wgPNwBB+On57sZU6wUHBwcHB98MjzYQ0UKiwOgGtesFBwcHBwcHv7INSbdxAQcHBwcHB/89vNvggIODg4ODg88NFNKD+eL1v5ukgIODg4OD/xG8fGDuR7/HDviBg4ODg4PfGN5dU0HCVMNyrBccHBwcHHwRvBssZAOGqYMB2frAwcHBwcGfBJ9qIKIFVYFHaPZEBDg4ODg4+I3g0QKzH8o2INMbF05gwMHBwcHBF8CjA4FuwFBtXKKBxzHIAAcHBwcHXwSvBv1TA4QoZCrwAAcHBwcH3wzPFtId9HfraE9SwMHBwcHBbwxPB/LNhqQKqwYU6QQGHBwcHBz8RvDu4D1beDcAqT4PDg4ODg6+GV79YPfAXnXjxxoYcHBwcHDwRfB2g1BshLIbWx04gIODg4ODb4Z3D+ZNAaPPZTceHBwcHBx8MzzaCHSvZzd4rMECBwcHBwdfDK9+cGogUA0kohsLDg4ODg6+Cd5d7UKSA4LqAAIcHBwcHHwjvDuInw4gso1S+r3g4ODg4OAL4VMBQjVoyL6/eh8cHBwcHHwzPBsMVDeuekCgHVyAg4ODg4ODjwUD0QAi2iCNnYgABwcHBwd/EDx6PXt/evABDg4ODg6+GZ4dKGQPAHQHBt33goODg4ODb4RXG4NqYdkNqw4YwMHBwcHBN8OftsDBwcHBwResNzs4gr3ez+4sAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACQ0lEQVR42u3aSw7CMAwFwN7/0nAAhOKfBHUnO1raerKynnO9HroucHBwcHDwRfCruD5emPzf6fe393TrBQcHBwcH3wgPNwBB+On57sZU6wUHBwcHB98MjzYQ0UKiwOgGtesFBwcHBwcHv7INSbdxAQcHBwcHB/89vNvggIODg4ODg88NFNKD+eL1v5ukgIODg4OD/xG8fGDuR7/HDviBg4ODg4PfGN5dU0HCVMNyrBccHBwcHHwRvBssZAOGqYMB2frAwcHBwcGfBJ9qIKIFVYFHaPZEBDg4ODg4+I3g0QKzH8o2INMbF05gwMHBwcHBF8CjA4FuwFBtXKKBxzHIAAcHBwcHXwSvBv1TA4QoZCrwAAcHBwcH3wzPFtId9HfraE9SwMHBwcHBbwxPB/LNhqQKqwYU6QQGHBwcHBz8RvDu4D1beDcAqT4PDg4ODg6+GV79YPfAXnXjxxoYcHBwcHDwRfB2g1BshLIbWx04gIODg4ODb4Z3D+ZNAaPPZTceHBwcHBx8MzzaCHSvZzd4rMECBwcHBwdfDK9+cGogUA0kohsLDg4ODg6+Cd5d7UKSA4LqAAIcHBwcHHwjvDuInw4gso1S+r3g4ODg4OAL4VMBQjVoyL6/eh8cHBwcHHwzPBsMVDeuekCgHVyAg4ODg4ODjwUD0QAi2iCNnYgABwcHBwd/EDx6PXt/evABDg4ODg6+GZ4dKGQPAHQHBt33goODg4ODb4RXG4NqYdkNqw4YwMHBwcHBN8OftsDBwcHBwResNzs4gr3ez+4sAAAAAElFTkSuQmCC">
           </a>
         </fancybox>
       
@@ -717,7 +717,7 @@
       <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
 
     
-      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cz5h.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
 
     
   </div>
@@ -888,7 +888,7 @@
 		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
 	  }, 1000);
 	</script>
-	<p><a href="https://www.cz5h.com">Copyright © 2017-2020 TZLOOP</a></p>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
 
 	<style>
 		@media screen and (max-width: 480px){
@@ -956,7 +956,7 @@
 	  gtag('config', 'UA-109269848-5');
 	</script>
 
-	<!-- Hotjar Tracking Code for www.cz5h.com -->
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
 	<script>
 	//	(function(h,o,t,j,a,r){
 	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -1234,7 +1234,7 @@ if(true){
 		if(window.document.location.href.indexOf("movies")){}
 		else{
 		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cz5h.com/movies/index.html");
+			window.open("https://www.cxmoe.com/movies/index.html");
 		  });
 		}
 

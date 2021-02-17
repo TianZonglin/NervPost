@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>长征部落格</title>
+  <title>程序萌部落</title>
   
   <subtitle>保持怀疑，独立思考</subtitle>
-  <link href="https://www.cz5h.com/words/atom.xml" rel="self"/>
+  <link href="https://www.cxmoe.com/words/atom.xml" rel="self"/>
   
-  <link href="https://www.cz5h.com/words/"/>
+  <link href="https://www.cxmoe.com/words/"/>
   <updated>2021-02-14T12:02:04.554Z</updated>
-  <id>https://www.cz5h.com/words/</id>
+  <id>https://www.cxmoe.com/words/</id>
   
   <author>
-    <name>长征部落格</name>
+    <name>程序萌部落</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Problems in explanations of projections</title>
-    <link href="https://www.cz5h.com/words/9727.html"/>
-    <id>https://www.cz5h.com/words/9727.html</id>
+    <link href="https://www.cxmoe.com/words/9727.html"/>
+    <id>https://www.cxmoe.com/words/9727.html</id>
     <published>2021-02-11T23:00:00.000Z</published>
     <updated>2021-02-14T12:02:04.554Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="presentation" scheme="https://www.cz5h.com/words/tags/presentation/"/>
+    <category term="presentation" scheme="https://www.cxmoe.com/words/tags/presentation/"/>
     
-    <category term="research" scheme="https://www.cz5h.com/words/tags/research/"/>
+    <category term="research" scheme="https://www.cxmoe.com/words/tags/research/"/>
     
   </entry>
   
   <entry>
     <title>Cut off the tail [redundant parts]</title>
-    <link href="https://www.cz5h.com/words/9731.html"/>
-    <id>https://www.cz5h.com/words/9731.html</id>
+    <link href="https://www.cxmoe.com/words/9731.html"/>
+    <id>https://www.cxmoe.com/words/9731.html</id>
     <published>2021-02-06T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -53,19 +53,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="training" scheme="https://www.cz5h.com/words/tags/training/"/>
+    <category term="training" scheme="https://www.cxmoe.com/words/tags/training/"/>
     
-    <category term="description" scheme="https://www.cz5h.com/words/tags/description/"/>
+    <category term="description" scheme="https://www.cxmoe.com/words/tags/description/"/>
     
   </entry>
   
   <entry>
     <title>Describe one thing in 10 minutes</title>
-    <link href="https://www.cz5h.com/words/1489.html"/>
-    <id>https://www.cz5h.com/words/1489.html</id>
+    <link href="https://www.cxmoe.com/words/1489.html"/>
+    <id>https://www.cxmoe.com/words/1489.html</id>
     <published>2021-02-04T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -76,19 +76,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="training" scheme="https://www.cz5h.com/words/tags/training/"/>
+    <category term="training" scheme="https://www.cxmoe.com/words/tags/training/"/>
     
-    <category term="description" scheme="https://www.cz5h.com/words/tags/description/"/>
+    <category term="description" scheme="https://www.cxmoe.com/words/tags/description/"/>
     
   </entry>
   
   <entry>
     <title>为什么开启这个里世界？</title>
-    <link href="https://www.cz5h.com/words/cd67.html"/>
-    <id>https://www.cz5h.com/words/cd67.html</id>
+    <link href="https://www.cxmoe.com/words/cd67.html"/>
+    <id>https://www.cxmoe.com/words/cd67.html</id>
     <published>2021-01-31T23:00:00.000Z</published>
     <updated>2021-02-07T16:40:53.207Z</updated>
     
@@ -99,17 +99,17 @@
     
     
     
-    <category term="站点" scheme="https://www.cz5h.com/words/categories/%E7%AB%99%E7%82%B9/"/>
+    <category term="站点" scheme="https://www.cxmoe.com/words/categories/%E7%AB%99%E7%82%B9/"/>
     
     
-    <category term="介绍" scheme="https://www.cz5h.com/words/tags/%E4%BB%8B%E7%BB%8D/"/>
+    <category term="介绍" scheme="https://www.cxmoe.com/words/tags/%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   
   <entry>
     <title>Important rules in English writing</title>
-    <link href="https://www.cz5h.com/words/9aa4.html"/>
-    <id>https://www.cz5h.com/words/9aa4.html</id>
+    <link href="https://www.cxmoe.com/words/9aa4.html"/>
+    <id>https://www.cxmoe.com/words/9aa4.html</id>
     <published>2021-01-31T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -120,21 +120,21 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
+    <category term="writing" scheme="https://www.cxmoe.com/words/tags/writing/"/>
     
-    <category term="notes" scheme="https://www.cz5h.com/words/tags/notes/"/>
+    <category term="notes" scheme="https://www.cxmoe.com/words/tags/notes/"/>
     
-    <category term="training" scheme="https://www.cz5h.com/words/tags/training/"/>
+    <category term="training" scheme="https://www.cxmoe.com/words/tags/training/"/>
     
   </entry>
   
   <entry>
     <title>Try to explain the projections.</title>
-    <link href="https://www.cz5h.com/words/32f0.html"/>
-    <id>https://www.cz5h.com/words/32f0.html</id>
+    <link href="https://www.cxmoe.com/words/32f0.html"/>
+    <id>https://www.cxmoe.com/words/32f0.html</id>
     <published>2021-01-24T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -145,19 +145,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
+    <category term="writing" scheme="https://www.cxmoe.com/words/tags/writing/"/>
     
-    <category term="introduction" scheme="https://www.cz5h.com/words/tags/introduction/"/>
+    <category term="introduction" scheme="https://www.cxmoe.com/words/tags/introduction/"/>
     
   </entry>
   
   <entry>
     <title>Some writing pitfalls</title>
-    <link href="https://www.cz5h.com/words/e86a.html"/>
-    <id>https://www.cz5h.com/words/e86a.html</id>
+    <link href="https://www.cxmoe.com/words/e86a.html"/>
+    <id>https://www.cxmoe.com/words/e86a.html</id>
     <published>2021-01-20T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -168,19 +168,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="writing" scheme="https://www.cz5h.com/words/tags/writing/"/>
+    <category term="pitfalls" scheme="https://www.cxmoe.com/words/tags/pitfalls/"/>
     
-    <category term="pitfalls" scheme="https://www.cz5h.com/words/tags/pitfalls/"/>
+    <category term="writing" scheme="https://www.cxmoe.com/words/tags/writing/"/>
     
   </entry>
   
   <entry>
     <title>2020年终总结(A)随便写写</title>
-    <link href="https://www.cz5h.com/words/28d8.html"/>
-    <id>https://www.cz5h.com/words/28d8.html</id>
+    <link href="https://www.cxmoe.com/words/28d8.html"/>
+    <id>https://www.cxmoe.com/words/28d8.html</id>
     <published>2020-12-30T23:00:00.000Z</published>
     <updated>2021-02-13T03:19:47.342Z</updated>
     
@@ -191,21 +191,21 @@
     
     
     
-    <category term="Daily_Life" scheme="https://www.cz5h.com/words/categories/Daily-Life/"/>
+    <category term="Daily_Life" scheme="https://www.cxmoe.com/words/categories/Daily-Life/"/>
     
     
-    <category term="瞎写" scheme="https://www.cz5h.com/words/tags/%E7%9E%8E%E5%86%99/"/>
+    <category term="瞎写" scheme="https://www.cxmoe.com/words/tags/%E7%9E%8E%E5%86%99/"/>
     
-    <category term="生活" scheme="https://www.cz5h.com/words/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://www.cxmoe.com/words/tags/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="总结" scheme="https://www.cz5h.com/words/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://www.cxmoe.com/words/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>Understand complex tables in one minute</title>
-    <link href="https://www.cz5h.com/words/8267.html"/>
-    <id>https://www.cz5h.com/words/8267.html</id>
+    <link href="https://www.cxmoe.com/words/8267.html"/>
+    <id>https://www.cxmoe.com/words/8267.html</id>
     <published>2020-12-02T23:00:00.000Z</published>
     <updated>2021-02-07T15:25:52.900Z</updated>
     
@@ -216,19 +216,19 @@
     
     
     
-    <category term="English" scheme="https://www.cz5h.com/words/categories/English/"/>
+    <category term="English" scheme="https://www.cxmoe.com/words/categories/English/"/>
     
     
-    <category term="presentation" scheme="https://www.cz5h.com/words/tags/presentation/"/>
+    <category term="presentation" scheme="https://www.cxmoe.com/words/tags/presentation/"/>
     
-    <category term="slides" scheme="https://www.cz5h.com/words/tags/slides/"/>
+    <category term="slides" scheme="https://www.cxmoe.com/words/tags/slides/"/>
     
   </entry>
   
   <entry>
     <title>我眼中的《姜子牙》——三界官场现形记</title>
-    <link href="https://www.cz5h.com/words/9e2f.html"/>
-    <id>https://www.cz5h.com/words/9e2f.html</id>
+    <link href="https://www.cxmoe.com/words/9e2f.html"/>
+    <id>https://www.cxmoe.com/words/9e2f.html</id>
     <published>2020-11-16T23:00:00.000Z</published>
     <updated>2021-02-07T19:55:24.626Z</updated>
     
@@ -240,17 +240,17 @@
     
     
     
-    <category term="Daily_Life" scheme="https://www.cz5h.com/words/categories/Daily-Life/"/>
+    <category term="Daily_Life" scheme="https://www.cxmoe.com/words/categories/Daily-Life/"/>
     
     
-    <category term="影评" scheme="https://www.cz5h.com/words/tags/%E5%BD%B1%E8%AF%84/"/>
+    <category term="影评" scheme="https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/"/>
     
   </entry>
   
   <entry>
     <title>东北亚离战争到底有多远？</title>
-    <link href="https://www.cz5h.com/words/abcd.html"/>
-    <id>https://www.cz5h.com/words/abcd.html</id>
+    <link href="https://www.cxmoe.com/words/abcd.html"/>
+    <id>https://www.cxmoe.com/words/abcd.html</id>
     <published>2020-08-17T22:00:00.000Z</published>
     <updated>2021-02-07T16:40:40.445Z</updated>
     
@@ -261,10 +261,10 @@
     
     
     
-    <category term="Daily_Life" scheme="https://www.cz5h.com/words/categories/Daily-Life/"/>
+    <category term="Daily_Life" scheme="https://www.cxmoe.com/words/categories/Daily-Life/"/>
     
     
-    <category term="影评" scheme="https://www.cz5h.com/words/tags/%E5%BD%B1%E8%AF%84/"/>
+    <category term="影评" scheme="https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/"/>
     
   </entry>
   
