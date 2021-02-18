@@ -6,6 +6,17 @@ body, button, input, select, textarea {
   font-family: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
   color: #4a4a4a; }
 
+body {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none; }
+
 a.tag.article-tag {
   font-size: 0.9rem;
   text-decoration: none; }
