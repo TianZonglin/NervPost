@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.cxmoe.com/"/>
-  <updated>2021-02-11T02:18:05.752Z</updated>
+  <updated>2021-02-20T06:08:12.452Z</updated>
   <id>https://www.cxmoe.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网站改版/域名更换全步骤</title>
+    <link href="https://www.cxmoe.com/article/3328.html"/>
+    <id>https://www.cxmoe.com/article/3328.html</id>
+    <published>2021-02-17T23:00:00.000Z</published>
+    <updated>2021-02-20T06:08:12.452Z</updated>
+    
+    <content type="html"><![CDATA[<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210220055122.png"></fancybox></p><p>更换域名在建站初期是经常发生的事情，无非就是DNS修改下解析，替换下内部代码，但对于运营过一段时间的、搜索引擎收录良好的“成熟”站点来说，修改域名，对网站流量和引擎收录简直就是灭顶之灾。正值最近本站刚更换了域名，就此来记录下作为一个网站，更换域名所需要考虑和修改的内容。</p><a id="more"></a><h3 id="更换DNS绑定域名"><a href="#更换DNS绑定域名" class="headerlink" title="更换DNS绑定域名"></a>更换DNS绑定域名</h3><p>这一步不再赘述，无非就是解绑旧域名，换绑新域名。</p><h3 id="301重定向（重要！）"><a href="#301重定向（重要！）" class="headerlink" title="301重定向（重要！）"></a>301重定向（重要！）</h3><p>此步骤是重中之重！对搜索引擎来说，有专门的网站改版提交入口，目的是主动通知搜索引擎你的原站链接变更，从而加快新域名链接的收录，但完成网站改版的验证，（百度，谷歌）都需要你将旧域名的链接通过<strong>301重定向</strong>来跳转到新链接。需要注意的是：</p><ul><li>强烈建议网站改版的链接按照规则来更新。最理想的规则是 <strong>a.com/1.html =&gt; b.com/1.html</strong>，即网站内容不变，仅仅是更换域名而已。</li><li>百度站长平台支持你自定义链接替换规则。</li></ul><h4 id="如何完成301重定向？"><a href="#如何完成301重定向？" class="headerlink" title="如何完成301重定向？"></a>如何完成301重定向？</h4><ul><li><strong>html或js跳转[X]</strong>。对于绝大部分使用托管服务搭建站点的用户来说，通过一个单独的page进行跳转是最佳方案了。实现方法非常多，可以利用404.html页面，借助JavaScript进行自定义跳转，但是！！这样的跳转并不是带HTTP状态的301重定向。遗憾的是，对于Github和Coding，他们并不支持搜索引擎所需要的301重定向。</li></ul><p><strong>物理机/docker服务</strong>。这是最正统的实现方法，比如使用物理主机，通过Nginx配置即可完成重定向工作。但我没有云服务器我就没机会了吗？非也！HeroKu在等你！HeroKu也是一个站点托管平台，但突出点在于托管的实体对象，是docker对象，也就是说，理论上Heroku的托管应用就可以实现301重定向，确实，他们可以！</p><p><strong>①</strong> 在Ubuntu上使用，只需要先安装heroku，再将重定向项目克隆并上传到你的heroku应用中，最后配置所谓的“重定向路径”。具体步骤如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo snap install --classic heroku</span><br><span class="line">$ heroku login</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/joeyAghion/rerouter.git</span><br><span class="line">$ <span class="built_in">cd</span> rerouter</span><br><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a redirectold //heroku项目名称</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"make it better"</span></span><br><span class="line">$ git push heroku master</span><br><span class="line"></span><br><span class="line">$ heroku config:<span class="built_in">set</span> REDIRECTS=<span class="string">"&#123;'www.cz5h.com'=&gt;'www.cxmoe.com'&#125;"</span></span><br><span class="line">$ heroku domains:add cz5h.com</span><br></pre></td></tr></table></figure><p><strong>②</strong> 完成之后，即可在Heroku网站上看到修改的内容，尤其是Redirects配置。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210220001606.png"></fancybox></p><p><strong>③</strong> 之后，为了匹配缺省域名，我们需要两个域名绑定，分别是“a.com”和“<a href="http://www.a.com”。" target="_blank" rel="external nofollow noopener noreferrer">www.a.com”。</a></p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219034340.png"></fancybox></p><p><strong>④</strong> 除此之外，为了完全对应新站链接，此处的heroku所使用的协议，应该跟我的站点一致也是“https://”，为了开启https，万恶的Heroku需要你在网站绑定信用卡，之后才可以顺利开启https。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210220001541.png"></fancybox></p><p><strong>⑤</strong> 还有，我们的301重定向需要全天可用，但heroku仅对付费者提供此项服务，因此最后选择了最便宜的类型，无需维护301太长时间，一两个月足以。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219040419.png"></fancybox></p><p><strong>⑥</strong> 一切就绪后，下面所示的SSL证书会自动添加。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219040517.png"></fancybox></p><p><strong>⑦</strong> 大功告成之后，可以去站长工具查询Http状态，当返回状态码和HEAD信息正确时，那就是301重定向已经搞定。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219044155.png"></fancybox></p><h3 id="网站统计代码重置"><a href="#网站统计代码重置" class="headerlink" title="网站统计代码重置"></a>网站统计代码重置</h3><p>汇总一下，主要有：</p><ul><li>谷歌Analytics</li><li>百度统计</li><li>360站长</li><li>cnzz</li></ul><h3 id="网站地图重新提交"><a href="#网站地图重新提交" class="headerlink" title="网站地图重新提交"></a>网站地图重新提交</h3><p>我在以下平台重新提交了XML文件，</p><ul><li>baidu统计 （+robot.txt）</li><li>360站长</li><li>谷歌console</li></ul><h3 id="主动通知网站改版"><a href="#主动通知网站改版" class="headerlink" title="主动通知网站改版"></a>主动通知网站改版</h3><p>最后的步骤：去百度站长反映你要换域名了；去 Google Console 来提交网站改版。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219042138.png"></fancybox></p><p>下图显示谷歌的配置正确之后的结果。</p><p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210219130252.png"></fancybox></p><h3 id="更换第三方依赖域名"><a href="#更换第三方依赖域名" class="headerlink" title="更换第三方依赖域名"></a>更换第三方依赖域名</h3><ul><li><strong>webpushr</strong> //推送订阅弹窗</li><li><strong>valine邮件</strong>模板 //邮件设定</li><li>全局查找Hexo的theme主题文件夹，找到旧域名替换。</li></ul><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><ol><li><p>百度的网站改版校验非常奇怪，谷歌测试无误后，在百度站长就是校验失败，已经致信客服寻求帮助。</p></li><li><p>不必在意改版后的收录情况，一两个星期看一次就够啦，毕竟是一个重新收录的过程！</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;fancybox&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210220055122.png&quot;&gt;&lt;/fancybox&gt;&lt;/p&gt;
+&lt;p&gt;更换域名在建站初期是经常发生的事情，无非就是DNS修改下解析，替换下内部代码，但对于运营过一段时间的、搜索引擎收录良好的“成熟”站点来说，修改域名，对网站流量和引擎收录简直就是灭顶之灾。正值最近本站刚更换了域名，就此来记录下作为一个网站，更换域名所需要考虑和修改的内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="建站组网" scheme="https://www.cxmoe.com/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/"/>
+    
+    
+      <category term="301重定向" scheme="https://www.cxmoe.com/tags/301%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    
+      <category term="SEO" scheme="https://www.cxmoe.com/tags/SEO/"/>
+    
+      <category term="网站改版" scheme="https://www.cxmoe.com/tags/%E7%BD%91%E7%AB%99%E6%94%B9%E7%89%88/"/>
+    
+  </entry>
   
   <entry>
     <title>远离借呗！查询你的个人征信</title>
@@ -547,33 +575,6 @@
       <category term="荷兰" scheme="https://www.cxmoe.com/tags/%E8%8D%B7%E5%85%B0/"/>
     
       <category term="CSC" scheme="https://www.cxmoe.com/tags/CSC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>站点访问概况（近两月 2.29-4.29）</title>
-    <link href="https://www.cxmoe.com/article/ac94.html"/>
-    <id>https://www.cxmoe.com/article/ac94.html</id>
-    <published>2020-03-31T22:00:00.000Z</published>
-    <updated>2020-04-30T21:33:34.779Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>马上五一了，数据已更新至建站来的两个月。</strong> 以下为原文：终于告别三月，迎来了四月，在二月的最后一天，我把主题换成了Volantis，并且最近一段时间一直在对其进行美化和微调，现在是四月的第一天，整整一个月过去了，博客运行的如何呢？让我来借助统计分析来给大家康康。</p><a id="more"></a><h4 id="日均访客"><a href="#日均访客" class="headerlink" title="日均访客"></a><strong>日均访客</strong></h4><p>由下图可以看出，本博客还是个微型小站，每天基本也就几十个访客/IP，网页被浏览一百次左右（已排除本地调试干扰）。而且对于流量比较大的几天，其实都是知乎带来的流量。剩下的基本盘流量，基本是在 Hexo 水群时群友访问的，当然，现在不排除已经有部分老用户了，数据显示的是现在的访问量有 30% 是老用户/访客。</p><p>重要的一点是，从后面的分析可以得知，本博客站点的 <strong>UV : PV &lt; 1 : 3</strong>，个人认为这是十分正常的数据，如果 PV 是 UV 的四倍以上，那我一般认为就有水分了。</p><p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401015241.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430204047.png"><br></fancybox></p><h4 id="总量和来源地区"><a href="#总量和来源地区" class="headerlink" title="总量和来源地区"></a><strong>总量和来源地区</strong></h4><p>可以看出，部署在 Coding 的新加坡机房，基本全球访问畅通，主要流量都来源于亚洲、欧洲和美国。这其中的国外访问量，我猜也基本是知乎带过来的，后面的对知乎的分析也会提及。对于中国的部分，我比较困惑的1是好像有大量访问的来源都是重叠在一起的，比如河南的访问量是最高的，我怀疑这些来源地区有运营商的根路由。关于具体来源的访客数，可以参照以下图示。</p><p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401010349.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430204559.png"><br></fancybox></p><br>下面可以更直观的看出来访问来源地的总访问时长。可以看出大部分访问并不是蜻蜓点水，停留时间比未改版以前的旧博客要好了不少。<p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401014215.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430205029.png"><br></fancybox></p><h4 id="高光时刻"><a href="#高光时刻" class="headerlink" title="高光时刻"></a><strong>高光时刻</strong></h4><p>下面是昨天下午的时候，博客被访问的情况，同时（五分钟内）被 8 人访问，可以称得上是高光时刻了。</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200331163105.png"></fancybox><h4 id="来源分析"><a href="#来源分析" class="headerlink" title="来源分析"></a><strong>来源分析</strong></h4><p>下面可以看出来，主要的来源除了直接访问，就三个：知乎、十年之约和 Zonelyn.com。</p><ul><li>最后的域名是由于在知乎留的链接没及时换成新域名导致的访问跳转，到后面更换了就降下来了；</li><li>十年之约就是个博客汇总网站，贡献了小部分访问；</li><li>最后就是知乎了，可以说域名那部分也基本是知乎来的，可能直接的访问贡献了 570+ 的浏览。这基本算六分之一的访问量了。请记住蓝色折线的曲线，基本和知乎上的文章阅读量保持相同的趋势。</li></ul><p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401011958.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430205500.png"><br></fancybox></p><h4 id="受众最多的页面"><a href="#受众最多的页面" class="headerlink" title="受众最多的页面"></a><strong>受众最多的页面</strong></h4><p>非<a href="/csc/index.html">工具页</a>莫属了，这个小工具创建于三月初，此页面九成的访客来自于知乎的文章，下面顺带把知乎的近两个月的数据分析一下。由上面分析，剩下 100+ 的流量应该来自直接访问，因为这个链接被我放在主页顶部按钮中了，十分明显。</p><p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401012615.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430205844.png"><br></fancybox></p><h4 id="知乎近俩月的分析"><a href="#知乎近俩月的分析" class="headerlink" title="知乎近俩月的分析"></a><strong>知乎近俩月的分析</strong></h4><p>自从二月中旬开始，我陆陆续续的整理了下自己去年的申请材料，放到了知乎上，还搞了个专栏，事实证明，我这次的无心插柳，已经产生不小的影响了。主要的几篇文章，收藏率超过 10%，并且专栏的关注人数已经四百多人，传播效应已经开始，预计在近一个月还会继续增多，因为前天又把剩余的几份材料整理了一下放到专栏了，申请正好用到。</p><p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401013613.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430233223.png"><br></fancybox></p><br>对于这几篇介绍经验的文章，在前期（那时只有两篇）曾经一度异常火爆，每天的单篇收藏都能一两百，评论都有十几二十条。不过现在稳定了，基本上每天就几个提问，不会占据我太多时间。<p><strong><code>第一个月（2.29-3.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401013222.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）：</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430210307.png"><br></fancybox></p><br>目前的状态是专栏里的东西基本齐全了，我已经想不到还有什么能分享的了，借助这个专栏和这几篇文章，我也收获了几百关注，但就是没有爆款回答就是了（没精力回答那种细致的问题），赞同数还是少的可怜的，基本都来自专栏文章。后续的想法是，把我最近他们问我的问题和回答，大概得有两三百个问题（知乎文章和私信以及QQ上问的），搞一个问答系统，这样我就不用每次都回答了，构思中。<p><strong><code>第一个月（2.29-3.29）:</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401013939.png"><br></fancybox></p><p><strong><code>第二个月（3.29-4.29）:</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430232451.png"><br></fancybox></p><h4 id="结识朋友"><a href="#结识朋友" class="headerlink" title="结识朋友"></a><strong>结识朋友</strong></h4><p>在文章数据统计中的大约 400 条的留言里，大约有一半是我的回复。大概就是解答一下疑惑而已，而且大部分问题都可以被解决掉，但也有部分人加了我的QQ好友，为此，近一个月的时间里我收获了四十多位新朋友，当然最终有部分人问完问题之后还成了好朋友，里面又有几个是可能会来我这里的，到时候请我吃饭也说不定（偷笑。</p><p>总之，虽然是我给他们解答，但也非常感谢他们问我，他们基本上全都是很优秀的，除了一些TOP的大佬，还有些“明星”，比如里面竟然有一位是“<a href="https://www.baidu.com/s?wd=90%E5%90%8E%E9%A9%AC%E5%85%8B+%C2%B7%E5%90%90%E6%B8%A9&rsv_spt=1&rsv_iqid=0xb69b4625006da6cb&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&rqlang=&tn=baiduhome_pg&ch=" target="_blank" rel="external nofollow noopener noreferrer">90后马克 ·吐温</a>”的老哥，我当时都惊到了，他们倒还是都很平易近人的，和他们交流起来也没什么，光环褪去，大家都是普通人。</p><p><strong><code>第一个月（44人）:</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200401023931.png"><br></fancybox></p><p><strong><code>第二个月（188人）:</code></strong><br><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430231712.png"><br></fancybox></p><h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a><strong>写在最后</strong></h4><p>今天是愚人节，但却没心情愚人，还是希望疫情快点过去，好让正常的学习和生活重新回归。不过目前看来还是遥遥无期啊，什么时候出门大街上有人戴口罩了，疫情估计就快结束了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;马上五一了，数据已更新至建站来的两个月。&lt;/strong&gt; 以下为原文：终于告别三月，迎来了四月，在二月的最后一天，我把主题换成了Volantis，并且最近一段时间一直在对其进行美化和微调，现在是四月的第一天，整整一个月过去了，博客运行的如何呢？让我来借助统计分析来给大家康康。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Daily_Life" scheme="https://www.cxmoe.com/categories/Daily-Life/"/>
-    
-    
-      <category term="总结" scheme="https://www.cxmoe.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="知乎" scheme="https://www.cxmoe.com/tags/%E7%9F%A5%E4%B9%8E/"/>
-    
-      <category term="站点统计" scheme="https://www.cxmoe.com/tags/%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
