@@ -147,9 +147,51 @@
     <audio id="mms" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/call.mp3" controls loop autoplay hidden></audio>
     <audio id="duu" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/end.mp3" controls hidden></audio>
     <audio id="tk" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/file/track2.mp3" controls hidden></audio>
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+      console.log("Baidu Push done!");
+    })();
+    </script>
+    <!-- 360 Push -->
+    <script>
+    (function(){
+    var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+    document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+    </script>
+    <!-- Baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-109269848-4');
+    </script>
     <div style="display:none;">
-		<script type="text/javascript">document.write(unescape("%3Cspan style='color:black !important;' id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript async src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D2' type='text/javascript'%3E%3C/script%3E"));</script>
-        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script> 
+      document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+      <script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
     </div>
 </body>
 <script>
@@ -270,12 +312,6 @@
     })
 </script>
 <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+ 
 </html>
+</script></html>

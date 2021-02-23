@@ -37,6 +37,13 @@
   </url>
   
   <url>
+    <loc>https://www.cxmoe.com/words/8267.html</loc>
+    
+    <lastmod>2021-02-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.cxmoe.com/words/e86a.html</loc>
     
     <lastmod>2021-02-07</lastmod>
@@ -44,7 +51,14 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/8267.html</loc>
+    <loc>https://www.cxmoe.com/words/9aa4.html</loc>
+    
+    <lastmod>2021-02-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/32f0.html</loc>
     
     <lastmod>2021-02-07</lastmod>
     
@@ -59,20 +73,6 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/9731.html</loc>
-    
-    <lastmod>2021-02-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/32f0.html</loc>
-    
-    <lastmod>2021-02-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/9aa4.html</loc>
     
     <lastmod>2021-02-07</lastmod>
     
@@ -96,6 +96,20 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/</loc>
+    <lastmod>2021-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/presentation/</loc>
+    <lastmod>2021-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/slides/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -137,28 +151,7 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/research/</loc>
-    <lastmod>2021-02-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/presentation/</loc>
-    <lastmod>2021-02-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/slides/</loc>
-    <lastmod>2021-02-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/description/</loc>
+    <loc>https://www.cxmoe.com/words/tags/notes/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -179,7 +172,14 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/notes/</loc>
+    <loc>https://www.cxmoe.com/words/tags/research/</loc>
+    <lastmod>2021-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/description/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
