@@ -362,7 +362,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约5.2k字</p>
+      <p>大约5.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:13:46+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -422,6 +422,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <p>同期，国内黄竞伟等人开始对“画图”问题（图布局）展开研究 [21]，他们将布局问题抽象为函数优化问题，然后利用遗传算法来求解目标函数的最优解的近似值。随后，孙炜等人又在其基础上引入模拟退火算法来克服遗传算法局部搜索能力较差的缺点 [22] 。在多尺度布局方面，最近几年国内研究者们针对分层布局提出了许多新的解决方案，包括基于图匹配 [23] 及基于改进力导向 [24] 的分层布局方法。</p>
 <p>由于数据规模的增大，不可避免的出现了表示混乱的问题，在2009年，Holten等人首次提出边捆绑的概念（Edge bundling）并将其应用到图布局的展现上 [25] ，其提出在边绑定时要遵循一种“位置关联”的规则，即像长短差异很大或是距离间隔很远的边不应该捆绑在一起，这种方法的使用大大提高了图布局结果的展现能力，直到最近边捆绑技术仍然是图可视化研究的热点 [26] 。在这之后的布局算法中，美学设计被提到了和算法本身同等的位置，边捆绑等技术得到了快速的发展。同年，斯坦福大学推出了 SNAP 数据集服务 [27] ，其旨在搜集整理不同种类的网络数据并以公开的方式将这些数据提供给研究者，还是在这一年，Gephi的问世使得图数据的可视化研究变得更为方便，虽然在这之前有包括 Pajek 在内的许多工具软件，但 Gephi 仍然以其通用的开放编程模型和易用的界面使对图数据的可视化研究成为了一款通用可视化工具，同时随着边捆绑等视觉呈现方式的改进，图数据的可视化逐渐进入了一个新阶段：对真实社会网络的描述。</p>
 <p>社会网络是复杂网络的一个重要分支，其描述真实的数据关系，同时也具有真实数据集的一些特点：符合幂律分布、易出现小世界网络等等，指虽然之前的FM 3 算法已经能够完成 20 万节点规模的绘制（AT&amp;T 当时规模最大的数据集），但其侧重点仍然放在对算法的原理分析上。视觉展现技术和可视化软件的成熟，使得像社交网络分析等学科通过可视化来辅助验证或直接分析相关问题成为了可能，这也促进了图数据可视化同社交网络等学科的进一步融合。在这一阶段，图数据的可视化进入了第三个十年，将目标转移到描述真实的社会网络之后，如何更好的展现数据的结构似乎成为了首要目的，这一阶段有相当一部分的研究都侧重在美学设计方面，即如何减少混乱、如何呈现小世界网络 [28] 等；同时，在处理数据的规模进一步增大和算法的复杂度不断提高的前提下，传统单机单线程的算法遇到了性能瓶颈，此外，一些边捆绑技术要求更高的计算代价，这也进一步促进了并行算法的出现。</p>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h3 id="单机并行阶段"><a href="#单机并行阶段" class="headerlink" title="单机并行阶段"></a>单机并行阶段</h3><p>在这一阶段，传统的图布局算法引入了很多新的技术，例如采用并行计算来加速迭代过程，或是使用 GPU 编程来加速计算渲染过程。2009 年，在 FM 3 算法出现几年后，Godiyal 等人同 NVIDIA 公司的 Garland 对其提出了基于单指令多数据流处理器（SIMD，例如 GPU）的并行计算版本，他们的算法采用了一种基于CPU 和 GPU 结合构建的 kd 树，在布局计算上的时间复杂度保持在 O(NlogN)内。此后，GPU 并行技术正式被引入到图可视化领域，直到目前为止，其仍然图形骨骼绘制（Skeletons）技术的有效手段 [29,30] 。最初，研究者们尝试使用多显示器的方式对图布局进行显示 [31,32] ，这样顶点均匀的分布在不同显示器上，每个显示器关联自己的处理器，各处理器分别计算顶点的位置。该类算法并不具备良好的伸缩性，实验仅限于处理包含数千个顶点的图。之后，Tikhonova 和 Ma 提出了一种并行的力导向算法 [33] ，可以在具有几十万个边的图上运行。其算法运行在 Cray XT3 的 32 个处理器上（类似超级计算机），布局包含 260385 条边的图大约需要 40 分钟，效率仍有提升空间。在 2011 年，美国橡树岭国家实验室提出了 OpenOrd 算法，能够完成百万节点规模的数据布局，这是一个典型的分段布局算法，即对图数据的布局不再是多次布局算法的迭代，而是整个布局算法分为几个阶段，布局时分别执行这几个阶段，执行结束时布局结束，整个布局算法只执行一次，不存在外循环。OpenOrd算法主要采用了四种思想，即多尺度布局、节点聚集、并行计算和启发式的边切割，主要贡献即提出了可行的并行图布局思路和具体实现（在 Gephi 0.9.0 版本被纳入到布局算法中 [34] ），在模型上其沿用了 VxInsight [35] （其前身算法）使用的网络密度模型，其整个系统的能量可由公式2.3表示。</p>
 <p><img src="http://static.zybuluo.com/EVA001/vtdt3j1aisocg2auh62tgikl/image_1dfde7qedekqqsr1blp1honj316j.png" alt="image_1dfde7qedekqqsr1blp1honj316j.png-24.5kB"></p>
 <p>其中，D x i 会向画布中靠近点 x i的点 x 1,…, x n 贡献密度值，上式的求和包括斥力和引力两部分，在计算引力时通过公式中的 w ij （边的权值）来作用使之将关联性强的节点放置在相近的位置，斥力部分通过密度项 D x i 表示，其目的是将节点低密度的填充到画布中，对这两部分的和求取最小值来达到最终的布局状态，即关联性强的节点彼此靠近，但又必须满足低密度放置的要求。这样，在进行布局时，OpenOrd 算法采用多线程模式将带密度信息的画布复制多个副本，每个线程处理不重叠的部分数据，且都对自己的画布密度进行更新，然后在合并步骤将各处理线程的画布密度信息进行统一合并更新并调整节点的位置，循环迭代过程完成布局。该算法依靠多核处理器的并行能力，可以将单机（四核八线程）处理能力提高到百万节点级别。值得注意的是，这一阶段图数据的抽象表示也十分受到研究者的重视，这部分布局算法通常从社交网络分析的角度入手，常常伴随节点聚类和抽象图形表示等方法，例如 Vehlow 等人从重叠社区的展现出发，将不同级别的社区结构通过不同的图形抽象来显示 ；国内研究者也开始关注这一内容，2015年，赵玉聪等人根据分层扩展的思想，提出了一种基于图匹配的分层布局算法 [23] ，递归的对大图进行简化和布局，同时还研究了对简化布局结构的反向扩展，为分层布局算法提供了一种新的思路。此外，结合社区发现等研究领域，出现了以“社区划分/聚类-&gt; 节点抽象-&gt; 分层布局”的布局算法，代表作有朱志良等人提出的方法。 ，先构建社区网络，然后对其进行布局，之后确定社区区域范围，最后在每个社区范围内对社区进行节点填充。在这之后，2016 年汤颖等人提出了一种基于改进 FDP 算法的层级视觉抽象方法 [24] ，通过树结构来构建节点的分层结构，取得了十分明显的分层布局效果。</p>
@@ -473,7 +474,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cb21.html" title="可视化布局算法的框架设计" rel="bookmark">可视化布局算法的框架设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cb21.html" title="可视化布局算法的框架设计" rel="bookmark">可视化布局算法的框架设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -843,7 +844,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

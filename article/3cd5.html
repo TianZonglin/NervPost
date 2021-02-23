@@ -35,7 +35,7 @@
   <title>OpenOrd-面向大规模图布局的开源算法-研读 - 程序萌部落</title>
  
 	
-		<meta name="keywords" content="层次数据,力导向,图简化,并行计算">
+		<meta name="keywords" content="层次数据,并行计算,力导向,图简化">
 	
 	
 		<meta name="description" content="
@@ -386,10 +386,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:09:14+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -424,6 +424,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>用于可视化关系数据的图绘制，通常在二维空间中<code>1,2</code>。<br>图绘制的一些应用场景包括：社会网络分析<code>3</code>、科学文献分析<code>4,5</code>、地图制作<code>6</code>和生物信息学<code>7,8</code>。<br>有各种各样的算法可供图绘制，每一种算法都具有不同优化的美学标准<code>aesthetic criteria</code>。<br>一些美学标准的例子包括：尽量减少边的数量，最小化总边长度，并最大化顶点之间的分离。<br>对于用直线<code>straight line</code>边缘绘制的无向图，最常用的算法之一是力导向布局<code>9-13</code>。</p>
 <p>在本文中，我们记录了一种用于绘制大型真实世界<code>real-world</code>图的图绘制算法。<br>我们的算法采用了边切<code>edge-cutting</code>、平均链接<code>average-link</code>聚类、多级图粗化<code>multilevel graph coarsening</code>，以及基于模拟退火的力-导向方法的并行实现。<br>已存在的力-导向布局的相关算法，包括采用多级方法的算法<code>13-16</code>;节点聚类的算法<code>16-18</code>;使用并行GPU架构实现的算法<code>19,20</code>。<br>然而，我们的算法是唯一一个包含所有这三个想法的算法：多级的、节点聚类的以及并行的实现（注意，我们的并行性是基于聚类的，而不是基于GPU的）。<code>is cluster based, instead of GPU based</code><br>此外，我们还引入了一种用于边缘切割的启发式<code>heuristic</code>方法，它的设计目的是为了使图结构可视化，而这些图结构可能没有理想的度分布（通常在真实数据的图中找到）。</p>
 <p>我们的算法是基于一种叫做VxOrd的力-导向算法。<br>此新版本，OpenOrd，将在接下来的几页中进行描述。<br>在第2部分中，我们给出了修改VxOrd的动机。<br>在第3部分中，我们描述了算法的各个部分，包括力-导向的布局;<br>并行布局(3.2);<br>递归地<code>recursive</code>图粗化(3.3);<br>平均链接聚类<code>and average-link clustering</code>(3.4)。<br>在第4部分中，我们演示了我们的算法的一些属性，使用应用程序到<code>applications to</code>几个真实的数据集，包括一个659 K顶点Wikipedia文章的数据集。<br>最后，在第5部分中，我们提供了我们的结论。<br>OpenOrd的代码可在<a href="http://www.cs.sandia.gov/smartin中获得。" target="_blank" rel="external nofollow noopener noreferrer">http://www.cs.sandia.gov/smartin中获得。</a></p>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h2 id="MOTIVATION-动机"><a href="#MOTIVATION-动机" class="headerlink" title="MOTIVATION 动机"></a>MOTIVATION 动机</h2><p>OpenOrd是一种力-导向的布局算法，专门用于处理非常大的图结构，如sci-科学文献引用分析<code>4,5</code>中遇到的。<br>它是基于一个被称为VxOrd<code>22</code>的实现了“Frutcherman-Reingold思想”<code>11</code>的算法，该算法在科学引文分析中被使用<code>23-25</code>，并在生物信息数据的分析中被使用<code>26-28</code>。<br>OpenOrd算法展示了我们将VxOrd扩展到非常大的图结构（大于100 K个顶点）的努力。</p>
 <p><img src="http://static.zybuluo.com/EVA001/8o7pzvfdwvbf1l1k762zn5a0/image_1cb93ulb8ngvs86jjo1r8l1u899.png" alt="image_1cb93ulb8ngvs86jjo1r8l1u899.png-138.6kB"><br>图1.全局纠缠<code>Tangled global</code>的结构。<br>左边（a）显示的是瑞士卷<code>Swiss roll</code>数据集，由瑞士卷副本<code>manifold</code>随机抽取的2万个点组成<code>19,30</code>。<br>中间（b）显示的是一个由使用VxOrd的20个最近的邻居 这种算法从瑞士卷中获得的力-导向布局。<br>只有节点被绘制了出来，图被着色以说明全局结构的纠缠<code>tangling</code>。<br>右边（c）中显示了正确绘制的图结构，使用OpenOrd的多级版本生成。</p>
 <p>我们已经确定了将VxOrd力-导向布局算法扩展到大图形的三个问题，在这一节中将其描述为我们在第3部分中对后续算法的动机。<br>首先，算法能够正确地揭示布局的全局结构，这种正确性随着图结构的增大而减小。<br>这种正确性无疑也会随着节点的度分布而变化，但即使是相对简单的网格状图也很明显。<br>为了说明这一现象，我们使用了最初在非线性维度<code>nonlinear dimension</code>中引入的瑞士卷数据集<code>29,30</code>。<br>这个数据集的设计目的是为了证明线性方法的不足之处（因为线性方法不能毫无错误地投射出瑞士卷）。<br>在我们的例子中，我们只使用这个数据集作为一个例子，我们的算法是用来绘图，而不是降维的。<br>We imposed a graph on 20,000 points sampled from the Swiss roll manifold using 20 nearest neighbors and drew the graph using VxOrd.<br>我们用’邻居数=20’的配置从瑞士卷数据中抽取了2万个点生成图结构，并使用VxOrd进行了绘制。<br>结果如图1（a，b）所示。<br>在以前的工作中<code>13,31</code>也注意到，力-导向的布局无法正确地揭示全局结构，在这里显示了可以使用多级方法来减轻这种影响。<br>因此，我们在OpenOrd中包含了一个多级策略。</p>
@@ -530,7 +531,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\74eb.html" title="通过局部聚集自适应的解开小世界网络的纠结" rel="bookmark">通过局部聚集自适应的解开小世界网络的纠结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3bfa.html" title="一种基于力导向布局的层次结构可视化方法" rel="bookmark">一种基于力导向布局的层次结构可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\84c8.html" title="基于Spark的大数据热图可视化方法" rel="bookmark">基于Spark的大数据热图可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\74eb.html" title="通过局部聚集自适应的解开小世界网络的纠结" rel="bookmark">通过局部聚集自适应的解开小世界网络的纠结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3bfa.html" title="一种基于力导向布局的层次结构可视化方法" rel="bookmark">一种基于力导向布局的层次结构可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\84c8.html" title="基于Spark的大数据热图可视化方法" rel="bookmark">基于Spark的大数据热图可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -577,7 +578,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>层次数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>力导向</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9B%BE%E7%AE%80%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>图简化</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>并行计算</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>层次数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>并行计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>力导向</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9B%BE%E7%AE%80%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>图简化</p></a></div>
 
 
         
@@ -921,7 +922,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

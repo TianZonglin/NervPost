@@ -363,7 +363,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约824字</p>
+      <p>大约847字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -383,10 +383,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T18:54:19+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -413,6 +413,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <p>静态赋值比较简单，在实际中用的也不多，因为用到此处时多为不同类型的转化问题，所以大多信息存在于已知的类型数据中，要转化为二维数组中，必然要动态的按照原类型中的信息重构二维数组，所以新的二维数组可能每个数组中元素个数都不确定，需要动态确定。</p>
 <h3 id="动态赋值"><a href="#动态赋值" class="headerlink" title="动态赋值"></a>动态赋值</h3><p>动态赋值，也分两种，因为赋值方式除了直接两类型相等外，绝大多数都是通过两层循环，逐个赋值。于是产生了问题，在所需要的二维数组的要求“不高”时，可以直接用形如 int [][]a = new int[3][3]; 来存储，反之则会出错误。</p>
 <p>上述的“要求”高低，就是说在不确定每个数组长度时，直接用较大的空间去存，就好像 变量 a[] 是一个班的成绩，它是未知的，可以直接用int a[100]来存一样，可能结果只用了100个中的30个，但是也完成了储存或输出的任务。</p>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <p>那么，如果要求是”高”的，意思是，结果二维数组不仅仅完成存储的任务，还要保证每个数组的长度，同原信息保持一致。回到正题，要完成 <code>str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;</code>  这一过程，用str[1000][1000]来存简单情况下是没有问题的，但二维数组却丢失了ArrayList中的每个“小链表”的长度 这一重要信息。其结果第一是浪费了空间，第二个很重要的是这个二维数组不能再利用，可能通过限制可以完成输出的任务，但是用于递归嵌套等对每个数组长度有明确要求的时候，str[1000][1000]完全没用。</p>
 <p>其实，二维数组的每一维都可以动态创建，这一点很重要，动态第一维的方法：int [][]a = new a[第一维数][]；</p>
 <p>然后，在上面一维创建后，同样可以动态第二维：int a[ i ] = new a[ 第二维数 ]；</p>
@@ -466,7 +467,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\468f.html" title="从N个数组分别取值，穷尽全部情况" rel="bookmark">从N个数组分别取值，穷尽全部情况</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\468f.html" title="从N个数组分别取值，穷尽全部情况" rel="bookmark">从N个数组分别取值，穷尽全部情况</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -839,7 +840,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

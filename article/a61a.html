@@ -364,13 +364,13 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约388字</p>
+      <p>大约411字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需5分钟</p>
+      <p>阅读需6分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
@@ -384,10 +384,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:11:52+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -412,6 +412,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <h3 id="原错误信息"><a href="#原错误信息" class="headerlink" title="原错误信息"></a>原错误信息</h3><p>原错误出现的<code>IDEA</code>版本：2017.2；<br>原错误的出现场景：每次新建SBT项目并添加完SBT依赖之后出现；<br>原错误的表现：<code>build.sbt</code>文件内容解析全部是红的，并且<code>sbt shell</code>报错；<br>原错误报错如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[info] Loading settings from idea.sbt ...</span><br><span class="line">[info] Loading global plugins from C:\Users\msi\.sbt\1.0\plugins</span><br><span class="line">[info] Loading settings from plugins.sbt ...</span><br><span class="line">[info] Loading project definition from I:\IDEA_PROJ\Visualization\project</span><br><span class="line">[info] Loading settings from build.sbt ...</span><br><span class="line">[info] Set current project to Visualization (in build file:/I:/IDEA_PROJ/Visualization/)</span><br><span class="line">[info] sbt server started at local:sbt-server-a45abbca777ea4158128</span><br><span class="line">sbt:Visualization&gt;</span><br><span class="line">[info] Defining Global / sbtStructureOptions, Global / sbtStructureOutputFile, shellPrompt</span><br><span class="line">[info] The new values will be used by no settings or tasks.</span><br><span class="line">[info] Reapplying settings...</span><br><span class="line">[info] Set current project to Visualization (in build file:/I:/IDEA_PROJ/Visualization/)</span><br><span class="line">[info] Applying State transformations org.jetbrains.sbt.CreateTasks from C:/Users/msi/.IntelliJIdea2017.2/config/plugins/Scala/launcher/sbt-structure-1.1.jar</span><br><span class="line">[error] java.lang.ClassNotFoundException: org.jetbrains.sbt.CreateTasks$</span><br><span class="line">[error] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)</span><br><span class="line">... ... ...</span><br><span class="line">[error] 	at xsbt.boot.Boot$.main(Boot.scala:17)</span><br><span class="line">[error] 	at xsbt.boot.Boot.main(Boot.scala)</span><br><span class="line">[error] java.lang.ClassNotFoundException: org.jetbrains.sbt.CreateTasks$</span><br><span class="line">[error] Use 'last' for the full log.</span><br><span class="line">[info] shutting down server</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0</span><br></pre></td></tr></table></figure>
 
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h3 id="Bug解决方法"><a href="#Bug解决方法" class="headerlink" title="Bug解决方法"></a>Bug解决方法</h3><p><code>File</code>-&gt;<code>Setting</code>-&gt;<code>Build Tools</code>-&gt;<code>SBT</code>，勾选<code>Use SBT Shell for ...</code></p>
 <p><img src="http://static.zybuluo.com/EVA001/slhrj44smirzr12cj1597up0/image_1cf8d2bu62jnjhhffh1l1jad9.png" alt></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000671044-What-is-estimate-to-support-SBT-1-0-x-or-java-lang-ClassNotFoundException-org-jetbrains-sbt-CreateTasks-" target="_blank" rel="external nofollow noopener noreferrer">IDEA官方社区的帖子</a></p>
@@ -463,7 +464,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\5dab.html" title="在windows下使用IDEA远程连接linux集群进行mapreduce调试" rel="bookmark">在windows下使用IDEA远程连接linux集群进行mapreduce调试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ce1b.html" title="远程IDEA调试Storm" rel="bookmark">远程IDEA调试Storm</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1fbc.html" title="IDEA中运行Topology" rel="bookmark">IDEA中运行Topology</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\5dab.html" title="在windows下使用IDEA远程连接linux集群进行mapreduce调试" rel="bookmark">在windows下使用IDEA远程连接linux集群进行mapreduce调试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ce1b.html" title="远程IDEA调试Storm" rel="bookmark">远程IDEA调试Storm</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1fbc.html" title="IDEA中运行Topology" rel="bookmark">IDEA中运行Topology</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -839,7 +840,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

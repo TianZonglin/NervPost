@@ -384,10 +384,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T07:40:53+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T18:52:02+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月20日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -426,7 +426,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 </li>
 </ul>
 <p>总的来说对于大访问量或多子域名的网站来说，不建议使用裸域。小流量或子域名少的网站的话就看个人爱好了。我挺喜欢裸域的。最近几年流行起来的「单页网页应用」 ( Single Page Web App ) 也是以采用裸域的居多，Twitter 算是一例。</p>
-<p>&lt;&lt; 更多精彩尽在程序萌部落 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h4 id="去掉-www-是否会影响网站的-SEO（主要是排名和收录）"><a href="#去掉-www-是否会影响网站的-SEO（主要是排名和收录）" class="headerlink" title="去掉 www 是否会影响网站的 SEO（主要是排名和收录）"></a>去掉 www 是否会影响网站的 SEO（主要是排名和收录）</h4><p>（前提是过去有加 www）早先裸域刚开始流行的时候确实有传闻说不利于 SEO，但现在看来似乎并无任何问题。如果有的话也是搜索引擎的 bug，给他们提一下他们应该会很乐意去改。Google 的站长工具里面有工具可以帮助你做 URL 迁移的，可以有效的解决这个问题，再配合下一部分的跳转，不用担心对 SEO 有任何负面影响。</p>
 <h4 id="用什么方式去跳转最好？"><a href="#用什么方式去跳转最好？" class="headerlink" title="用什么方式去跳转最好？"></a>用什么方式去跳转最好？</h4><p>（如 301）不管你决定使用还是不使用裸域，最好不要在同时保留 www 和非 www 前缀的 URL，这样既不方便用户的浏览器区分访问历史，也会对你做访问统计带来不少麻烦。最佳的方式是采用 301 跳转，并且跳转的时候保留 URL 里域名后的全部内容。比如，如果你决定使用裸域 <code>http://example.com</code>，那么请务必将 <code>http://www.example.com/foo/bar?spam=egg</code> 301 跳转到 <code>http://example.com/foo/bar?spam=egg</code> 。或者反过来，如果你决定不使用裸域，那么请务必将 <code>http://example.com/foo/bar?spam=egg</code> 301 跳转到 <code>http://www.example.com/foo/bar?spam=egg</code>，这样的跳转需要在 web 服务器里单独配置，很多 DNS 管理界面提供的简单的跳转到新域名的根目录无法实现这样的功能（仅仅跳到 <code>http://example.com/</code> ) ，对用户体验和搜索引擎 SEO 而言都是非常糟糕的。</p>
 <p>下面给出如何在 nginx 里面实现上述的跳转：</p>
@@ -861,7 +861,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

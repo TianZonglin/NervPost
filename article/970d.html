@@ -362,7 +362,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约1.3k字</p>
+      <p>大约1.4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:11:06+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -418,6 +418,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <p>但是编译时会出现如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Run:</span><br><span class="line">18&#x2F;05&#x2F;22 01:29:47 WARN ClosureCleaner: Expected a closure; got edu.berkeley.cs.amplab.spark.indexedrdd.IndexedRDD$MultiputZipper</span><br><span class="line">Exception in thread &quot;main&quot; java.lang.NoSuchMethodError: org.apache.spark.SparkContext.runJob</span><br><span class="line"></span><br><span class="line">Sbt shell:</span><br><span class="line">could not find implicit value for evidence parameter of type edu.berkeley.cs.amplab.spark.indexedrdd.KeySerializer[Long]</span><br></pre></td></tr></table></figure>
 
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h4 id="解决措施二"><a href="#解决措施二" class="headerlink" title="解决措施二"></a>解决措施二</h4><p>这时看到了 源库 的这个 <a href="https://github.com/amplab/spark-indexedrdd/issues/31" target="_blank" rel="external nofollow noopener noreferrer">Issue</a><br>于是将 <code>spark-indexedrdd</code> 改为 <code>0.4.0</code> 版本，注意是三位数字</p>
 <p>然后继续编译仍然出同样的错（没效果）</p>
 <h4 id="解决措施三"><a href="#解决措施三" class="headerlink" title="解决措施三"></a>解决措施三</h4><p>这时，又看见了 <a href="https://blog.csdn.net/feng12345zi/article/details/79754730" target="_blank" rel="external nofollow noopener noreferrer"><strong>这个问题</strong></a> 其错误跟咱们的不一样，但是格式太像了，然后看他的解决方案：</p>
@@ -487,7 +488,7 @@ spark-indexedrdd-0.4.0</code></pre><p>build.sbt 文件：</p>
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b086.html" title="Spark安装之问题" rel="bookmark">Spark安装之问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b086.html" title="Spark安装之问题" rel="bookmark">Spark安装之问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -857,7 +858,7 @@ spark-indexedrdd-0.4.0</code></pre><p>build.sbt 文件：</p>
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

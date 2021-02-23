@@ -383,10 +383,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T18:57:42+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -433,6 +433,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <blockquote>
 <p>这里要注意，因为Kafka读取特定消息的时间复杂度为O(1)，即与文件大小无关，所以这里删除过期文件与提高Kafka性能无关。选择怎样的删除策略只与磁盘以及具体的需求有关。另外，Kafka会为每一个Consumer Group保留一些metadata信息——当前消费的消息的position，也即offset。这个offset由Consumer控制。正常情况下Consumer会在消费完一条消息后递增该offset。当然，Consumer也可将offset设成一个较小的值，重新消费一些消息。因为offet由Consumer控制，所以Kafka broker是无状态的，它不需要标记哪些消息被哪些消费过，也不需要通过broker去保证同一个Consumer Group只有一个Consumer能消费某一条消息，因此也就不需要锁机制，这也为Kafka的高吞吐率提供了有力保障。</p>
 </blockquote>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h2 id="Producer消息路由"><a href="#Producer消息路由" class="headerlink" title="Producer消息路由"></a>Producer消息路由</h2><blockquote>
 <p>Producer发送消息到broker时，会根据Paritition机制选择将其存储到哪一个Partition。如果Partition机制设置合理，所有消息可以均匀分布到不同的Partition里，这样就实现了负载均衡。如果一个Topic对应一个文件，那这个文件所在的机器I/O将会成为这个Topic的性能瓶颈，而有了Partition后，不同的消息可以并行写入不同broker的不同Partition里，极大的提高了吞吐率。<br>可以在$KAFKA_HOME/config/server.properties中通过配置项num.partitions来指定新建Topic的默认Partition数量，也可在创建Topic时通过参数指定，同时也可以在Topic创建之后通过Kafka提供的工具修改。<br>在发送一条消息时，可以指定这条消息的key，Producer根据这个key和Partition机制来判断应该将这条消息发送到哪个Parition。<br>Paritition机制可以通过指定Producer的paritition. class这一参数来指定，该class必须实现kafka.producer.Partitioner接口。本例中如果key可以被解析为整数则将对应的整数与Partition总数取余，该消息会被发送到该数对应的Partition。（每个Parition都会有个序号,序号从0开始）</p>
 </blockquote>
@@ -493,7 +494,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f84f.html" title="Flume、Kafka、Storm如何结合使用" rel="bookmark">Flume、Kafka、Storm如何结合使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d21a.html" title="ETL工具~Kettle调研" rel="bookmark">ETL工具~Kettle调研</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\45fb.html" title="Kafka初使用" rel="bookmark">Kafka初使用</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f84f.html" title="Flume、Kafka、Storm如何结合使用" rel="bookmark">Flume、Kafka、Storm如何结合使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d21a.html" title="ETL工具~Kettle调研" rel="bookmark">ETL工具~Kettle调研</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3e6b.html" title="zkp,kfk,stm联通的问题" rel="bookmark">zkp,kfk,stm联通的问题</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -869,7 +870,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

@@ -362,7 +362,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约966字</p>
+      <p>大约989字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T19:43:55+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:11:31+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2020年2月29日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -416,6 +416,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <h3 id="Node的作用"><a href="#Node的作用" class="headerlink" title="Node的作用"></a>Node的作用</h3><p>这里为什么要用<code>Node</code>，其实主要是为了起一个<code>Server</code>，由上面的叙述可以知道，这里<code>d3</code>需要读取<code>json</code>文件，那么问题来了，直接静态打开是会报错的，必须放到一个<code>Server</code>内以请求的方式进行才可以，这个<code>Server</code>从何而来，当然可以是<code>Tomcat</code>，但是，人总是要接受新事物，<code>Node</code>的强大已经在各方面都慢慢体现出来了，服务容器当然也有他的身影，这里我只用了其中一种方式（<code>http-server</code>），如果时间允许自己实现一个也是可以的。</p>
 <p><code>http-server</code>除了可以快速起<code>Server</code>外，还具有实时更新的功能，即，我只管往目录内写（更新）文件，然后用<code>d3</code>进行绘制，更新的部分会自动更新到<code>Server</code>，即重写覆写文件后我不需要重开<code>Server</code>，只需要刷新一下页面即可。</p>
 <p><img src="http://static.zybuluo.com/EVA001/j25iidb3lggqqj2cschzhqd4/image_1cf8bno1ubslm5a1q4g1b5h83n9.png" alt></p>
+<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h3 id="http-server的使用方式"><a href="#http-server的使用方式" class="headerlink" title="http-server的使用方式"></a>http-server的使用方式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> node --version                // 随便新建个目录并初始化</span></span><br><span class="line">v8.9.0</span><br><span class="line"></span><br><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install http-server -g   // 安装http-server</span></span><br><span class="line"></span><br><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> http-server -p 8888           // 开启Server</span></span><br><span class="line">Starting up http-server, serving ./</span><br><span class="line">Available on:</span><br><span class="line">  http://192.168.230.1:8888</span><br><span class="line">  http://192.168.146.1:8888</span><br><span class="line">  http://127.0.0.1:8888</span><br><span class="line">Hit CTRL-C to stop the server</span><br></pre></td></tr></table></figure>
 
 <p>完成后的目录如下所示，这里的整个目录就如同<code>Tomcat</code>的<code>Webapp</code>目录一样；</p>
@@ -476,7 +477,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\30b8.html" title="使用D3.JS进行坐标轴绘制和图绘制" rel="bookmark">使用D3.JS进行坐标轴绘制和图绘制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3bfa.html" title="一种基于力导向布局的层次结构可视化方法" rel="bookmark">一种基于力导向布局的层次结构可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c4.html" title="WebSocket的初次使用及调试" rel="bookmark">WebSocket的初次使用及调试</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\30b8.html" title="使用D3.JS进行坐标轴绘制和图绘制" rel="bookmark">使用D3.JS进行坐标轴绘制和图绘制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\3bfa.html" title="一种基于力导向布局的层次结构可视化方法" rel="bookmark">一种基于力导向布局的层次结构可视化方法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -846,7 +847,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题
