@@ -363,13 +363,13 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-heading" aria-hidden="true"></i>
-      <p>大约1.2k字</p>
+      <p>大约1.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-calculator" aria-hidden="true"></i>
-      <p>阅读需8分钟</p>
+      <p>阅读需9分钟</p>
     </a>
   </div>
   <div class="new-meta-item visitime">
@@ -383,10 +383,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T07:46:26+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T11:32:50+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月20日</p>
+    <p>本页文档最后更新于：2021年2月23日</p>
   </a>
 </div>
 
@@ -418,7 +418,11 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 </ul>
 <p><strong>物理机/docker服务</strong>。这是最正统的实现方法，比如使用物理主机，通过Nginx配置即可完成重定向工作。但我没有云服务器我就没机会了吗？非也！HeroKu在等你！HeroKu也是一个站点托管平台，但突出点在于托管的实体对象，是docker对象，也就是说，理论上Heroku的托管应用就可以实现301重定向，确实，他们可以！</p>
 <p><strong>①</strong> 在Ubuntu上使用，只需要先安装heroku，再将重定向项目克隆并上传到你的heroku应用中，最后配置所谓的“重定向路径”。具体步骤如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo snap install --classic heroku</span><br><span class="line">$ heroku login</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/joeyAghion/rerouter.git</span><br><span class="line">$ <span class="built_in">cd</span> rerouter</span><br><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a redirectold //heroku项目名称</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am <span class="string">"make it better"</span></span><br><span class="line">$ git push heroku master</span><br><span class="line"></span><br><span class="line">$ heroku config:<span class="built_in">set</span> REDIRECTS=<span class="string">"&#123;'www.cz5h.com'=&gt;'www.cxmoe.com'&#125;"</span></span><br><span class="line">$ heroku domains:add cz5h.com</span><br></pre></td></tr></table></figure>
+<p>（其他平台安装参见：<a href="https://devcenter.heroku.com/articles/heroku-cli）" target="_blank" rel="external nofollow noopener noreferrer">https://devcenter.heroku.com/articles/heroku-cli）</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo snap install --classic heroku</span><br><span class="line">$ heroku login</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/joeyAghion/rerouter.git </span><br><span class="line">$ <span class="built_in">cd</span> rerouter</span><br><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a redirectold //heroku项目名称</span><br><span class="line"></span><br><span class="line">$ git add . //克隆后要修改一处地方！！</span><br><span class="line">$ git commit -am <span class="string">"make it better"</span></span><br><span class="line">$ git push heroku master</span><br><span class="line"></span><br><span class="line">$ heroku config:<span class="built_in">set</span> REDIRECTS=<span class="string">"&#123;'www.cz5h.com'=&gt;'www.cxmoe.com'&#125;"</span></span><br><span class="line">$ heroku domains:add cz5h.com</span><br></pre></td></tr></table></figure>
+
+<p>注意：克隆之后的源代码需要修改一下，把跳转链接改为 <code>https</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">require &#39;rack&#x2F;rewrite&#39;</span><br><span class="line"># Expects ENV[&#39;REDIRECTS&#39;] to be a ruby hash of source hostnames to destination hostnames. E.g.:</span><br><span class="line">#   &quot;&#123;&#39;old.domain.com&#39; &#x3D;&gt; &#39;new.domain.com&#39;&#125;&quot;</span><br><span class="line">REDIRECTS &#x3D; eval(ENV[&#39;REDIRECTS&#39;] || &#39;&#39;) || &#123;&#125;</span><br><span class="line">use Rack::Rewrite do</span><br><span class="line">  REDIRECTS.each do |from, to|</span><br><span class="line">    r301 %r&#123;.*&#125;, &quot;https:&#x2F;&#x2F;#&#123;to&#125;$&amp;&quot;, if: -&gt; (env) &#123; env[&#39;SERVER_NAME&#39;] &#x3D;&#x3D; from &#125;</span><br><span class="line">  end</span><br><span class="line">end</span><br><span class="line"># Fall back to default app (empty).</span><br><span class="line">run -&gt; (env) &#123; [200, &#123;&#125;, []] &#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>②</strong> 完成之后，即可在Heroku网站上看到修改的内容，尤其是Redirects配置。</p>
 <p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210220001606.png"></fancybox></p>
@@ -862,7 +866,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 302.8k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 303k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题
