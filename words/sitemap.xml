@@ -95,21 +95,7 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/%E7%9E%8E%E5%86%99/</loc>
-    <lastmod>2021-02-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2021-02-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/</loc>
     <lastmod>2021-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -130,7 +116,21 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/</loc>
+    <loc>https://www.cxmoe.com/words/tags/%E7%9E%8E%E5%86%99/</loc>
+    <lastmod>2021-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2021-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2021-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -158,6 +158,13 @@
   </url>
   
   <url>
+    <loc>https://www.cxmoe.com/words/tags/research/</loc>
+    <lastmod>2021-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cxmoe.com/words/tags/notes/</loc>
     <lastmod>2021-02-26</lastmod>
     <changefreq>daily</changefreq>
@@ -166,13 +173,6 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/training/</loc>
-    <lastmod>2021-02-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/research/</loc>
     <lastmod>2021-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
