@@ -22,7 +22,7 @@
 <meta property="og:description" content="Here you have a normal data table in your hand. It could include thousands of rows and columns, and usually, the items are all numerical numbers, which are hard to understand. Now, your task is to get">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-02T23:00:00.000Z">
-<meta property="article:modified_time" content="2021-02-07T15:25:52.900Z">
+<meta property="article:modified_time" content="2021-02-27T01:16:33.999Z">
 <meta property="article:author" content="程序萌部落">
 <meta property="article:tag" content="presentation">
 <meta property="article:tag" content="slides">
@@ -192,7 +192,7 @@
         <span class="column is-narrow">
             
             
-            4 minutes read (About 581 words)
+            4 minutes read (About 593 words)
         </span>
         
  
@@ -214,6 +214,7 @@
 <p>For example, with PCA, you can get a squeezed result, which means the number of rows won’t change but columns could be compressed into 2 or 3. Since columns indicate dimensional information,  you can say the dataset is transformed from high-dimension to low-dimension,  which you can easily visualize as a scatterplot in the coordinate system. </p>
 <p>Now, you can get the scatterplot in which every row represents a point, and they could gather into different clusters. We naturally think these clusters are the clustering features of this dataset. And if you assign different colors into different clusters, then you can understand it immediately.</p>
 <h3 id="Propelling-Moment"><a href="#Propelling-Moment" class="headerlink" title="Propelling Moment"></a><strong>Propelling Moment</strong></h3><p>But the question is that since PCA is just one of so many algorithms, how could you make sure the PCA could give you a proper result. Can you trust it? The short answer is No. We need a way to test it.  </p>
+<p>&lt;&lt; Read more articles in <a href="https://www.cxmoe.com/">https://www.cxmoe.com</a> &gt;&gt;</p>
 <h3 id="Divergent-Action-Phase"><a href="#Divergent-Action-Phase" class="headerlink" title="Divergent Action Phase"></a><strong>Divergent Action Phase</strong></h3><p>Here we compute two kinds of neighbor errors by testing every point in the scatterplot.</p>
 <p>What are the neighbors? If points are located in a circle area around the one we selected, then we call them their neighbors.<br>We use the classic Euclidean distance to find out all neighbors of each point in the low-dimension scatterplot and the original high-dimension data. </p>
 <p>Next, we can compare these two kinds of neighbors. For the point of low-dim scatterplots, if its neighbors don’t appear in high-dim data, then we call them false-neighbors. And if the points of low-dim scatterplots miss some neighbors of high-dim data, then we call these missing-neighbors. </p>
