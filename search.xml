@@ -2085,9 +2085,9 @@
       
         <tags>
             
-            <tag> 集群 </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> 集群 </tag>
             
             <tag> Spark </tag>
             
@@ -2439,11 +2439,11 @@
             
             <tag> 层次数据 </tag>
             
-            <tag> 并行计算 </tag>
-            
             <tag> 力导向 </tag>
             
             <tag> 图简化 </tag>
+            
+            <tag> 并行计算 </tag>
             
         </tags>
       
@@ -2667,9 +2667,9 @@
       
         <tags>
             
-            <tag> WebSocket </tag>
-            
             <tag> 可视化 </tag>
+            
+            <tag> WebSocket </tag>
             
             <tag> 布局算法 </tag>
             
@@ -2901,9 +2901,9 @@
       
         <tags>
             
-            <tag> WebSocket </tag>
-            
             <tag> 可视化 </tag>
+            
+            <tag> WebSocket </tag>
             
             <tag> 布局算法 </tag>
             
@@ -2957,9 +2957,9 @@
       
         <tags>
             
-            <tag> WebSocket </tag>
-            
             <tag> 可视化 </tag>
+            
+            <tag> WebSocket </tag>
             
         </tags>
       
@@ -3745,9 +3745,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -3830,9 +3830,9 @@
             
             <tag> 概述 </tag>
             
-            <tag> 转载 </tag>
-            
             <tag> Kafka </tag>
+            
+            <tag> 转载 </tag>
             
         </tags>
       
@@ -3944,13 +3944,13 @@
       
         <tags>
             
-            <tag> 转载 </tag>
-            
             <tag> Kafka </tag>
             
             <tag> Storm </tag>
             
             <tag> 整合 </tag>
+            
+            <tag> 转载 </tag>
             
             <tag> Flume </tag>
             
@@ -4031,9 +4031,9 @@
       
         <tags>
             
-            <tag> Kafka </tag>
-            
             <tag> Zookeeperp </tag>
+            
+            <tag> Kafka </tag>
             
             <tag> Storm </tag>
             
@@ -4062,9 +4062,9 @@
       
         <tags>
             
-            <tag> Hadoop </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> Hadoop </tag>
             
             <tag> IDEA </tag>
             
@@ -4093,9 +4093,9 @@
             
             <tag> 概述 </tag>
             
-            <tag> 转载 </tag>
-            
             <tag> Kafka </tag>
+            
+            <tag> 转载 </tag>
             
         </tags>
       
@@ -4174,11 +4174,11 @@
       
         <tags>
             
-            <tag> 集群 </tag>
+            <tag> VMware </tag>
             
             <tag> 调试 </tag>
             
-            <tag> VMware </tag>
+            <tag> 集群 </tag>
             
         </tags>
       
@@ -4257,11 +4257,11 @@
       
         <tags>
             
+            <tag> 调试 </tag>
+            
             <tag> Hadoop </tag>
             
             <tag> 集群 </tag>
-            
-            <tag> 调试 </tag>
             
         </tags>
       
@@ -4286,9 +4286,9 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> CentOS </tag>
             
             <tag> 联网 </tag>
             
@@ -4315,9 +4315,9 @@
       
         <tags>
             
-            <tag> 调试 </tag>
-            
             <tag> VMware </tag>
+            
+            <tag> 调试 </tag>
             
         </tags>
       
@@ -4643,9 +4643,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> Java </tag>
             
             <tag> 排列组合 </tag>
             
