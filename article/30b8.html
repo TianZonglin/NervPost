@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:11:39+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -418,7 +418,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 
 <h5 id="添加坐标轴"><a href="#添加坐标轴" class="headerlink" title="添加坐标轴"></a><strong>添加坐标轴</strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formatPrecision = d3.format(<span class="string">''</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义X轴  </span></span><br><span class="line"><span class="keyword">var</span> xAxis = d3.svg.axis()  </span><br><span class="line">  .scale(xScale)</span><br><span class="line">  .ticks(<span class="number">11</span>)  <span class="comment">// 粗略的设置刻度线的数量，包括原点</span></span><br><span class="line">  .orient(<span class="string">'bottom'</span>)</span><br><span class="line">  .tickFormat(formatPrecision); <span class="comment">// 设置刻度格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Y轴  </span></span><br><span class="line"><span class="keyword">var</span> yAxis = d3.svg.axis()  </span><br><span class="line">  .scale(yScale)  </span><br><span class="line">  .orient(<span class="string">'left'</span>)  </span><br><span class="line">  .ticks(<span class="number">11</span>)  </span><br><span class="line">  .tickFormat(formatPrecision);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建X轴, svg中： g元素是一个分组元素  </span></span><br><span class="line">svg.append(<span class="string">'g'</span>)  </span><br><span class="line">  .attr(<span class="string">'class'</span>, <span class="string">'axis'</span>)</span><br><span class="line">  .attr(<span class="string">"transform"</span>,<span class="string">"translate(0,"</span>+<span class="number">0.5</span>*svgHight+<span class="string">")"</span>)	<span class="comment">// 平移到水平中间</span></span><br><span class="line">  .call(xAxis);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建Y轴  </span></span><br><span class="line">svg.append(<span class="string">'g'</span>)  </span><br><span class="line">  .attr(<span class="string">'class'</span>, <span class="string">'axis'</span>)</span><br><span class="line">  .attr(<span class="string">"transform"</span>,<span class="string">"translate("</span>+<span class="number">0.5</span>*svgWidth+<span class="string">",0)"</span>)	<span class="comment">// 平移到竖直中间</span></span><br><span class="line">  .call(yAxis);</span><br></pre></td></tr></table></figure>
 
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="绘制图（circle-line）"><a href="#绘制图（circle-line）" class="headerlink" title="绘制图（circle+line）"></a>绘制图（circle+line）</h3><p>关于图的绘制，本质上就是圆点和线的绘制，所以这也解释了为什么输入文件中的边数据也需要包含坐标的原因，因为在<code>d3</code>中绘制顶点和绘制边是互不相关的。</p>
 <p>另外需要注意的是，这里不要直接返回源数据坐标，要带入到上述定义的 *<em>比例尺 *</em>中。</p>
 <p>话不多说直接上代码：</p>
@@ -851,7 +851,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

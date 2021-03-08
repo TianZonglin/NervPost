@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:10:09+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -520,7 +520,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphOps</span>[<span class="type">VD</span>, <span class="type">ED</span>] </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighborIds</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>): <span class="type">VertexRDD</span>[<span class="type">Array</span>[<span class="type">VertexId</span>]]</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">collectNeighbors</span></span>(edgeDirection:  <span class="type">EdgeDirection</span>): <span class="type">VertexRDD</span>[ <span class="type">Array</span>[(<span class="type">VertexId</span>, <span class="type">VD</span>)] ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>需要注意的是，这些运算计算代价非常高，因为他们包含重复信息，并且需要大量的通信。如果可能的话尽量直接使用 mapReduceTriplets。</p>
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h4 id="缓存和清空缓存"><a href="#缓存和清空缓存" class="headerlink" title="缓存和清空缓存"></a><strong>缓存和清空缓存</strong></h4><p>在Spark中，RDDS默认并不保存在内存中。为了避免重复计算，当他们需要多次使用时，必须明确地使用缓存（见 Spark编程指南）。在GraphX中Graphs行为方式相同。当需要多次使用图形时，一定要首先调用Graph.cache。</p>
 <p>在迭代计算，为了最佳性能，也可能需要清空缓存。默认情况下，缓存的RDDS和图表将保留在内存中，直到内存压力迫使他们按照LRU顺序被删除。对于迭代计算，之前的迭代的中间结果将填补缓存。虽然他们最终将被删除，内存中的不必要的数据会使垃圾收集机制变慢。一旦它们不再需要缓存，就立即清空中间结果的缓存，这将会更加有效。这涉及物化（缓存和强迫）图形或RDD每次迭代，清空所有其他数据集，并且只使用物化数据集在未来的迭代中。然而，由于图形是由多个RDDS的组成的，正确地持续化他们将非常困难。对于迭代计算，我们推荐使用 Pregel API，它正确地 unpersists 中间结果。</p>
 <h3 id="Pregel-的-API"><a href="#Pregel-的-API" class="headerlink" title="Pregel 的 API"></a><strong>Pregel 的 API</strong></h3><p>图本质上是递归的数据结构，因为顶点的性质取决于它们的邻居，这反过来又依赖于邻居的属性。其结果是许多重要的图形算法迭代重新计算每个顶点的属性，直到定点条件满足为止。一系列图像并行方法已经被提出来表达这些迭代算法。GraphX 提供了类似与Pregel 的操作，这是 Pregel 和 GraphLab 方法的融合。</p>
@@ -630,7 +630,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1000,7 +1000,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

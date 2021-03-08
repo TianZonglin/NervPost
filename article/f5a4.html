@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:12:00+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -426,7 +426,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <h3 id="纠错场景"><a href="#纠错场景" class="headerlink" title="纠错场景"></a>纠错场景</h3><h4 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h4><p>如果调用<code>java.util.File</code>来进行文件写入，Local模式自然是没有问题，但是集群分布式运行时，必须先执行<code>collect</code>操作来取回数据到本地，这就造成一个问题，假如在<code>100</code>个节点的集群中执行任务，现在要将文件写入到<code>Linux</code>文件系统，这本身就很搞笑，这样做的后果是，写操作在某个节点上被触发，全部数据都被收集到这个节点，然后此<code>Worker</code>将数据写入到<code>本地</code>，注意，这里的本地就是该<code>Worker</code>所在的节点，如果使用者要查看结果，那么他必须去到该节点的文件系统中查看。</p>
 <p>上述就是为什么<code>Spark</code>运行时要将输出写入<code>hdfs</code>的原因，对于<code>hdfs</code>来说，其对于使用者来说就变成了一个存储环境，使用者无需关心数据具体哪部分存在哪个节点上。</p>
 <p>所以，对于有写文件操作的代码在提交分布式执行时，切记检查是否调用的<code>java.util.File</code>.</p>
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h4 id="对象的遍历"><a href="#对象的遍历" class="headerlink" title="对象的遍历"></a>对象的遍历</h4><p>这是最具迷惑性的部分，一开始写Spark代码时可能会在其中充斥着<code>List</code>、<code>Map</code>等等操作对象，更有甚者甚至引用<code>java.util.List</code>，并且希望在循环中对其进行更新，这在本地模式时显然也是正确的，但是其显然也不是分布式执行的代码。</p>
 <p>那么，如果我就想维护一个大的<code>K,V</code>结构，并且想分布式执行地更新，那应该怎么做，答案是使用<code>RDD</code>，当然可以使用之前说过的<code>IndexedRDD</code>，这都是<code>RDD</code>做的封装，可能用起来非常别扭，比如由于<strong>不可变性</strong>，必须每次迭代都重新创建新的<code>RDD</code>等。</p>
 <h3 id="正确的分布式执行代码"><a href="#正确的分布式执行代码" class="headerlink" title="正确的分布式执行代码"></a>正确的分布式执行代码</h3><p>到底什么才是正确的正规的分布式执行代码呢，其实一句话就可以概括，那就是<strong>全部逻辑都用RDD操作实现</strong>，即如果有个单机串行算法要分布式并行化，如果目标是在Spark上运行，那么最好的方式就是将原算法中的全部逻辑用<code>RDD</code>的操作来实现。</p>
@@ -482,7 +482,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38f4.html" title="将博客搬至CSDN" rel="bookmark">将博客搬至CSDN</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4735.html" title="关于图中节点间的概率求解问题" rel="bookmark">关于图中节点间的概率求解问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38f4.html" title="将博客搬至CSDN" rel="bookmark">将博客搬至CSDN</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4735.html" title="关于图中节点间的概率求解问题" rel="bookmark">关于图中节点间的概率求解问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -852,7 +852,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

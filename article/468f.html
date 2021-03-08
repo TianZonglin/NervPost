@@ -385,10 +385,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T18:53:30+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -413,7 +413,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 
 <p>在此，我把JAVA中的实现来个详细说明。</p>
 <p>首先，思路为递归，将其写为成员函数，方便调用。</p>
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ABC</span></span>&#123;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][]str;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ABC</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">            ... ...  </span><br><span class="line">            <span class="comment">//str[][]的赋值语句，得到存储完成的二维数组，见‘创建动态二维数组的技巧’  </span></span><br><span class="line">            ... ...  </span><br><span class="line">        <span class="keyword">int</span> result[]=<span class="keyword">new</span> <span class="keyword">int</span>[ N ];  <span class="comment">//此处即符合要求的，有N个数组  </span></span><br><span class="line">        show(result,<span class="number">0</span>);  <span class="comment">//进入递归函数，进行测试  </span></span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span>[] result1, <span class="keyword">int</span> curr)</span></span>&#123;      <span class="comment">//curr即代表当前取元素的数组  </span></span><br><span class="line">        <span class="keyword">if</span> (curr == N) &#123;    <span class="comment">//curr==N即完成一个序列，输出一次结果集  </span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;result1.length;k++) System.out.print(result1[k]);   </span><br><span class="line">            System.out.println();   <span class="comment">//输出格式控制  </span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;str[curr].length; ++i) &#123;     <span class="comment">//每次循环此次取元素的数组的长度  </span></span><br><span class="line">                result1[curr] = str[curr][i];               <span class="comment">//关键赋值处，给到结果集  </span></span><br><span class="line">                show(result1, curr+<span class="number">1</span>);  <span class="comment">//一次递归完成，即从下一个数组中去取元素，curr+1.       </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -467,7 +467,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cad2.html" title="安装sqlserver并用myeclipse访问之" rel="bookmark">安装sqlserver并用myeclipse访问之</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bfd.html" title="JAVA动态创建表以及动态插入数据" rel="bookmark">JAVA动态创建表以及动态插入数据</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\421a.html" title="J2EE前后台传值带中文时乱码" rel="bookmark">J2EE前后台传值带中文时乱码</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cad2.html" title="安装sqlserver并用myeclipse访问之" rel="bookmark">安装sqlserver并用myeclipse访问之</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bfd.html" title="JAVA动态创建表以及动态插入数据" rel="bookmark">JAVA动态创建表以及动态插入数据</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -846,7 +846,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

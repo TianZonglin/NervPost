@@ -383,10 +383,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T18:54:52+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -422,7 +422,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <p>如果get与set在其中，则可以直接用，不用getParameter</p>
 <p>要做的操作：String xxx = request.getParameter(“xxx”);之后加一句 xxx = URLDecoder.decode(username , “utf-8”);  //关键代码,所需包会自动添加</p>
 <p>get与set同你的处理代码在一起的，就在excute()里第一次出现xxx的前面添加：xxx = URLDecoder.decode(username , “utf-8”); </p>
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="用href-action传值"><a href="#用href-action传值" class="headerlink" title="用href=action传值"></a>用href=action传值</h3><p>首先，要改写，不要用href，改为点击触发一个js的function()，比如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"in"</span> <span class="attr">value</span>=<span class="string">"&lt;%p++(构造了一个id值)%&gt;"</span><span class="attr">....href</span>=<span class="string">"xx.action?id=p "</span>&gt;</span></span><br><span class="line">单传非中文是没有问题的，但是中文就要改一下，先要执行一个js：</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"in"</span> <span class="attr">value</span>=<span class="string">"&lt;%p++(构造了一个id值)%&gt;"</span><span class="attr">....onclick</span>=<span class="string">”look(</span>'<span class="attr">p</span>')“&gt;</span></span><br><span class="line">添加完onclick属性后，再添加代码：</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">look</span>(<span class="params"> str </span>)</span>&#123; </span><br><span class="line"><span class="comment">//在js中首先进行两侧编码,注意是两次，查阅所有网上资料都可以发现，至于为什么，功力未到还不能搞懂</span></span><br><span class="line">    <span class="keyword">var</span> faultAddr = <span class="built_in">encodeURI</span>(<span class="built_in">encodeURI</span>(str));  <span class="comment">//需要通过两次编码    </span></span><br><span class="line">    <span class="built_in">window</span>.location.href=<span class="string">"xxx.action?id="</span>+str; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -482,7 +482,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fab.html" title="添加轻量的RSS订阅内容阅读展示支持" rel="bookmark">添加轻量的RSS订阅内容阅读展示支持</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\502d.html" title="应对LeanCloud对于处理性能的限制" rel="bookmark">应对LeanCloud对于处理性能的限制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bfd.html" title="JAVA动态创建表以及动态插入数据" rel="bookmark">JAVA动态创建表以及动态插入数据</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\166a.html" title="select标签添加onclick()事件的兼容写法" rel="bookmark">select标签添加onclick()事件的兼容写法</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fab.html" title="添加轻量的RSS订阅内容阅读展示支持" rel="bookmark">添加轻量的RSS订阅内容阅读展示支持</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\502d.html" title="应对LeanCloud对于处理性能的限制" rel="bookmark">应对LeanCloud对于处理性能的限制</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\468f.html" title="从N个数组分别取值，穷尽全部情况" rel="bookmark">从N个数组分别取值，穷尽全部情况</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -855,7 +855,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题

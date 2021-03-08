@@ -382,10 +382,10 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-23T19:04:14+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年2月23日</p>
+    <p>本页文档最后更新于：2021年3月8日</p>
   </a>
 </div>
 
@@ -441,7 +441,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
 <p>特性1：参数为一个匿名函数<br>特性2：规约结果一定是List元素的类型，所以是被经常使用的（相较于foldLeft）</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">对于<span class="type">List</span>变量a</span><br><span class="line">scala&gt; a</span><br><span class="line">res33: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">使用reduceLeft，参数为匿名函数，表示规约的表达式</span><br><span class="line">scala&gt; a.reduceLeft((x,y) =&gt; x+y)</span><br><span class="line">res31: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line">可以使用下划线通配</span><br><span class="line">scala&gt; a.reduceLeft(_+_)</span><br><span class="line">res32: <span class="type">Int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure>
 
-<p>&lt;&lt; 更多精彩尽在『程序萌部落』 &gt;&gt;<br>&lt;&lt; <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> &gt;&gt;</p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h2 id="foldLeft-z-U-op-U-T-gt-U"><a href="#foldLeft-z-U-op-U-T-gt-U" class="headerlink" title="foldLeft(z:U)(op: (U, T) =&gt; U )"></a>foldLeft(z:U)(op: (U, T) =&gt; U )</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z   x1  x2      ... xn</span><br><span class="line">  op    x1      ... xn</span><br><span class="line">     op         ... xn</span><br><span class="line">                ...</span><br><span class="line">                 op</span><br></pre></td></tr></table></figure>
 <p>特性1：使用柯里化定义<br>特性2：必须有初始值z<br>特性3：返回值是初始值z的类型，故不太使用</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; a</span><br><span class="line">res33: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">//使用foldLeft进行元素的求和，并且初值为0</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">0</span>)((x,y) =&gt; x+y)</span><br><span class="line">res34: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="comment">//使用通配符</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">0</span>)(_+_)</span><br><span class="line">res35: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="comment">//初值改变后的结果</span></span><br><span class="line">scala&gt; a.foldLeft(<span class="number">1</span>)(_+_)</span><br><span class="line">res36: <span class="type">Int</span> = <span class="number">11</span></span><br></pre></td></tr></table></figure>
@@ -508,7 +508,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -878,7 +878,7 @@ webpushr('setup',{'key':'BA7sM8xLnjJE6KD6eWn_TuypjAijUf7VwRL0qFm-szSV8hgWWHMHE_S
   <!---保留老的footer调用-->	
   <div>
 
-	<span>全站共计 305.6k 字，自豪地使用 Volantis 主题</span>
+	<span>全站共计 306.7k 字，自豪地使用 Volantis 主题</span>
 	<!---end
     由 Hexo 强力驱动，
     自豪地使用 Volantis 主题
