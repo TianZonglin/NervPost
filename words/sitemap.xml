@@ -144,7 +144,7 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/pitfalls/</loc>
+    <loc>https://www.cxmoe.com/words/tags/introduction/</loc>
     <lastmod>2021-03-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -152,6 +152,13 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/writing/</loc>
+    <lastmod>2021-03-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/pitfalls/</loc>
     <lastmod>2021-03-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -172,7 +179,7 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/introduction/</loc>
+    <loc>https://www.cxmoe.com/words/tags/description/</loc>
     <lastmod>2021-03-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -180,13 +187,6 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/research/</loc>
-    <lastmod>2021-03-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/description/</loc>
     <lastmod>2021-03-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
