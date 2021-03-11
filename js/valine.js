@@ -345,7 +345,7 @@
             if (t.config = e,
             "undefined" != typeof document)
                 return "undefined" == typeof AV ? u.dynamicLoadSource("script", {
-                    src: "//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"
+                    src: "https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"
                 }, function() {
                     "undefined" != typeof AV ? e && t._init() : setTimeout(function() {
                         t.init(e)
