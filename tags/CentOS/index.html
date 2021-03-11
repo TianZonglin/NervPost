@@ -415,9 +415,9 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
-        
           <a href="/tags/CentOS/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> CentOS</a>
+        
+          <a href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 调试</a>
         
           <a href="/tags/%E8%81%94%E7%BD%91/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 联网</a>
         
@@ -988,7 +988,7 @@ if(true){
         var id = ele.attr('id').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
@@ -1002,7 +1002,7 @@ if(true){
         var title = ele.attr('data-flag-title').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             if (results.length == 0) {

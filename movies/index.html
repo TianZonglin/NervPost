@@ -372,7 +372,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-11T20:05:03+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-11T20:20:49+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年3月11日</p>
@@ -5423,7 +5423,7 @@ if(true){
         var id = ele.attr('id').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
@@ -5437,7 +5437,7 @@ if(true){
         var title = ele.attr('data-flag-title').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             if (results.length == 0) {

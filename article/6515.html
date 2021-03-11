@@ -1036,7 +1036,7 @@ if(true){
         var id = ele.attr('id').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
@@ -1050,7 +1050,7 @@ if(true){
         var title = ele.attr('data-flag-title').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             if (results.length == 0) {

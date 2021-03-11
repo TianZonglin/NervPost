@@ -11,7 +11,7 @@
 
 
  
-<meta name="keywords" content="English,writing,pitfalls">
+<meta name="keywords" content="English,pitfalls,writing">
 
 
     <meta name="description" content="Pitfalls are some dangerous areas that most people could stuck in when they write their words. Keep them in mind could be a good way to avoid meeting them, and also you can use these pitfalls to test">
@@ -24,8 +24,8 @@
 <meta property="article:published_time" content="2021-01-20T23:00:00.000Z">
 <meta property="article:modified_time" content="2021-02-27T01:16:20.521Z">
 <meta property="article:author" content="程序萌部落">
-<meta property="article:tag" content="writing">
 <meta property="article:tag" content="pitfalls">
+<meta property="article:tag" content="writing">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@ttzzlll638386">
 <meta name="twitter:site" content="https://twitter.com/ttzzlll638386">
@@ -314,9 +314,9 @@
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/words/tags/writing/">#writing</a></span>
-    
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/words/tags/pitfalls/">#pitfalls</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/words/tags/writing/">#writing</a></span>
     
     </div>
     
@@ -705,7 +705,7 @@
             var id = ele.attr('id').trim();
             var query = new AV.Query("Pageview");
             query.equalTo("post_id", id);
-            query.ascending('createdAt');
+            query.descending('count');
             query.limit(1);
             query.find().then(function (results) {
                 $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0'));
@@ -719,7 +719,7 @@
             var title = ele.attr('data-flag-title').trim();
             var query = new AV.Query("Pageview");
             query.equalTo("post_id", id);
-            query.ascending('createdAt');
+            query.descending('count');
             query.limit(1);
             query.find().then(function (results) {
                 if (results.length == 0) {

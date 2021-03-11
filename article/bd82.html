@@ -583,7 +583,7 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f71d.html" title="Spark的RDDs相关内容" rel="bookmark">Spark的RDDs相关内容</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1161,7 +1161,7 @@ if(true){
         var id = ele.attr('id').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
@@ -1175,7 +1175,7 @@ if(true){
         var title = ele.attr('data-flag-title').trim();
         var query = new AV.Query("Pageview");
         query.equalTo("post_id", id);
-        query.ascending('createdAt');
+        query.descending('count');
         query.limit(1);
         query.find().then(function (results) {
             if (results.length == 0) {
