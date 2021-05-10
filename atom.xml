@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.cxmoe.com/"/>
-  <updated>2021-03-10T00:00:03.898Z</updated>
+  <updated>2021-05-10T01:31:01.076Z</updated>
   <id>https://www.cxmoe.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用PC同步播放移动设备的音频</title>
+    <link href="https://www.cxmoe.com/article/8caf.html"/>
+    <id>https://www.cxmoe.com/article/8caf.html</id>
+    <published>2021-05-08T22:00:00.000Z</published>
+    <updated>2021-05-10T01:31:01.076Z</updated>
+    
+    <content type="html"><![CDATA[<p>当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的整合方式。</p><p>与此问题的相关英文问法通常是：</p><p><strong>How to stream audio from an Android device to a Windows PC ??</strong></p><h4 id="为什么要这样做"><a href="#为什么要这样做" class="headerlink" title="为什么要这样做"></a><strong>为什么要这样做</strong></h4><p>请首先明确我的使用场景：</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210510032841.png" alt></p><p>可以看到，平板在我的桌面相当于一块小副屏，当然它并不能和PC直接互通，我们知道，华为的手机和平板、电脑之间可以多屏协作，即将手机画面和声音以有线或无线方式投送到平板、电脑之上，以达到在电脑上处理手机事务的能力，<strong>但遗憾的是：目前华为平板和电脑之间并没有多屏协作的官方方案！</strong>也就是说，对于平板来说，在华为设计思路里，并不是从属设备而是替代PC的主力设备，这和iPad的发展类似，当然它发展它的，我们个人的需求仍然要满足滴！</p><p>所以，我的需求是，在我正常使用耳机在台式电脑办公/娱乐时，我想从<strong>同一副耳机中听到来自平板中播放视频的声音</strong>，也就是说，虽然带着一副耳机，但可以听到不同类型设备的音频输出，这样我的平板就更加像一块小副屏，仅仅担负放视频的任务，声音共享。所以，核心问题来了：<strong>如何采集平板的音频并传输给PC？</strong></p><p>各种失败的尝试：</p><h4 id="第三方投屏软件"><a href="#第三方投屏软件" class="headerlink" title="第三方投屏软件"></a><strong>第三方投屏软件</strong></h4><p>由于华为的平板没有所谓的“多屏协作”，所以我想使用第三方的投屏软件来将平板的音视频投影到电脑上，当然这也就实现了我的目的，但通过尝试，发现当前<strong>几乎没有能够采集音频的投屏软件</strong>，有教程称小米自带投屏支持声音拾取，对此我并没有验证。更通俗的方案是依赖谷歌框架的投屏功能，不过我的 Matepadpro 是谷歌阉割版，此种方案作罢。</p><ul><li>这时我发现了名为“傲软投屏”的软件，号称可以采集声音，但经过实测，只是能采集平板的麦克风输入声音，USB或者Wifi连接都无法得到平板的音频输出！</li></ul><h4 id="远程桌面软件"><a href="#远程桌面软件" class="headerlink" title="远程桌面软件"></a><strong>远程桌面软件</strong></h4><p>如果你设备较多人又很懒，那么使用 TeamViewer 或者 Anydesk 等远程桌面软件来管理多个硬件设备是非常合适的，当然不使用 Windows 自带远程桌面的原因是：<strong>要兼容移动设备</strong>，所以使用 Anydesk 之类的软件即可轻松跨平台访问远程桌面。</p><ul><li>因此，在平板上安装 Anydesk 是个很自然的想法，更重要的是，对于电脑与电脑之间的远程访问，Anydesk 是支持声音传输的，即远端桌面上播放音乐，在访问端也可听到声音。但遗憾的是，经过实测，当 MatepadPro 和电脑通过 Anydesk 连接后，并不能听到任何平板的音频输出，不过其和投屏软件一样，也支持平板上麦克风声音的拾取。</li></ul><h4 id="电脑当做移动设备的蓝牙音频输出设备"><a href="#电脑当做移动设备的蓝牙音频输出设备" class="headerlink" title="电脑当做移动设备的蓝牙音频输出设备"></a><strong>电脑当做移动设备的蓝牙音频输出设备</strong></h4><p>即，把电脑当做平板的蓝牙耳机，当然就可以得到平板的声音了！这是最合理可行的方案，不过需要我们将 Windows 作为接收音频的蓝牙设备，完成此功能需要借助名为 “Bluetooth Audio Receiver” 的<strong>UWP应用</strong>，我没找到该软件的正常安装版本，对于我来说，我早已将微软的商店服务给禁用了，自然也无法使用此种方案。</p><h4 id="可能的替代方案"><a href="#可能的替代方案" class="headerlink" title="可能的替代方案"></a><strong>可能的替代方案</strong></h4><p>是否有该UWP应用的替代品？部分网络教程提及了蓝牙的音频传输功能，即，当平板和电脑以蓝牙相连时，在电脑上的蓝牙选项中会存在“接收音频”类似的功能选项，如果选中则可以得到平板的音频。但我的华为平板通过蓝牙连接电脑后，没有任何声音选项，故此方案不可。</p><p>经检索，网上有人说可以用过 “IVT BlueSoliel” 即千月蓝牙来实现。多说一嘴，千月蓝牙工具的核心是使用了虚拟蓝牙串口，即他会接管原有蓝牙功能，但其协议堆栈是和 Windows原生蓝牙是不同的，这也是为什么有时他能解决问题的原因。但是，经过我的尝试，这玩意儿也不好使，而且客户端做的仿佛是上世纪的UI，体验一般。</p><h4 id="正确答案"><a href="#正确答案" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h4><p>以上试了这么多方案，有无线连接的，也有通过 USB 连接的，当然，对我来说我对有线无线并不在乎。所以，当我在尝试投屏软件时，有个“USB”直连模式我果断试用了，因为用 USB 连接并不占用带宽，这对局域网来说是很重要的！尤其是我现在用的路由器并不强劲。虽然投屏软件没能解决我的问题，但它引出了后续的终极方案：ADB调试直连。</p><p>需要用到的两个开源工具：</p><ul><li>scrcpy：<a href="https://github.com/Genymobile/scrcpy" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/Genymobile/scrcpy</a></li><li>sndcpy：<a href="https://github.com/rom1v/sndcpy" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/rom1v/sndcpy</a></li></ul><p>借助 Scrcpy 可以达到同屏的目的，几乎无延迟，我强烈怀疑有很多投屏软件就是这个开源项目的再封装。借助 Sndcpy 可以达到同步音频的目的，几乎无延迟！这不就是我苦苦寻找的东西吗！！两者同时使用，则可以将移动设备的画面及声音完全复制到电脑之上，当然，亲测<strong>单独使用 Sndcpy 也是可行的！</strong>这就完完全全是我想要的效果了：</p><p>只把平板的声音同步到电脑，在我用电脑娱乐玩游戏（游戏内有声音）时，耳机中也能听见来自平板上的视频的声音！</p><h4 id="Sndcpy-使用注意事项"><a href="#Sndcpy-使用注意事项" class="headerlink" title="Sndcpy 使用注意事项"></a><strong>Sndcpy 使用注意事项</strong></h4><ul><li><p>一定要在电脑端安装VLC播放器！其需要借助VLC的解码器。</p></li><li><p>一定要添加环境变量！</p></li></ul><blockquote><p>ADB: the full path to the adb executable<br>VLC: the full path to the vlc executable<br>SNDCPY_APK: the full path to sndcpy.apk<br>SNDCPY_PORT: the local port to forward to communicate with the device</p></blockquote><ul><li>优化使用</li></ul><p>以上两个工具，正常的使用方法是直接点击 xx.exe 唤起 Console 黑框终端运行，使用期间cmd终端会一直在且不可以关闭，这很令人抓狂！</p><p>当然我发现了完美的解决办法：将cmd终端<strong>最小化到右下角图标区域</strong>，仍然是后台常驻，但不会占用任务栏的空间，你也不会再在桌面看到任何黑框！</p><p>实现该功能的项目地址：<a href="https://github.com/fcFn/traymond" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/fcFn/traymond</a><br>使用：<strong>win键 + shift + Z</strong> 把当前窗口最小化常驻到右下角图标</p><h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h4><p>通过最后的方案，实现了平板声音的实时采集传输，无需蓝牙，不用同屏图像，完美方案！！！<br>值得一提的是，该方案并不影响平板的原有音频输出！同时也不影响电脑的音频输出。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的
+      
+    
+    </summary>
+    
+    
+      <category term="Daily_Life" scheme="https://www.cxmoe.com/categories/Daily-Life/"/>
+    
+    
+      <category term="ADB调试" scheme="https://www.cxmoe.com/tags/ADB%E8%B0%83%E8%AF%95/"/>
+    
+      <category term="踩坑" scheme="https://www.cxmoe.com/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+  </entry>
   
   <entry>
     <title>大疆无人机全景图-补天-教程</title>
@@ -542,31 +570,6 @@
     
       &lt;p&gt;二十年不长不短，刚好积攒一点人生阅历。面对那些年看过的电视剧，彼时孩童的我们满头雾水，而现在，深刻的、内在的、隐晦的暗示，会在我们重温时不断涌现，好的作品需要时间的沉淀，需要阅历的解读。温故方可知新，当越来越多的人认可当下电视传媒的荒芜时，不妨停下脚步，回头看看，看看那些儿时看过的老剧，同样会给你深刻的感悟：好剧如酒，历久弥香。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430201027.png&quot; alt&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Daily_Life" scheme="https://www.cxmoe.com/categories/Daily-Life/"/>
-    
-    
-      <category term="总结" scheme="https://www.cxmoe.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="生活" scheme="https://www.cxmoe.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你有没有「厌网」情节？</title>
-    <link href="https://www.cxmoe.com/article/73f8.html"/>
-    <id>https://www.cxmoe.com/article/73f8.html</id>
-    <published>2020-04-22T22:00:00.000Z</published>
-    <updated>2021-03-08T21:01:05.923Z</updated>
-    
-    <content type="html"><![CDATA[<p>曾几何时，互联网的沟通方式是单调的，但人与人的沟通却是真诚的，但近年来网民数量直逼人口数量，互联网再也不是从前那一汪清泉，或许用波涛汹涌的汪洋大海来比喻比较贴切，太多人厌倦了、疲惫了，选择退网了，在他们眼中，当下互联网环境早已是恶臭漫天，烂的一发不可收拾，但事实如此吗？我想每个人有每个人的理解。</p><a id="more"></a><h4 id="先导"><a href="#先导" class="headerlink" title="先导"></a><strong>先导</strong></h4><p>写此文章的缘由是我看到了不止一个朋友、或朋友的朋友的退网经历，虽然我不知道事实如何，但我也理解他们的行为。互联网的膨胀，带来的是无穷无尽的话题和随之而来的讨论或争论。而恰恰是建立在互联网之上的<strong>「</strong>讨论<strong>」</strong>，是构成互联网生活的重要一环，也是影响人们体验的最重要因素。</p><p>因此，以下所述的互联网环境，特指<strong>「</strong>言论/舆论环境<strong>」</strong>，这也是导致人们对互联网产生厌烦情绪甚至退网的直接和最主要因素。</p><h4 id="互联网环境的发展"><a href="#互联网环境的发展" class="headerlink" title="互联网环境的发展"></a><strong>互联网环境的发展</strong></h4><p>如果用一句话概括现如今的互联网环境，那就是<strong>「</strong>整体杂乱有序、个体多维度交叉<strong>」</strong>。如果从互联网诞生之时说起，那么大概可以描绘出以下这么几个阶段：</p><p><strong>1. 混沌时代的个体觉醒：产生公知。</strong>起初的互联网由于在人们生活中的参与度非常有限，几乎不会对人们现实社会的决策产生影响。到了后来，国内第一批意见领袖出现，此时大多数人基本都是边缘OB大神输出，意见领袖/公知，很大程度上就是公信力的代名词。</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200423011737.png" alt></p><p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p><p><strong>2. 初生代网民和新生代网民的先后加入。</strong>这一过程从最初开始，延续到现在。看惯了神仙（公知）打架的初生代网民的加入，迅速使得互联网活跃起来，一系列优质的社区产生。由于初生代网民的骨子里是<strong>「</strong>问题导向<strong>」</strong>（公知打架）的，所以平均素质自然比较高，那时的互联网环境也自然比较好，那段时间也成了众多网友追忆的<strong>「</strong>黄金时代<strong>」</strong>。<br>后来，新生代（尤其是00后）的加入，彻底打破了这一美梦。有人说新生代网民的素质堪忧，究其原因可能有二：</p><ul><li><strong>一是经历：</strong>初生代网民看着公知打架过来的，而新生代呢，是看着粉丝互怼过来的。</li><li><strong>二是时间：</strong>初生代参与网络的（平均）年龄必然比新生代大的多，这直接导致了新生代网民过早的接触、参与、实施。</li></ul><p>总之，以微博为载体、粉丝为高地的新型互联网舆论战场已经在新生代的影响下形成规模，现在每天都有大大小小的<strong>「</strong>战争<strong>」</strong>爆发，并且实实在在的在影响人们的现实生活。</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200423011813.png" alt></p><p><strong>3. 新生代力量的侵蚀和导致的群体分裂。</strong>续上。在新生代加入之后，除了上述的<strong>「</strong>自家战场<strong>」</strong>，他们还迅速洗劫其他<strong>「</strong>高龄<strong>」</strong>战场，凡无门槛可进入的地方，全部被低龄化所影响。新老的对立和互相嫌弃说到底，是老一代网民的错，错就错在自己没管好自己的娃，让他年纪轻轻（初中尤甚）就跑到网上参军。</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200423011848.png" alt></p><p><strong>4. 重回混沌，但是更高水平的混沌。</strong>终于说到了现在。现在是个什么形式呢，个人更倾向于重回混沌状态：没有所谓的公知领袖，即便有也通常最后会死的很惨；人人都有粉丝效应，人人都可能是舆论中心。<br>至于这种混沌是更高质量还是更低质量，我觉得是前者，至少有思辨能力的人是越来越多的。不过恰恰是这些产生出思辨能力的人，往往是退网急先锋，因为他们受不了无脑的拥护，受不了不分青红皂白的辱骂，可转念一想，谁又不是这样过来的呢？</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200423011909.png" alt></p><p>前半段的最后说到了现今的互联网环境和退网人士，下面直接就他们为什么对现今的互联网环境心生厌恶做一下简要分析。</p><ul><li><strong>根本原因：个人觉醒和「同质化」的矛盾。</strong></li><li><strong>直接原因：「拥护者效应」的加害。</strong></li></ul><h4 id="从「意见垄断」说起"><a href="#从「意见垄断」说起" class="headerlink" title="从「意见垄断」说起"></a><strong>从「意见垄断」说起</strong></h4><p>字面来看，意见垄断就是发表意见的权力掌握在少数人手里，在公知时期确实是这样，那时的公知或者大V，需要很长时间的积累、或运营，新手入场难度很大，因此那时虽然少数人掌握发言权，但环境还算说得过去。</p><p>但自新生代加入后，伴随互联网的爆炸式发展，自媒体井喷、营销平民化都在刺激着言论的扁平化蜕变，言论场从原先的群峰矗立，变成了现在的丘陵起伏，由此，言论更亲民了，但也更杂乱无章了。</p><p>不过聚焦在某一问题，其又有一番景象：站队思维越来越严重。究其原因，我认为是言论的扁平化，致使个人言论地位的提升，加之个体意识的觉醒，导致<strong>「</strong>希望他人认同自己<strong>」</strong>的想法越发强烈，从而导致<strong>「</strong>站队互喷<strong>」</strong>。久而久之，<strong>「</strong>表明立场<strong>」</strong>便成了必修课，在不断地、重复地、多次地表明立场后，必然有部分人会疲倦、会厌恶，究其原因，便是个体意识过于强烈，缺少包容度，一次次的站队，一次次的参加战斗，直到自己发现，原来在另一场战斗中，战友赫然站立在自己最恶心的阵营中。</p><h4 id="何为「群体同质化」"><a href="#何为「群体同质化」" class="headerlink" title="何为「群体同质化」"></a><strong>何为「群体同质化」</strong></h4><p>当上述这种需要表明立场的话题构成一类话题，那么经过如此<strong>「</strong>训练<strong>」</strong>的网民，便会出奇的言论一致（这就是所谓的同质化），例如明星的脑残粉，爱guo的粉红等等，当这种<strong>「</strong>同质化<strong>」</strong>表现在某些反常识的话题（例如对日系车打砸）中时，往往就会令有<strong>「</strong>独立思维<strong>」</strong>的人心生厌恶，长此以往，或许某天他们就会大喊一声失望，然后悻然退网。如果他们忍辱负重下来，那么等待他们的还有<strong>「</strong>拥护者<strong>」</strong>的加害。</p><h4 id="副产物「拥护者效应」"><a href="#副产物「拥护者效应」" class="headerlink" title="副产物「拥护者效应」"></a><strong>副产物「拥护者效应」</strong></h4><p>前面说的<strong>「</strong>群体同质化<strong>」</strong>本身并没有什么害处，但坏就坏在其会催生出一类<strong>「</strong>拥护者<strong>」</strong>，这又是<strong>「</strong>潜在退网用户<strong>」</strong>最为恶心的一类人。往往自身并不十分拥护，但仍会借其外衣攻击自己的<strong>「</strong>敌人<strong>」</strong>。最典型的，自然就是“乱咬人”的<strong>「</strong>脑残粉<strong>」</strong>对路人的<strong>「</strong>无差别攻击<strong>」</strong>。</p><h4 id="参与者素质"><a href="#参与者素质" class="headerlink" title="参与者素质"></a><strong>参与者素质</strong></h4><p>这是个老生常谈的问题，但其实却又包含鲜明的时代色彩。由第一部分可知，十年前的互联网参与者和十年后的参与者（主力），已完全不同。如今的玩家，除了传统角色，更多的还有各色的<strong>「</strong>营销力量<strong>」</strong>，从本质上说，我认为当下的爱豆和粉丝，也应归类于媒体营销的一种。如果从营销的角度来看，那么参与者素质就显得不是那么重要，而流量导向才是根本目的，所以至此，互联网的新时代特性也凸显了出来，那就是<strong>「</strong>流量为王<strong>」</strong>，在此指导思想之下，内容的质量、提问者的素质、言论的真实性等等因素的重要性急剧下降，自然地，互联网的环境也随之越来越恶化。这也是构成部分人厌网情节的重要因素。</p><p>综上，可以发现，<strong>「</strong>潜在退网用户<strong>」</strong>的伤心地大多都是舆论场，是他们自己过于认真，从而让自己饱受<strong>「</strong>真实伤害<strong>」</strong>，实际呢，网络上的互相伤害比比皆是，不让自己深陷其中，才是面对如此环境的根本方法。</p><h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h4><p>在现如今的互联网（言论环境），如果事事较真，那么你将寸步难行。自己接受不了的就远离，自己热爱的就去捍卫；不要让互联网世界影响现实中的自己，也不要把现实世界的事物过多的带入到互联网中去，保持合适的远距离，才能让互联网为我们所用。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;曾几何时，互联网的沟通方式是单调的，但人与人的沟通却是真诚的，但近年来网民数量直逼人口数量，互联网再也不是从前那一汪清泉，或许用波涛汹涌的汪洋大海来比喻比较贴切，太多人厌倦了、疲惫了，选择退网了，在他们眼中，当下互联网环境早已是恶臭漫天，烂的一发不可收拾，但事实如此吗？我想每个人有每个人的理解。&lt;/p&gt;
     
     </summary>
     
