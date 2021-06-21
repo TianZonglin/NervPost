@@ -291,7 +291,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -1262,7 +1262,979 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/e7a6.html">
+        在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>建站组网</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2020年8月28日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需9分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/e7a6.html" class="pageViews" data-flag-title="在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:06+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>2020年8月，继PanDownload被搞死（我没在群晖上用过）之后，BaiduPCS-go/web也全面歇菜，最早期的版本作者也已放弃github维护，目前能在群晖Docker镜像中搜索到的镜像，搭建后几乎全部失效无法下载，于此状况下，难道在群晖上对于百度网盘真没有好的下载工具（非BT下载）了吗？不然！</p>
+<a id="more"></a>
+
+<h3 id="群晖-baiduNetdisk"><a href="#群晖-baiduNetdisk" class="headerlink" title="群晖-baiduNetdisk"></a><strong>群晖-baiduNetdisk</strong></h3><p>在2019年底悄悄有人开发了一款“神器”，于近期才不断完善，现在也才一百度star，基本原理就是用docker起一个Linux（推测）虚拟机，里面放个百度网盘客户端，然后配好VNC，最终通过Web访问VNC桌面，进而操作百度网盘客户端。搭配使用的 Synology-baiduNetdisk.spk 只是一个连接器，核心还是Docker的环境。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829121045.png"><br></fancybox></p>
+<p>最终的界面效果如下：</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829010856.png"><br></fancybox></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h3><p>所以，本质上该工具有两部分，一个是核心的Docker镜像，一个是spk链接器。关于Docker镜像直接在Docker中搜索 baiduNetdisk 即可找到安装（1G大小），而链接应用可以直接从Github上获取，<a href="https://github.com/john-shine/synology-baiduNetdisk-package/releases" target="_blank" rel="external nofollow noopener noreferrer">点击下载最新的spk文件</a>，手动安装群晖应用（不会？请百度吧）。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829010719.png"><br></fancybox></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h3><p>只有Docker端需要配置，而且是很重要的配置，主要有以下几部分：</p>
+<h4 id="配置下载根目录"><a href="#配置下载根目录" class="headerlink" title="配置下载根目录"></a><strong>配置下载根目录</strong></h4><p>这部分是百度网盘可操作的最上层目录，默认是在<strong>存储Docker的空间上</strong>新建一个<code>BDDOWNLOAD</code>目录，如果你的群晖有多个空间，且你不想将下载内容放在系统空间/Docker空间里，那就需要修改docker配置（设置-卷）。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829010443.png"><br></fancybox></p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829010609.png"><br></fancybox></p>
+<p>同理，在端口设置中，默认使用的群晖主机端口是6900，如果要改也可以改。改完之后Docker就可以正常启动了，然后这时访问<code>群晖IP/域名:6900</code>即可进入VNC页面，打开网盘设置窗口，可以看到在下载位置选项中，已经直接将根目录映射到了之前设置的目录。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829011802.png"><br></fancybox></p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h4 id="配置VNC登录密码"><a href="#配置VNC登录密码" class="headerlink" title="配置VNC登录密码"></a><strong>配置VNC登录密码</strong></h4><p>如果你正常完成上述步骤，那么你会发现你访问正确链接后直接就进入桌面了，没有访问拦截，没有登录验证，非常不安全，作者也想到了这个问题，可以通过手动方式设置一个登陆密码，缺点是非常简单，不是单点登录，即每次刷新或者多开页面都需要输入密码。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829013431.png"><br></fancybox></p>
+<p>设置方法，在先前设置的下载根目录内新建<code>.vnc</code>文件夹，在里面创建一个<code>passwd.txt</code>文件（可在本地创建好后上传到该目录），里面写你的登录密码明文，完成后重启Docker即可出现访问控制。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829013753.png"><br></fancybox></p>
+<h4 id="其他非必要配置"><a href="#其他非必要配置" class="headerlink" title="其他非必要配置"></a><strong>其他非必要配置</strong></h4><p>为了不过多的占用群晖主体性能和更好地发挥该docker镜像的性能，这里对docker再修改几处配置，包括<code>CPU优先顺序</code>和<code>内存限制</code>（4G足矣再多就不正常了），再勾选上自动重启，以便异常挂掉后可以自动恢复。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829015257.png"><br></fancybox></p>
+<h4 id="资源占用和性能"><a href="#资源占用和性能" class="headerlink" title="资源占用和性能"></a><strong>资源占用和性能</strong></h4><p>总体上占用资源不低，尤其是内存，如果你的群晖内存不是很大，那就更得主动限制一下其使用内存的大小。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829013551.png"><br></fancybox></p>
+<p>对于性能（下载速度），我还是比较满意的，虽然不能跑满带宽，但和桌面的网盘客户端相比也差不多了，峰值速度可观，但其实不会一直维持峰值，九成时间稳定在5-6m/s，也算很不错的表现了。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829020929.png"><br></fancybox></p>
+<p>不足的一点是，由于本质上是一个VNC桌面，所以对屏幕基本没有适配，在移动端上使用比较头大，主要是按钮太小，容易误触。</p>
+<p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200829014953.png"><br></fancybox></p>
+<h3 id="Tiny-File-Manager"><a href="#Tiny-File-Manager" class="headerlink" title="Tiny File Manager"></a><strong>Tiny File Manager</strong></h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a><strong>安装</strong></h4><p>详见文章<a href="https://www.cxmoe.com/article/b940.html">《极简版（群晖）网盘文件管理工具——TinyManager》</a></p>
+<h4 id="和本文的工具搭配使用"><a href="#和本文的工具搭配使用" class="headerlink" title="和本文的工具搭配使用"></a><strong>和本文的工具搭配使用</strong></h4><p>在 Tiny File Manager 使用的过程中需要设置一个根目录文件夹，即管理该目录下的所有文件，这里的管理目录，同样可以是百度网盘的下载目录，如此，我们可以将百度网盘的资源直接下载到 TinyManager 的管理目录内，从而下载完成后随即在 Manager 可见。</p>
+<p>这样的好处有三个：</p>
+<ul>
+<li><ol>
+<li><strong>Tiny Manager 足够轻量。</strong>该文件管理工具基于PHP，整体就一个两千行的PHP文件实现，足够的轻量不吃任何资源，同样可完成视频解析等功能。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><strong>方便转存再下载。</strong>在帮别人（没速度或网速慢）下载百度网盘资源时，可以利用自己的网盘客户端和大带宽将资源转下到群晖内，然后再通过 Manager 直接分享直链供他人下载即可。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><strong>直接解析视频音频。</strong>如果下的是百度网盘的视频资源，下载完成后即可在 Manager 目录内看到，点击预览即可播放，速度喜人，非常方便。</li>
+</ol>
+</li>
+</ul>
+<br>
+
+<blockquote>
+<p>访问 <a href="https://www.cxmoe.com">cz5h.com</a> 获取更多精彩内容。</p>
+</blockquote>
+<br>
+
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h3><p>总体上，这就是相当于在docker运行了一个百度网盘客户端（推测是基于Linux的），所以，没有封号的风险，也不会存在各种交互问题，是具有原生百度网盘体验感的方式，在众多第三方工具都失效的当下，或许这种方式反而不失为一种好方案。</p>
+<h3 id="附件"><a href="#附件" class="headerlink" title="附件"></a><strong>附件</strong></h3><p>由于很多人说目前群晖内下载的镜像和我文中的不太一样，推测可能是更新过了？所以各种问题，为了解决之，我把我使用的镜像（可用版）导出了，各位可以下载之后，通过docker导入（应该是这样做）。</p>
+<p>下载链接：<a href="https://pan.baidu.com/s/1a-Izt5jmTAFWBsAXLceeXA" target="_blank" rel="external nofollow noopener noreferrer">https://pan.baidu.com/s/1a-Izt5jmTAFWBsAXLceeXA</a><br>提取码：5hq0 </p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1c44.html" title="将群晖相册嵌入到Hexo博客中" rel="bookmark">将群晖相册嵌入到Hexo博客中</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b940.html" title="极简WEB文件管理工具（群晖）——TinyManager" rel="bookmark">极简WEB文件管理工具（群晖）——TinyManager</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fed3.html" title="群晖硬盘过热导致的关机保护" rel="bookmark">群晖硬盘过热导致的关机保护</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/e7a6.html">https://www.cxmoe.com/article/e7a6.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BE%A4%E6%99%96/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>群晖</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>百度网盘</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/e7a6.html&title=在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager - 程序萌部落&summary=2020年8月，继PanDownload被搞死（我没在群晖上用过）之后，BaiduPCS-go/web也全面歇菜，最早期的版本作者也已放弃github维护，目前能在群晖Docker镜像中搜索到的镜像，搭建后几乎全部失效无法下载，于此状况下，难道在群晖上对于百度网盘真没有好的下载工具（非BT下载）了吗？不然！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/e7a6.html&title=在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager - 程序萌部落&summary=2020年8月，继PanDownload被搞死（我没在群晖上用过）之后，BaiduPCS-go/web也全面歇菜，最早期的版本作者也已放弃github维护，目前能在群晖Docker镜像中搜索到的镜像，搭建后几乎全部失效无法下载，于此状况下，难道在群晖上对于百度网盘真没有好的下载工具（非BT下载）了吗？不然！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/e7a6.html&title=在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager - 程序萌部落&summary=2020年8月，继PanDownload被搞死（我没在群晖上用过）之后，BaiduPCS-go/web也全面歇菜，最早期的版本作者也已放弃github维护，目前能在群晖Docker镜像中搜索到的镜像，搭建后几乎全部失效无法下载，于此状况下，难道在群晖上对于百度网盘真没有好的下载工具（非BT下载）了吗？不然！" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTUlEQVR42u3aS3LCMBAFQN//0uQAFKX5uWKG1i4JWGqtXub5ev3ousDBwcHBwRfBr+I6ff9tw8P3Pn3u03PK5wUHBwcHB18IDweA4MFOwCgsu//xPODg4ODg4Ivh0cCSPXA3iEydFxwcHBwcHDx+EdnBQ3egAQ4ODg4ODl6HdwNHFAoODg4ODg4+MKBPDh6yg4nHNing4ODg4OAPgk8P+O/++TFvNoKDg4ODg/8jvLu6F1X9ffm84ODg4ODgi+DVgX4U2h1oVINKewIDDg4ODg7+BfCpwr1aHNwVmMKDCHBwcHBw8AXw6YIh+/epz6cDDDg4ODg4+AJ4NqhEg082mGSfE70wcHBwcHDwjfDqBqcLqgaUqcHFx+eBg4ODg4MvhE8Fh3KwGHpeuFAABwcHBwdfBM8Gk2rAqb5o0N0XHBwcHBx8I7xbKNw1qOgWFbc3KeDg4ODg4A+ERwNFttjvvmDQfWEBHBwcHBx8I/yuwUI3qGSDUri4AAcHBwcHXwSfDhTZQcGrubIFCDg4ODg4+GZ4tRDIFvndYDJWKICDg4ODg38xvPqPfXeAkL2o7EDjGGDAwcHBwcEXwKcGAd3iPgsq7wMODg4ODr4IfhVXd0BRhXeDFTg4ODg4+EZ4tYgfO1CygCifHxwcHBwcfDF8OrDcNZioFhzg4ODg4ODg9QBz18WWCwVwcHBwcHDwduE/te/xOeDg4ODg4Ivh3UIhCpt+UTAcfMDBwcHBwRfCu4OD6oAi+/vTedKFAjg4ODg4+BfDf22Bg4ODg4MvWH9UCIlUI7v7dQAAAABJRU5ErkJggg==" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTUlEQVR42u3aS3LCMBAFQN//0uQAFKX5uWKG1i4JWGqtXub5ev3ousDBwcHBwRfBr+I6ff9tw8P3Pn3u03PK5wUHBwcHB18IDweA4MFOwCgsu//xPODg4ODg4Ivh0cCSPXA3iEydFxwcHBwcHDx+EdnBQ3egAQ4ODg4ODl6HdwNHFAoODg4ODg4+MKBPDh6yg4nHNing4ODg4OAPgk8P+O/++TFvNoKDg4ODg/8jvLu6F1X9ffm84ODg4ODgi+DVgX4U2h1oVINKewIDDg4ODg7+BfCpwr1aHNwVmMKDCHBwcHBw8AXw6YIh+/epz6cDDDg4ODg4+AJ4NqhEg082mGSfE70wcHBwcHDwjfDqBqcLqgaUqcHFx+eBg4ODg4MvhE8Fh3KwGHpeuFAABwcHBwdfBM8Gk2rAqb5o0N0XHBwcHBx8I7xbKNw1qOgWFbc3KeDg4ODg4A+ERwNFttjvvmDQfWEBHBwcHBx8I/yuwUI3qGSDUri4AAcHBwcHXwSfDhTZQcGrubIFCDg4ODg4+GZ4tRDIFvndYDJWKICDg4ODg38xvPqPfXeAkL2o7EDjGGDAwcHBwcEXwKcGAd3iPgsq7wMODg4ODr4IfhVXd0BRhXeDFTg4ODg4+EZ4tYgfO1CygCifHxwcHBwcfDF8OrDcNZioFhzg4ODg4ODg9QBz18WWCwVwcHBwcHDwduE/te/xOeDg4ODg4Ivh3UIhCpt+UTAcfMDBwcHBwRfCu4OD6oAi+/vTedKFAjg4ODg4+BfDf22Bg4ODg4MvWH9UCIlUI7v7dQAAAABJRU5ErkJggg==">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/9cb3.html" rel="prev" title="滥用jsdelivr之存储视频/m3u8">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        滥用jsdelivr之存储视频/m3u8
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/HTML/"><i class="fas fa-hashtag" aria-hidden="true"></i> HTML</a> <a class="tag" href="/tags/Hexo/"><i class="fas fa-hashtag" aria-hidden="true"></i> Hexo</a> <a class="tag" href="/tags/DPlayer/"><i class="fas fa-hashtag" aria-hidden="true"></i> DPlayer</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/b940.html" rel="prev" title="极简WEB文件管理工具（群晖）——TinyManager">
+                      
+                        极简WEB文件管理工具（群晖）——TinyManager
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E7%BE%A4%E6%99%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 群晖</a> <a class="tag" href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"><i class="fas fa-hashtag" aria-hidden="true"></i> 文件管理</a> <a class="tag" href="/tags/PHP/"><i class="fas fa-hashtag" aria-hidden="true"></i> PHP</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '在群晖中优雅的使用百度网盘——baiduNetdisk+TinyManager',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#群晖-baiduNetdisk"><span class="toc-text">群晖-baiduNetdisk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置下载根目录"><span class="toc-text">配置下载根目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置VNC登录密码"><span class="toc-text">配置VNC登录密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他非必要配置"><span class="toc-text">其他非必要配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资源占用和性能"><span class="toc-text">资源占用和性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tiny-File-Manager"><span class="toc-text">Tiny File Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-1"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和本文的工具搭配使用"><span class="toc-text">和本文的工具搭配使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附件"><span class="toc-text">附件</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

@@ -292,7 +292,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -1242,7 +1242,958 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/1772.html">
+        如何开发并发布REST风格的WebService
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Java-%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Java/数据库</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年4月16日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约851字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需7分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/1772.html" class="pageViews" data-flag-title="如何开发并发布REST风格的WebService"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <blockquote>
+<p>在《WebService的使用》中已经可以发现其调用方式非常简单，但是也知道一个WebService服务包含非常多的定义和描述（在对WSDL文件的分析中就可以看出），可以说其实现是非常的复杂。不过，在常见开发语言中（JavaC#）都有对实现WebService的封装框架，Java下有AXIS2、CXF、JAX-WS、XFire方式，并且每种方式在常见IDE如Eclipse中都有相关的插件支持或者操作界面化的支持。</p>
+</blockquote>
+<a id="more"></a>
+
+<h4 id="开发和使用的复杂性"><a href="#开发和使用的复杂性" class="headerlink" title="开发和使用的复杂性"></a>开发和使用的复杂性</h4><blockquote>
+<p>AXIS2、CXF、XFire均需要引入其自身的支持，而且有的需要特殊的代码结构支持，这里采用JDK原生支持的方式来对WebService的实现进行简单阐述。</p>
+</blockquote>
+<blockquote>
+<p>通常来说使用JAX-WS方式是最简单快速的开发方式，是JDK支持的一种编写方法，实现非常简单，但是相对的，在使用时，其并不支持多种方式调用，也不支持直接的Http调用，需要添加相关方法来辅助实现调用的完成，不过这一过程在Eclipse中可以自动根据WSDL文件来生成相关代码。JAX-WS的不足突出体现在调用方式的笨拙上，即不支持REST方式的调用，为此出现了其进阶版JAX-RS（Java API for RESTful Web Services）这是一个Java编程语言的应用程序接口，支持按照表述性状态转移（REST）架构风格创建Web服务。它有好几种实现方式，而Jersey是其实现方式之一。</p>
+</blockquote>
+<h4 id="使用Eclipse开发示例"><a href="#使用Eclipse开发示例" class="headerlink" title="使用Eclipse开发示例"></a>使用Eclipse开发示例</h4><pre><code>示例完成的功能：
+同天气接口一样，在地址栏输入调用链接并返回数据；
+在Java代码中调用返回数据；
+新建一个Web Service Project，注意要选择JAX-RS选项，并且添加Maven支持。右侧是初始项目结构：</code></pre><p><img src="http://static.zybuluo.com/EVA001/xww9la2y3o9omvixwx2y67ns/a.png" alt="a.png-60.8kB"><br><img src="http://static.zybuluo.com/EVA001/rmrdh4ishi91t9zwuxn1qx9t/b.png" alt="b.png-12.2kB"></p>
+<blockquote>
+<p>对于上述项目结构，我们要实现发布一个服务，只需要关心三部分：<br>首先，打开pom.xml添加项目依赖；<br>然后，在src/main/java下编写逻辑代码；<br>最后，在web.xml中修改拦截目录以及对应上述代码的位置</p>
+</blockquote>
+<h4 id="打开pom-xml添加项目依赖；"><a href="#打开pom-xml添加项目依赖；" class="headerlink" title="打开pom.xml添加项目依赖；"></a>打开pom.xml添加项目依赖；</h4><blockquote>
+<p>这部分主要添加的是jersey的包，这里使用的是org.glassfish.jersey提供的包，不同组织提供了不同的包，但本质实现的功能都是一样的，这里添加jersey-bom这个包（对应其他组织提供的包可能需要导入的包名会发生变化）。</p>
+</blockquote>
+<h4 id="在src-main-java下编写逻辑代码；"><a href="#在src-main-java下编写逻辑代码；" class="headerlink" title="在src/main/java下编写逻辑代码；"></a>在src/main/java下编写逻辑代码；</h4><p><img src="http://static.zybuluo.com/EVA001/qs9gdzvgugt4fhbegh8r8dw9/c.png" alt="c.png-67.5kB"> </p>
+<h4 id="在web-xml中修改"><a href="#在web-xml中修改" class="headerlink" title="在web.xml中修改"></a>在web.xml中修改</h4><p><img src="http://static.zybuluo.com/EVA001/pbgsxfedrdnccesaliavhmah/d.png" alt="d.png-53.5kB"><br>上述三部分完成后，在Tomcat中运行即可，然后在浏览器中测试一下。<br><img src="http://static.zybuluo.com/EVA001/nwjcfn5suu7bdt4k6pi4adoa/e.png" alt="e.png-94.6kB"></p>
+<h4 id="Java代码中的调用"><a href="#Java代码中的调用" class="headerlink" title="Java代码中的调用"></a>Java代码中的调用</h4><p><img src="http://static.zybuluo.com/EVA001/t8pyjhh03tm2js4gvnc8kumg/f.png" alt="f.png-48.9kB"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>在JDK原生支持的WebService开发方式中，JAX-WS和JAX-RS是主要的形式，前者在使用上较为不便，所以推荐时候支持REST方式的JAX-RS进行开发，而其本身只是一种规范，Jersey是这种规范的实现之一，上述示例即使用Jersey完成了一个简单的WebService的开发，其调用方式与之前提到的天气接口相同，非常方便，且使用Jersey开发的整个流程也十分简单快速。</p>
+</blockquote>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c314.html" title="WebService获取数据实例及WSDL文件解读" rel="bookmark">WebService获取数据实例及WSDL文件解读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7b5b.html" title="Web接口开发的相关事项" rel="bookmark">Web接口开发的相关事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38f4.html" title="将博客搬至CSDN" rel="bookmark">将博客搬至CSDN</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4735.html" title="关于图中节点间的概率求解问题" rel="bookmark">关于图中节点间的概率求解问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/1772.html">https://www.cxmoe.com/article/1772.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%80%BB%E7%BB%93/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>总结</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/WebService/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>WebService</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/1772.html&title=如何开发并发布REST风格的WebService - 程序萌部落&summary=
+在《WebService的使用》中已经可以发现其调用方式非常简单，但是也知道一个WebService服务包含非常多的定义和描述（在对WSDL文件的分析中就可以看出），可以说其实现是非常的复杂。不过，在常见开发语言中（JavaC#）都有对实现WebService的封装框架，Java下有AXIS2、CXF、JAX-WS、XFire方式，并且每种方式在常见IDE如Eclipse中都有相关的插件支持或者操作界面化的支持。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/1772.html&title=如何开发并发布REST风格的WebService - 程序萌部落&summary=
+在《WebService的使用》中已经可以发现其调用方式非常简单，但是也知道一个WebService服务包含非常多的定义和描述（在对WSDL文件的分析中就可以看出），可以说其实现是非常的复杂。不过，在常见开发语言中（JavaC#）都有对实现WebService的封装框架，Java下有AXIS2、CXF、JAX-WS、XFire方式，并且每种方式在常见IDE如Eclipse中都有相关的插件支持或者操作界面化的支持。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/1772.html&title=如何开发并发布REST风格的WebService - 程序萌部落&summary=
+在《WebService的使用》中已经可以发现其调用方式非常简单，但是也知道一个WebService服务包含非常多的定义和描述（在对WSDL文件的分析中就可以看出），可以说其实现是非常的复杂。不过，在常见开发语言中（JavaC#）都有对实现WebService的封装框架，Java下有AXIS2、CXF、JAX-WS、XFire方式，并且每种方式在常见IDE如Eclipse中都有相关的插件支持或者操作界面化的支持。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3dSW4DMQwEQP//08kDAmPEJuNkOKWbN1lFXwi2AL++Hrpe4ODg4ODgi+CvcP3Y8M3r6eOr/dLzgoODg4ODb4QfNwAX76/C0s+n5wUHBwcHB98MP20gUli1gFMNDzg4ODg4OPj5+9NBxlVhwMHBwcHBwX8PfrpPFQgODg4ODg4+HyikB68W8N8lKeDg4ODg4P8IHl+Y+6PHYxf8wMHBwcHBbwzvrk8Xpn1ecHBwcHDwRfC0QTgtxNXz6YAjPh84ODg4OPhi+GkwMHUBoLpv+kOAg4ODg4NvhKeD/O5FgtN90u89nsCAg4ODg4PfGJ42Bt3BQzegSIMIcHBwcHDwzfBq0JA2HNULBVONDjg4ODg4+GZ49SDVRicNEKqNynGSAg4ODg4OfmN4dzBwCuzC0gHFZZICDg4ODg5+Y3gX0i3Y6fNV6HGgAA4ODg4OvgBebTymg4RPXRwEBwcHBwd/Inz6AGlhuoEDODg4ODj4Rnj1i6cGGWlgEf9Q4ODg4ODgD4JPNR6nDUY6IGknKeDg4ODg4AvgUwXpBhXdQcTb18HBwcHBwRfBuys90GmhuhcNwMHBwcHBN8O7QXw3OOgWohxIgIODg4ODL4RXG5Z0kNH9XPkiQHUCAw4ODg4OfmP4VLBf3X+qAYobGHBwcHBwcPDyYKB6oaBbUHBwcHBwcPD8j2OqFwXGgw9wcHBwcPDF8GqgkAb5U4OMcmABDg4ODg6+EJ42BtUG4nQAMRUwgIODg4ODb4Y/bYGDg4ODgy9Y30RjBC6N+zeTAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3dSW4DMQwEQP//08kDAmPEJuNkOKWbN1lFXwi2AL++Hrpe4ODg4ODgi+CvcP3Y8M3r6eOr/dLzgoODg4ODb4QfNwAX76/C0s+n5wUHBwcHB98MP20gUli1gFMNDzg4ODg4OPj5+9NBxlVhwMHBwcHBwX8PfrpPFQgODg4ODg4+HyikB68W8N8lKeDg4ODg4P8IHl+Y+6PHYxf8wMHBwcHBbwzvrk8Xpn1ecHBwcHDwRfC0QTgtxNXz6YAjPh84ODg4OPhi+GkwMHUBoLpv+kOAg4ODg4NvhKeD/O5FgtN90u89nsCAg4ODg4PfGJ42Bt3BQzegSIMIcHBwcHDwzfBq0JA2HNULBVONDjg4ODg4+GZ49SDVRicNEKqNynGSAg4ODg4OfmN4dzBwCuzC0gHFZZICDg4ODg5+Y3gX0i3Y6fNV6HGgAA4ODg4OvgBebTymg4RPXRwEBwcHBwd/Inz6AGlhuoEDODg4ODj4Rnj1i6cGGWlgEf9Q4ODg4ODgD4JPNR6nDUY6IGknKeDg4ODg4AvgUwXpBhXdQcTb18HBwcHBwRfBuys90GmhuhcNwMHBwcHBN8O7QXw3OOgWohxIgIODg4ODL4RXG5Z0kNH9XPkiQHUCAw4ODg4OfmP4VLBf3X+qAYobGHBwcHBwcPDyYKB6oaBbUHBwcHBwcPD8j2OqFwXGgw9wcHBwcPDF8GqgkAb5U4OMcmABDg4ODg6+EJ42BtUG4nQAMRUwgIODg4ODb4Y/bYGDg4ODgy9Y30RjBC6N+zeTAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/8996.html" rel="prev" title="美国是如何一步步成为超级大国的">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        美国是如何一步步成为超级大国的
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E7%BF%BB%E8%AF%91/"><i class="fas fa-hashtag" aria-hidden="true"></i> 翻译</a> <a class="tag" href="/tags/%E8%8B%B1%E8%AF%AD/"><i class="fas fa-hashtag" aria-hidden="true"></i> 英语</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/c314.html" rel="prev" title="WebService获取数据实例及WSDL文件解读">
+                      
+                        WebService获取数据实例及WSDL文件解读
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E6%80%BB%E7%BB%93/"><i class="fas fa-hashtag" aria-hidden="true"></i> 总结</a> <a class="tag" href="/tags/WebService/"><i class="fas fa-hashtag" aria-hidden="true"></i> WebService</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '如何开发并发布REST风格的WebService',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#开发和使用的复杂性"><span class="toc-text">开发和使用的复杂性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Eclipse开发示例"><span class="toc-text">使用Eclipse开发示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开pom-xml添加项目依赖；"><span class="toc-text">打开pom.xml添加项目依赖；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在src-main-java下编写逻辑代码；"><span class="toc-text">在src&#x2F;main&#x2F;java下编写逻辑代码；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在web-xml中修改"><span class="toc-text">在web.xml中修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java代码中的调用"><span class="toc-text">Java代码中的调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

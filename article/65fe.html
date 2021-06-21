@@ -291,7 +291,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -481,7 +481,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cb21.html" title="可视化布局算法的框架设计" rel="bookmark">可视化布局算法的框架设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cb21.html" title="可视化布局算法的框架设计" rel="bookmark">可视化布局算法的框架设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1237,7 +1237,954 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/65fe.html">
+        初识图数据的可视化
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2019年4月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约3.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需14分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/65fe.html" class="pageViews" data-flag-title="初识图数据的可视化"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h3 id="图数据的产生和发展"><a href="#图数据的产生和发展" class="headerlink" title="图数据的产生和发展"></a>图数据的产生和发展</h3><p>图是信息科学中最常用的一类抽象数据结构，能够直观的表达现实世界中对象之间的真实关系。许多重要应用都需要用图结构表示，传统应用如最优运输路线的确定、疾病爆发路径的预测、科技文献的引用关系等；新兴应用如社交网络分析、语义 Web 分析、生物信息网络分析等，与图相关的处理和应用几乎无所不在 [1] 。</p>
+<a id="more"></a>
+
+<p>随着技术的不断发展，网络在我们的生活中比以往任何时候都更加突出，上述一系列网络或图结构中都蕴含了越来越多的隐含信息，对这些网络的进行高效的分析和挖掘是亟待解决的一个问题，可视化技术在这一问题上具有无可比拟的优势，其视觉呈现可以给人们带来直观的对数据的理解和感知，Palmer等人在其文章中证明，图比其他可视化展现形式更适合探索数据的内部关系 [2] 。</p>
+<p>面对飞速发展的信息社会，各式各样的数据集均迅速增长，部分原因是它们越来越多地被廉价且众多的信息传感物联网设备收集，如移动设备，航空（遥感），软件日志，照相机，麦克风，射频识别（RFID）阅读器和无线传感器网络。身处大数据时代，其对数据的分析和挖掘显得尤为重要，2016年的大数据的定义在指出大数据代表的数据信息具有 4V 特性之外，还强调了其需要特定的技术和分析方法才能转化为价值。随着技术的不断进步，各大分布式计算框架相继产生，其为大数据处理提供了有力的支撑，作为分布式计算、并行计算和网格计算的发展和延续，其对于单机串行处理性能不足的问题，给出了新的解决方案。</p>
+<p>在万物互连的今天，我们已经拥有经典的大规模数据的处理方案，可以借助诸如 Spark 或 Hadoop 等分布式计算框架来实现大规模数据集的各种数据挖掘算法，在此趋势下越来越多的由于数据规模过大而导致的分析难题都被解决，但与此同时，在数据集规模和数据维度的极度膨胀下，我们对分析结果的准确性和可解释性的把握正在逐渐降低，追求可视化的宏观展现与细粒度的数据分析结果的一致性从来都是一个美好的愿景，前者可以对后者提供视觉上的强有力的支持和解释，在信息可视化领域，有越来越多的研究者在为此而努力。</p>
+<h3 id="图数据的可视化技术"><a href="#图数据的可视化技术" class="headerlink" title="图数据的可视化技术"></a>图数据的可视化技术</h3><p>从可视化技术诞生伊始，其目标就是为了帮助人们理解抽象、混乱的数据，至今这一目标依然不曾改变。现在，数据可视化已经发展成为一个广泛的研究领域领域，处于数学、计算机科学、认知和感知科学以及工程学的交叉领域。从信号理论到成像，从计算机图形学到统计学，涵盖所有与可视化原理相关的学科 [3] 。可视化的目的是通过具象的、可交互的图形，让们深入了解我们感兴趣的过程（算法流程、科学模拟或一些真实的过程）的各个方面。可视化本身有许多定义，按照 Williams 等人的观点，可视化是人类在一个空间内构建图像时所进行的认知过程。在计算机和信息科学中，它更具体地说，是使用图形、图像、动画和声音来更详细的表示目标对象的数据、结构和动态行为的空间具象表示 [4] ，这里的目标对象可以指系统、事件、过程、对象和概念的大型复杂数据集。</p>
+<p>目前，由于互联网及物联网技术的发展，网络这一名词正在被赋予越来越多的应用场景，随之而来的是我们自身正在越来越多的网络中扮演着重要的角色：大到 Facebook 的全球社交关系网络，小到家庭智能电器组网，都成为我们日常生活中不可或缺的一部分。这些复杂的网络中往往隐含着非常有价值的信息，例如，通过分析特定的社交网络来挖掘犯罪嫌疑人的相关信息 [5] 。经典的社交网络等复杂网络，其本质可用图这一数据结构相对应，自然地，图论中的各种理论也可以被应用到网络分析中，复杂网络分析方法的发展也验证了这一结论，在本文中，将统一称研究对象为“图数据”，将对其可视化呈现称为“图数据的可视化”，这里的图数据除了包含经典的社交网络之外，还包括各种可以抽象为网络的数据，总体上可以将其称为“社会网络”。</p>
+<p>根据 IEEE VIS [6] 的分类，可视化研究领域主要分为信息可视化（InfoVIS）、科学可视化（SCIVIS）和可视分析（VAST）三部分，其中以信息可视化最为基础，其核心目的即：将给定的数据集 D 按特定的转换（Transform）规则 T，转换为对应的带空间信息的数据集 V(D) 并显示，以此来帮助人们理解大量、复杂、抽象的原始数据。对于图数据的布局过程，这一转换 T，即数据集 D 在给定二维（或三维）空间内的一组坐标映射 V(D)。</p>
+<h3 id="大规模图数据可视化的重要性"><a href="#大规模图数据可视化的重要性" class="headerlink" title="大规模图数据可视化的重要性"></a>大规模图数据可视化的重要性</h3><p>在对传统的计算技术带来了挑战的同时，大数据技术的发展也促进了数据可视化的研究。作为数据最上层的展示方法，数据可视化使用图形化的手段，可以传达清晰有效的信息，促进人们对信息的理解。目前数据可视化技术可分为这几类：基于几何投影技术的方法、基于图表的方法、基于像素的方法、基于图符的方法、基于层次的方法和组合方法。作为可视化展现形式之一的网络图，是一种简单直观的图数据可视化展现形式；由于高密度数据区域的聚集特征，散点图可以更为直观的发现群体的存在；在探索大规模数据集时，网络拓扑结构的高度重叠是最严重的缺点之一，这常常会导致数据相互的关系被隐藏或很难被发现。</p>
+<p>分布式计算框架的飞速发展极大地提高了人们对数据的处理能力，使得人们有机会可以直接研究大规模的数据集，在这方面，图数据占据了重要的位置。随着移动互联网的飞速发展，以经典的“网络”为主的图数据越来越多的出现在我们的日常生活中。在针对图数据的可视化中，提供有效的洞察力非常重要，这具体体现在以下两个方面：</p>
+<ul>
+<li><p>通过布局来展现图数据的具体特征<br>在这方面可以回答用户关于图数据本身的定量问题，例如在数据中拥有邻居最多的节点的信息、数据可以被划分为几个聚簇等等。这类问题的特点，是有明确的“问题驱动”，往往在没有可视化结果的帮助下用户也能得到准确的结果，但对于图数据而言，诸如想聚簇等特征，只有通过具体的布局呈现，才能更直观的得到一些运行结果的评价，像划分的聚簇间有无重叠这一问题，既需要数值上的（重叠度）准确度量，也同样需要布局上的清晰的边界划分。</p>
+</li>
+<li><p>为产生布局结果的过程提供信息<br>这部分内容并不针对具体问题，但对布局过程的尽可能详细的展现，使用户能够更容易的针对布局结果呈现的状态来反推出一些非常规问题的答案，例如在两方对立的意见网络中，中间（中立）节点对整个布局质量的影响（更紧密或更清晰），对于这个列子，研究者可能在一开始只发现了布局混乱这一现象，而并不知道中间节点对布局的影响，在经过对布局过程的可视化过程研究以后才得到最终结论。这类问题即 Telea 所说的“研究者对一种现象感兴趣，是为了发现数据新的特性并建立意想不到的关联”[3] ，这对于进一步理解数据中的信息起到了至关重要的作用.</p>
+</li>
+</ul>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h3 id="分布式大图布局计算的特点和挑战"><a href="#分布式大图布局计算的特点和挑战" class="headerlink" title="分布式大图布局计算的特点和挑战"></a>分布式大图布局计算的特点和挑战</h3><p>面对大规模图数据的处理需求，分布式图数据布局计算往往有以下特点：</p>
+<ul>
+<li><p>需要进行计算的数据量巨大。节点规模在百万以上，单机甚至无法将全部顶图数据加载到内存中，虽然使用 Spark 等基于内存的分布式框架可以完成对此规模数据的处理，但如此规模的数据量仍然对集群的 IO 性能、网络传输性能提出了很高的要求；</p>
+</li>
+<li><p>需要完成逻辑上的多次迭代。应用广播等方式可以避免显式的循环使用，但布局计算的完成仍然离不开动辄几百次的迭代步骤，这对于传统 MapReduce计算框架来说是一个灾难，Spark 的 RDD 有效的避免了中间结果的 IO 操作，但上百次的迭代仍需要研究者十分小心的处理 RDD 的各种转换；</p>
+</li>
+<li><p>必须重写已有布局算法。显而易见，在布局算法的运行机制和环境发生改变后，布局算法也需要重新进行设计以适应不同的计算框架，虽然这和原有布局算法有着相同的算法思想，但在特定分布式计算框架上设计出完全适合且能够高效运行的算法，往往考验着研究人员对特定分布式计算框架的理解程度；</p>
+</li>
+<li><p>布局结果难以查看。单机布局算法往往能够轻松的对每次迭代的结果进行展示，像可视化布局工具 Gephi [7] 可以通过显示每次布局的结果来呈现动态的布局过程，但在分布式计算框架中这一操作往往很难实现，因为在此环境下数据会分片发往不同的工作节点进行计算，如果每次迭代完成都要汇总一次来展现<br>当前布局结果，这将直接导使用基于内存的计算框架的优点的丧失。</p>
+</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] 于戈, 谷峪, 鲍玉斌, 等. 云计算环境下的大规模图数据处理技术[J]. 计算机学报, 2011,34(10): 1753-1767.<br>[2] PALMER S, ROCK I. Rethinking perceptual organization: The role of uniform connectedness[J]. Psychonomic bulletin &amp; review, 1994, 1(1): 29-55.<br>[3] C T A. Data visualization: principles and practice[M]. AK Peters/CRC Press, 2007.<br>[4] WILLIAMS M. Visualization.[J]. Annual Review of Information Science and Technology(ARIST), 1995(30): 161-207.<br>[5] JOHNSON J, REITZEL J D, NORWOOD B, et al. Social network analysis: A systematic approach for investigating[J]. FBI Law Enforcement Bulletin., 2013, 350.<br>[6] IEEE VIS[EB/OL]. 2019. <a href="http://ieeevis.org/year/2019/welcome" target="_blank" rel="external nofollow noopener noreferrer">http://ieeevis.org/year/2019/welcome</a>.<br>[7] BASTIAN M, HEYMANN S, JACOMY M. Gephi: an open source software for exploring and manipulating networks[C]//Third international AAAI conference on weblogs and social media.<br>2009.</p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\236a.html" title="用WebSocket给传统Web系统赋能" rel="bookmark">用WebSocket给传统Web系统赋能</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cb21.html" title="可视化布局算法的框架设计" rel="bookmark">可视化布局算法的框架设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6aea.html" title="IDEA远程提交hadoop任务时出现的错误" rel="bookmark">IDEA远程提交hadoop任务时出现的错误</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\428e.html" title="可视化算法VxOrd论文研读" rel="bookmark">可视化算法VxOrd论文研读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/65fe.html">https://www.cxmoe.com/article/65fe.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>可视化</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>布局算法</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/65fe.html&title=初识图数据的可视化 - 程序萌部落&summary=图数据的产生和发展图是信息科学中最常用的一类抽象数据结构，能够直观的表达现实世界中对象之间的真实关系。许多重要应用都需要用图结构表示，传统应用如最优运输路线的确定、疾病爆发路径的预测、科技文献的引用关系等；新兴应用如社交网络分析、语义 Web 分析、生物信息网络分析等，与图相关的处理和应用几乎无所不在 [1] 。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/65fe.html&title=初识图数据的可视化 - 程序萌部落&summary=图数据的产生和发展图是信息科学中最常用的一类抽象数据结构，能够直观的表达现实世界中对象之间的真实关系。许多重要应用都需要用图结构表示，传统应用如最优运输路线的确定、疾病爆发路径的预测、科技文献的引用关系等；新兴应用如社交网络分析、语义 Web 分析、生物信息网络分析等，与图相关的处理和应用几乎无所不在 [1] 。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/65fe.html&title=初识图数据的可视化 - 程序萌部落&summary=图数据的产生和发展图是信息科学中最常用的一类抽象数据结构，能够直观的表达现实世界中对象之间的真实关系。许多重要应用都需要用图结构表示，传统应用如最优运输路线的确定、疾病爆发路径的预测、科技文献的引用关系等；新兴应用如社交网络分析、语义 Web 分析、生物信息网络分析等，与图相关的处理和应用几乎无所不在 [1] 。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACPElEQVR42u3cQZLCMAwEQP7/6d0HbFFII2cBpX1LII7bJ5XG8Pi56XiAg4ODg4Mvgj/C8WfC4v3q9bP3TdcLDg4ODg6+EV4uAIrfry58ulHd9YKDg4ODg2+GVwuI08DuxsXrBQcHBwcHB28/Py1cwMHBwcHBwd8PT4MIcHBwcHBw8POBQvp8t6HxcUkKODg4ODj4B8HjA3Nvuj52wA8cHBwcHPyL4dPRLTCm8PF6wcHBwcHBF8FPB/unDvx13/NqfnBwcHBwcPB+IZE+nzYa4iQFHBwcHBx8IfzVRN376cJPNSTAwcHBwcE3wrugbuFRBaUNjXIjAxwcHBwcfBG8W8hMX3zVgYB2oAAODg4ODr4APi4IwsZ+Nzg4tsHg4ODg4OCL4FcFANMGRXVjxpUbODg4ODj4Ini3QDn1edqoaM8LDg4ODg6+GD4N8tONTAOEyyo3cHBwcHDwL4CfKky6DYu08TANHMDBwcHBwe8En96vFjLdwCJdBzg4ODg4+GZ4tzCYNi7+PagABwcHBwe/Abx6XS1Mut+bNiKefg4ODg4ODr4IPh1p4HDqwEB7Y8DBwcHBwRfBp0F82nhIg4O0sQEODg4ODr4ZnhYs3cZAdb5uAVNeLzg4ODg4+GJ4FXI6cEgbGu33g4ODg4ODg8c/nK8WSO3CJA0UwMHBwcHBwY//gWx33nJBBA4ODg4Ovhh+9YG+aWAwnRccHBwcHHwjPC0M0sC/unHTgAEcHBwcHHwz/G4DHBwcHBx8wfgF/fmDrtfr/B8AAAAASUVORK5CYII=" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACPElEQVR42u3cQZLCMAwEQP7/6d0HbFFII2cBpX1LII7bJ5XG8Pi56XiAg4ODg4Mvgj/C8WfC4v3q9bP3TdcLDg4ODg6+EV4uAIrfry58ulHd9YKDg4ODg2+GVwuI08DuxsXrBQcHBwcHB28/Py1cwMHBwcHBwd8PT4MIcHBwcHBw8POBQvp8t6HxcUkKODg4ODj4B8HjA3Nvuj52wA8cHBwcHPyL4dPRLTCm8PF6wcHBwcHBF8FPB/unDvx13/NqfnBwcHBwcPB+IZE+nzYa4iQFHBwcHBx8IfzVRN376cJPNSTAwcHBwcE3wrugbuFRBaUNjXIjAxwcHBwcfBG8W8hMX3zVgYB2oAAODg4ODr4APi4IwsZ+Nzg4tsHg4ODg4OCL4FcFANMGRXVjxpUbODg4ODj4Ini3QDn1edqoaM8LDg4ODg6+GD4N8tONTAOEyyo3cHBwcHDwL4CfKky6DYu08TANHMDBwcHBwe8En96vFjLdwCJdBzg4ODg4+GZ4tzCYNi7+PagABwcHBwe/Abx6XS1Mut+bNiKefg4ODg4ODr4IPh1p4HDqwEB7Y8DBwcHBwRfBp0F82nhIg4O0sQEODg4ODr4ZnhYs3cZAdb5uAVNeLzg4ODg4+GJ4FXI6cEgbGu33g4ODg4ODg8c/nK8WSO3CJA0UwMHBwcHBwY//gWx33nJBBA4ODg4Ovhh+9YG+aWAwnRccHBwcHHwjPC0M0sC/unHTgAEcHBwcHHwz/G4DHBwcHBx8wfgF/fmDrtfr/B8AAAAASUVORK5CYII=">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/f8d9.html" rel="prev" title="图布局算法的发展">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        图布局算法的发展
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 可视化</a> <a class="tag" href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 布局算法</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/57e6.html" rel="prev" title="To Avengers">
+                      
+                        To Avengers
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Writing/"><i class="fas fa-hashtag" aria-hidden="true"></i> Writing</a> <a class="tag" href="/tags/Memory/"><i class="fas fa-hashtag" aria-hidden="true"></i> Memory</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '初识图数据的可视化',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#图数据的产生和发展"><span class="toc-text">图数据的产生和发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图数据的可视化技术"><span class="toc-text">图数据的可视化技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大规模图数据可视化的重要性"><span class="toc-text">大规模图数据可视化的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式大图布局计算的特点和挑战"><span class="toc-text">分布式大图布局计算的特点和挑战</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a>
+    </li></div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

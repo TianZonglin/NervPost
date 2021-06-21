@@ -293,7 +293,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -1436,7 +1436,1151 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/7f0b.html">
+        初识机器学习
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/ML-R%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>ML/R学习笔记</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年10月25日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需10分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/7f0b.html" class="pageViews" data-flag-title="初识机器学习"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="几个基础算法"><a href="#几个基础算法" class="headerlink" title="几个基础算法"></a><strong>几个基础算法</strong></h2><h3 id="关联规则"><a href="#关联规则" class="headerlink" title="关联规则"></a>关联规则</h3><blockquote>
+<p>啤酒和尿布的案例<br>原始的购物篮分析，属于数据挖掘范畴，但也是机器学习的必备算法。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h3><blockquote>
+<p>高级的购物篮分析，是推荐系统常用到的算法之一</p>
+</blockquote>
+<h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><blockquote>
+<p>运营商人群分类案例<br>通过聚类分离不同人群，然后再分析人群的特点，制定不同的品牌，其属于机器学习范畴，对于给定的数据，运行给定的算法即可获得相关结果</p>
+</blockquote>
+<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><blockquote>
+<p>原始的垃圾邮件过滤经常被用到</p>
+</blockquote>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><blockquote>
+<p>通过不同的参数指标来获得对事物的评判</p>
+</blockquote>
+<h3 id="CTR预估"><a href="#CTR预估" class="headerlink" title="CTR预估"></a>CTR预估</h3><blockquote>
+<p>类似于PageRank的目的，其对指定对象进行评分排名</p>
+</blockquote>
+<h2 id="机器学习和数据分析的区别"><a href="#机器学习和数据分析的区别" class="headerlink" title="机器学习和数据分析的区别"></a><strong>机器学习和数据分析的区别</strong></h2><h3 id="处理数据的不同"><a href="#处理数据的不同" class="headerlink" title="处理数据的不同"></a><strong>处理数据的不同</strong></h3><blockquote>
+<p>机器学习：处理行为数据，搜索记录，浏览记录，评论记录等等<br>数据分析：处理交易数据，账单工单等等<br>数据量：海量/行为数据 VS  交易/少量数据</p>
+</blockquote>
+<h3 id="数据特点不同"><a href="#数据特点不同" class="headerlink" title="数据特点不同"></a><strong>数据特点不同</strong></h3><blockquote>
+<p>交易数据的一致性要求非常高，事务保证，确保数据一致性<br>行为数据一致性不高，数据缺失影响不大，对于整体分析结果影响较少<br>对于交易型数据的存储：关系型数据库<br>行为数据：MongoDB等NoSQL数据库</p>
+</blockquote>
+<ul>
+<li>对于数据一致性不高的特点：产生了NoSQL</li>
+<li>NoSQL特点：保证数据吞吐量的前提下会损失一致性，所以存储上：</li>
+</ul>
+<h3 id="分析方法不同"><a href="#分析方法不同" class="headerlink" title="分析方法不同"></a><strong>分析方法不同</strong></h3><blockquote>
+<p>数据分析多采用采样分析<br>机器学习大多是全量分析，数据量越多，分析结果越贴合</p>
+</blockquote>
+<h3 id="解决的问题不一样"><a href="#解决的问题不一样" class="headerlink" title="解决的问题不一样"></a><strong>解决的问题不一样</strong></h3><blockquote>
+<p>过去的历史数据特点：数据分析<br>预测未来的用户特点：机器学习</p>
+</blockquote>
+<h3 id="技术手段不同"><a href="#技术手段不同" class="headerlink" title="技术手段不同"></a><strong>技术手段不同</strong></h3><table>
+<thead>
+<tr>
+<th>分类</th>
+<th align="right">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据分析</td>
+<td align="right">汇总数据，OLAP，纬度少，属性少，数据量小，用户驱动，交互式分析</td>
+</tr>
+<tr>
+<td>机器学习</td>
+<td align="right">明细全量数据，纬度多，属性多，数据量大，数据驱动，自动进行知识发现</td>
+</tr>
+</tbody></table>
+<h3 id="参与者、受众不同"><a href="#参与者、受众不同" class="headerlink" title="参与者、受众不同"></a><strong>参与者、受众不同</strong></h3><blockquote>
+<p>数据分析取决于分析师的能力视角，目标用户是特定决策者<br>机器学习结果：取决于数据质量，数据驱动，算法影响较小，目标用户是数据用户本身</p>
+</blockquote>
+<h2 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a><strong>机器学习算法分类</strong></h2><p>| 依据|类别|<br>| — |— | —<br>| 按训练数据特点|有监督学习，无监督学习，半监督学习|<br>| 按算法解决的问题|分类和回归，聚类，标注|<br>| 按算法本质|生成模型，判别模型|</p>
+<h3 id="按训练数据特点"><a href="#按训练数据特点" class="headerlink" title="按训练数据特点"></a><strong>按训练数据特点</strong></h3><p>对样本数据进行训练，得到一个模型，然后判断Y(输出)-X(输入)关系</p>
+<ol>
+<li>有监督学习：分类算法(类别)、回归算法(数字)<blockquote>
+<p>例如分类垃圾邮件：<br>训练数据明确给出每个样本属于哪个类别，已经打好标签<br>特点，垃圾邮件已知，通过训练获得垃圾邮件的特征，从而分类出垃圾邮件<br>评判：给出垃圾邮件，要分到垃圾类别</p>
+</blockquote>
+</li>
+<li>无监督学习：不知道类别，标签未知，数据中没有Y<blockquote>
+<p>例如用户聚类：<br>分类之前不知道具体类别，算法结束后才知道具体类别和类别特征</p>
+</blockquote>
+</li>
+<li>半监督学习、强化学习<blockquote>
+<p>可能开始有Y值，但是模型结果不好，但随着训练增多结果变好</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="按算法解决问题"><a href="#按算法解决问题" class="headerlink" title="按算法解决问题"></a><strong>按算法解决问题</strong></h3><ol>
+<li>分类和回归：预测分类，预测Y值</li>
+<li>聚类</li>
+<li>标注：例如文本，可以切词，打标签，标注算法</li>
+</ol>
+<h3 id="按算法的本质"><a href="#按算法的本质" class="headerlink" title="按算法的本质"></a><strong>按算法的本质</strong></h3><ol>
+<li>生成模型：告诉属于各个类的概率，模棱两可，陪审团</li>
+<li>判别模型：直接给算法，数据丢进去返回哪一类，非黑即白，法庭宣判<blockquote>
+<p>通常用来说分类问题<br>例如逻辑回归和朴素贝叶斯的本质区别：是判别和生成模型的区别<br>从算法实现思想出发，非常重要！</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h2 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a><strong>常见算法</strong></h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>名称</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分类</td>
+<td>C4.5</td>
+<td>有监督算法，淘汰</td>
+</tr>
+<tr>
+<td>聚类</td>
+<td>K-Means</td>
+<td>无监督算法</td>
+</tr>
+<tr>
+<td>分类</td>
+<td>SVM</td>
+<td>基于统计，有数学理论支撑（效果好，有理论支撑）-被深度学取代-必考，公式推导</td>
+</tr>
+<tr>
+<td>关联分析</td>
+<td>Apriori</td>
+<td>频繁项集挖掘，代价大，被FP-Growth取代，只需；两次扫描数据库，推荐不用这些算法了</td>
+</tr>
+<tr>
+<td>抽象</td>
+<td>EM</td>
+<td>算法框架，K-Means本质即为EM算法</td>
+</tr>
+<tr>
+<td>链接</td>
+<td>PageRank</td>
+<td></td>
+</tr>
+<tr>
+<td>分类框体</td>
+<td>AdaBoost</td>
+<td>人脸识别，有监督学习</td>
+</tr>
+<tr>
+<td>分类</td>
+<td>kNN</td>
+<td>最简单，有监督学习，类似k-means</td>
+</tr>
+<tr>
+<td>分类</td>
+<td>NativeBayes</td>
+<td></td>
+</tr>
+<tr>
+<td>分类</td>
+<td>CART</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>其他杂类</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FP-Growth</td>
+<td>频繁项集挖掘</td>
+</tr>
+<tr>
+<td>逻辑回归</td>
+<td>搜索结果排序，本质逻辑回归</td>
+</tr>
+<tr>
+<td>RF随机森林、GBDT</td>
+<td>类似AdaBoost，都是决策树算法改进</td>
+</tr>
+<tr>
+<td>推荐算法</td>
+<td>—</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td>文本分析，自然语言处理   难度大</td>
+</tr>
+<tr>
+<td>Word2Vector</td>
+<td>文本挖掘</td>
+</tr>
+<tr>
+<td>HMM马尔科夫模型、CRF条件随机场</td>
+<td>文本挖掘</td>
+</tr>
+<tr>
+<td>深度学习系列算法</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h2 id="机器学习的框架"><a href="#机器学习的框架" class="headerlink" title="机器学习的框架"></a><strong>机器学习的框架</strong></h2><p>机器学习解决的问题无非两类：预测、分类<br>预测：预测所属分类、预测预测数值，区别：预测目标Y是连续的还是离散的</p>
+<h3 id="算法概要流程"><a href="#算法概要流程" class="headerlink" title="算法概要流程"></a><strong>算法概要流程</strong></h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h4><ol>
+<li>首先确定业务需求，确定问题</li>
+<li>围绕问题收集数据</li>
+<li>特征工程：预处理、提取特征，清洗整合重构，ETL过程，时间占比七成左右<blockquote>
+<p>例如预测购买力，要确定收入、学历等数据，筛选出来结构化<br>如果数据准备好了，那么用哪种模型对结果效果影响较小，特征工程的影响非常大<br>数据的好坏基本会决定了整个学习的效果。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a><strong>训练模型</strong></h4><ol start="4">
+<li>针对问题定义模型<blockquote>
+<p>定义模型的参数是不知道的，通过训练数据求参数，最终产生一个公式</p>
+</blockquote>
+</li>
+<li>定义损失函数<blockquote>
+<p>评估偏差的大小，机器学习没法得到问题的解析解/精确解，找到偏差最小的函数<br>偏差的定义：对于回归问题就是真实与预测的查，对于分类问题偏差定义较困难不直观，必须用数学方式定义之。loglogth，thinge等等</p>
+</blockquote>
+</li>
+<li>优化算法<blockquote>
+<p>在定义损失函数之后，确定损失函数的最小值，往往演变为优化问题，又会用到一些优化算法，纯数学问题：凸优化问题、优化问题，涉及梯度下降、随机梯度下降、坐标法等等</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="模型评估（在输入数据、计算、得到模型之后）"><a href="#模型评估（在输入数据、计算、得到模型之后）" class="headerlink" title="模型评估（在输入数据、计算、得到模型之后）"></a><strong>模型评估（在输入数据、计算、得到模型之后）</strong></h4><ol>
+<li>交叉验证：K值实值等等</li>
+<li>效果评估指标：准确率，召回率，方差，ROC曲线，AOC等等<blockquote>
+<p>检验模型好不好的标准<br>难度：损失函数，优化算法</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="示例：将图像按颜色分类"><a href="#示例：将图像按颜色分类" class="headerlink" title="示例：将图像按颜色分类"></a><strong>示例：将图像按颜色分类</strong></h4><blockquote>
+<p>确定问题：按颜色分类<br>收集数据：大量图片文件<br>特征工程：对于图片要根据图像内容，每个像素点由三数字组成；图片大小不一样，即数据维度不一样，如何将图片文件转换为聚类格式，转换为统一维度的向量<br>训练模型：K-Mean聚类<br>评价指标：暂略<br>注意：每次结果可能不一致</p>
+</blockquote>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ccc3.html" title="用Python实现神经网络(待续)" rel="bookmark">用Python实现神经网络(待续)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4735.html" title="关于图中节点间的概率求解问题" rel="bookmark">关于图中节点间的概率求解问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\64af.html" title="R语言的学习路线" rel="bookmark">R语言的学习路线</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/7f0b.html">https://www.cxmoe.com/article/7f0b.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>机器学习</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>笔记</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/7f0b.html&title=初识机器学习 - 程序萌部落&summary=几个基础算法关联规则
+啤酒和尿布的案例原始的购物篮分析，属于数据挖掘范畴，但也是机器学习的必备算法。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/7f0b.html&title=初识机器学习 - 程序萌部落&summary=几个基础算法关联规则
+啤酒和尿布的案例原始的购物篮分析，属于数据挖掘范畴，但也是机器学习的必备算法。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/7f0b.html&title=初识机器学习 - 程序萌部落&summary=几个基础算法关联规则
+啤酒和尿布的案例原始的购物篮分析，属于数据挖掘范畴，但也是机器学习的必备算法。
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACQ0lEQVR42u3aS1IDUQgF0Ox/0zrXshq4L9rS582S/oSDEwReHw89L3BwcHBw8EXw1/B8e+GX76f3Xf1eGi84ODg4OPhGeLkAuLi/mqA0MdN4wcHBwcHBN8OrBUT1/tMJjOMFBwcHBwcHLz9/qnABBwcHBwcHf38B0y1Y0u/BwcHBwcHBgwb9sDDpfn+7SQo4ODg4OPiN4OOFuT/6/OebjeDg4ODg4DeAp+e34XG84ODg4ODgi+DTAuGnBKTXqwOFbnzg4ODg4OAb4dMXnoJcFUYx9KoRAQ4ODg4OvhD+rsZANeDp/e0ODDg4ODg4+AJ4moBqITMtXE79gcDBwcHBwZ8Arw4cuoGniUwLHXBwcHBw8CfAp4P69Hq1gKkm6HKgAA4ODg4O/o/h0wW/bmBpYZMuKoCDg4ODg2+EV//BnzYAugXR6YYIODg4ODg4+DzgbuMhjettBQw4ODg4OPgN4ekgoPvD3QH/6YEDODg4ODj4k+DVwNqFRPhcN25wcHBwcPAnwqfX08bGqcVBcHBwcHDwJ8FPL9h1GxnThkS5wAIHBwcHB18ET083gHag4aIBODg4ODj4Zng6iD814O8mtJq4y0YEODg4ODj4AvjpgUB30WD6/vYCAjg4ODg4+GJ4tzHQHsyHhUzcuAAHBwcHBwePB/jdAUW18Ik3IsDBwcHBwR8I7z5fLVxODz7AwcHBwcE3w9PBQJrIbgLaDRJwcHBwcPCF8GlhMF0UqA4O0gEDODg4ODj4ZvjTDjg4ODg4+ILzCatBgr2mR/BHAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACQ0lEQVR42u3aS1IDUQgF0Ox/0zrXshq4L9rS582S/oSDEwReHw89L3BwcHBw8EXw1/B8e+GX76f3Xf1eGi84ODg4OPhGeLkAuLi/mqA0MdN4wcHBwcHBN8OrBUT1/tMJjOMFBwcHBwcHLz9/qnABBwcHBwcHf38B0y1Y0u/BwcHBwcHBgwb9sDDpfn+7SQo4ODg4OPiN4OOFuT/6/OebjeDg4ODg4DeAp+e34XG84ODg4ODgi+DTAuGnBKTXqwOFbnzg4ODg4OAb4dMXnoJcFUYx9KoRAQ4ODg4OvhD+rsZANeDp/e0ODDg4ODg4+AJ4moBqITMtXE79gcDBwcHBwZ8Arw4cuoGniUwLHXBwcHBw8CfAp4P69Hq1gKkm6HKgAA4ODg4O/o/h0wW/bmBpYZMuKoCDg4ODg2+EV//BnzYAugXR6YYIODg4ODg4+DzgbuMhjettBQw4ODg4OPgN4ekgoPvD3QH/6YEDODg4ODj4k+DVwNqFRPhcN25wcHBwcPAnwqfX08bGqcVBcHBwcHDwJ8FPL9h1GxnThkS5wAIHBwcHB18ET083gHag4aIBODg4ODj4Zng6iD814O8mtJq4y0YEODg4ODj4AvjpgUB30WD6/vYCAjg4ODg4+GJ4tzHQHsyHhUzcuAAHBwcHBwePB/jdAUW18Ik3IsDBwcHBwR8I7z5fLVxODz7AwcHBwcE3w9PBQJrIbgLaDRJwcHBwcPCF8GlhMF0UqA4O0gEDODg4ODj4ZvjTDjg4ODg4+ILzCatBgr2mR/BHAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/3d.html" rel="prev" title="Python的枚举类型">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        Python的枚举类型
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/Python/"><i class="fas fa-hashtag" aria-hidden="true"></i> Python</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/d81.html" rel="prev" title="Python的正则表达式">
+                      
+                        Python的正则表达式
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Python/"><i class="fas fa-hashtag" aria-hidden="true"></i> Python</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '初识机器学习',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个基础算法"><span class="toc-text">几个基础算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关联规则"><span class="toc-text">关联规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协同过滤"><span class="toc-text">协同过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚类"><span class="toc-text">聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树"><span class="toc-text">决策树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CTR预估"><span class="toc-text">CTR预估</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习和数据分析的区别"><span class="toc-text">机器学习和数据分析的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#处理数据的不同"><span class="toc-text">处理数据的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据特点不同"><span class="toc-text">数据特点不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分析方法不同"><span class="toc-text">分析方法不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决的问题不一样"><span class="toc-text">解决的问题不一样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术手段不同"><span class="toc-text">技术手段不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参与者、受众不同"><span class="toc-text">参与者、受众不同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习算法分类"><span class="toc-text">机器学习算法分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#按训练数据特点"><span class="toc-text">按训练数据特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按算法解决问题"><span class="toc-text">按算法解决问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按算法的本质"><span class="toc-text">按算法的本质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见算法"><span class="toc-text">常见算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习的框架"><span class="toc-text">机器学习的框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法概要流程"><span class="toc-text">算法概要流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练模型"><span class="toc-text">训练模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模型评估（在输入数据、计算、得到模型之后）"><span class="toc-text">模型评估（在输入数据、计算、得到模型之后）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例：将图像按颜色分类"><span class="toc-text">示例：将图像按颜色分类</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

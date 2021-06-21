@@ -295,7 +295,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -620,7 +620,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1289.html" title="Spark集群从搭建到任务提交-第N次记录" rel="bookmark">Spark集群从搭建到任务提交-第N次记录</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\5dab.html" title="在windows下使用IDEA远程连接linux集群进行mapreduce调试" rel="bookmark">在windows下使用IDEA远程连接linux集群进行mapreduce调试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b086.html" title="Spark安装之问题" rel="bookmark">Spark安装之问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1289.html" title="Spark集群从搭建到任务提交-第N次记录" rel="bookmark">Spark集群从搭建到任务提交-第N次记录</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\5dab.html" title="在windows下使用IDEA远程连接linux集群进行mapreduce调试" rel="bookmark">在windows下使用IDEA远程连接linux集群进行mapreduce调试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b086.html" title="Spark安装之问题" rel="bookmark">Spark安装之问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1388,7 +1388,1101 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/b081.html">
+        Spark的运行环境及远程开发环境的搭建
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Spark学习笔记</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2017年11月26日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约3.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需20分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/b081.html" class="pageViews" data-flag-title="Spark的运行环境及远程开发环境的搭建"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="基本概括"><a href="#基本概括" class="headerlink" title="基本概括"></a>基本概括</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>spark快速</strong> </p>
+<ul>
+<li>扩充了mapreduce</li>
+<li>基于内存计算（中间结果的存储位置）</li>
+</ul>
+<a id="more"></a>
+
+<p><strong>spark通用</strong></p>
+<ul>
+<li>批处理hadoop</li>
+<li>迭代计算 机器学习系统</li>
+<li>交互式查询 hive</li>
+<li>流处理 storm</li>
+</ul>
+<p><strong>spark开放</strong></p>
+<ul>
+<li>Python API</li>
+<li>Java/Scala API</li>
+<li>SQL API</li>
+<li>整合好hadoop/kafka</li>
+</ul>
+<h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><ul>
+<li>环境搭建</li>
+<li>核心概念RDD</li>
+<li>架构</li>
+<li>重要组件SparkStreaming</li>
+</ul>
+<h3 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h3><p>2009 RAD实验室，引入内存存储<br>2010 开源<br>2011 AMP实验室，Spark Streaming<br>2013 Apache顶级项目</p>
+<h3 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h3><p><strong>Spark Core：</strong></p>
+<ul>
+<li>包括spark的基本功能，任务调度、内存管理、容错机制</li>
+<li>内部定义RDDs（弹性分布式数据集）</li>
+<li>提供APIs来创建和操作RDDs</li>
+<li>为其他组件提供底层服务</li>
+</ul>
+<p><strong>Spark SQL：</strong></p>
+<ul>
+<li>处理结构化数据的库，类似于HiveSQL、Mysql</li>
+<li>用于报表统计等</li>
+</ul>
+<p><strong>Spark Streaming：</strong></p>
+<ul>
+<li>实时数据流处理组件，类似Storm</li>
+<li>提供API来操作实时数据流</li>
+<li>使用场景是从Kafka等消息队列中接收数据实时统计</li>
+</ul>
+<p><strong>Spark Mlib：</strong></p>
+<ul>
+<li>包含通用机器学习功能的包，Machine Learning Lib</li>
+<li>包含分类、聚类、回归、模型评估、数据导入等</li>
+<li>Mlib所有算法均支持集群的横向扩展（区别于python的单机）</li>
+</ul>
+<p><strong>GraphX：</strong></p>
+<ul>
+<li>处理图数据的库，并行的进行图的计算</li>
+<li>类似其他组件，都继承了RDD API</li>
+<li>提供各种图操作和常用的图算法，PageRank等</li>
+</ul>
+<p><strong>Spark Cluster Managers：</strong></p>
+<ul>
+<li>集群管理，Spark自带一个集群管理调度器</li>
+<li>其他类似的有Hadoop YARN，Apache Mesos</li>
+</ul>
+<h3 id="紧密集成的优点"><a href="#紧密集成的优点" class="headerlink" title="紧密集成的优点"></a>紧密集成的优点</h3><ul>
+<li>Spark底层优化后，基于底层的组件也会相应优化</li>
+<li>减少组件集成的部署测试</li>
+<li>增加新组建时其他组件可以方便使用其功能</li>
+</ul>
+<h3 id="hadoop应用场景"><a href="#hadoop应用场景" class="headerlink" title="hadoop应用场景"></a>hadoop应用场景</h3><ul>
+<li>离线处理、对时效性要求不高、要落到硬盘上</li>
+</ul>
+<h3 id="spark应用场景"><a href="#spark应用场景" class="headerlink" title="spark应用场景"></a>spark应用场景</h3><ul>
+<li>时效性要求高、机器学习、迭代计算</li>
+</ul>
+<h3 id="Doug-Cutting的观点"><a href="#Doug-Cutting的观点" class="headerlink" title="Doug Cutting的观点"></a>Doug Cutting的观点</h3><p>生态系统、各司其职<br>Spark需要借助HDFS进行持久化存储</p>
+<h2 id="运行环境搭建"><a href="#运行环境搭建" class="headerlink" title="运行环境搭建"></a>运行环境搭建</h2><h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><ul>
+<li>Spark - scala - JVM - Java7+</li>
+<li>Python - Python2.6+/3.4+</li>
+<li>Spark1.6.2 - Scala2.10/Spark2.0.0 - Scala2.11</li>
+<li>搭建Spark不需要Hadoop，如果存在则需要下载相关版本（不是上述对应关系）</li>
+</ul>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>详见<a href="http://dblab.xmu.edu.cn/blog/spark-quick-start-guide/" target="_blank" rel="external nofollow noopener noreferrer">http://dblab.xmu.edu.cn/blog/spark-quick-start-guide/</a><br>主要是两个步骤：</p>
+<ol>
+<li>安装Hadoop（不做介绍）</li>
+<li>解压Spark到对应位置，然后在spark-env.sh中添加SPARK_DIST_CLASSPATH</li>
+<li>run-example SparkPi已可以正常运行示例</li>
+</ol>
+<p><strong>注意几点：</strong></p>
+<ul>
+<li>Spark版本要严格对照Hadoop版本</li>
+<li>Spark运行不依赖Hadoop启动</li>
+<li>Spark运行目录bin的内容，要确保有执行权限[+x]</li>
+</ul>
+<h3 id="Spark目录"><a href="#Spark目录" class="headerlink" title="Spark目录"></a>Spark目录</h3><ul>
+<li>bin     包含和Spark交互的可执行文件，如Spark shell</li>
+<li>core，Streaming，python等   包含主要组件的源代码</li>
+<li>examples    包含一些单机的Spark job</li>
+</ul>
+<h3 id="Spark-shell"><a href="#Spark-shell" class="headerlink" title="Spark shell"></a>Spark shell</h3><ul>
+<li>Spark的shell能够处理分布在集群上的数据</li>
+<li>Spark把数据加载到节点的内存中，故分布式处理可以秒级完成</li>
+<li>快速迭代计算，实时查询，分析等都可以在shell中完成</li>
+<li>有Scala shell和Python shell</li>
+</ul>
+<h3 id="Scala-shell-bin-scala-shell"><a href="#Scala-shell-bin-scala-shell" class="headerlink" title="Scala shell:/bin/scala-shell"></a>Scala shell:/bin/scala-shell</h3><p><strong>注意：</strong></p>
+<ul>
+<li>启动日志级别可以修改为WARN，在目录/conf/log4j.properties</li>
+<li>开启Spark-shell要先启动hadoop，否则会出现以下错误<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 bin]$ .&#x2F;spark-shell</span><br><span class="line">  ... ...</span><br><span class="line">Caused by: java.net.ConnectException: Call From hadoop01&#x2F;192.168.146.130 to hadoop01:9000 failed on connection exception: java.net.ConnectException: 拒绝连接;For more details see:  http:&#x2F;&#x2F;wiki.apache.org&#x2F;hadoop&#x2F;ConnectionRefused;</span><br><span class="line"></span><br><span class="line">  ... 104 more</span><br><span class="line">&lt;console&gt;:14: error: not found: value spark</span><br><span class="line">	   import spark.implicits._</span><br><span class="line">			  ^</span><br><span class="line">&lt;console&gt;:14: error: not found: value spark</span><br><span class="line">	   import spark.sql</span><br><span class="line">			  ^</span><br><span class="line">Welcome to</span><br><span class="line">	  ____              __</span><br><span class="line">	 &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">	_\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.0</span><br><span class="line">	  &#x2F;_&#x2F;</span><br><span class="line">		 </span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_112)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt; </span><br><span class="line"></span><br><span class="line">scala&gt; val lines &#x3D; sc.textFile(&quot;&#x2F;home&#x2F;hadoop&#x2F;look.sh&quot;)</span><br><span class="line">&lt;console&gt;:17: error: not found: value sc</span><br><span class="line">	   val lines &#x3D; sc.textFile(&quot;&#x2F;home&#x2F;hadoop&#x2F;look.sh&quot;)</span><br><span class="line">				   ^</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p><strong>其他可能出现的错误：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 spark]$ .&#x2F;bin&#x2F;spark-shell</span><br><span class="line">17&#x2F;07&#x2F;02 13:25:12 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Error while instantiating &#39;org.apache.spark.sql.hive.HiveSessionStateBuilder&#39;</span><br><span class="line"></span><br><span class="line">  ... 47 elided  </span><br><span class="line">Caused by: java.lang.RuntimeException: java.lang.RuntimeException: The root scratch dir: &#x2F;tmp&#x2F;hive on HDFS should be writable. Current permissions are: rwxr-xr-x;</span><br><span class="line"></span><br><span class="line">  ... 61 more </span><br><span class="line">Caused by:java.lang.RuntimeException: The root scratch dir: &#x2F;tmp&#x2F;hive on HDFS should be writable. Current permissions are: rwxr-xr-x</span><br><span class="line"></span><br><span class="line">  ... 70 more </span><br><span class="line">The root scratch dir: **&#x2F;tmp&#x2F;hive on HDFS should be writable. Current permissions are: rwxr-xr-x</span><br><span class="line"></span><br><span class="line">  ... 84 more</span><br><span class="line">&lt;console&gt;:14: error: not found: value spark</span><br><span class="line">	   import spark.implicits._</span><br><span class="line">			  ^</span><br><span class="line">&lt;console&gt;:14: error: not found: value spark</span><br><span class="line">	   import spark.sql</span><br><span class="line">			  ^</span><br><span class="line">Welcome to</span><br><span class="line">	  ____              __</span><br><span class="line">	 &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">	_\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.0</span><br><span class="line">	  &#x2F;_&#x2F;</span><br><span class="line">		 </span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_112)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上述错误出现的原因是/tmp/hive这里，本质上是hdfs中此目录的读写权限出了问题（Spark的运行并不需要Hive的开启，甚至没有Hive也可以），此处只是/tmp/hive这个目录出了问题，使用<code>hadoop dfs -chmod 777 /tmp/hive</code>来修改其权限，如果出现 Name node is in safe mode，那么则需要使用<code>hadoop dfsadmin -safemode leave</code>来退出安全模式，之后便可以正常修改权限，改完之后再执行spark-shell变会出现正常的初始化结果：</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">17</span>/<span class="number">07</span>/<span class="number">02</span> <span class="number">13</span>:<span class="number">27</span>:<span class="number">43</span> <span class="type">WARN</span> <span class="type">NativeCodeLoader</span>: <span class="type">Unable</span> to load native-hadoop library <span class="keyword">for</span> your platform... using builtin-java classes where applicable</span><br><span class="line"><span class="number">17</span>/<span class="number">07</span>/<span class="number">02</span> <span class="number">13</span>:<span class="number">27</span>:<span class="number">54</span> <span class="type">WARN</span> <span class="type">ObjectStore</span>: <span class="type">Failed</span> to get database global_temp, returning <span class="type">NoSuchObjectException</span></span><br><span class="line"><span class="type">Spark</span> context <span class="type">Web</span> <span class="type">UI</span> available at http:<span class="comment">//192.168.146.130:4040</span></span><br><span class="line"><span class="type">Spark</span> context available as <span class="symbol">'s</span>c' (master = local[*], app id = local<span class="number">-1498973265138</span>).</span><br><span class="line"><span class="type">Spark</span> session available as <span class="symbol">'spar</span>k'.</span><br><span class="line">注意上述的三行初始化信息！</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>注意Spark-shell中的textFile(path)，参数path默认为hdfs://，要使用file://显式声明</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">val</span> lines = sc.textFile(<span class="string">"/home/hadoop/look.sh"</span>)</span><br><span class="line">lines: org.apache.spark.rdd.<span class="type">RDD</span>[<span class="type">String</span>] = /home/hadoop/look.sh <span class="type">MapPartitionsRDD</span>[<span class="number">1</span>] at textFile at &lt;console&gt;:<span class="number">24</span></span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">org.apache.hadoop.mapred.<span class="type">InvalidInputException</span>: <span class="type">Input</span> path does not exist: hdfs:<span class="comment">//hadoop01:9000/home/hadoop/look.sh</span></span><br><span class="line">  at org.apache.hadoop.mapred.<span class="type">FileInputFormat</span>.singleThreadedListStatus(<span class="type">FileInputFormat</span>.java:<span class="number">287</span>)</span><br><span class="line">  at org.apache.hadoop.mapred.<span class="type">FileInputFormat</span>.listStatus(<span class="type">FileInputFormat</span>.java:<span class="number">229</span>)</span><br><span class="line">  at org.apache.hadoop.mapred.<span class="type">FileInputFormat</span>.getSplits(<span class="type">FileInputFormat</span>.java:<span class="number">315</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">HadoopRDD</span>.getPartitions(<span class="type">HadoopRDD</span>.scala:<span class="number">194</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>$$anonfun$partitions$<span class="number">2.</span>apply(<span class="type">RDD</span>.scala:<span class="number">252</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>$$anonfun$partitions$<span class="number">2.</span>apply(<span class="type">RDD</span>.scala:<span class="number">250</span>)</span><br><span class="line">  at scala.<span class="type">Option</span>.getOrElse(<span class="type">Option</span>.scala:<span class="number">121</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>.partitions(<span class="type">RDD</span>.scala:<span class="number">250</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">MapPartitionsRDD</span>.getPartitions(<span class="type">MapPartitionsRDD</span>.scala:<span class="number">35</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>$$anonfun$partitions$<span class="number">2.</span>apply(<span class="type">RDD</span>.scala:<span class="number">252</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>$$anonfun$partitions$<span class="number">2.</span>apply(<span class="type">RDD</span>.scala:<span class="number">250</span>)</span><br><span class="line">  at scala.<span class="type">Option</span>.getOrElse(<span class="type">Option</span>.scala:<span class="number">121</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>.partitions(<span class="type">RDD</span>.scala:<span class="number">250</span>)</span><br><span class="line">  at org.apache.spark.<span class="type">SparkContext</span>.runJob(<span class="type">SparkContext</span>.scala:<span class="number">2087</span>)</span><br><span class="line">  at org.apache.spark.rdd.<span class="type">RDD</span>.count(<span class="type">RDD</span>.scala:<span class="number">1158</span>)</span><br><span class="line">  ... <span class="number">48</span> elided</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">val</span> lines = sc.textFile(<span class="string">"file:///home/hadoop/look.sh"</span>)</span><br><span class="line">lines: org.apache.spark.rdd.<span class="type">RDD</span>[<span class="type">String</span>] = file:<span class="comment">///home/hadoop/look.sh MapPartitionsRDD[3] at textFile at &lt;console&gt;:24</span></span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">res1: <span class="type">Long</span> = <span class="number">26</span></span><br><span class="line"></span><br><span class="line">scala&gt; lines.first()</span><br><span class="line">res2: <span class="type">String</span> = #!/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><h3 id="安装Scala环境"><a href="#安装Scala环境" class="headerlink" title="安装Scala环境"></a>安装Scala环境</h3><p><strong>注意：</strong></p>
+<ul>
+<li>Scala环境本身的安装跟Spark无关，Scala本身就是一门类似Java的语言</li>
+<li>可以在非集群内的主机安装该开发环境，然后通过ssh提交集群运行即可<br>（Spark版本2.x.x - Scala版本2.11.x以上，在IDEA中新建项目时会在首选项中进行选择）</li>
+</ul>
+<h3 id="第一个Scala程序：WordCount"><a href="#第一个Scala程序：WordCount" class="headerlink" title="第一个Scala程序：WordCount"></a>第一个Scala程序：WordCount</h3><p><strong>注意：</strong><br>类似于Hadoop，如果开发环境不在集群内，例如在自己PC中的IDEA进行开发（使用虚拟机同理），那么就会产生两种运行方式，一是本地运行，二是提交集群运行。<br>本质上两种方式都是先打包，再上传（本地或集群）。即流程是一致的，但是在PC中引入的spark-core的作用是不同的，提交集群运行时，PC中的spark-core内容只是作为语法检查，类方法调用等辅助作用；但是本地运行时，除了上述功能外，其还充当了计算部分，即可以使PC成为一个类似节点的且有计算能力的存在。</p>
+<p><strong>全部步骤：</strong><br>PC上安装Scala环境，IDEA，IDEA安装Scala插件</p>
+<p><strong>1.本地运行</strong></p>
+<ul>
+<li>新建Scala的Project，注意要选对应的scala版本</li>
+<li>然后在build.sbt中添加spark-core的依赖，可以去MavenRepositories网站去查，找到sbt（ivy）的依赖格式就行了</li>
+<li>然后新建一个scala class，选择object，书写代码，要使用本地模式</li>
+<li>最后直接点击运行即可。<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">WordCount</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 读取本地文件</span></span><br><span class="line">  <span class="keyword">val</span> path = <span class="string">"C:\\Users\\msi\\Desktop\\xiaomi2.txt"</span></span><br><span class="line">  <span class="comment">// 本地调试</span></span><br><span class="line">  <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"SparkDemo"</span>).setMaster(<span class="string">"local"</span>)</span><br><span class="line">  <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line">  <span class="keyword">val</span> lines = sc.textFile(path)</span><br><span class="line">  <span class="keyword">val</span> words = lines.flatMap(_.split(<span class="string">" "</span>)).filter(word =&gt; word != <span class="string">" "</span>)</span><br><span class="line">  <span class="keyword">val</span> pairs = words.map(word =&gt; (word, <span class="number">1</span>))</span><br><span class="line">  <span class="keyword">val</span> wordscount: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = pairs.reduceByKey(_ + _)</span><br><span class="line">  wordscount.collect.foreach(println)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>打印结果：</strong><br>注意下述的IP地址和file路径，确实是在本地运行的，而且就是引入的sparl-core起的作用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">D:\Java\jdk1.8.0_77\bin\java "-javaagent:D:\JetBrains\IntelliJ IDEA </span><br><span class="line">...</span><br><span class="line">17/11/28 00:40:21 INFO Executor: Starting executor ID driver on host localhost</span><br><span class="line">17/11/28 00:40:21 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 58570.</span><br><span class="line">17/11/28 00:40:21 INFO NettyBlockTransferService: Server created on 192.168.230.1:58570</span><br><span class="line">17/11/28 00:40:21 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy</span><br><span class="line">17/11/28 00:40:21 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.230.1, 58570, None)</span><br><span class="line">17/11/28 00:40:21 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.230.1:58570 with 1992.9 MB RAM, BlockManagerId(driver, 192.168.230.1, 58570, None)</span><br><span class="line">...</span><br><span class="line">17/11/28 00:40:22 INFO HadoopRDD: Input split: file:/C:/Users/msi/Desktop/xiaomi2.txt:0+903</span><br><span class="line">17/11/28 00:40:22 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1111 bytes result sent to driver</span><br><span class="line">17/11/28 00:40:22 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 183 ms on localhost (executor driver) (1/1)</span><br><span class="line">...</span><br><span class="line">(小米客服那些事,1)</span><br><span class="line">(贤艾森秋t4krP0,1)</span><br><span class="line">(北京IHG向,1)</span><br><span class="line">17/11/28 00:40:22 INFO SparkContext: Invoking stop() from shutdown hook</span><br><span class="line">17/11/28 00:40:22 INFO SparkUI: Stopped Spark web UI at http://192.168.230.1:4040</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.提交集群运行</strong></p>
+<ul>
+<li>第一步同本地模式</li>
+<li>第二步同本地模式</li>
+<li>然后新建一个scala class，选择object，书写代码，要使集群模式</li>
+<li>最后直接点击运行即可。<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">WordCount</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 读取hdfs文件</span></span><br><span class="line">  <span class="keyword">val</span> path = <span class="string">"hdfs://192.168.146.130:9000/spark/look.sh"</span></span><br><span class="line">  <span class="comment">//远程调试</span></span><br><span class="line">  <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">    .setAppName(<span class="string">"scalasparktest"</span>)</span><br><span class="line">    .setMaster(<span class="string">"spark://192.168.146.130:7077"</span>)</span><br><span class="line">    .setJars(<span class="type">List</span>(<span class="string">"I:\\IDEA_PROJ\\ScalaSparkTest\\out\\scalasparktest_jar\\scalasparktest.jar"</span>))</span><br><span class="line">  <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line">  <span class="keyword">val</span> lines = sc.textFile(path)</span><br><span class="line">  <span class="keyword">val</span> words = lines.flatMap(_.split(<span class="string">" "</span>)).filter(word =&gt; word != <span class="string">" "</span>)</span><br><span class="line">  <span class="keyword">val</span> pairs = words.map(word =&gt; (word, <span class="number">1</span>))</span><br><span class="line">  <span class="keyword">val</span> wordscount: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = pairs.reduceByKey(_ + _)</span><br><span class="line">  wordscount.collect.foreach(println)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="http://static.zybuluo.com/EVA001/v4hookhn5q6w3h81yugblfxg/image_1bvv7g94014f91qml150nsnb1ito9.png" alt="image_1bvv7g94014f91qml150nsnb1ito9.png-60.3kB">  </li>
+</ul>
+<p>此处一定要选择对Module（不是默认）和要运行的MainClass<br><img src="http://static.zybuluo.com/EVA001/mphqusaowg0f76h43xv3oqv4/image_1bvv7i5bj14a0l4c2kc1pra1d70m.png" alt="image_1bvv7i5bj14a0l4c2kc1pra1d70m.png-43kB">  </p>
+<p>点击OK后，选择Jar打包后的路径<br><img src="http://static.zybuluo.com/EVA001/zn6omgqt8meti2142mk4eb03/image_1bvv8p92j104td4dhfn1ro59b51g.png" alt="image_1bvv8p92j104td4dhfn1ro59b51g.png-154.8kB"></p>
+<p><strong>使用命令：</strong><br>启动master:  ./sbin/start-master.sh<br>启动worker:  ./bin/spark-class org.apache.spark.deploy.worker.Worker spark://192.168.146.130:7077<br>需要配置<strong>spark-env.sh</strong>中：（下面设为localhost就远程不了了）<br>export  SPARK_MASTER_HOST=192.168.146.130<br>export  SPARK_LOCAL_IP=192.168.146.130<br>注意更新配置文件后需要把master和worker都重启才可以生效（单机两者都在一个机器上的情况）</p>
+<p><strong>出现的错误：</strong><br>错误：java.io.FileNotFoundException: Jar I:\IDEA_PROJ\ScalaSparkTest\out\scalasparktest.jar not found<br>解决：修改setJar方法参数中的jar路径  </p>
+<p>错误：Could not connect to spark://192.168.146.130:7077<br>解决：重启worker和master，前提是spark-env.sh中的MASTER_IP和WORKER_IP要设置正确  </p>
+<p>错误：Exception: Call From msi-PC/192.168.230.1 to 192.168.146.130:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information;<br>解决：hdfs端口错误，很多教程写的是8020端口，但我hdfs是9000端口，所以要更正  </p>
+<p>错误：Invalid signature file digest for Manifest main attributes<br>解决：打包的文件很大，把全部依赖都打包了，90多M，但正常应该10多M，删掉无用的依赖，并且把sbt中spark-core的依赖设为provided模式<br><img src="http://static.zybuluo.com/EVA001/lkwv582qlr3vsgingtv6njpj/image_1bvvammdghvqppd1dp3nrc1ema1t.png" alt="image_1bvvammdghvqppd1dp3nrc1ema1t.png-110.7kB"></p>
+<p>错误：重复出现如下错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">17/11/28 20:20:52 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources</span><br><span class="line">17/11/28 20:21:07 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources</span><br><span class="line">17/11/28 20:21:22 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources</span><br></pre></td></tr></table></figure>
+<p>解决：Worker失效后被kill了[此时jps应该是没有Worker的]，重启Worker即可，还不行就将hadoop和spark都重启</p>
+<p><strong>提交集群运行的结果：</strong>(注意IP和端口，确实是提交到集群/虚拟机 上运行后返回的结果)<br>整个过程全部在IDEA中，完全达到了本地调试，自动上传集群，并返回结果的流程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">D:\Java\jdk1.8.0_77\bin\java "-javaagent:D:\JetBrains\IntelliJ IDEA </span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:39 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20170630223625-0006/0 on worker-20170630215502-192.168.146.130-50762 (192.168.146.130:50762) with 1 cores</span><br><span class="line">17/11/28 02:09:39 INFO StandaloneSchedulerBackend: Granted executor ID app-20170630223625-0006/0 on hostPort 192.168.146.130:50762 with 1 cores, 1024.0 MB RAM</span><br><span class="line">17/11/28 02:09:39 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20170630223625-0006/0 is now RUNNING</span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:43 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.146.130:47071 with 413.9 MB RAM, BlockManagerId(0, 192.168.146.130, 47071, None)</span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:50 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks</span><br><span class="line">17/11/28 02:09:50 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 192.168.146.130, executor 0, partition 0, ANY, 4853 bytes)</span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:55 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, 192.168.146.130, executor 0, partition 1, ANY, 4853 bytes)</span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:55 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks</span><br><span class="line">17/11/28 02:09:55 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2, 192.168.146.130, executor 0, partition 0, NODE_LOCAL, 4625 bytes)</span><br><span class="line">...</span><br><span class="line">17/11/28 02:09:56 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 3, 192.168.146.130, executor 0, partition 1, NODE_LOCAL, 4625 bytes)</span><br><span class="line">...</span><br><span class="line">(-ef|grep,1)</span><br><span class="line"><span class="meta">($</span><span class="bash">Jarstr,1)</span></span><br><span class="line">([[,1)</span><br><span class="line">(do,1)</span><br><span class="line">(YES,1)</span><br><span class="line">(while,1)</span><br><span class="line">("$Jarinfo",1)</span><br><span class="line">(echo,1)</span><br><span class="line"><span class="meta">(#</span><span class="bash">!/bin/bash,1)</span></span><br><span class="line">17/11/28 02:09:56 INFO SparkContext: Invoking stop() from shutdown hook</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1289.html" title="Spark集群从搭建到任务提交-第N次记录" rel="bookmark">Spark集群从搭建到任务提交-第N次记录</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\5dab.html" title="在windows下使用IDEA远程连接linux集群进行mapreduce调试" rel="bookmark">在windows下使用IDEA远程连接linux集群进行mapreduce调试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b086.html" title="Spark安装之问题" rel="bookmark">Spark安装之问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/b081.html">https://www.cxmoe.com/article/b081.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/b081.html&title=Spark的运行环境及远程开发环境的搭建 - 程序萌部落&summary=基本概括概述spark快速 
+
+扩充了mapreduce
+基于内存计算（中间结果的存储位置）
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/b081.html&title=Spark的运行环境及远程开发环境的搭建 - 程序萌部落&summary=基本概括概述spark快速 
+
+扩充了mapreduce
+基于内存计算（中间结果的存储位置）
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/b081.html&title=Spark的运行环境及远程开发环境的搭建 - 程序萌部落&summary=基本概括概述spark快速 
+
+扩充了mapreduce
+基于内存计算（中间结果的存储位置）
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3aQXKDQAwEQP7/6eQBOaCR1uUgem8uY6DXlynNXj8vXRc4ODg4OPgi+NVcf25YvL76+e733fcFBwcHBwffCC8HgOL11Q26+93d5/Q9wMHBwcHBN8O7AeQOlG7gqeeDg4ODg4OD1x+cXpcGFXBwcHBwcPDz8FNgcHBwcHBw8D48HtA3odMg9PUmBRwcHBwc/B/B2wfmvvT56ycbwcHBwcHB/wF8uk4NEk4Fltv3BQcHBwcHXwTvBoTqgOFTBwPS9wMHBwcHB98Mj29Q/L56vy4wfU9wcHBwcPBN8GmA+PSGdDeuPIEBBwcHBwdfDJ8WA93C4VMHAcHBwcHBwTfCu6D0+/Q+3cFFfCICHBwcHBz8gfD2YH4ISwuENKjETQo4ODg4OPgD4WlQOTWYSO/THVCMJzDg4ODg4OAPgKcFf1zIT4PHqcICHBwcHBx8EfwqrriAbwaU6Ua2CwVwcHBwcPAHw08NIE6B0lUOPuDg4ODg4C+GTwcI4wDS/CPAwcHBwcHfAO8WBWngOQUcFwrg4ODg4OCL4OlBunQwcPo58fuDg4ODg4Mvgk9XOthPA0kadMDBwcHBwd8EnxbxaVEwHUSkgeV2EAEODg4ODr4AngaWNKhUn9MNMOX7gYODg4ODL4anBUF346bFQ3twAQ4ODg4ODn58I6rFw3TgAQ4ODg4ODt6/Pj0ocLr4AAcHBwcH3wxPA0e6poXBdEACDg4ODg6+Ed4NBmnhnxYH04IBHBwcHBx8M/xtCxwcHBwcfMH6BflcAky18z6iAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRklEQVR42u3aQXKDQAwEQP7/6eQBOaCR1uUgem8uY6DXlynNXj8vXRc4ODg4OPgi+NVcf25YvL76+e733fcFBwcHBwffCC8HgOL11Q26+93d5/Q9wMHBwcHBN8O7AeQOlG7gqeeDg4ODg4OD1x+cXpcGFXBwcHBwcPDz8FNgcHBwcHBw8D48HtA3odMg9PUmBRwcHBwc/B/B2wfmvvT56ycbwcHBwcHB/wF8uk4NEk4Fltv3BQcHBwcHXwTvBoTqgOFTBwPS9wMHBwcHB98Mj29Q/L56vy4wfU9wcHBwcPBN8GmA+PSGdDeuPIEBBwcHBwdfDJ8WA93C4VMHAcHBwcHBwTfCu6D0+/Q+3cFFfCICHBwcHBz8gfD2YH4ISwuENKjETQo4ODg4OPgD4WlQOTWYSO/THVCMJzDg4ODg4OAPgKcFf1zIT4PHqcICHBwcHBx8EfwqrriAbwaU6Ua2CwVwcHBwcPAHw08NIE6B0lUOPuDg4ODg4C+GTwcI4wDS/CPAwcHBwcHfAO8WBWngOQUcFwrg4ODg4OCL4OlBunQwcPo58fuDg4ODg4Mvgk9XOthPA0kadMDBwcHBwd8EnxbxaVEwHUSkgeV2EAEODg4ODr4AngaWNKhUn9MNMOX7gYODg4ODL4anBUF346bFQ3twAQ4ODg4ODn58I6rFw3TgAQ4ODg4ODt6/Pj0ocLr4AAcHBwcH3wxPA0e6poXBdEACDg4ODg6+Ed4NBmnhnxYH04IBHBwcHBx8M/xtCxwcHBwcfMH6BflcAky18z6iAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/f71d.html" rel="prev" title="Spark的RDDs相关内容">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        Spark的RDDs相关内容
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/Spark/"><i class="fas fa-hashtag" aria-hidden="true"></i> Spark</a> <a class="tag" href="/tags/%E5%8E%9F%E7%90%86/"><i class="fas fa-hashtag" aria-hidden="true"></i> 原理</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/74eb.html" rel="prev" title="通过局部聚集自适应的解开小世界网络的纠结">
+                      
+                        通过局部聚集自适应的解开小世界网络的纠结
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E5%8A%9B%E5%AF%BC%E5%90%91/"><i class="fas fa-hashtag" aria-hidden="true"></i> 力导向</a> <a class="tag" href="/tags/%E5%9B%BE%E7%AE%80%E5%8C%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 图简化</a> <a class="tag" href="/tags/%E5%B0%8F%E4%B8%96%E7%95%8C%E7%BD%91%E7%BB%9C/"><i class="fas fa-hashtag" aria-hidden="true"></i> 小世界网络</a> <a class="tag" href="/tags/%E8%BE%B9%E8%BF%87%E6%BB%A4/"><i class="fas fa-hashtag" aria-hidden="true"></i> 边过滤</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Spark的运行环境及远程开发环境的搭建',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概括"><span class="toc-text">基本概括</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要内容"><span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展历史"><span class="toc-text">发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要组件"><span class="toc-text">主要组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#紧密集成的优点"><span class="toc-text">紧密集成的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hadoop应用场景"><span class="toc-text">hadoop应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spark应用场景"><span class="toc-text">spark应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Doug-Cutting的观点"><span class="toc-text">Doug Cutting的观点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行环境搭建"><span class="toc-text">运行环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础环境"><span class="toc-text">基础环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体步骤"><span class="toc-text">具体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark目录"><span class="toc-text">Spark目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark-shell"><span class="toc-text">Spark shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scala-shell-bin-scala-shell"><span class="toc-text">Scala shell:&#x2F;bin&#x2F;scala-shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境搭建"><span class="toc-text">开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Scala环境"><span class="toc-text">安装Scala环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个Scala程序：WordCount"><span class="toc-text">第一个Scala程序：WordCount</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

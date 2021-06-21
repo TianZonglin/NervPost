@@ -292,7 +292,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -1248,7 +1248,964 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/8caf.html">
+        使用PC同步播放移动设备的音频
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Daily-Life/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Daily_Life</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2021年5月9日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需10分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/8caf.html" class="pageViews" data-flag-title="使用PC同步播放移动设备的音频"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-10T12:32:31+02:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年5月10日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的整合方式。</p>
+<p>与此问题的相关英文问法通常是：</p>
+<p><strong>How to stream audio from an Android device to a Windows PC ??</strong></p>
+<h4 id="为什么要这样做"><a href="#为什么要这样做" class="headerlink" title="为什么要这样做"></a><strong>为什么要这样做</strong></h4><p>首先要明确我的使用场景：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20210510032841.png" alt></p>
+<a id="more"></a>
+
+<p>可以看到，平板在我的桌面相当于一块小副屏，当然它并不能和PC直接互通，我们知道，华为的手机和平板、电脑之间可以多屏协作，即将手机画面和声音以有线或无线方式投送到平板、电脑之上，以达到在电脑上处理手机事务的能力，<strong>但遗憾的是：目前华为平板和电脑之间并没有多屏协作的官方方案！</strong>也就是说，对于平板来说，在华为设计思路里，并不是从属设备而是替代PC的主力设备，这和iPad的发展类似，当然它发展它的，我们个人的需求仍然要满足滴！</p>
+<p>所以，我的需求是，在我正常使用耳机在台式电脑办公/娱乐时，我想从<strong>同一副耳机中听到来自平板中播放视频的声音</strong>，也就是说，虽然带着一副耳机，但可以听到不同类型设备的音频输出，这样我的平板就更加像一块小副屏，仅仅担负放视频的任务，声音共享。所以，核心问题来了：<strong>如何采集平板的音频并传输给PC？</strong></p>
+<p>各种失败的尝试：</p>
+<h4 id="第三方投屏软件"><a href="#第三方投屏软件" class="headerlink" title="第三方投屏软件"></a><strong>第三方投屏软件</strong></h4><p>由于华为的平板没有所谓的“多屏协作”，所以我想使用第三方的投屏软件来将平板的音视频投影到电脑上，当然这也就实现了我的目的，但通过尝试，发现当前<strong>几乎没有能够采集音频的投屏软件</strong>，有教程称小米自带投屏支持声音拾取，对此我并没有验证。更通俗的方案是依赖谷歌框架的投屏功能，不过我的 Matepadpro 是谷歌阉割版，此种方案作罢。</p>
+<ul>
+<li>这时我发现了名为“傲软投屏”的软件，号称可以采集声音，但经过实测，只是能采集平板的麦克风输入声音，USB或者Wifi连接都无法得到平板的音频输出！</li>
+</ul>
+<h4 id="远程桌面软件"><a href="#远程桌面软件" class="headerlink" title="远程桌面软件"></a><strong>远程桌面软件</strong></h4><p>如果你设备较多人又很懒，那么使用 TeamViewer 或者 Anydesk 等远程桌面软件来管理多个硬件设备是非常合适的，当然不使用 Windows 自带远程桌面的原因是：<strong>要兼容移动设备</strong>，所以使用 Anydesk 之类的软件即可轻松跨平台访问远程桌面。</p>
+<ul>
+<li>因此，在平板上安装 Anydesk 是个很自然的想法，更重要的是，对于电脑与电脑之间的远程访问，Anydesk 是支持声音传输的，即远端桌面上播放音乐，在访问端也可听到声音。但遗憾的是，经过实测，当 MatepadPro 和电脑通过 Anydesk 连接后，并不能听到任何平板的音频输出，不过其和投屏软件一样，也支持平板上麦克风声音的拾取。</li>
+</ul>
+<h4 id="电脑当做移动设备的蓝牙音频输出设备"><a href="#电脑当做移动设备的蓝牙音频输出设备" class="headerlink" title="电脑当做移动设备的蓝牙音频输出设备"></a><strong>电脑当做移动设备的蓝牙音频输出设备</strong></h4><p>即，把电脑当做平板的蓝牙耳机，当然就可以得到平板的声音了！这是最合理可行的方案，不过需要我们将 Windows 作为接收音频的蓝牙设备，完成此功能需要借助名为 “Bluetooth Audio Receiver” 的<strong>UWP应用</strong>，我没找到该软件的正常安装版本，对于我来说，我早已将微软的商店服务给禁用了，自然也无法使用此种方案。</p>
+<h4 id="可能的替代方案"><a href="#可能的替代方案" class="headerlink" title="可能的替代方案"></a><strong>可能的替代方案</strong></h4><p>是否有该UWP应用的替代品？部分网络教程提及了蓝牙的音频传输功能，即，当平板和电脑以蓝牙相连时，在电脑上的蓝牙选项中会存在“接收音频”类似的功能选项，如果选中则可以得到平板的音频。但我的华为平板通过蓝牙连接电脑后，没有任何声音选项，故此方案不可。</p>
+<p>经检索，网上有人说可以用过 “IVT BlueSoliel” 即千月蓝牙来实现。多说一嘴，千月蓝牙工具的核心是使用了虚拟蓝牙串口，即他会接管原有蓝牙功能，但其协议堆栈是和 Windows原生蓝牙是不同的，这也是为什么有时他能解决问题的原因。但是，经过我的尝试，这玩意儿也不好使，而且客户端做的仿佛是上世纪的UI，体验一般。</p>
+<h4 id="正确答案"><a href="#正确答案" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h4><p>以上试了这么多方案，有无线连接的，也有通过 USB 连接的，当然，对我来说我对有线无线并不在乎。所以，当我在尝试投屏软件时，有个“USB”直连模式我果断试用了，因为用 USB 连接并不占用带宽，这对局域网来说是很重要的！尤其是我现在用的路由器并不强劲。虽然投屏软件没能解决我的问题，但它引出了后续的终极方案：ADB调试直连。</p>
+<p>需要用到的两个开源工具：</p>
+<ul>
+<li>scrcpy：<a href="https://github.com/Genymobile/scrcpy" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/Genymobile/scrcpy</a></li>
+<li>sndcpy：<a href="https://github.com/rom1v/sndcpy" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/rom1v/sndcpy</a></li>
+</ul>
+<p>借助 Scrcpy 可以达到同屏的目的，几乎无延迟，我强烈怀疑有很多投屏软件就是这个开源项目的再封装。借助 Sndcpy 可以达到同步音频的目的，几乎无延迟！这不就是我苦苦寻找的东西吗！！两者同时使用，则可以将移动设备的画面及声音完全复制到电脑之上，当然，亲测<strong>单独使用 Sndcpy 也是可行的！</strong>这就完完全全是我想要的效果了：</p>
+<p>只把平板的声音同步到电脑，在我用电脑娱乐玩游戏（游戏内有声音）时，耳机中也能听见来自平板上的视频的声音！</p>
+<h4 id="Sndcpy-使用注意事项"><a href="#Sndcpy-使用注意事项" class="headerlink" title="Sndcpy 使用注意事项"></a><strong>Sndcpy 使用注意事项</strong></h4><ul>
+<li><p>一定要打开手机的USB调试，验证：电脑通过数据线连接移动设备后，会弹出“是否允许调试”的询问弹框。</p>
+</li>
+<li><p>一定要在电脑端安装VLC播放器！其需要借助VLC的解码器。</p>
+</li>
+<li><p>一定要添加环境变量！</p>
+</li>
+</ul>
+<blockquote>
+<p>ADB: the full path to the adb executable<br>VLC: the full path to the vlc executable<br>SNDCPY_APK: the full path to sndcpy.apk<br>SNDCPY_PORT: the local port to forward to communicate with the device</p>
+</blockquote>
+<ul>
+<li>优化使用</li>
+</ul>
+<p>以上两个工具，正常的使用方法是直接点击 xx.exe 唤起 Console 黑框终端运行，使用期间cmd终端会一直在且不可以关闭，这很令人抓狂！</p>
+<p>当然我发现了完美的解决办法：将cmd终端<strong>最小化到右下角图标区域</strong>，仍然是后台常驻，但不会占用任务栏的空间，你也不会再在桌面看到任何黑框！</p>
+<p>实现该功能的项目地址：<a href="https://github.com/fcFn/traymond" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/fcFn/traymond</a><br>使用：<strong>win键 + shift + Z</strong> 把当前窗口最小化常驻到右下角图标</p>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h4><p>通过最后的方案，实现了平板声音的实时采集传输，无需蓝牙，不用同屏图像，完美方案！！！<br>值得一提的是，该方案并不影响平板的原有音频输出！同时也不影响电脑原有的音频输出，如果同时播放视频，就像在浏览器同时开两个视频页面的效果一样（叠加）。</p>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\38f4.html" title="将博客搬至CSDN" rel="bookmark">将博客搬至CSDN</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8996.html" title="美国是如何一步步成为超级大国的" rel="bookmark">美国是如何一步步成为超级大国的</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/8caf.html">https://www.cxmoe.com/article/8caf.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ADB%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>ADB调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B8%A9%E5%9D%91/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>踩坑</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/8caf.html&title=使用PC同步播放移动设备的音频 - 程序萌部落&summary=当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的整合方式。
+与此问题的相关英文问法通常是：
+How to stream audio from an Android device to a Windows PC ??
+为什么要这样做首先要明确我的使用场景：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/8caf.html&title=使用PC同步播放移动设备的音频 - 程序萌部落&summary=当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的整合方式。
+与此问题的相关英文问法通常是：
+How to stream audio from an Android device to a Windows PC ??
+为什么要这样做首先要明确我的使用场景：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/8caf.html&title=使用PC同步播放移动设备的音频 - 程序萌部落&summary=当你使用台式机工作时，你是否喜欢在旁边放一个pad或手机刷其他视频或音乐？并且在没有条件外放声音的情况下，你是否尝试过带两个耳机来收听两个设备的音频（电脑+移动设备）？如果你想这么干，又苦于没有头绪，那么本文将告诉你各种可能的方案以及他们是否可行，当然最后你会得到堪称完美的整合方式。
+与此问题的相关英文问法通常是：
+How to stream audio from an Android device to a Windows PC ??
+为什么要这样做首先要明确我的使用场景：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACR0lEQVR42u3aO24DMQwFQN//0knvwAh/a1vcURdD0XJUEXp8/Nx0PcDBwcHBwRfBH8X158Dgvuf9/50T/U60XnBwcHBw8I3wcAPwfFCz0Oy57XrBwcHBwcEXw7MFdguPnjdVLzg4ODg4OHi/0OwDBTg4ODg4OPg8PBsgVPeDg4ODg4ODzwcK3eC+C/9YkgIODg4ODv5F8PLA3If+HhvwAwcHBwcHPxg+taIX1P29XSc4ODg4OPgieLehiBZaDQKqgwQvfwcHBwcHB18E7wYH0QeCbAOUHSgIXzg4ODg4OPgieLXAbkPz7sEEcHBwcHDwjfDsP04XXH3AGH+IAAcHBwcHXwSPXkj7YSD5ANE+FxwcHBwcfBG8GwBUHzSmgouxQAEcHBwcHPxA+BRw6uFiKthId27g4ODg4OAHwrMNwVQjM31x4YYGHBwcHBx8Ebz7gakL6AYZlyUp4ODg4ODgB8CvGsCbOj+7LxwogIODg4ODHwzPNgLdi6gWnn0oCQcK4ODg4ODgB8OzAUIWVG1UpgcFwMHBwcHBN8KrDwfdhiTbuGQbqZcXBA4ODg4OvgjeXdnCuheXHUgIT0SAg4ODg4MfCH8UV7eAdzdA4ODg4ODgm+HVICHbcFQHErpBBTg4ODg4+B3g0w8J7SC/2VCBg4ODg4OD5wf5sg1StpEaCxTAwcHBwcFvDM/CpvaXgw5wcHBwcPDF8G6g0A0irn4IAQcHBwcH3wivDvhFG4kquPrdyycbwcHBwcHBvwB+twUODg4ODr5g/QIUyT5I859RmQAAAABJRU5ErkJggg==" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACR0lEQVR42u3aO24DMQwFQN//0knvwAh/a1vcURdD0XJUEXp8/Nx0PcDBwcHBwRfBH8X158Dgvuf9/50T/U60XnBwcHBw8I3wcAPwfFCz0Oy57XrBwcHBwcEXw7MFdguPnjdVLzg4ODg4OHi/0OwDBTg4ODg4OPg8PBsgVPeDg4ODg4ODzwcK3eC+C/9YkgIODg4ODv5F8PLA3If+HhvwAwcHBwcHPxg+taIX1P29XSc4ODg4OPgieLehiBZaDQKqgwQvfwcHBwcHB18E7wYH0QeCbAOUHSgIXzg4ODg4OPgieLXAbkPz7sEEcHBwcHDwjfDsP04XXH3AGH+IAAcHBwcHXwSPXkj7YSD5ANE+FxwcHBwcfBG8GwBUHzSmgouxQAEcHBwcHPxA+BRw6uFiKthId27g4ODg4OAHwrMNwVQjM31x4YYGHBwcHBx8Ebz7gakL6AYZlyUp4ODg4ODgB8CvGsCbOj+7LxwogIODg4ODHwzPNgLdi6gWnn0oCQcK4ODg4ODgB8OzAUIWVG1UpgcFwMHBwcHBN8KrDwfdhiTbuGQbqZcXBA4ODg4OvgjeXdnCuheXHUgIT0SAg4ODg4MfCH8UV7eAdzdA4ODg4ODgm+HVICHbcFQHErpBBTg4ODg4+B3g0w8J7SC/2VCBg4ODg4OD5wf5sg1StpEaCxTAwcHBwcFvDM/CpvaXgw5wcHBwcPDF8G6g0A0irn4IAQcHBwcH3wivDvhFG4kquPrdyycbwcHBwcHBvwB+twUODg4ODr5g/QIUyT5I859RmQAAAABJRU5ErkJggg==">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/b157.html" rel="prev" title="大疆无人机全景图-补天-教程">
+                      
+                        大疆无人机全景图-补天-教程
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E6%80%BB%E7%BB%93/"><i class="fas fa-hashtag" aria-hidden="true"></i> 总结</a> <a class="tag" href="/tags/%E6%B5%8B%E8%AF%84/"><i class="fas fa-hashtag" aria-hidden="true"></i> 测评</a> <a class="tag" href="/tags/%E6%91%84%E5%BD%B1/"><i class="fas fa-hashtag" aria-hidden="true"></i> 摄影</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '使用PC同步播放移动设备的音频',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要这样做"><span class="toc-text">为什么要这样做</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三方投屏软件"><span class="toc-text">第三方投屏软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程桌面软件"><span class="toc-text">远程桌面软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电脑当做移动设备的蓝牙音频输出设备"><span class="toc-text">电脑当做移动设备的蓝牙音频输出设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可能的替代方案"><span class="toc-text">可能的替代方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正确答案"><span class="toc-text">正确答案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sndcpy-使用注意事项"><span class="toc-text">Sndcpy 使用注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

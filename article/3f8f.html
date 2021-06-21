@@ -294,7 +294,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -525,7 +525,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\66d5.html" title="Gephi-Toolkit的引入与使用" rel="bookmark">Gephi-Toolkit的引入与使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\663c.html" title="IDEA如何在项目中快速添加Maven依赖" rel="bookmark">IDEA如何在项目中快速添加Maven依赖</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bc.html" title="VMware虚拟机相关问题" rel="bookmark">VMware虚拟机相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\66d5.html" title="Gephi-Toolkit的引入与使用" rel="bookmark">Gephi-Toolkit的引入与使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\663c.html" title="IDEA如何在项目中快速添加Maven依赖" rel="bookmark">IDEA如何在项目中快速添加Maven依赖</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bc.html" title="VMware虚拟机相关问题" rel="bookmark">VMware虚拟机相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd8a.html" title="CentOS集群相关问题" rel="bookmark">CentOS集群相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1290,7 +1290,1004 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/3f8f.html">
+        Gephi源码的调试及Git同步
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年4月9日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约1.6k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需9分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/3f8f.html" class="pageViews" data-flag-title="Gephi源码的调试及Git同步"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h3 id="Fork原始Gephi项目"><a href="#Fork原始Gephi项目" class="headerlink" title="Fork原始Gephi项目"></a>Fork原始Gephi项目</h3><ol>
+<li>进入Gephi的github地址：<a href="https://github.com/gephi/gephi" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/gephi/gephi</a></li>
+<li>点击右上角的<code>fork</code>按钮将其fork到自己的github中：</li>
+</ol>
+<a id="more"></a>
+
+<p> <img src="http://static.zybuluo.com/EVA001/gfmt9a95dfv8qg33byea73ep/image_1ca53iver1qbkv0pq7o35k1iho9.png" alt="image_1ca53iver1qbkv0pq7o35k1iho9.png-80.4kB"></p>
+<ol start="3">
+<li><p>fork完毕后我们就在自己的github中有了完整的备份：</p>
+<p><img src="http://static.zybuluo.com/EVA001/tcf653nl9fqcoclvrbelovql/image_1ca53pgdihf218v1g4b1cg1u6om.png" alt="image_1ca53pgdihf218v1g4b1cg1u6om.png-45.7kB"></p>
+</li>
+<li><p>然后点击上图中绿色的Clone按钮，注意必须在自己的备份中进行Clone以便后期提交自己的修改；<br>（如何确认本地或源只需看左上角的根目录名称和有无fork标记）<br><img src="http://static.zybuluo.com/EVA001/jnoaud3zbf5rgwhrmvy5s5qf/image_1ca53ucsl1rno1la01adbakj1aun13.png" alt="image_1ca53ucsl1rno1la01adbakj1aun13.png-21.2kB"></p>
+</li>
+<li><p>将上图中的https地址复制待用；<br>关于如何将代码Clone到本地，有多种方法，可以选用NetBeans自带的Clone功能：<br><img src="http://static.zybuluo.com/EVA001/ajd76lk0tcoeb7qmgt2okiku/image_1ca54n00r1r3qrs0s3t18j21trrm.png" alt="image_1ca54n00r1r3qrs0s3t18j21trrm.png-42.2kB"></p>
+<p>不过我这里连接github时总是出错（如下），所以使用了git for windows来进行克隆。</p>
+</li>
+</ol>
+<h4 id="Git-for-Windows-的安装"><a href="#Git-for-Windows-的安装" class="headerlink" title="Git for Windows 的安装"></a>Git for Windows 的安装</h4><blockquote>
+<p>**<br>在Windows上使用Git，可以从<a href="https://git-scm.com/download/win" target="_blank" rel="external nofollow noopener noreferrer">Git官网</a>直接下载安装程序(Setup)，（网速慢的同学请移步国内镜像），然后按默认选项安装即可。<br>安装完成后，在开始菜单里找到“Git”-&gt;“GitBash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！<br>install-git-on-windows<br>安装完成后，还需要最后一步设置，在命令行输入：<br><code>$ git config --global user.name &quot;Your Name&quot;</code><br><code>$ git config --global user.email &quot;email@example.com&quot;</code><br>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。<br>这里的名字和地址对应你最常用的git仓库的用户名和密码（比如这里就是用Github的）<br>注意git config命令的–global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。**</p>
+</blockquote>
+<h3 id="克隆项目到本地"><a href="#克隆项目到本地" class="headerlink" title="克隆项目到本地"></a>克隆项目到本地</h3><ol>
+<li><p>继续上述过程，首先进入到NetBeans的项目空间目录（不是必须的）。然后单机鼠标右键，这时应该有<code>Git Bush Here</code>的选项，点击后在弹出的黑框中输入如下命令：</p>
+<p><img src="http://static.zybuluo.com/EVA001/8od95l7gjv4cqwfr4wjjnpdd/image_1ca55gggfghf10tsmrb1bhoh9m23.png" alt="image_1ca55gggfghf10tsmrb1bhoh9m23.png-14.7kB"><br><code>git clone</code>是克隆项目的指令<br><code>https://github.com/TianZonglin/gephi</code>对应上文中复制备用的https的地址<br><code>YourProjectName</code>对应你想要给你的项目起的名字，如果不带这个参数，则会默认一个文件名；</p>
+<p>克隆完成后文件夹如下所示：</p>
+<p><img src="http://static.zybuluo.com/EVA001/1joayhklxk98jj9j9lhfp7qf/image_1ca55upkg6pb1mu91d24140t30e2g.png" alt="image_1ca55upkg6pb1mu91d24140t30e2g.png-17kB"></p>
+</li>
+</ol>
+<h3 id="NetBeans关联Maven"><a href="#NetBeans关联Maven" class="headerlink" title="NetBeans关联Maven"></a>NetBeans关联Maven</h3><p>现在开始使用NetBeans进行操作，由于Gephi的源代码使用的Maven进行构建的，所以首先需要在本机安装Maven（与Netbeans无关），Windows安装Maven的教程如下：</p>
+<h4 id="Windows下的Maven下载与安装"><a href="#Windows下的Maven下载与安装" class="headerlink" title="Windows下的Maven下载与安装"></a>Windows下的Maven下载与安装</h4><blockquote>
+</blockquote>
+<ol>
+<li><p>前往<a href="https://maven.apache.org/download.cgi下载最新版的Maven程序：" target="_blank" rel="external nofollow noopener noreferrer">https://maven.apache.org/download.cgi下载最新版的Maven程序：</a><br><img src="http://static.zybuluo.com/EVA001/otn5pel8ffw03kpcywfx9rgk/image_1ca56kl5tbt0v43nr3tpp1qlr3q.png" alt="image_1ca56kl5tbt0v43nr3tpp1qlr3q.png-61.3kB"></p>
+</li>
+<li><p>将文件解压到D:\Program Files\Apache\maven目录下:<br><img src="http://static.zybuluo.com/EVA001/2qwjzfoardbmhwn3yc08nqoc/image_1ca56m53m15o71nojv13r6n1c485a.png" alt="image_1ca56m53m15o71nojv13r6n1c485a.png-54.3kB"></p>
+</li>
+<li><p>新建环境变量MAVEN_HOME，赋值D:\Program Files\Apache\maven<br><img src="http://static.zybuluo.com/EVA001/vo3yt39e2vcivho8yg4kscnq/image_1ca56o81u9op1gq9c4d182f1jtr6q.png" alt="image_1ca56o81u9op1gq9c4d182f1jtr6q.png-24.2kB"></p>
+</li>
+<li><p>编辑环境变量Path，追加%MAVEN_HOME%\bin;</p>
+</li>
+<li><p>至此，maven已经完成了安装，我们可以通过DOS命令<code>mvn -v</code>检查一下我们是否安装成功：<br><img src="http://static.zybuluo.com/EVA001/g01uktu4nkufjf7ixlgzani7/image_1ca56pkcd1k71i4c1f301bmp1sbu7a.png" alt="image_1ca56pkcd1k71i4c1f301bmp1sbu7a.png-29.5kB"><br>配置Maven本地仓库</p>
+</li>
+<li><p>在D:\Program Files\Apache\目录下新建maven-repository文件夹，该目录用作maven的本地库。</p>
+</li>
+<li><p>打开D:\Program Files\Apache\maven\conf\settings.xml文件，查找下面这行代码：<br><localrepository>/path/to/local/repo</localrepository><br>localRepository节点默认是被注释掉的，需要把它移到注释之外，然后将localRepository节点的值改为我们在之前创建的目录D:\Program Files\Apache\maven-repository。</p>
+</li>
+<li><p>localRepository节点用于配置本地仓库，本地仓库其实起到了一个缓存的作用，它的默认地址是 C:\Users\用户名.m2。<br>当我们从maven中获取jar包的时候，maven首先会在本地仓库中查找，如果本地仓库有则返回；如果没有则从远程仓库中获取包，并在本地库中保存。<br>此外，我们在maven项目中运行mvn install，项目将会自动打包并安装到本地仓库中。</p>
+</li>
+<li><p>运行一下DOS命令<br>mvn help:system<br>如果前面的配置成功，那么D:\Program Files\Apache\maven-repository会出现一些文件。**</p>
+</li>
+<li><p>需要将NetBeans和本地的Maven进行关联，点击 工具-&gt;选项-&gt;Java-&gt;Maven，在页面中修改Maven主目录，浏览本地的Maven目录并选定，如果正常，则会显示如下：</p>
+<p><img src="http://static.zybuluo.com/EVA001/wxorsl1svi5bs6busd4cbqml/image_1ca5742nv16t86c916dgtok1j6v7n.png" alt="image_1ca5742nv16t86c916dgtok1j6v7n.png-3.8kB"></p>
+</li>
+</ol>
+<h3 id="NetBeans打开Gephi源码"><a href="#NetBeans打开Gephi源码" class="headerlink" title="NetBeans打开Gephi源码"></a>NetBeans打开Gephi源码</h3><ol>
+<li><p>Maven配置成功后，依次点击 文件-&gt;打开项目-&gt;找到之前克隆的项目的文件，然后会发现有特殊的[ma]图标，这是Maven项目的标识。双击打开即可：</p>
+<p><img src="http://static.zybuluo.com/EVA001/9bv7csd28dlfuaf20xr8la7i/image_1ca567b4b1of2jf616np1gjbf8a3a.png" alt="image_1ca567b4b1of2jf616np1gjbf8a3a.png-17kB"></p>
+</li>
+<li><p>打开之后会发现项目名称为gephi，后跟[master]说明是从主分支上克隆的，并且已经被关联git。初次打开时由于需要加载gephi的依赖文件（Maven），所以会有一段时间处于读条状态（右下角）。第一次运行需要进行<code>构建</code>，这时会下载一些本地Maven库中不存在的jar包，所以可能构建过程很慢。</p>
+</li>
+</ol>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h3 id="NetBeans修改、执行、同步Gephi源代码"><a href="#NetBeans修改、执行、同步Gephi源代码" class="headerlink" title="NetBeans修改、执行、同步Gephi源代码"></a>NetBeans修改、执行、同步Gephi源代码</h3><ol>
+<li><p><strong>执行</strong>：由于NetBeans的模块化构建，使得gephi整个项目没有一个传统的Main函数入口，这里的入口，在位于gephi源代码项目目录下的<code>模块</code>内的<code>gephi-app</code>模块，双击后即可独立的打开该模块，然后右键选项中点击运行即可打开Gephi主界面。 </p>
+<p><img src="http://static.zybuluo.com/EVA001/m3twn85p2pefrs1hgq6xhs0j/image_1ca57k9781t6cr0rnr117rb8l58h.png" alt="image_1ca57k9781t6cr0rnr117rb8l58h.png-11.3kB"><br>上述打开的Gephi就是具有完整功能的客户端。</p>
+</li>
+<li><p><strong>修改布局源代码</strong>：类似的，找到模块中的LayoutPlugin，双击打开，然后在源包中就是全部的布局算法的源码了，针对具体的代码文件进行修改即可。一般的调试源码的步骤：修改源码-&gt;运行gephi-app，如果修改无效，请在修改源码后，对LayoutPlugin模块先进行一次<code>构建</code></p>
+</li>
+<li><p><strong>同步</strong>：回到开头的内容，使用Git的主要目的是进行版本的控制，这对于对源码的修修补补来说显得尤为重要，现在已经对源码进行了修改，可以按下面的操作将修改同步到自己fork的github中：</p>
+<p> 3.1. 右键所修改的模块-&gt;点击Git-&gt;点击提交-&gt;添加修改的备注-&gt;点击提交<br> 3.2. 右键所有该的模块-&gt;点击Git-&gt;点击远程-&gt;点击推入-&gt;选择配置的Git资源库位置，如果没有默认资源库则需要配置-&gt;全部下一步结束</p>
+</li>
+</ol>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\66d5.html" title="Gephi-Toolkit的引入与使用" rel="bookmark">Gephi-Toolkit的引入与使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\663c.html" title="IDEA如何在项目中快速添加Maven依赖" rel="bookmark">IDEA如何在项目中快速添加Maven依赖</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bc.html" title="VMware虚拟机相关问题" rel="bookmark">VMware虚拟机相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd8a.html" title="CentOS集群相关问题" rel="bookmark">CentOS集群相关问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/3f8f.html">https://www.cxmoe.com/article/3f8f.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Maven/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Maven</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GitHub/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>GitHub</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NetBeans/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>NetBeans</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/3f8f.html&title=Gephi源码的调试及Git同步 - 程序萌部落&summary=Fork原始Gephi项目
+进入Gephi的github地址：https://github.com/gephi/gephi
+点击右上角的fork按钮将其fork到自己的github中：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/3f8f.html&title=Gephi源码的调试及Git同步 - 程序萌部落&summary=Fork原始Gephi项目
+进入Gephi的github地址：https://github.com/gephi/gephi
+点击右上角的fork按钮将其fork到自己的github中：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/3f8f.html&title=Gephi源码的调试及Git同步 - 程序萌部落&summary=Fork原始Gephi项目
+进入Gephi的github地址：https://github.com/gephi/gephi
+点击右上角的fork按钮将其fork到自己的github中：
+" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACO0lEQVR42u3cS44CMQwFQO5/aWY/UivxTyBT2TFq0qms3tgWr/ePrhc4ODg4OPgi+Cu5/n//8UWH558+n96XPi84ODg4OPhC+HUASEKi+1afezwPODg4ODj4Yng2sNwGju6LjJ4XHBwcHBwc/P75rgsABwcHBwcHnw8w0X2rDQxwcHBwcHDwfIG+K2BE//7xTgo4ODg4OPgXwbsDxfTn9HnBwcHBwcEXwavr9oW333sPL3BwcHBw8E3wbGEge9Bo4LgthFw7wMHBwcHBF8K7CvfT+1UvChwcHBwcfBM83FgfKiBE94sOFICDg4ODg2+ER/+x7zrINPA6uYGDg4ODgy+A3waTbAMierHVwsXjc+Dg4ODg4IvgUVA2YHRf8Ol7x8EAcHBwcHDwRfBqQ6E7qESB4ODg4ODg4IM/BJtsUGQDVngiAhwcHBwcfAG8a2CgGkC69wEHBwcHB98Mn2rwdzUs2hoO4ODg4ODgi+Bjg3RNg4LVfcHBwcHBwTfDs7BTcMgO4kULC+Dg4ODg4ODxQfipxkN0oPD23ODg4ODg4Jvh2VUtIFSDSzgIgYODg4ODL4JXA0L3gF72feEBP3BwcHBw8EXwaGC5PXi1wV8NRuDg4ODg4L8EzxYGosHiUwME4ODg4ODg4PUfsokWGLJB59hQAAcHBwcHBz8WDLIXFX3ueF5wcHBwcPDF8OoLs4MBUwForJMCDg4ODg7+RfDqgF+4IBBs+HftDw4ODg4Ovgn+awscHBwcHHzB+gNun0IMR0l6FQAAAABJRU5ErkJggg==" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACO0lEQVR42u3cS44CMQwFQO5/aWY/UivxTyBT2TFq0qms3tgWr/ePrhc4ODg4OPgi+Cu5/n//8UWH558+n96XPi84ODg4OPhC+HUASEKi+1afezwPODg4ODj4Yng2sNwGju6LjJ4XHBwcHBwc/P75rgsABwcHBwcHnw8w0X2rDQxwcHBwcHDwfIG+K2BE//7xTgo4ODg4OPgXwbsDxfTn9HnBwcHBwcEXwavr9oW333sPL3BwcHBw8E3wbGEge9Bo4LgthFw7wMHBwcHBF8K7CvfT+1UvChwcHBwcfBM83FgfKiBE94sOFICDg4ODg2+ER/+x7zrINPA6uYGDg4ODgy+A3waTbAMierHVwsXjc+Dg4ODg4IvgUVA2YHRf8Ol7x8EAcHBwcHDwRfBqQ6E7qESB4ODg4ODg4IM/BJtsUGQDVngiAhwcHBwcfAG8a2CgGkC69wEHBwcHB98Mn2rwdzUs2hoO4ODg4ODgi+Bjg3RNg4LVfcHBwcHBwTfDs7BTcMgO4kULC+Dg4ODg4ODxQfipxkN0oPD23ODg4ODg4Jvh2VUtIFSDSzgIgYODg4ODL4JXA0L3gF72feEBP3BwcHBw8EXwaGC5PXi1wV8NRuDg4ODg4L8EzxYGosHiUwME4ODg4ODg4PUfsokWGLJB59hQAAcHBwcHBz8WDLIXFX3ueF5wcHBwcPDF8OoLs4MBUwForJMCDg4ODg7+RfDqgF+4IBBs+HftDw4ODg4Ovgn+awscHBwcHHzB+gNun0IMR0l6FQAAAABJRU5ErkJggg==">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/428e.html" rel="prev" title="可视化算法VxOrd论文研读">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        可视化算法VxOrd论文研读
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="fas fa-hashtag" aria-hidden="true"></i> 可视化</a> <a class="tag" href="/tags/%E5%B8%83%E5%B1%80%E7%AE%97%E6%B3%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 布局算法</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/663c.html" rel="prev" title="IDEA如何在项目中快速添加Maven依赖">
+                      
+                        IDEA如何在项目中快速添加Maven依赖
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/IDEA/"><i class="fas fa-hashtag" aria-hidden="true"></i> IDEA</a> <a class="tag" href="/tags/Maven/"><i class="fas fa-hashtag" aria-hidden="true"></i> Maven</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Gephi源码的调试及Git同步',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fork原始Gephi项目"><span class="toc-text">Fork原始Gephi项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-for-Windows-的安装"><span class="toc-text">Git for Windows 的安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆项目到本地"><span class="toc-text">克隆项目到本地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetBeans关联Maven"><span class="toc-text">NetBeans关联Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows下的Maven下载与安装"><span class="toc-text">Windows下的Maven下载与安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetBeans打开Gephi源码"><span class="toc-text">NetBeans打开Gephi源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetBeans修改、执行、同步Gephi源代码"><span class="toc-text">NetBeans修改、执行、同步Gephi源代码</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 

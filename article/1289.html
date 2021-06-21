@@ -291,7 +291,7 @@
   
  
 <div class="phoneXX" style="margin-top: 15px;">
-   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center><!--#676767-->
+   <center><span id="btnV" style="color:#c99d9d;font-size:16px;cursor:pointer;">↑ 画面不动？没声音？点这里！（<a style="text-decoration: none;color:#c99d9d;" href="/article/9cb3.html">教程</a>）</span></center> 
 </div>
  
   <div class="a-body l_body nocover">
@@ -662,7 +662,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bce3.html" title="由主节点配置从节点从而构建集群" rel="bookmark">由主节点配置从节点从而构建集群</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bce3.html" title="由主节点配置从节点从而构建集群" rel="bookmark">由主节点配置从节点从而构建集群</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1418,7 +1418,1135 @@ if(true){
 
   <script>
 	$(function(){ 
+ 
+
+
+-->
+
+<div class="a-body l_body nocover" >
+  <div class='body-wrapper'>
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box   article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/article/1289.html">
+        Spark集群从搭建到任务提交-第N次记录
+      </a>
+    </h1>
+  
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+<div class="new-meta-item author">
+  <a href="https://www.cxmoe.com" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/logo.jpg">
+    <p>Z.TIAN</p>
+  </a>
+</div>
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>研究方向</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>2018年5月24日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-heading" aria-hidden="true"></i>
+      <p>大约2.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-calculator" aria-hidden="true"></i>
+      <p>阅读需15分钟</p>
+    </a>
+  </div>
+  <div class="new-meta-item visitime">
+    <a class="notlink">
+      <i class="fas fa-fire" aria-hidden="true"></i>
+      <p><span id="article/1289.html" class="pageViews" data-flag-title="Spark集群从搭建到任务提交-第N次记录"></span></p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+  <a class="notlink">
+    <i class="fas fa-save" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年3月8日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是<code>cluster mode</code>，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，</p>
+<a id="more"></a>
+
+<p>不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark 的搭建过程，当然还有运行调试（这才是关键）部分，包括用IDEA打包 jar 上传执行 和IDEA远程提交执行，这里也都分别作了记录。</p>
+<p>关于IDEA提交Spark任务的几种方式，可以参见我 <a href="https://old.cz5h.com/article/2018-5-14%20%E6%8F%90%E4%BA%A4Spark%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F.html" target="_blank" rel="external nofollow noopener noreferrer">另一篇文章</a> .</p>
+<h3 id="集群环境"><a href="#集群环境" class="headerlink" title="集群环境"></a>集群环境</h3><p><img src="http://static.zybuluo.com/EVA001/19ur7s1vyrj7j2gbhv73hpev/image_1cebhufs6uifapaadi18is1tnv9.png" alt></p>
+<p>得亏了我<code>16G</code>的内存，四个虚拟机全开还可以娱乐的玩耍，这四台虚拟机已经装过<code>Hadoop</code>了，<code>Hadoop</code>集群用起来也没什么问题，就保留了。</p>
+<p>各版本如下：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th align="right">版本</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hadoop</td>
+<td align="right">2.7.3</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Java</td>
+<td align="right">1.8.0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Scala</td>
+<td align="right">2.11.8</td>
+<td align="center">待安装</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td align="right">2.2.0</td>
+<td align="center">待安装</td>
+</tr>
+</tbody></table>
+<h3 id="主节点安装Scala环境"><a href="#主节点安装Scala环境" class="headerlink" title="主节点安装Scala环境"></a>主节点安装Scala环境</h3><ul>
+<li>下载、解压、改名、放到自定义路径 </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf scala-2.11.8.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv scala-2.11.8.tgz scala</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新 <code>/etc/profile</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/profile</span></span><br><span class="line"></span><br><span class="line">    //在文件的最后插入</span><br><span class="line">    export SCALA_HOME=/usr/local/scala</span><br><span class="line">    export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检测是否安装成功</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="主节点配置Spark"><a href="#主节点配置Spark" class="headerlink" title="主节点配置Spark"></a>主节点配置Spark</h3><ul>
+<li>下载、解压、改名、放到自定义目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf spark-2.2.0-bin-hadoop2.7.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv spark-2.2.0-bin-hadoop2.7 spark</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新 <code>/etc/profile</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi /etc/profile</span></span><br><span class="line"></span><br><span class="line">    //在最后加入</span><br><span class="line">    export SPARK_HOME=/usr/local/spark</span><br><span class="line">    export PATH=$PATH:$SPARK_HOME/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改Spark配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> spark/conf</span></span><br><span class="line"></span><br><span class="line">//先改名，把template去掉</span><br><span class="line"><span class="meta">$</span><span class="bash"> mv spark-env.sh.template spark-env.sh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv slaves.sh.template slaves.sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi conf/spark-env.sh</span></span><br><span class="line">    //在最后添加各项变量值</span><br><span class="line">    export JAVA_HOME=/usr/local/java/jdk1.8.0_112</span><br><span class="line">    export HADOOP_HOME=/usr/local/hadoop</span><br><span class="line">    export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop</span><br><span class="line">    export SCALA_HOME=/usr/local/scala</span><br><span class="line">    export SPARK_MASTER_IP=192.168.146.130(hadoop01)</span><br><span class="line">    export SPARK_WORKER_MEMORY=1g</span><br><span class="line">    export SPARK_WORKER_CORES=1</span><br><span class="line">    export SPARK_WORKER_INSTANCES=1</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi conf/slaves</span></span><br><span class="line">    //在最后添加各从节点映射（主机名或IP）</span><br><span class="line">    hadoop02</span><br><span class="line">    hadoop03</span><br><span class="line">    hadoop04</span><br><span class="line"></span><br><span class="line">//还有spark-defaults.conf，一开始没改，结果导致出错   </span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="comment"># spark-defaults.conf 的修改在后面</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="拷贝分发调试集群"><a href="#拷贝分发调试集群" class="headerlink" title="拷贝分发调试集群"></a>拷贝分发调试集群</h3><ul>
+<li>分发拷贝到各 <code>Slave</code> 节点（其实可以脚本化，偷懒..）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//scala</span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop02:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop03:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop04:/usr/<span class="built_in">local</span>/</span></span><br><span class="line">//spark</span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop02:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop03:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop04:/usr/<span class="built_in">local</span>/</span></span><br><span class="line">//profile</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop02:/etc/profile</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop03:/etc/profile</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop04:/etc/profile</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调试集群</li>
+</ul>
+<p>因为我们只需要使用hadoop的HDFS文件系统，所以我们并不用把hadoop全部功能都启动。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> start-dfs.sh</span></span><br></pre></td></tr></table></figure>
+
+<p>因为 <code>hadoop/sbin</code> 以及 <code>spark/sbin</code> 均配置到了系统的环境中，它们同一个文件夹下存在同样的 <code>start-all.sh</code> 文件。最好是打开<code>spark-2.2.0</code> ，在文件夹下面打开该文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/spark/sbin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./start-all.sh</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>各节点的正常状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 ~]$ jps</span><br><span class="line">18822 SecondaryNameNode</span><br><span class="line">18521 NameNode</span><br><span class="line">18634 DataNode</span><br><span class="line">18990 Master</span><br><span class="line">19055 Jps</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop02 ~]$ jps</span><br><span class="line">33380 DataNode</span><br><span class="line">33589 Jps</span><br><span class="line">33519 Worker</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop03 ~]$ jps</span><br><span class="line">25876 Jps</span><br><span class="line">25656 DataNode</span><br><span class="line">25806 Worker</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop04 ~]$ jps</span><br><span class="line">32162 Worker</span><br><span class="line">32025 DataNode</span><br><span class="line">32234 Jps</span><br></pre></td></tr></table></figure>
+
+<p>注意这里是 <code>3</code> 个 <code>worker</code> 因为 <code>master</code> 节点没有 配置启动 <code>Worker</code>，当然可以配置（比如 <code>hdfs</code> 就是四个 <code>datanode</code>）<br>但是这里 spark 要执行计算任务，所以主节点最好不要有worker以免出现计算任务争夺主节点资源</p>
+<ul>
+<li>Spark UI 正常视图</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/988iyo8a0eyxz3hpr76qqwr4/image_1ceb5bjapsokfff5ir13h31sct9.png" alt></p>
+<p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
+<h3 id="IDEA-项目打包"><a href="#IDEA-项目打包" class="headerlink" title="IDEA 项目打包"></a>IDEA 项目打包</h3><ul>
+<li>项目示例</li>
+</ul>
+<p>这里的实例程序 读取 <code>hdfs</code> 文件 <code>Vote-demo.txt</code>，并且使用 <code>GraphX</code> 读取文件生成图，并打印图的边数。</p>
+<p> <img src="http://static.zybuluo.com/EVA001/6llcronynz0au9rrkj307an0/image_1ceb89rub18571sti1l8rv8iamb7r.png" alt></p>
+<ul>
+<li>示例代码 <code>RemoteDemo.scala</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Remote</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.graphx.&#123;Edge, Graph&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.RDD</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object RemoteDemo &#123;</span><br><span class="line">  <span class="function">def <span class="title">main</span><span class="params">(args: Array[String])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    val conf = <span class="keyword">new</span> SparkConf()</span><br><span class="line">      .setAppName(<span class="string">"SimpleDemo"</span>)</span><br><span class="line">      .setMaster(<span class="string">"spark://hadoop01:7077"</span>)</span><br><span class="line">      .setJars(List(<span class="string">"I:\\IDEA_PROJ\\VISNWK\\out\\artifacts\\visnwk_jar\\visnwk.jar"</span>))</span><br><span class="line"></span><br><span class="line">    val sc = <span class="keyword">new</span> SparkContext(conf)</span><br><span class="line"></span><br><span class="line">    <span class="function">def <span class="title">loadEdges</span><span class="params">(fn: String)</span>: Graph[Any, String] </span>= &#123;</span><br><span class="line">      val edges: RDD[Edge[String]] =</span><br><span class="line">        sc.textFile(fn).filter(l =&gt; !(l.startsWith(<span class="string">"#"</span>))).map &#123; <span class="comment">//无放回</span></span><br><span class="line">          line =&gt;</span><br><span class="line">            val fields = line.split(<span class="string">"\t"</span>)</span><br><span class="line">            Edge(fields(<span class="number">0</span>).toLong, fields(<span class="number">1</span>).toLong, <span class="string">"1.0"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      val graph: Graph[Any, String] = Graph.fromEdges(edges, <span class="string">"defaultProperty"</span>)</span><br><span class="line">      graph</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    val graph = loadEdges(<span class="string">"hdfs://hadoop01:9000/TVCG/SNAP/DATASET/Vote-demo.txt"</span>)</span><br><span class="line"></span><br><span class="line">    println(s<span class="string">"graph.edges.count() = $&#123;graph.edges.count()&#125;"</span>)</span><br><span class="line">    </span><br><span class="line">    sc.stop <span class="comment">// 一开始没加，报错了</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打包项目，注意指定 <code>Main Class</code></li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/w88qrxiy1d6xzcmnj9z81q7o/image_1ceb7g47a1206124fcqc1u1p14o757.png" alt></p>
+<ul>
+<li><code>Build</code> 打包</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/mm9wkoplatxckykx0exngru8/image_1ceb7qc821iij1eq76hbcvvnpj71.png" alt></p>
+<ul>
+<li>运行配置 <code>Run Configure</code></li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/og2xk000hl2yctw469f4n9t8/image_1ceb971s4ntcn0m1bu51h38irp88.png" alt></p>
+<hr>
+<h3 id="错误，IDEA远程连接失败"><a href="#错误，IDEA远程连接失败" class="headerlink" title="错误，IDEA远程连接失败"></a>错误，IDEA远程连接失败</h3><ul>
+<li>错误详情</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/ch5z84jgka2fzmdw99wfwnrx/image_1ceb99lcf13h0dq0p4ppav193u8l.png" alt></p>
+<h3 id="错误排查一"><a href="#错误排查一" class="headerlink" title="错误排查一"></a>错误排查一</h3><ul>
+<li><p>Spark://Hadoop01:7077</p>
+<p>  spark://host_name:7077 改为 spark://master_ip:7077</p>
+</li>
+<li><p>修改配置 <code>spark-env.sh</code></p>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/f99ken6wal0oejydlbph98lw/image_1ceb9hgr36qip1l15293qtc61b2.png" alt></p>
+<ul>
+<li>重启 <code>saprk</code> 集群</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./sbin/stop-all.sh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./sbin/start-all.sh</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Spark UI <code>Master_IP:8080</code> 显示正常</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/chz87p9oipvhhxn32zatnllj/image_1ceb9rf071juv1c1i16lb1bj017hqg6.png" alt></p>
+<h3 id="错误排查二"><a href="#错误排查二" class="headerlink" title="错误排查二"></a>错误排查二</h3><ul>
+<li>修改 Spark <code>spark-defaults.conf</code></li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/f32wyksdpxpoud7v0zu1sir7/image_1cebbgifqmcn3fn18m819e61ki99.png" alt></p>
+<h3 id="错误排查三"><a href="#错误排查三" class="headerlink" title="错误排查三"></a>错误排查三</h3><ul>
+<li><p>排除集群本身问题，尝试spark-submit 提交</p>
+</li>
+<li><p>采用不打包依赖的方式打包（注意打包后只有 300kb）</p>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/2er74vqyrka3pobk0a4n8u9t/image_1cebcaiu3guc6rk15jur0v65p13.png" alt></p>
+<ul>
+<li><strong>集群</strong> 打印了下述错误</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">[hadoop@hadoop01 bin]$ ./spark-submit --class "Remote.RemoteDemo" ~/visnwk-build.jar</span><br><span class="line"><span class="number">17</span>/<span class="number">07</span>/<span class="number">03</span> <span class="number">19</span>:<span class="number">48</span>:<span class="number">53</span> WARN NativeCodeLoader: Unable to load <span class="keyword">native</span>-hadoop library <span class="keyword">for</span> your platform... using builtin-java classes where applicable</span><br><span class="line">17/07/03 19:49:03 ERROR TransportRequestHandler: Error while invoking RpcHandler#receive() for one-way message.</span><br><span class="line">org.apache.spark.SparkException: Could not find AppClient.</span><br><span class="line">        at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:<span class="number">154</span>)</span><br><span class="line">        at org.apache.spark.rpc.netty.Dispatcher.postOneWayMessage(Dispatcher.scala:<span class="number">134</span>)</span><br><span class="line">        at org.apache.spark.rpc.netty.NettyRpcHandler.receive(NettyRpcEnv.scala:<span class="number">644</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportRequestHandler.processOneWayMessage(TransportRequestHandler.java:<span class="number">178</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportRequestHandler.handle(TransportRequestHandler.java:<span class="number">107</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportChannelHandler.channelRead(TransportChannelHandler.java:<span class="number">118</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:<span class="number">357</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:<span class="number">343</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:<span class="number">336</span>)</span><br><span class="line">        at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:<span class="number">287</span>)</span><br></pre></td></tr></table></figure>
+
+<p>解决：<a href="http://www.mamicode.com/info-detail-1879289.html" target="_blank" rel="external nofollow noopener noreferrer"> 这里 </a></p>
+<p>示例代码最后添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.stop</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>集群提交</strong> 运行正常</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/dmsdt2jdz9vb7zpytdpn2unf/image_1cebedvpdejeftfhq513pbmgk3q.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.146.130:4040/jobs/  4040 UI界面只有在job运行时才可见，运行完后就不可访问</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>集群输出正常</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/7qymc925xnmiyo6qkifkjhmg/image_1cebe4200192g1bec1qa91acr1i9l2d.png" alt></p>
+<hr>
+<h3 id="回到IDEA提交问题"><a href="#回到IDEA提交问题" class="headerlink" title="回到IDEA提交问题"></a>回到IDEA提交问题</h3><ul>
+<li>比较这个错误（和一个错误IP相比）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;直接用xxxx这个错误IP报错如下</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:20 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http:&#x2F;&#x2F;118.202.40.210:4042</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:20 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark:&#x2F;&#x2F;xxxxx:7077...</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:23 WARN TransportClientFactory: DNS resolution for xxxxx:7077 took 2551 ms</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:23 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master xxxxx:7077</span><br><span class="line">org.apache.spark.SparkException: Exception thrown in awaitResult</span><br><span class="line">	at org.apache.spark.rpc.RpcTimeout$$anonfun$1.applyOrElse(RpcTimeout.scala:77)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;用master_ip报错如下</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:26 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http:&#x2F;&#x2F;118.202.40.210:4040</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark:&#x2F;&#x2F;192.168.146.130:7077...</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 INFO TransportClientFactory: Successfully created connection to &#x2F;192.168.146.130:7077 after 23 ms (0 ms spent in bootstraps)</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master 192.168.146.130:7077</span><br><span class="line">org.apache.spark.SparkException: Exception thrown in awaitResult</span><br><span class="line">	at org.apache.spark.rpc.RpcTimeout$$anonfun$1.applyOrElse(RpcTimeout.scala:77)</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;比较上述代码，会发现虽然最后的错误一样，但是中间日志并不一样，所以并不是简单的连接失败</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>怀疑是 7077 端口的问题，但发现绑定一切正常</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/gbthajhokjrwi3pjuudzomof/image_1cebg22sd1m51qslcsu1hfampd9.png" alt></p>
+<ul>
+<li><p>怀疑是版本的问题了，集群是 scala-2.11.8 + Spark-2.2.0</p>
+<p>  解决：<a href="https://stackoverflow.com/questions/34518669/unable-to-connect-to-spark-master" target="_blank" rel="external nofollow noopener noreferrer"> 这里 </a></p>
+</li>
+<li><p>修改 sbt 中 spark 的版本，原来的是 2.1.0 我擦！</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">libraryDependencies +&#x3D; &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.2.0&quot;</span><br><span class="line">libraryDependencies +&#x3D; &quot;org.apache.spark&quot; %% &quot;spark-graphx&quot; % &quot;2.2.0&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再运行，已越过那个错误~（原来是setJar注释掉了），补全之：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">val conf &#x3D; new SparkConf()</span><br><span class="line">    .setAppName(&quot;SimpleDemo&quot;)</span><br><span class="line">    .setMaster(&quot;spark:&#x2F;&#x2F;192.168.146.130:7077&quot;)</span><br><span class="line">    &#x2F;&#x2F;.setIfMissing(&quot;spark.driver.host&quot;, &quot;127.0.0.1&quot;) &#x2F;&#x2F; 不设置会默认使用本机的物理IP</span><br><span class="line">    .setJars(List(&quot;I:\\IDEA_PROJ\\VISNWK\\out\\artifacts\\visnwk_jar\\visnwk.jar&quot;))</span><br><span class="line"></span><br><span class="line">val sc &#x3D; new SparkContext(conf)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>完美的收官：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO DAGScheduler: Job 0 finished: reduce at EdgeRDDImpl.scala:90, took 60.614562 s</span><br><span class="line">graph.edges.count() &#x3D; 103689  &#x2F;&#x2F; 终于等到你！！</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO SparkUI: Stopped Spark web UI at http:&#x2F;&#x2F;118.202.40.210:4040</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO StandaloneSchedulerBackend: Shutting down all executors</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO CoarseGrainedSchedulerBackend$DriverEndpoint: Asking each executor to shut down</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO MemoryStore: MemoryStore cleared</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO BlockManager: BlockManager stopped</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO BlockManagerMaster: BlockManagerMaster stopped</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO SparkContext: Successfully stopped SparkContext</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO ShutdownHookManager: Shutdown hook called</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO ShutdownHookManager: Deleting directory C:\Users\msi\AppData\Local\Temp\spark-fae200dd-12cc-4b8a-b2ec-751d641d3689</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>任务运行时 <a href="http://118.202.40.210:4040/environment/" target="_blank" rel="external nofollow noopener noreferrer">http://118.202.40.210:4040/environment/</a> 显示的状态</p>
+<p>  注：本机 windows ip 为 118.202.40.210 </p>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/zcksl1o6pmkd4zhfgu9tti94/image_1cebie8dd1dbitqprrbdf15t9m.png" alt></p>
+<h3 id="其他各种问题"><a href="#其他各种问题" class="headerlink" title="其他各种问题"></a>其他各种问题</h3><ul>
+<li><a href="https://www.jianshu.com/p/0de92480b8b6" target="_blank" rel="external nofollow noopener noreferrer">Spark常见问题解决办法</a></li>
+<li><a href="https://blog.csdn.net/you12345678901234567/article/details/52763713" target="_blank" rel="external nofollow noopener noreferrer">Spark各种问题的解决</a></li>
+<li><a href="https://www.cnblogs.com/bigbigtree/p/5685298.html" target="_blank" rel="external nofollow noopener noreferrer">Spark集群配置</a></li>
+</ul>
+
+
+      <center><br><br>
+        <style>.wp-r{
+
+          font-size: 20px!important;
+          font-weight: 700!important;
+     
+        }</style>
+			<div id="wpac-rating"></div>
+			<script type="text/javascript">
+			wpac_init = window.wpac_init || [];
+			wpac_init.push({widget: 'Rating', id: 24440});
+			(function() {
+				if ('WIDGETPACK_LOADED' in window) return;
+				WIDGETPACK_LOADED = true;
+				var mc = document.createElement('script');
+				mc.type = 'text/javascript';
+				mc.async = true;
+				mc.src = 'https://embed.widgetpack.com/widget.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+			})();
+			</script>
+			<b><a href="#" class="wpac-cr">😒 留下您对该文章的评价 😄</a></b>
+			<br><br>
+
+          
+            <br>
+			
+  
+    
+    <style>
+.popular-posts{
+    margin-left: 21px !important;
+}
+.popular-posts a{
+    padding-left: 1px !important;
+}
+
+</style>
+
+  
+  <section style="background-color: #f2f2f2;padding-bottom:5px;" class="widget related_posts  desktop mobile">
+  <header style="background-color: #f2f2f2;padding-left: 5px; display:inline-block !important;">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+  </header>
+    <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bce3.html" title="由主节点配置从节点从而构建集群" rel="bookmark">由主节点配置从节点从而构建集群</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+    </div>
+  </section>
+
+  
+
+  
+    
+    
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p><b>转载请注明出处。</b><br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            
+          
+        
+          
+            <p><b>本文永久链接是：</b><br><a href="https://www.cxmoe.com/article/1289.html">https://www.cxmoe.com/article/1289.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+          
+        
+        
+          <br>
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.cxmoe.com/article/1289.html&title=Spark集群从搭建到任务提交-第N次记录 - 程序萌部落&summary=作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.cxmoe.com/article/1289.html&title=Spark集群从搭建到任务提交-第N次记录 - 程序萌部落&summary=作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://www.cxmoe.com/article/1289.html&title=Spark集群从搭建到任务提交-第N次记录 - 程序萌部落&summary=作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <fancybox>
+          <a class="qrcode" rel="external nofollow noopener noreferrer" data-fancybox="gallery-qrcode" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACOklEQVR42u3bQXLCQAwEQP7/6eSeKgpptE5iufdmTBn1chmk5fX10PUCBwcHBwdfBH+F6+2Df9xPr9993rRecHBwcHDwjfByACjC372ver963a0XHBwcHBx8M7waINL3TzdwXC84ODg4ODh4GVZtZKQbBg4ODg4ODn4OfirIgIODg4ODg/fh7QZ9EV7dmNtMUsDBwcHBwf8RPD4w90fXxw74gYODg4OD3xg+XWlQuepA38d6wcHBwcHBF8HTgFDdgG6DYnrg4GMd4ODg4ODgi+Gng0S1oBRY3XBwcHBwcPAnwbuFpEFmGnyONSLAwcHBwcFvCO8OALrA6SDi9EFAcHBwcHDwzfB00JA2MNIglAYdcHBwcHDwzfA0wFzVoDi1seDg4ODg4Jvh3UKqjYTuIGEanNoBBhwcHBwc/MbwaXBIoe3g0YR+HCiAg4ODg4M/CD4NGCmguzHHAww4ODg4OPgN4NMBwhTSbYCkAwdwcHBwcPAnwNs/8H8pyKT1gYODg4ODPwk+haaFdYHjgQI4ODg4OPgiePp69UDA9GDB+EACODg4ODj4Ivh0nWo0VAcE0yAFDg4ODg6+CT4dxJ8qMN2I6vPAwcHBwcE3w9PAMm00pM9P74ODg4ODg2+Gdwtuf/AwyKQbCg4ODg4ODj6HVAPSVRsKDg4ODg4O/rrsj/cprByIwMHBwcHBF8O7A4U0gJxqZLS/AHBwcHBw8IXwNBicakRcNWAABwcHBwffDH/aAgcHBwcHX7C+ARLog66gh32iAAAAAElFTkSuQmCC" target="_blank">
+            <img style="height:16px;border-radius:0;margin-left:4px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACOklEQVR42u3bQXLCQAwEQP7/6eSeKgpptE5iufdmTBn1chmk5fX10PUCBwcHBwdfBH+F6+2Df9xPr9993rRecHBwcHDwjfByACjC372ver963a0XHBwcHBx8M7waINL3TzdwXC84ODg4ODh4GVZtZKQbBg4ODg4ODn4OfirIgIODg4ODg/fh7QZ9EV7dmNtMUsDBwcHBwf8RPD4w90fXxw74gYODg4OD3xg+XWlQuepA38d6wcHBwcHBF8HTgFDdgG6DYnrg4GMd4ODg4ODgi+Gng0S1oBRY3XBwcHBwcPAnwbuFpEFmGnyONSLAwcHBwcFvCO8OALrA6SDi9EFAcHBwcHDwzfB00JA2MNIglAYdcHBwcHDwzfA0wFzVoDi1seDg4ODg4Jvh3UKqjYTuIGEanNoBBhwcHBwc/MbwaXBIoe3g0YR+HCiAg4ODg4M/CD4NGCmguzHHAww4ODg4OPgN4NMBwhTSbYCkAwdwcHBwcPAnwNs/8H8pyKT1gYODg4ODPwk+haaFdYHjgQI4ODg4OPgiePp69UDA9GDB+EACODg4ODj4Ivh0nWo0VAcE0yAFDg4ODg6+CT4dxJ8qMN2I6vPAwcHBwcE3w9PAMm00pM9P74ODg4ODg2+Gdwtuf/AwyKQbCg4ODg4ODj6HVAPSVRsKDg4ODg4O/rrsj/cprByIwMHBwcHBF8O7A4U0gJxqZLS/AHBwcHBw8IXwNBicakRcNWAABwcHBwffDH/aAgcHBwcHX7C+ARLog66gh32iAAAAAElFTkSuQmCC">
+          </a>
+        </fancybox>
+      
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <section class="prev">
+                <span class="art-item-left">
+                  <h4>
+                    <a href="/article/f986.html" rel="prev" title="IDEA自动生成Javadoc代码注释">
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                      
+                        IDEA自动生成Javadoc代码注释
+                      
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      &nbsp;<a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/IDEA/"><i class="fas fa-hashtag" aria-hidden="true"></i> IDEA</a> <a class="tag" href="/tags/%E6%89%A9%E5%B1%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 扩展</a>
+                    </h6>
+                  
+                </span>
+              </section>
+            
+            
+              <section class="next">
+                <span class="art-item-right" aria-hidden="true">
+                  <h4>
+                    <a href="/article/970d.html" rel="prev" title="使用SBT正确构建IndexedRDD环境">
+                      
+                        使用SBT正确构建IndexedRDD环境
+                      
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                  
+                    
+                    <h6 class="tags">
+                      <a class="tag" href="/tags/Spark/"><i class="fas fa-hashtag" aria-hidden="true"></i> Spark</a> <a class="tag" href="/tags/SBT/"><i class="fas fa-hashtag" aria-hidden="true"></i> SBT</a> <a class="tag" href="/tags/IndexedRDD/"><i class="fas fa-hashtag" aria-hidden="true"></i> IndexedRDD</a>&nbsp;
+                    </h6>
+                  
+                </span>
+              </section>
+            
+          </div>
+        
+      
+    
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments  ">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Spark集群从搭建到任务提交-第N次记录',
+      tools: true
+    }
+  </script>
+
+
+
+<aside class="l_side">
+  
+  
+    
+    
+<section class="widget blogger  widget-blur desktop">
+
+  <header>
+    
+      <a href="/links/about.html"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i><span class="name">关于程序萌</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/right.gif">
+      </div>
+    
+    
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget text  widget-blur desktop mobile">
+  
+  <header>
+    
+      <a href="/friends/index.html"><i class="fas fa-comments fa-fw" aria-hidden="true"></i><span class="name">通知公告</span></a>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>🚩  &nbsp;当前色调 <a href="https://cxmoe.com/links/logs.html#%E4%BF%AE%E6%94%B9%E6%96%B0%E5%B9%B4%E9%A2%9C%E8%89%B2" target="_blank" rel="noopener">春节红</a></p>
+
+    
+      <p>🚩  &nbsp;<strong>新增内站</strong> <a href="/words"><strong>专注写作</strong></a></p>
+
+    
+      <p>🚩  &nbsp;插件更新 <a href="/tagsnet">文章标签网</a></p>
+
+    
+      <p>🚩  &nbsp;<a href="http://translate.google.com.hk/translate?hl=en&sl=zh-CN&u=https://www.cxmoe.com" target="_blank" rel="external nofollow noopener noreferrer"><strong>English-Version</strong></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+<section class="widget qrcode  widget-blur desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-shekel-sign fa-fw" aria-hidden="true"></i><span class="name">感谢支持</span>
+    
+  </header>
+
+
+  <div class="content article-entry">
+    
+      
+        <a href="/links/donate.html">
+        <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200407175647.png"></a>
+      
+    
+  </div>
+</section>
+  
+
+  
+    
+    
+<section class="widget qrcodeMap  widget-blur desktop">
+  
+  <header>
+    
+      <i class="fas fa-globe-asia fa-fw" aria-hidden="true"></i><span class="name">全球访问</span>
+    
+  </header>
+
+
+  <div style="padding:5 5 5 5;background-color: #ff0000; border-radius: 8px;">
+  <div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+<div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
+<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=00b9ff&amp;cr1=fff600&amp;crb1=000000&amp;crh1=fff600&amp;sx=0&amp;rs=100&amp;as=100&amp;rg=100&amp;ds=0&amp;cw=ffffff&amp;cb=ff0000" async="async"></script>
+</div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+  <section class="widget toc-wrapper  widget-blur desktop">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#集群环境"><span class="toc-text">集群环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点安装Scala环境"><span class="toc-text">主节点安装Scala环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主节点配置Spark"><span class="toc-text">主节点配置Spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝分发调试集群"><span class="toc-text">拷贝分发调试集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-项目打包"><span class="toc-text">IDEA 项目打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误，IDEA远程连接失败"><span class="toc-text">错误，IDEA远程连接失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查一"><span class="toc-text">错误排查一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查二"><span class="toc-text">错误排查二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误排查三"><span class="toc-text">错误排查三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回到IDEA提交问题"><span class="toc-text">回到IDEA提交问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他各种问题"><span class="toc-text">其他各种问题</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+</aside>
+
+
+  
+  <footer class="clearfix ">
+    <br><br>
+	    <!---硬编码-->
+		<div class="social-wrapper">
+			<!--in--><a style="margin-left:2.2px;margin-right:15px;margin-top:2.5px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+			<!--github--><a style="margin-right:15px;margin-top:0.5px;margin-left:1.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+			<!--Bili--><a style="margin-right:0;margin-top:0.2px;margin-right:15px;" href="https://space.bilibili.com/14506630" target="_blank" rel="external nofollow noopener noreferrer"><img width="21px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/bilibili (1).png"></a>
+			<!--ins--><a style="margin-right:0;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="24.3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+			<a style="font-size: 18.5px; margin-top: 3px; margin-left: 15.5px;" href="/atom.xml" class="fas fa-rss" target="_blank" rel="external nofollow noopener noreferrer">  </a>
+		</div>
+		<div class="social-wrapper">
+			<!--图虫-->&nbsp;&nbsp;&nbsp;&nbsp;<a style="margin-right:15px;margin-top:1.5px;" href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/17471.png"></a>
+			<!--专栏--><a style="margin-right:15px;margin-top:1.9px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="17px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/yunjia.png"></a>
+			<!--zhihu--><a style="margin-right:16px;margin-top:1.8px;" href="https://www.zhihu.com/people/tian-zong-lin-82" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/zhihu.svg"></a>
+			<!--csdn--><a style="margin-right:24px;margin-top: 2px;" href="https://blog.csdn.net/u012935646" target="_blank" rel="external nofollow noopener noreferrer"><img height="18px" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/34723478.png"></a>
+			
+
+		</div>
+		<br>
+		<div class="social-wrapper" style="margin-bottom:28px !important;">
+			<img width="20px" height="14px" style="border-radius:1.5px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/fhqfqw.png">
+		</div>  
+		<!---end-->
+	<!---这里只留Aplyer-->
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+	<!---end-->
+  <!---保留老的footer调用-->	
+  <div>
+
+	<span>全站共计 308.7k 字，自豪地使用 Volantis 主题</span>
+	<!---end
+    由 Hexo 强力驱动，
+    自豪地使用 Volantis 主题
+     -->
+  </div>
+  <div>
+    <p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+
+  </div>
+ 
+
+<script type="text/javascript">
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1279685558'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279685558%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ 
+  
+  <div class="copyright" style="margin-top:0px !important">
+	<!--<img style="height:23px;margin-bottom:10px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/rerthz.gif"/>--><b>—</b><br>
+
+	<a href="/links/logs.html">新版站点已运行<span id="showDays"></span></a>
+	<script>
+	  var seconds = 1000;
+	  var minutes = seconds * 60;
+	  var hours = minutes * 60;
+	  var days = hours * 24;
+	  var years = days * 365;
+	  var birthDay = Date.UTC(2020,02,27,14,00,00); // 这里设置建站时间
+	  setInterval(function() {
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = now - birthDay;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		  document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+	  }, 1000);
+	</script>
+	<p><a href="https://www.cxmoe.com">Copyright © 2017-2020 TZLOOP</a></p>
+
+	<style>
+		@media screen and (max-width: 480px){
+			.imt{
+				height: 13px !important;
+				vertical-align: bottom !important;
+				margin-bottom: 6.8px !important;
+			}
+		}
+	</style>
+	<img class="imt" style="height: 14px;vertical-align: bottom;margin-bottom: 5.2px;" src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200422135505-removebg-preview.png">&nbsp;萌ICP备<a href="https://icp.gov.moe/?keyword=20250821" target="_blank" rel="external nofollow noopener noreferrer"> 20250821号</a>
+	<br><br>
+  </div>
+  <!---end-->
+  
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+	<!-- Baidu Push --------------///////////////////////////////------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+	var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+	document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+	</script>
+
+
+	<!-- Baidu Analytics -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?7bffe7674d7f0bfd2c7120c93870fa5e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+	  
+ 
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-4');
+	</script>
+
+
+
+	<!-- Hotjar Tracking Code for www.cxmoe.com -->
+	<script>
+	//	(function(h,o,t,j,a,r){
+	//		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	//		h._hjSettings={hjid:1710820,hjsv:6};
+	//		a=o.getElementsByTagName('head')[0];
+	//		r=o.createElement('script');r.async=1;
+	//		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	//		a.appendChild(r);
+	//	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+
+ 
 	
+	<!-- end -----------------------///////////////////////////////----->
+
+
+	<script>
+		//
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <script>setLoadingBarProgress(60);</script>
+  
+  <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.4/dist/av-min.js"></script>
+<script type="text/javascript">
+if(true){
+    var leancloud_app_id  = 'WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz';
+    var leancloud_app_key = 'ycqjmtEfUxuxD3IY97oRkrdO';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $(".pageViews").length > 1 ?true:false;
+    function showTime() {
+   
+        if(isIndex){
+			var cnt = $(".pageViews").length;
+            var i = 0; 
+			var interval = setInterval(function(){
+				if(i >= cnt) 
+					clearInterval(interval);
+				else
+					showPageViewsNum($($(".pageViews")[i++]), AV.Object.extend("Pageview"));
+			},500);
+
+        }else{
+            addPageViewsNum($(".pageViews"));
+        }
+    }
+    //仅显示阅读量
+    function showPageViewsNum(ele, Pageview){
+        var id = ele.attr('id').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            $(document.getElementById(id)).text((results && results.length > 0?  results[0].get("count") : '0')+"℃");
+        }, function (error) {
+             $(document.getElementById(id)).text('');
+        });
+    }
+    //追加并显示阅读量
+    function addPageViewsNum(ele){
+        var id = ele.attr('id').trim();
+        var title = ele.attr('data-flag-title').trim();
+        var query = new AV.Query("Pageview");
+        query.equalTo("post_id", id);
+        query.descending('count');
+        query.limit(1);
+        query.find().then(function (results) {
+            if (results.length == 0) {
+               saveNewPageview(id, title);
+               return;
+            }
+            var pageview = results[0];
+            var count = pageview.get("count");
+            count++;
+            pageview.set("count", count);
+            pageview.set("title", title);
+            pageview.save().then(function (pageview) {
+                $(document.getElementById(id)).text(count+"℃");
+            })
+        }, function (error) {
+            saveNewPageview(id, title);
+        })
+    }
+
+    function saveNewPageview(id, title) {
+       var Pageview = AV.Object.extend("Pageview");
+       var query = new Pageview;
+       query.save({
+           post_id: id,
+           title: title,
+           count: 1
+       }).then(function (pageview) {
+           $(document.getElementById(id)).text(pageview.count+"℃");
+       }, function (error) {
+       });
+
+    }
+
+    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环
+        showTime();
+    }
+}
+</script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/4234 (1).webp"],
+          {
+            duration: "5000",
+            fade: "5000"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+    appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'retro',
+    lang:'zh-cn',
+	  visitor: '',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@1.7.4/js/comment_typing.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+<script>
+$(function(){ 
 
 		//文章列表置顶部分
 
