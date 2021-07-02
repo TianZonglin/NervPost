@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.cxmoe.com/"/>
-  <updated>2021-05-10T10:32:31.068Z</updated>
+  <updated>2021-07-02T22:51:12.003Z</updated>
   <id>https://www.cxmoe.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>借助VSCode在Ubuntu上使用QQ</title>
+    <link href="https://www.cxmoe.com/article/7d0a.html"/>
+    <id>https://www.cxmoe.com/article/7d0a.html</id>
+    <published>2021-06-28T22:00:00.000Z</published>
+    <updated>2021-07-02T22:51:12.003Z</updated>
+    
+    <content type="html"><![CDATA[<fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/ubuntu/2021-07-02_23-59.png"></fancybox><p>更新于2021年6月。Ubuntu上使用QQ一直是个痛点，而且令人不解的是腾讯除了在19年把远古版本LinuxQQ拿出来修补一下之外，没有任何迹象表明其会推出官方的Linux新版QQ,所以通常Linux之上使用QQ就几个方式：① Wine版QQ，② 通过协议自定义封装的仿QQ的IM工具。本文使用的就是后者，而且作者借助Vscode以插件形式运行。</p><a id="more"></a><p>直接上地址： <a href="https://github.com/takayama-lily/vscode-qq，**此项目非常新鲜，三个月前才被创建，项目并非专为Linux设计，但完全可以在Ubuntu上使用**，目前使用上发送信息有些小bug，但可以稳定的接受个人和群聊消息。" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/takayama-lily/vscode-qq，**此项目非常新鲜，三个月前才被创建，项目并非专为Linux设计，但完全可以在Ubuntu上使用**，目前使用上发送信息有些小bug，但可以稳定的接受个人和群聊消息。</a></p><h4 id="为什么不用Wine版QQ"><a href="#为什么不用Wine版QQ" class="headerlink" title="为什么不用Wine版QQ"></a><strong>为什么不用Wine版QQ</strong></h4><p>第一，Wine的环境需要额外的安装，整体上有些复杂。本质上Wine类似于JVM虚拟机，可以让Windows应用跨平台的运行在Linux之上，但问题是QQ的适配并不完美，甚至可以说是<strong>十分糟糕</strong>，由于WindowsQQ的版本迭代更新太快，所以导致Wine上的适配工作往往并不及时，而且由于现在QQ的软件本身体量巨大，有些Wine版本的QQ直接放弃维护了，早期的比如：</p><p><a href="https://github.com/askme765cs/Wine-QQ-TIM" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/askme765cs/Wine-QQ-TIM</a> （这在2020年时尚可使用，但目前已无法登陆。）</p><p>第二，字体适配不佳。Wine环境本身有一套渲染字体，但由于其并非官方QQ的字体，而且仅有几种简单的字体以供选择，这直接导致即便你可以使用WineQQ，但整个界面都显得十分古怪，甚至使用体验不及官方的水货版LinuxQQ。</p><p>可以看到，对于使用QQ而言，WineQQ并不是十分友好的选择，虽然目前有新的针对Ubuntu20的WineQQ版本，但那些版本都基本无法在18、16、14版ubuntu上使用。而且对于我、或者使用Ubuntu作为实验编程平台的用户来说，更换、升级Ubuntu版本是个十分头疼的事情，因为涉及显卡驱动等等事项，非常容易因为升级了内核导致驱动无效而黑屏无法进入系统的情况。综上，在有替代品的前提下，为什么还要用wineQQ呢？！</p><h4 id="为什么用Vscode-QQ"><a href="#为什么用Vscode-QQ" class="headerlink" title="为什么用Vscode-QQ"></a><strong>为什么用Vscode-QQ</strong></h4><p>第一，轻量。以Vscode插件的形式，借助QQ协议库，直接重写一套UI，这是个绝佳的想法，没有冗余的功能需求，直接砍掉大量和聊天无关的功能，只保留核心的收发消息、收发表情图片。（文件好像还不支持！）</p><p>第二，界面友好。同样，在Vscode内，整个聊天界面直接由文件页面代替，也就是说打开某个人、群组进行聊天，就像打开一个文件那样操作，这在Vscode内是十分舒服的，可以无缝的和你编程工作混合在一起。</p><p>第三，安装方便。直接在Vscode插件栏搜索安装即可，安装之后需要用Vscode的命令搜索栏登陆一下账号，之后就可以愉快的聊天了，没有任何多余步骤，真的一分钟就可以在Ubuntu上使用到QQ！</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/ubuntu/2021-07-02_23-55.png"></fancybox><h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h4><p>就像开头说的，目前此项目还处在开始阶段，连issue也才十几个，使用上的问题也存在，但不影响整体收发信息的功能，可以说很好的解决了QQ在Ubuntu的使用问题，作为一个Ubuntu使用者，非常真诚的向大家推荐这个工具！</p><fancybox><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/ubuntu/2021-07-02_15-57.png"></fancybox>]]></content>
+    
+    <summary type="html">
+    
+      &lt;fancybox&gt;
+&lt;img src=&quot;https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/ubuntu/2021-07-02_23-59.png&quot;&gt;
+&lt;/fancybox&gt;
+
+&lt;p&gt;更新于2021年6月。Ubuntu上使用QQ一直是个痛点，而且令人不解的是腾讯除了在19年把远古版本LinuxQQ拿出来修补一下之外，没有任何迹象表明其会推出官方的Linux新版QQ,所以通常Linux之上使用QQ就几个方式：① Wine版QQ，② 通过协议自定义封装的仿QQ的IM工具。本文使用的就是后者，而且作者借助Vscode以插件形式运行。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Daily_Life" scheme="https://www.cxmoe.com/categories/Daily-Life/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://www.cxmoe.com/tags/Ubuntu/"/>
+    
+      <category term="QQ" scheme="https://www.cxmoe.com/tags/QQ/"/>
+    
+  </entry>
   
   <entry>
     <title>使用PC同步播放移动设备的音频</title>
@@ -555,32 +584,6 @@
       <category term="SQL插入" scheme="https://www.cxmoe.com/tags/SQL%E6%8F%92%E5%85%A5/"/>
     
       <category term="数据处理" scheme="https://www.cxmoe.com/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>那些年令人记忆深刻的电视剧</title>
-    <link href="https://www.cxmoe.com/article/d24e.html"/>
-    <id>https://www.cxmoe.com/article/d24e.html</id>
-    <published>2020-04-29T22:00:00.000Z</published>
-    <updated>2021-03-08T21:01:05.931Z</updated>
-    
-    <content type="html"><![CDATA[<p>二十年不长不短，刚好积攒一点人生阅历。面对那些年看过的电视剧，彼时孩童的我们满头雾水，而现在，深刻的、内在的、隐晦的暗示，会在我们重温时不断涌现，好的作品需要时间的沉淀，需要阅历的解读。温故方可知新，当越来越多的人认可当下电视传媒的荒芜时，不妨停下脚步，回头看看，看看那些儿时看过的老剧，同样会给你深刻的感悟：好剧如酒，历久弥香。</p><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430201027.png" alt></p><a id="more"></a><hr><p><br><br></p><h4 id="2002《黑洞》"><a href="#2002《黑洞》" class="headerlink" title="2002《黑洞》"></a><strong>2002《黑洞》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430202457.png" alt></p><p><strong>简介：</strong> 副市长聂大海之子、天都市龙腾集团董事长、闻名全省的青年企业家，这些都是加诸在聂明宇（陈道明 饰）身上的称呼。但他最重要的身份则是天都市最大的地下黑社会的头目。平日里一表人才、斯文有礼的聂明宇实则道貌岸然。他利用其四通发达的人际网，收买海关人员，走私货物，牟取暴利。而他的左右手也能力非凡，手段毒辣。在他们的经营下，龙腾集团的业绩步步高升。但世上没有不透风的墙。一封匿名检举信被递到了省委组织部。聂明宇及龙腾集团的勾当引起了省委方面的高度警觉，责令天都市迅速查明原因。但聂明宇的势力早已覆盖整个天都市。市委把聂明宇的义兄，刑警队队长刘振汉（陶泽如 饰）安排调查此事，想继续掩盖聂明宇的罪恶事迹。一场关于亲情和正义的较量在刘振汉身上展开。邪与正的角逐，究竟谁胜谁负…</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLRWT6lKXUm2kHuqw0LJyIO04xdAbItS1e" target="_blank" rel="external nofollow noopener noreferrer">Youtube合集</a></p><p><strong>短评：刘振汉和聂明宇的战争非黑即白：正义必将战胜邪恶；庞天岳和聂大海的较量却讳莫如深：胜者为王败者寇。（这是《名义》的爸爸）</strong> </p><br><h4 id="2004《冬至》"><a href="#2004《冬至》" class="headerlink" title="2004《冬至》"></a><strong>2004《冬至》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430202711.png" alt></p><p><strong>简介：</strong> 齐州银行和平区支行柜台会计陈一平，妻子戴嘉和十二岁的女儿幼幼有一个不怎么富裕但是还算美满的三口之家。而身为北京市局刑侦处长的蒋寒比较起来生活可谓差强人意：虽然工作业绩突出，但是婚姻生活很不幸福。一个是平凡的银行小职员，一个是警察，他们的生活本是两条永不会相交的平行线。可是一场较量却在不知不觉中展开了。一宗看似平淡的银行库款失窃案这两位主人公的命运连在了一起…</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLRWT6lKXUm2kQxBz5zd4Ow1dxM6IOvpOJ" target="_blank" rel="external nofollow noopener noreferrer">Youtube合集</a></p><p><strong>短评：“好人”的堕落，往往只需要一个邪念；家破人亡，也只需要一纸支票。</strong> </p><br><h4 id="1999《一级恐惧-黑菌》"><a href="#1999《一级恐惧-黑菌》" class="headerlink" title="1999《一级恐惧/黑菌》"></a><strong>1999《一级恐惧/黑菌》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430202827.png" alt></p><p><strong>简介：</strong> 村外那条大清河早在几年前就已成了干涸的河床，在布满卵石的河床上往来劳作的农民 们绝对没有想到在他们脚步下的某个地方有一只深埋了半个世纪的罪恶的铁盒，那盒子将给他们、给生活在这个地球上的所有生命带来一场巨大的灾难。不幸的是，他们的铁锹碰到了那个盒子，他们的双手打开了那个瓶口，黑色的液体象当年日本军队肮脏的黑爪一样，伸向了每个人宝贵的生命…十八里坡倾刻间面临灭顶之灾。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLQwmsL4wzIwQLcIY4D94NVp7yBCu2OOkN" target="_blank" rel="external nofollow noopener noreferrer">Youtube合集</a></p><p><strong>短评：人物脸谱化的登峰造极；讽刺官派的出神入化；天灾还是人祸，二十年前就已经开始了讨论。</strong> </p><br><h4 id="1997《雍正王朝》"><a href="#1997《雍正王朝》" class="headerlink" title="1997《雍正王朝》"></a><strong>1997《雍正王朝》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430202913.png" alt></p><p><strong>简介：</strong> 康熙皇帝驾崩，继位者四阿哥胤禛，在当政后出现的“摊丁入亩、火耗归公”、“士绅一体当差一体纳粮”、“河南罢考案”、“铁帽子亲王大殿发难逼宫”、“含泪杀亲子”等一系列旨在推行新政、抑制官绅敛财和宫廷内部党争、挤压的历史事件贯穿雍正的一生和雍正王朝。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PL4U9STbe5zoITXpG8WRbloB2W0TmKZ0yG" target="_blank" rel="external nofollow noopener noreferrer">Youtube合集</a></p><p><strong>短评：羸弱帝国的苦皇帝，低开高走雍正王朝。皇帝不再高高在上，而更像是一位从群众中来的无产阶级领袖。</strong> </p><br><p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p><h4 id="2001《康熙王朝》"><a href="#2001《康熙王朝》" class="headerlink" title="2001《康熙王朝》"></a><strong>2001《康熙王朝》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430203006.png" alt></p><p><strong>简介：</strong> 基于二月河小说《康熙大帝》改编，其背景故事是清朝世祖顺治帝的末年和圣祖康熙帝在位时的事迹。该剧从顺治皇帝哀痛爱妃董鄂妃病故时讲起，直至康熙在位61年驾崩而止。第一次以正剧的角度浓墨重彩刻画了清朝初期康熙皇帝充满传奇的一生。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLIj4BzSwQ-_v9n6qabRS2C1b1aGRwZbP4" target="_blank" rel="external nofollow noopener noreferrer">Youtube合集</a></p><p><strong>短评：准确的演绎出了大清帝国皇帝的王道之气和阴柔诡谲的心性。在位六十载无人能敌，统一华夏功德无量。</strong> </p><br><h4 id="2000《上车走吧》"><a href="#2000《上车走吧》" class="headerlink" title="2000《上车走吧》"></a><strong>2000《上车走吧》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200501224115.png" alt></p><p><strong>简介：（这个是电影哦）</strong> 98年，山东青年刘承强（高虎 饰）和同乡高明（黄渤 饰）相约来到首都北京。成为了小巴302线的司乘人员。同在一条营运线的大头和大英子出于利益的关系，处处与强子和小明作对，双方为此曾大打出手。在此期间，高明更与同住一个院子的四川女孩小辫子日久生情，而强子则喜欢上了小巴上的常客丽娟。北京，这座城市的人和事，给了这两个外地青年终身难忘的记忆。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/watch?v=6IC64XGJ2xo&t=328s" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：见微知著，北京的丑陋面，多年过去，并没有多少改变。每个人都在纷纷扰扰中找到自己的位置，等级森严、不可僭越，即使相识相知也终将平行向前。</strong> </p><br><h4 id="2005《生存之民工-春天里》"><a href="#2005《生存之民工-春天里》" class="headerlink" title="2005《生存之民工/春天里》"></a><strong>2005《生存之民工/春天里》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200512232436.png" alt></p><p><strong>简介：</strong> 松江市，一个东北边陲的小城，一群来自全国各地的农民工为了生存，来到了这里，他们把汗水浸透在这个城市的建筑工地上。而上百名民工们的血汗工资无情地被非法挪用，民工们养家糊口的工钱被无期限地拖延，为了生计他们被迫集体追讨，可是讨来的却是暴力威胁和致命的恐吓，这群缺乏人文关怀的弱势群体的生命骤然间危在旦夕。。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PL5MEeGH4X3Kl-0Qkv4t-FmvZqIqTHsnTz" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：谢老大的无奈、王家才的窝囊、王家慧的没人性、杨志刚的鲁莽、陆长发的自以为是…极尽农民工之散漫、无用、甚至有些废物，但正是这种氛围的营造，让剧情无限接近真实生活，他们就是那样的无知、那样的天真、那样的愚昧，导演巧妙的插入了栓子这样一个新时代农民工的形象，隐晦的代表了希望、代表了农民工的明天。本剧音效也是一大亮点，没有浮夸的配乐，只有深沉的伴奏。</strong> </p><br><h4 id="2010《外乡人》"><a href="#2010《外乡人》" class="headerlink" title="2010《外乡人》"></a><strong>2010《外乡人》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200512230927.png" alt></p><p><strong>简介：</strong> 讲述七八个外乡人，为了各自理想汇聚到上海，历经坎坷最终实现自我的悲喜人生。该剧围绕着小人物平凡琐碎的生活故事及情感纠葛，细致入微地刻画了人们熟知或陌生人们的内心世界。该剧以一种平实亲切的风格，以平民的视角，印证着都市乃至当今中国最近十年的发展脉络，是一幅反映中国社会进步、经济发展的市井风情画。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLA77ed283ovhUnF02_bvmabgLnlv2A5mo" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：本剧的点睛之笔是电视机，从南斯拉夫大使馆被炸开始，穿插了包括911恐怖袭击、五十年国庆、2003年非典、北京申奥成功、08年地震、雪灾、到最后全国取消农业税等等事件，把整个剧情牢牢的贴合在真实历史的轨迹之上，让每个人物的悲欢离合同祖国的发展同呼吸、共命运，把艺术源于生活演绎的淋漓尽致。</strong> </p><br><h4 id="2008《国家形象》"><a href="#2008《国家形象》" class="headerlink" title="2008《国家形象》"></a><strong>2008《国家形象》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200618133922.png" alt></p><p><strong>简介：</strong> 为了纪念国际禁毒日，主创团队决定拍摄一部缉毒禁毒的电视剧。该剧取材于公安部门缉拿的刘招华、谭晓林、陈炳锡、张启生四位毒枭的案例。编剧在公安部门的协助下，才从数以万计的资料中，把他们的关系捋出来，重新创作出看点极佳的故事情节。剧组先后来到厦门、西双版纳、北京、西安及泰国等地取景拍摄。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLRWT6lKXUm2l8WRmLTNvKvUKrB9Iu6h8i" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：毒贩的尔虞我诈、卧底的步步惊心，以及缉毒战士的无所畏惧，交织在一起还原了一段精彩的缉毒故事。</strong> </p><br><h4 id="2005《使命》"><a href="#2005《使命》" class="headerlink" title="2005《使命》"></a><strong>2005《使命》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200618135113.png" alt></p><p><strong>简介：</strong> 根据朱维坚长篇小说《使命：黑白道前传》改编的电视剧，是一部综合反黑、纪检、刑侦的电视剧。讲述了清水市公安局长林荫，铲除黑恶势力，扫除百姓心中的阴霾的故事。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLHOMQ6tK7YueCgko2kWENKSjHwL6a_WIK" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：当一个城市被黑恶势力所浸淫，执法机关被外部势力所渗透时，试想公安局长如何能够扭转局势、反客为主。对金钱的贪婪是堕落的根源，守住底线的根本就是牢记自己的‘使命’</strong> </p><br><h4 id="2009《沉默》"><a href="#2009《沉默》" class="headerlink" title="2009《沉默》"></a><strong>2009《沉默》</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200618140116.png" alt></p><p><strong>简介：</strong> 依旧是根据朱维坚创作的小说《黑白道：终结篇·沉默》改编，不同的是林荫来到了春城市春城分局做局长，相比较清水市，这里的权力交织更为盘根错节，甚至出现了枪杀警队人员的恶性事件，真相虚无缥缈，凶手亦敌亦友，在权力面前，选择沉默还是奋起反抗，这是一个值得深思的问题。</p><p><strong>观看：</strong> <a href="https://www.youtube.com/playlist?list=PLHOMQ6tK7Yud2RQ38_eF35BtpFY5Hz7qY" target="_blank" rel="external nofollow noopener noreferrer">Youtube地址</a></p><p><strong>短评：极度压抑的观看体验，几乎全程被升任的前任公安局长玩弄于手掌内，不同的是，除了忍气吞声外，林荫一直没有放弃对黑恶势力证据的收集，最终，拨云见日，成功的揪出了隐藏在警队内部的罪魁祸首，同时配合政法委一举肃清了执政队伍。看到结尾时，心中那种全程压抑的情感才得以集中释放。林荫再一次不负众望，凯旋而归。</strong> </p><br><h4 id="未完待续。。"><a href="#未完待续。。" class="headerlink" title="未完待续。。"></a><strong>未完待续。。</strong></h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;二十年不长不短，刚好积攒一点人生阅历。面对那些年看过的电视剧，彼时孩童的我们满头雾水，而现在，深刻的、内在的、隐晦的暗示，会在我们重温时不断涌现，好的作品需要时间的沉淀，需要阅历的解读。温故方可知新，当越来越多的人认可当下电视传媒的荒芜时，不妨停下脚步，回头看看，看看那些儿时看过的老剧，同样会给你深刻的感悟：好剧如酒，历久弥香。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200430201027.png&quot; alt&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Daily_Life" scheme="https://www.cxmoe.com/categories/Daily-Life/"/>
-    
-    
-      <category term="总结" scheme="https://www.cxmoe.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="生活" scheme="https://www.cxmoe.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
