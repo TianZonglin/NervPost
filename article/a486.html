@@ -386,7 +386,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年7月3日</p>
@@ -411,22 +411,22 @@
 
 <p>众所周知·，社交网络中人与人之间有很多关系链，例如Twitter、Facebook、微博和微信等，这些都是大数据产生的地方都需要图计算，现在的图处理基本都是分布式的图处理，而并非单机处理。Spark GraphX由于底层是基于Spark来处理的，所以天然就是一个分布式的图处理系统。</p>
 <p>图的分布式或者并行处理其实是把图拆分成很多的子图，然后分别对这些子图进行计算，计算的时候可以分别迭代进行分阶段的计算，即对图进行并行计算。下面我们看一下图计算的简单示例：</p>
-<p><img src="https://static.zybuluo.com/EVA001/no7hyynqovfqo74ib6gpb2h7/image_1ccm0e37c158c16jl11a71m7vola9.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/no7hyynqovfqo74ib6gpb2h7/image_1ccm0e37c158c16jl11a71m7vola9.png" alt></p>
 <p>从图中我们可以看出：拿到Wikipedia的文档以后，可以变成Link Table形式的视图，然后基于Link Table形式的视图可以分析成Hyperlinks超链接，最后我们可以使用PageRank去分析得出Top Communities。在下面路径中的Editor Graph到Community，这个过程可以称之为Triangle Computation，这是计算三角形的一个算法，基于此会发现一个社区。从上面的分析中我们可以发现图计算有很多的做法和算法，同时也发现图和表格可以做互相的转换。</p>
 <h3 id="GraphX的框架"><a href="#GraphX的框架" class="headerlink" title="GraphX的框架"></a><strong>GraphX的框架</strong></h3><p>设计GraphX时，点分割和GAS都已成熟，在设计和编码中针对它们进行了优化，并在功能和性能之间寻找最佳的平衡点。如同Spark本身，每个子模块都有一个核心抽象。GraphX的核心抽象是Resilient Distributed Property Graph，一种点和边都带属性的有向多重图。它扩展了Spark RDD的抽象，有Table和Graph两种视图，而只需要一份物理存储。两种视图都有自己独有的操作符，从而获得了灵活操作和执行效率。</p>
-<p><img src="https://static.zybuluo.com/EVA001/fnecoc6b31xsqvf4u151zlag/image_1ccm0j03b1uej10pj1n8il22v9em.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/fnecoc6b31xsqvf4u151zlag/image_1ccm0j03b1uej10pj1n8il22v9em.png" alt></p>
 <p>如同Spark，GraphX的代码非常简洁。GraphX的核心代码只有3千多行，而在此之上实现的Pregel模式，只要短短的20多行。GraphX的代码结构整体下图所示，其中大部分的实现，都是围绕Partition的优化进行的。这在某种程度上说明了点分割的存储和相应的计算优化，的确是图计算框架的重点和难点。</p>
 <h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a><strong>发展历程</strong></h3><p>l早在0.5版本，Spark就带了一个小型的Bagel模块，提供了类似Pregel的功能。当然，这个版本还非常原始，性能和功能都比较弱，属于实验型产品。</p>
 <p>l到0.8版本时，鉴于业界对分布式图计算的需求日益见涨，Spark开始独立一个分支Graphx-Branch，作为独立的图计算模块，借鉴GraphLab，开始设计开发GraphX。</p>
 <p>l在0.9版本中，这个模块被正式集成到主干，虽然是Alpha版本，但已可以试用，小面包圈Bagel告别舞台。1.0版本，GraphX正式投入生产使用。</p>
-<p><img src="https://static.zybuluo.com/EVA001/ryfndjt1u9dt7n3lkk2pb750/image_1ccm0jidk54611o8eolhhcfp813.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/ryfndjt1u9dt7n3lkk2pb750/image_1ccm0jidk54611o8eolhhcfp813.png" alt></p>
 <p>值得注意的是，GraphX目前依然处于快速发展中，从0.8的分支到0.9和1.0，每个版本代码都有不少的改进和重构。根据观察，在没有改任何代码逻辑和运行环境，只是升级版本、切换接口和重新编译的情况下，每个版本有10%~20%的性能提升。虽然和GraphLab的性能还有一定差距，但凭借Spark整体上的一体化流水线处理，社区热烈的活跃度及快速改进速度，GraphX具有强大的竞争力。</p>
 <h2 id="GraphX实现分析"><a href="#GraphX实现分析" class="headerlink" title="GraphX实现分析"></a><strong>GraphX实现分析</strong></h2><p>如同Spark本身，每个子模块都有一个核心抽象。GraphX的核心抽象是Resilient Distributed Property Graph，一种点和边都带属性的有向多重图。它扩展了Spark RDD的抽象，有Table和Graph两种视图，而只需要一份物理存储。两种视图都有自己独有的操作符，从而获得了灵活操作和执行效率。</p>
-<p><img src="https://static.zybuluo.com/EVA001/ua3q9r1md5cz38la635sokmt/image_1ccm0k59t17964ea308o2k19ek1g.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/ua3q9r1md5cz38la635sokmt/image_1ccm0k59t17964ea308o2k19ek1g.png" alt></p>
 <p>GraphX的底层设计有以下几个关键点。</p>
 <p>对Graph视图的所有操作，最终都会转换成其关联的Table视图的RDD操作来完成。这样对一个图的计算，最终在逻辑上，等价于一系列RDD的转换过程。因此，Graph最终具备了RDD的3个关键特性：Immutable、Distributed和Fault-Tolerant，其中最关键的是Immutable（不变性）。逻辑上，所有图的转换和操作都产生了一个新图；物理上，GraphX会有一定程度的不变顶点和边的复用优化，对用户透明。</p>
 <p>两种视图底层共用的物理数据，由RDD[Vertex-Partition]和RDD[EdgePartition]这两个RDD组成。点和边实际都不是以表Collection[tuple]的形式存储的，而是由VertexPartition/EdgePartition在内部存储一个带索引结构的分片数据块，以加速不同视图下的遍历速度。不变的索引结构在RDD转换过程中是共用的，降低了计算和存储开销。</p>
-<p><img src="https://static.zybuluo.com/EVA001/revij1pejb5w0cm0npd5vt29/image_1ccm0kkp21m0r11a35lc1qkh1f7n1t.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/revij1pejb5w0cm0npd5vt29/image_1ccm0kkp21m0r11a35lc1qkh1f7n1t.png" alt></p>
 <p>图的分布式存储采用点分割模式，而且使用partitionBy方法，由用户指定不同的划分策略（PartitionStrategy）。划分策略会将边分配到各个EdgePartition，顶点Master分配到各个VertexPartition，EdgePartition也会缓存本地边关联点的Ghost副本。划分策略的不同会影响到所需要缓存的Ghost副本数量，以及每个EdgePartition分配的边的均衡程度，需要根据图的结构特征选取最佳策略。目前有EdgePartition2d、EdgePartition1d、RandomVertexCut和CanonicalRandomVertexCut这四种策略。</p>
 <h3 id="存储模式"><a href="#存储模式" class="headerlink" title="存储模式"></a><strong>存储模式</strong></h3><h4 id="图存储模式"><a href="#图存储模式" class="headerlink" title="图存储模式"></a><strong>图存储模式</strong></h4><p>巨型图的存储总体上有边分割和点分割两种存储方式。2013年，GraphLab2.0将其存储方式由边分割变为点分割，在性能上取得重大提升，目前基本上被业界广泛接受并使用。</p>
 <ul>
@@ -435,7 +435,7 @@
 <li><p><strong>点分割（Vertex-Cut）</strong>：每条边只存储一次，都只会出现在一台机器上。邻居多的点会被复制到多台机器上，增加了存储开销，同时会引发数据同步问题。好处是可以大幅减少内网通信量。</p>
 </li>
 </ul>
-<p><img src="https://static.zybuluo.com/EVA001/0o9x4v7v1vmld1uorhyfn641/image_1ccm0lj87s1h1bcnhhd198n14st2a.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/0o9x4v7v1vmld1uorhyfn641/image_1ccm0lj87s1h1bcnhhd198n14st2a.png" alt></p>
 <p>虽然两种方法互有利弊，但现在是点分割占上风，各种分布式图计算框架都将自己底层的存储形式变成了点分割。主要原因有以下两个。</p>
 <ol>
 <li>磁盘价格下降，存储空间不再是问题，而内网的通信资源没有突破性进展，集群计算时内网带宽是宝贵的，时间比磁盘更珍贵。这点就类似于常见的空间换时间的策略。</li>
@@ -452,10 +452,10 @@
 </li>
 </ul>
 <p>点分割存储实现如下图所示：</p>
-<p><img src="https://static.zybuluo.com/EVA001/6el3g0z8ltyr5c23wh6dhpta/image_1ccm0m5pi9ui17sb1o8r13fb1gal2n.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/6el3g0z8ltyr5c23wh6dhpta/image_1ccm0m5pi9ui17sb1o8r13fb1gal2n.png" alt></p>
 <h3 id="计算模式"><a href="#计算模式" class="headerlink" title="计算模式"></a><strong>计算模式</strong></h3><h4 id="图计算模式"><a href="#图计算模式" class="headerlink" title="图计算模式"></a><strong>图计算模式</strong></h4><p>目前基于图的并行计算框架已经有很多，比如来自Google的Pregel、来自Apache开源的图计算框架Giraph/HAMA以及最为著名的GraphLab，其中Pregel、HAMA和Giraph都是非常类似的，都是基于BSP（Bulk Synchronous Parallell）模式。</p>
 <p>Bulk Synchronous Parallell，即整体同步并行，它将计算分成一系列的超步（superstep）的迭代（iteration）。从纵向上看，它是一个串行模式，而从横向上看，它是一个并行的模式，每两个superstep之间设置一个栅栏（barrier），即整体同步点，确定所有并行的计算都完成后再启动下一轮superstep。</p>
-<p><img src="https://static.zybuluo.com/EVA001/2bvu95dxp30va05vdw4mh7ik/image_1ccm0mo9v1eri1l60p3u8oqj6i34.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/2bvu95dxp30va05vdw4mh7ik/image_1ccm0mo9v1eri1l60p3u8oqj6i34.png" alt></p>
 <p>每一个超步（superstep）包含三部分内容：</p>
 <ol>
 <li><strong>计算compute</strong>：每一个processor利用上一个superstep传过来的消息和本地的数据进行本地计算；</li>
@@ -463,12 +463,12 @@
 <li><strong>整体同步点</strong>：用于整体同步，确定所有的计算和消息传递都进行完毕后，进入下一个superstep。</li>
 </ol>
 <h4 id="GraphX计算模式"><a href="#GraphX计算模式" class="headerlink" title="GraphX计算模式"></a><strong>GraphX计算模式</strong></h4><p>如同Spark一样，GraphX的Graph类提供了丰富的图运算符，大致结构如下图所示。可以在官方GraphX Programming Guide中找到每个函数的详细说明，本文仅讲述几个需要注意的方法。</p>
-<p><img src="https://static.zybuluo.com/EVA001/87pqekjrhl57j8bm7gmapimr/image_1ccm0nfloupd141hv7h1f9o1ms3h.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/87pqekjrhl57j8bm7gmapimr/image_1ccm0nfloupd141hv7h1f9o1ms3h.png" alt></p>
 <h5 id="图的缓存"><a href="#图的缓存" class="headerlink" title="图的缓存"></a><strong>图的缓存</strong></h5><p>每个图是由3个RDD组成，所以会占用更多的内存。相应图的cache、unpersist和checkpoint，更需要注意使用技巧。出于最大限度复用边的理念，GraphX的默认接口只提供了unpersistVertices方法。如果要释放边，调用g.edges.unpersist()方法才行，这给用户带来了一定的不便，但为GraphX的优化提供了便利和空间。参考GraphX的Pregel代码，对一个大图，目前最佳的实践是：</p>
-<p><img src="https://static.zybuluo.com/EVA001/yjwigv05d08ugq2ut60t8u9f/image_1ccm0o55515er1kg6khr1tsf1lju3u.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/yjwigv05d08ugq2ut60t8u9f/image_1ccm0o55515er1kg6khr1tsf1lju3u.png" alt></p>
 <p>大体之意是根据GraphX中Graph的不变性，对g做操作并赋回给g之后，g已不是原来的g了，而且会在下一轮迭代使用，所以必须cache。另外，必须先用prevG保留住对原来图的引用，并在新图产生后，快速将旧图彻底释放掉。否则，十几轮迭代后，会有内存泄漏问题，很快耗光作业缓存空间。</p>
 <h5 id="邻边聚合"><a href="#邻边聚合" class="headerlink" title="邻边聚合"></a><strong>邻边聚合</strong></h5><p>mrTriplets（mapReduceTriplets）是GraphX中最核心的一个接口。Pregel也基于它而来，所以对它的优化能很大程度上影响整个GraphX的性能。mrTriplets运算符的简化定义是：</p>
-<p><img src="https://static.zybuluo.com/EVA001/ucfid1fw3kxi4znyf6gce7vl/image_1ccm0opj71ajs173ao3j3jius44b.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/ucfid1fw3kxi4znyf6gce7vl/image_1ccm0opj71ajs173ao3j3jius44b.png" alt></p>
 <p>它的计算过程为：map，应用于每一个Triplet上，生成一个或者多个消息，消息以Triplet关联的两个顶点中的任意一个或两个为目标顶点；reduce，应用于每一个Vertex上，将发送给每一个顶点的消息合并起来。</p>
 <p>mrTriplets最后返回的是一个VertexRDD[A]，包含每一个顶点聚合之后的消息（类型为A），没有接收到消息的顶点不会包含在返回的VertexRDD中。</p>
 <p>在最近的版本中，GraphX针对它进行了一些优化，对于Pregel以及所有上层算法工具包的性能都有重大影响。主要包括以下几点。</p>
@@ -479,10 +479,10 @@
 </ol>
 <p>所有这些优化使GraphX的性能逐渐逼近GraphLab。虽然还有一定差距，但一体化的流水线服务和丰富的编程接口，可以弥补性能的微小差距。</p>
 <h5 id="进化的Pregel模式"><a href="#进化的Pregel模式" class="headerlink" title="进化的Pregel模式"></a><strong>进化的Pregel模式</strong></h5><p>GraphX中的Pregel接口，并不严格遵循Pregel模式，它是一个参考GAS改进的Pregel模式。定义如下：</p>
-<p><img src="https://static.zybuluo.com/EVA001/n06tjvj9ib5ey6askmi73qxr/image_1ccm0p5do4dtvq77r31ccd9t64o.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/n06tjvj9ib5ey6askmi73qxr/image_1ccm0p5do4dtvq77r31ccd9t64o.png" alt></p>
 <p>这种基于mrTrilets方法的Pregel模式，与标准Pregel的最大区别是，它的第2段参数体接收的是3个函数参数，而不接收messageList。它不会在单个顶点上进行消息遍历，而是将顶点的多个Ghost副本收到的消息聚合后，发送给Master副本，再使用vprog函数来更新点值。消息的接收和发送都被自动并行化处理，无需担心超级节点的问题。</p>
 <p>常见的代码模板如下所示：</p>
-<p><img src="https://static.zybuluo.com/EVA001/xkh2vkz35wpdk8hp5xb81qol/image_1ccm0pjsp1km1r3g102t1lo14hb55.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/xkh2vkz35wpdk8hp5xb81qol/image_1ccm0pjsp1km1r3g102t1lo14hb55.png" alt></p>
 <p>可以看到，GraphX设计这个模式的用意。它综合了Pregel和GAS两者的优点，即接口相对简单，又保证性能，可以应对点分割的图存储模式，胜任符合幂律分布的自然图的大型计算。另外，值得注意的是，官方的Pregel版本是最简单的一个版本。对于复杂的业务场景，根据这个版本扩展一个定制的Pregel是很常见的做法。</p>
 <h5 id="图算法工具包"><a href="#图算法工具包" class="headerlink" title="图算法工具包"></a>图算法工具包</h5><p>GraphX也提供了一套图算法工具包，方便用户对图进行分析。目前最新版本已支持PageRank、数三角形、最大连通图和最短路径等6种经典的图算法。这些算法的代码实现，目的和重点在于通用性。如果要获得最佳性能，可以参考其实现进行修改和扩展满足业务需求。另外，研读这些代码，也是理解GraphX编程最佳实践的好方法。</p>
 <hr>
@@ -534,7 +534,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d1cb.html" title="kafka的使用" rel="bookmark">kafka的使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f84f.html" title="Flume、Kafka、Storm如何结合使用" rel="bookmark">Flume、Kafka、Storm如何结合使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\31ad.html" title="kettle相关知识" rel="bookmark">kettle相关知识</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d1cb.html" title="kafka的使用" rel="bookmark">kafka的使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\dcd4.html" title="Kafka的应用场景" rel="bookmark">Kafka的应用场景</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f84f.html" title="Flume、Kafka、Storm如何结合使用" rel="bookmark">Flume、Kafka、Storm如何结合使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li></ul>
     </div>
   </section>
 

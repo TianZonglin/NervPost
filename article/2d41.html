@@ -386,7 +386,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年7月3日</p>
@@ -409,14 +409,14 @@
           <p>GraphX 是新的(alpha)的图形和图像并行计算的Spark API。从整理上看，GraphX 通过引入 弹性分布式属性图(Resilient Distributed Property Graph)继承了Spark RDD：一个将有效信息放在顶点和边的有向多重图。为了支持图形计算，GraphX 公开了一组基本的运算（例如，subgraph，joinVertices和mapReduceTriplets），以及在一个优化后的<br>PregelAPI的变形。此外，GraphX 包括越来越多的图算法和 builder 构造器，以简化图形分析任务。</p>
 <a id="more"></a>
 
-<p><img src="https://static.zybuluo.com/EVA001/oujumqm4pgtbi4vpc4tqkcq3/image_1ccthlr9p187rj041rg21pe41mgv9.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/oujumqm4pgtbi4vpc4tqkcq3/image_1ccthlr9p187rj041rg21pe41mgv9.png" alt></p>
 <p>GraphX 目前是一个 alpha 组件。虽然我们会尽量减少 API 的变化，但是一些 API 可能会在将来的版本中改变。</p>
 <h4 id="图并行计算的背景"><a href="#图并行计算的背景" class="headerlink" title="图并行计算的背景"></a><strong>图并行计算的背景</strong></h4><p>从社交网络到语言建模，日益扩大的规模和图形数据的重要性已带动许多新的图像并行系统（例如，Giraph和 GraphLab）。通过限制可表示计算的类型以及引入新的技术来划分和分布图，这些系统比一般的数据并行系统在执行复杂图形算法方面有大幅度地提高。</p>
-<p><img src="https://static.zybuluo.com/EVA001/xye2asif3tkxzo2tpglhtca9/image_1ccthsb1e14kl1ii013uj1did1k8km.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/xye2asif3tkxzo2tpglhtca9/image_1ccthsb1e14kl1ii013uj1did1k8km.png" alt></p>
 <p>然而，这些限制在获得重大性能提升的同时，也使其难以表达一个典型的图表分析流程中的许多重要阶段：构造图，修改它的结构或表达计算跨越多重图的计算。此外，如何看待数据取决于我们的目标，相同的原始数据，可能有许多不同的表(table)和图表视图(graph views)。</p>
-<p><img src="https://static.zybuluo.com/EVA001/az222xkl2l0ehwh7st09zff3/image_1ccthuiq8e381jbu5gm1efs7m813.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/az222xkl2l0ehwh7st09zff3/image_1ccthuiq8e381jbu5gm1efs7m813.png" alt></p>
 <p>因此，能够在同一组物理数据的表和图表视图之间切换是很有必要的，并利用各视图的属性，以方便地和有效地表达计算。但是，现有的图形分析管道必须由图并行和数据并行系统组成，从而导致大量的数据移动和重复以及复杂的编程模型。</p>
-<p><img src="https://static.zybuluo.com/EVA001/hig4fwb6c215mb0g10q20zw3/image_1ccthvs4q11911f671skf1jeeitd1g.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/hig4fwb6c215mb0g10q20zw3/image_1ccthvs4q11911f671skf1jeeitd1g.png" alt></p>
 <p>该 GraphX 项目的目标是建立一个系统，建立一个统一的图和数据并行计算的 API。该GraphX API 使用户能够将数据既可以当作一个图，也可以当作集合（即RDDS）而不用进行数据移动或数据复制。通过引入在图并行系统中的最新进展，GraphX能够优化图形操作的执行。</p>
 <h4 id="GraphX-替换-Spark-Bagel-的-API"><a href="#GraphX-替换-Spark-Bagel-的-API" class="headerlink" title="GraphX 替换 Spark Bagel 的 API"></a><strong>GraphX 替换 Spark Bagel 的 API</strong></h4><p>在GraphX 的发布之前，Spark的图计算是通过Bagel实现的，后者是Pregel的一个具体实现。GraphX提供了更丰富的图属性API，从而增强了Bagel。从而达到一个更加精简的Pregel抽象，系统优化，性能提升以及减少内存开销。虽然我们计划最终弃用Bagel，我们将继续支持Bagel的API和Bagel编程指南。不过，我们鼓励Bagel用户，探索新的GraphXAPI，并就从Bagel升级中遇到的障碍反馈给我们。</p>
 <h4 id="从-Spark-0-9-1-迁移"><a href="#从-Spark-0-9-1-迁移" class="headerlink" title="从 Spark 0.9.1 迁移"></a><strong>从 Spark 0.9.1 迁移</strong></h4><p>GraphX 在Spark 1.1.0 包含Spark-0.9.1一个用户面向接口的改变。EdgeRDD现在可以存储相邻顶点属性来构建triplets，因此它获得了一个类型参数。一个Graph[VD，ED]的边的类型是EdgeRDD[ED，VD]而不是 EdgeRDD[ED]。</p>
@@ -436,7 +436,7 @@
 
 <p>类 VertexRDD [VD]和 EdgeRDD[ED，VD]继承和并且分别是一个优化的版本的RDD[(VertexID,VD)]和RDD[Edge[ED]]。这两个VertexRDD[VD]和EdgeRDD[ED,VD]提供各地图的计算内置附加功能，并充分利用内部优化。我们在上一节顶点和边RDDS中详细讨论了VertexRDD和EdgeRDD的API，但现在，他们可以简单地看成是RDDS形式的： RDD[(VertexID,VD)]和 RDD [EDGE[ED]] 。</p>
 <h4 id="属性图的例子"><a href="#属性图的例子" class="headerlink" title="属性图的例子"></a><strong>属性图的例子</strong></h4><p>假设我们要建立一个 GraphX项目各合作者的属性图。顶点属性可能会包含用户名和职业。我们可以使用一组字符注释来描述代表合作者关系的边：</p>
-<p><img src="https://static.zybuluo.com/EVA001/1iccuz2jn4dbffvvjz517cjc/image_1cctigkqj1nq11kh1g5615m7q421t.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/1iccuz2jn4dbffvvjz517cjc/image_1cctigkqj1nq11kh1g5615m7q421t.png" alt></p>
 <p>由此产生的图形将有类型签名：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> userGraph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]</span><br></pre></td></tr></table></figure>
 
@@ -454,7 +454,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> src.id, dst.id, src.attr, e.attr, dst.attr</span><br><span class="line"><span class="keyword">FROM</span> edges  <span class="keyword">AS</span> e  <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> vertices  <span class="keyword">AS</span> src, vertices  <span class="keyword">AS</span> dst</span><br><span class="line"><span class="keyword">ON</span> e.srcId = src.Id  <span class="keyword">AND</span> e.dstId = dst.Id</span><br></pre></td></tr></table></figure>
 
 <p>或图形方式：</p>
-<p><img src="https://static.zybuluo.com/EVA001/1bf09oov7mqbww8mpoy00rya/image_1cctj00g11j4e1ghaq5v1dvapea2a.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/1bf09oov7mqbww8mpoy00rya/image_1cctj00g11j4e1ghaq5v1dvapea2a.png" alt></p>
 <p>该 EdgeTriplet类继承了 Edge并加入了类属性:srcAttr和dstAttr,用于包含了源和目标属性。我们可以用一个图的三元组视图渲染描述用户之间的关系字符串的集合。</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> graph: <span class="type">Graph</span>[(<span class="type">String</span>, <span class="type">String</span>), <span class="type">String</span>]  <span class="comment">// Constructed from above</span></span><br><span class="line"><span class="comment">// Use the triplets view to create an RDD of facts.</span></span><br><span class="line"><span class="keyword">val</span> facts: <span class="type">RDD</span>[<span class="type">String</span>] =</span><br><span class="line">    graph.triplets.map(triplet  =&gt;</span><br><span class="line">        triplet.srcAttr._1 + <span class="string">" is the "</span> + triplet.attr + <span class="string">" of "</span> + triplet.dstAttr._1)</span><br><span class="line">facts.collect.foreach(println(_ _))</span><br></pre></td></tr></table></figure>
 
@@ -563,9 +563,9 @@
 
 <p>在大多数应用中，我们发现，在 EdgeRDD 中的操作是通过图形运算符来实现，或依靠在基类定义的 RDD 类操作。</p>
 <h3 id="优化图的表示"><a href="#优化图的表示" class="headerlink" title="优化图的表示"></a><strong>优化图的表示</strong></h3><p>关于 GraphX 中如何表示分布式图结构的详细描述，这个话题超出了本指南的范围，一些高层次的理解可能有助于设计可扩展的算法设计以及 API 的最佳利用。GraphX 采用顶点切的方法来分发图划分：</p>
-<p><img src="https://static.zybuluo.com/EVA001/1o9lezkybqq3vm2qw1ldwkrc/image_1cctlmkuj6441qf71cfv1f2ot9l2n.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/1o9lezkybqq3vm2qw1ldwkrc/image_1cctlmkuj6441qf71cfv1f2ot9l2n.png" alt></p>
 <p>不通过边划分图，GraphX 沿顶点来划分图，这样可以减少顶点之间的通信和存储开销。逻辑上，这对应于将边分配到不同的机器，并允许顶点跨越多个机器。分配边的确切方法取决于PartitionStrategy并有多个权衡各种试探法。用户可以通过重新分区图与不同的策略之间进行选择Graph.partitionBy操作。默认分区策略是按照图的构造，使用图中初始的边。但是，用户可以方便地切换到二维-分区或GraphX中其他启发式分区方法。</p>
-<p><img src="https://static.zybuluo.com/EVA001/ar7369pbgau2zrh013aslx2w/image_1cctlnrcka0r18eo1r251lkp14pc3k.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/ar7369pbgau2zrh013aslx2w/image_1cctlnrcka0r18eo1r251lkp14pc3k.png" alt></p>
 <p>一旦边被划分，并行图计算的关键挑战在于有效的将每个顶点属性和边的属性连接起来。由于在现实世界中，边的数量多于顶点的数量，我们把顶点属性放在边中。因为不是所有的分区将包含所有顶点相邻的边的信息，我们在内部维护一个路由表，这个表确定在哪里广播顶点信息，执行 triplet 和 mapReduceTriplets 的连接操作。</p>
 <h3 id="图算法"><a href="#图算法" class="headerlink" title="图算法"></a><strong>图算法</strong></h3><p>GraphX 包括一组图形算法来简化分析任务。该算法被包含于org.apache.spark.graphx.lib包中，并可直接通过 GraphOps而被Graph中的方法调用。本节介绍这些算法以及如何使用它们。</p>
 <h4 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a><strong>PageRank</strong></h4><p>PageRank记录了图中每个顶点的重要性，假设一条边从u到v，代表从u传递给v的重要性。例如，如果一个Twitter用户有很多粉丝，用户排名将很高。</p>
@@ -634,7 +634,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4ba7.html" title="GraphX具体功能的代码使用实例-Scala实现" rel="bookmark">GraphX具体功能的代码使用实例-Scala实现</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 

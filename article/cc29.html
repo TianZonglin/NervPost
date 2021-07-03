@@ -386,7 +386,7 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>本页文档最后更新于：2021年7月3日</p>
@@ -416,10 +416,10 @@
 <li>spark-assembly-x.x.x-hadoop.x.x.jar   //注意这是在No-sbt模式下必须的，这个包很大，大概170M，导入后不用再添加其他依赖即可对Spark程序进行本地(Local)运行，其已包括GraphX模块。</li>
 </ul>
 <h4 id="Java的版本"><a href="#Java的版本" class="headerlink" title="Java的版本"></a>Java的版本</h4><p>这里由于要是用Scala所以必须使用 Version 1.8+，关于如何修改版本这里不赘述。</p>
-<h4 id="Scala的版本"><a href="#Scala的版本" class="headerlink" title="Scala的版本"></a>Scala的版本</h4><p>这里可以通过右键项目名称，进入项目设置页面具体查看原项目使用的版本：<br><img src="https://static.zybuluo.com/EVA001/351svn8m7rfctiwzt55kcyby/image_1ccsin20f138e115e1fci119s1mve9.png" alt></p>
-<p><img src="https://static.zybuluo.com/EVA001/b4vj2r4uidlkirr7zwhkk6f3/image_1ccslkpi11q47bt11f971vers4g1g.png" alt></p>
+<h4 id="Scala的版本"><a href="#Scala的版本" class="headerlink" title="Scala的版本"></a>Scala的版本</h4><p>这里可以通过右键项目名称，进入项目设置页面具体查看原项目使用的版本：<br><img src="//static.zybuluo.com/EVA001/351svn8m7rfctiwzt55kcyby/image_1ccsin20f138e115e1fci119s1mve9.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/b4vj2r4uidlkirr7zwhkk6f3/image_1ccslkpi11q47bt11f971vers4g1g.png" alt></p>
 <p>之后可以添加相应的Scala版本支持，比如假设这里需要 2.10.4 那么直接勾选即可，但是如果本机没有对应的版本，那么可以点击下方的<code>New Liberay</code>选择Scala SDK，进入如下页面：</p>
-<p><img src="https://static.zybuluo.com/EVA001/sjq0bd1qstb2kmaonzpj60gg/image_1ccsk5ec61d334qt1scm7hl1eps13.png" alt></p>
+<p><img src="//static.zybuluo.com/EVA001/sjq0bd1qstb2kmaonzpj60gg/image_1ccsk5ec61d334qt1scm7hl1eps13.png" alt></p>
 <p>在上述页面中你可以选择更多版本的Scala环境，如果还是没有你需要的版本，那么点击下方的<code>Download</code>按钮，可以进一步选择你需要的版本（涵盖所有版本），这是在线下载的操作，所以可能时间会非常慢，非常慢！</p>
 <h4 id="Spark-assembly的版本"><a href="#Spark-assembly的版本" class="headerlink" title="Spark-assembly的版本"></a>Spark-assembly的版本</h4><p>关于这个地方要特别注意版本的对应，老项目里有代码用到了 GraphX中 图的 mapReduceTriplets ，这应该在Spark-2.x.x以后被取消了，所以如果下次再在网上看到使用mapReduceTriplets的代码，复制到本地却无法识别时，不要慌张，那是他们使用了老版本的Spark-GraphX。<br>在这里，原项目使用的是 spark-assembly-1.4.1-hadoop2.6.0.jar 但是这个jar包早就不在项目文件中了，然后在网上也没有搜到完全匹配的Jar包，但上文已说到，找个spark-1.x 版本的即可，所以在网上找了一个 spark-assembly-1.5.1-hadoop2.6.0.jar，同样在 上图 中的右侧点击加号后选择<code>JARS or direct..</code>添加到项目依赖中即可。</p>
 <h3 id="确定项目代码的运行环境"><a href="#确定项目代码的运行环境" class="headerlink" title="确定项目代码的运行环境"></a>确定项目代码的运行环境</h3><p>在上一部分中对原项目的项目的所需依赖的版本进行了更正对应之后，可以发现原先满屏飘红的代码已经没有错误了，即这时IDEA已经具有了对于代码的完全的解析能力，这时我们写代码调方法都可以自动补全等等。</p>
@@ -490,7 +490,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f5a4.html" title="分布式执行代码的认知纠正" rel="bookmark">分布式执行代码的认知纠正</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\b081.html" title="Spark的运行环境及远程开发环境的搭建" rel="bookmark">Spark的运行环境及远程开发环境的搭建</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\4900.html" title="提交Spark任务的三种方式" rel="bookmark">提交Spark任务的三种方式</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
