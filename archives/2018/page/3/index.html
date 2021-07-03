@@ -1742,8 +1742,11 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
+ 
+/*
 		const dp = new DPlayer({
 			container: document.getElementById('dplayer'),
 			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
@@ -1769,23 +1772,22 @@ if(true){
 		   }
 
 		 }) 
-		
-
+		*/
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 

@@ -501,7 +501,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\572b.html" title="DBLP数据集使用Python解析" rel="bookmark">DBLP数据集使用Python解析</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\2d41.html" title="GraphX编程指南-官方文档-整理" rel="bookmark">GraphX编程指南-官方文档-整理</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8cf3.html" title="Scala中的Collection" rel="bookmark">Scala中的Collection</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bd82.html" title="Scala的基础概念" rel="bookmark">Scala的基础概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\cc29.html" title="如何使用IDEA加载已有Spark项目" rel="bookmark">如何使用IDEA加载已有Spark项目</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c035.html" title="2016研究生数学建模竞赛E题" rel="bookmark">2016研究生数学建模竞赛E题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\6e50.html" title="替代Websocket的解决方案：GoEasy" rel="bookmark">替代Websocket的解决方案：GoEasy</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1257,23 +1257,23 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 

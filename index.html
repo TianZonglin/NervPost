@@ -471,6 +471,11 @@
   <article class="post white-box reveal reveal2" style="padding: 10px 24px;min-height: 70px;">
     <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#ff0000; "><span class="lit_slashNum">♘ </span><a target="_blank" href="/movies/index.html" style="font-size:22px;color:#ff0000;">近期の观影</a></span>
     <style>  
+
+      .l_main .post img {
+          margin-top: 4px !important;
+
+      }
       .lit_slashNum{ 
  
         color:#ff0000; 
@@ -960,7 +965,7 @@
 <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/ubuntu/2021-07-02_23-59.png">
 </fancybox>
 
-<p>更新于2021年6月。Ubuntu上使用QQ一直是个痛点，而且令人不解的是腾讯除了在19年把远古版本LinuxQQ拿出来修补一下之外，没有任何迹象表明其会推出官方的Linux新版QQ,所以通常Linux之上使用QQ就几个方式：① Wine版QQ，② 通过协议自定义封装的仿QQ的IM工具。本文使用的就是后者，而且作者借助Vscode以插件形式运行。</p>
+<p>更新于2021年6月。Ubuntu上使用QQ一直是个痛点，而且令人不解的是腾讯除了在19年把远古版本LinuxQQ拿出来修补一下之外，没有任何迹象表明其会推出官方的Linux新版QQ，所以通常Linux之上使用QQ就几个方式：① Wine版QQ，② 通过协议自定义封装的仿QQ的IM工具。本文使用的就是后者，而且作者借助Vscode以插件形式运行。</p>
       
         
           <div class="button readmore">
@@ -2520,8 +2525,11 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
+ 
+/*
 		const dp = new DPlayer({
 			container: document.getElementById('dplayer'),
 			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
@@ -2547,23 +2555,22 @@ if(true){
 		   }
 
 		 }) 
-		
-
+		*/
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 

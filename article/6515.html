@@ -585,7 +585,7 @@
                   
                     
                     <h6 class="tags">
-                      &nbsp;<a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/VMware/"><i class="fas fa-hashtag" aria-hidden="true"></i> VMware</a>
+                      &nbsp;<a class="tag" href="/tags/VMware/"><i class="fas fa-hashtag" aria-hidden="true"></i> VMware</a> <a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a>
                     </h6>
                   
                 </span>
@@ -1222,23 +1222,23 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 

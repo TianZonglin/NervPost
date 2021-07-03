@@ -1347,23 +1347,23 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 

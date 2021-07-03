@@ -467,6 +467,11 @@
   <article class="post white-box reveal reveal2" style="padding: 10px 24px;min-height: 70px;">
     <span class="rtt" style="z-index:10;position:absolute;top: 26px;right: 24px;font-weight: bold;font-size: 22px;color:#ff0000; "><span class="lit_slashNum">♘ </span><a target="_blank" href="/movies/index.html" style="font-size:22px;color:#ff0000;">近期の观影</a></span>
     <style>  
+
+      .l_main .post img {
+          margin-top: 4px !important;
+
+      }
       .lit_slashNum{ 
  
         color:#ff0000; 
@@ -632,11 +637,11 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
-        
           <a href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> JavaScript</a>
         
           <a href="/tags/HTML/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> HTML</a>
+        
+          <a href="/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
         
       </div>
      -->
@@ -1085,9 +1090,9 @@
         
           <a href="/tags/%E6%95%B0%E7%BB%84/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 数组</a>
         
-          <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 排列组合</a>
-        
           <a href="/tags/Java/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Java</a>
+        
+          <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 排列组合</a>
         
       </div>
      -->
@@ -1927,8 +1932,11 @@ if(true){
 
   <script>
 	$(function(){ 
- 
 
+ 
+//
+ 
+/*
 		const dp = new DPlayer({
 			container: document.getElementById('dplayer'),
 			autoplay:true,theme:"#42b983",loop:true,lang:"zh-cn",preload:"auto",volume:Number("0"),
@@ -1954,23 +1962,22 @@ if(true){
 		   }
 
 		 }) 
-		
-
+		*/
+//
 
  
 
 		//文章列表置顶部分
-
-		  
-
+ 
 		$('#topcontent').load('./movies/index.html .hexo-douban-item:nth-child(1)');
+    if(window.document.location.href.indexOf("movies")){}
+    else{
+      $('body').on('click',"#linkk",function(){
+      window.open("https://www.cxmoe.com/movies/index.html");
+      });
+    }
+ 
 
-		if(window.document.location.href.indexOf("movies")){}
-		else{
-		  $('body').on('click',"#linkk",function(){
-			window.open("https://www.cxmoe.com/movies/index.html");
-		  });
-		}
 
 		
 
