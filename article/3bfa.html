@@ -387,10 +387,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -419,10 +419,10 @@
 <p>但是，力导向算法应用于<strong>树型数据</strong>的研究还较少。本文将力导向算法应用于层次数据的布局，提出一种可变弹簧的力导向布局算法，能够较好展示<strong>结构信息</strong>，并结合气泡图展示其中的内容信息，设计完成了多视图协同可视分析系统.</p>
 <h3 id="向层次数据的力导向布局算法"><a href="#向层次数据的力导向布局算法" class="headerlink" title="向层次数据的力导向布局算法"></a>向层次数据的力导向布局算法</h3><p>传统力导向布局会产生边长度相对一致的情况，而这种情况对层次结构的展示是不明显的，尤其是在节点普遍具有较大出度的情况下，在布局中表现为中心节点即根节点处有节点混杂，在叶节点处子树的交叉遮挡现象严重．子树的成团效果不明显，因而影响对层次数据的观察。</p>
 <p>本文考虑调整不同层次的<strong>边的长度</strong>以示区分，以不同的边长表现不同的层次，使得根节点处的边长较长而叶节点的边长较短。并依树形结构的结构特征达到一定的边长比值，从而实现中心节点处发散而叶节点处收敛的目的。</p>
-<p>对于不同层次的边赋以不同的长度，以区别其向指父节点和其子节点的边。并使相邻层次满足边长比例为C，C为某常数,将此布局算法称为<strong>可变弹簧力导向布局算法VSFDP</strong>。<br><img src="http://static.zybuluo.com/EVA001/6mgumjegy6kj66csp11tpwcz/image_1bv7ns6oms0c1668t6319ui1a2r9.png" alt="image_1bv7ns6oms0c1668t6319ui1a2r9.png-201.6kB">  </p>
-<p><strong>斥力计算：</strong><br><img src="http://static.zybuluo.com/EVA001/y7c6hh82a1s2zajh4wixvdxi/image_1bv7o1k039em1j491adjmstuh5m.png" alt="image_1bv7o1k039em1j491adjmstuh5m.png-154.7kB">  </p>
-<p><strong>引力计算：</strong><br><img src="http://static.zybuluo.com/EVA001/gqhmvbyfd0l41hh6chmsxutl/image_1bv7ob1pv1imautboti1942lq913.png" alt="image_1bv7ob1pv1imautboti1942lq913.png-297kB">  </p>
-<p>确定不同层次弹簧长度的比值<strong>常数C</strong><br>对于一棵规则的满n叉树来说，节点所处的层次越高，其子树包含的节点数目越多。这篇文章将N层节点与N+1层节点的比值定为常数n，则C=n，但是如果每层节点的度的比值不是常数，那么就使用数的平均度来作为常数C：<br><img src="http://static.zybuluo.com/EVA001/u1tu0zblo3rszx8dri6ulxwr/image_1bv7p29jq1rl9hp3p5jijs17s1g.png" alt="image_1bv7p29jq1rl9hp3p5jijs17s1g.png-78.6kB">  </p>
+<p>对于不同层次的边赋以不同的长度，以区别其向指父节点和其子节点的边。并使相邻层次满足边长比例为C，C为某常数,将此布局算法称为<strong>可变弹簧力导向布局算法VSFDP</strong>。<br><img src="https://static.zybuluo.com/EVA001/6mgumjegy6kj66csp11tpwcz/image_1bv7ns6oms0c1668t6319ui1a2r9.png" alt="image_1bv7ns6oms0c1668t6319ui1a2r9.png-201.6kB">  </p>
+<p><strong>斥力计算：</strong><br><img src="https://static.zybuluo.com/EVA001/y7c6hh82a1s2zajh4wixvdxi/image_1bv7o1k039em1j491adjmstuh5m.png" alt="image_1bv7o1k039em1j491adjmstuh5m.png-154.7kB">  </p>
+<p><strong>引力计算：</strong><br><img src="https://static.zybuluo.com/EVA001/gqhmvbyfd0l41hh6chmsxutl/image_1bv7ob1pv1imautboti1942lq913.png" alt="image_1bv7ob1pv1imautboti1942lq913.png-297kB">  </p>
+<p>确定不同层次弹簧长度的比值<strong>常数C</strong><br>对于一棵规则的满n叉树来说，节点所处的层次越高，其子树包含的节点数目越多。这篇文章将N层节点与N+1层节点的比值定为常数n，则C=n，但是如果每层节点的度的比值不是常数，那么就使用数的平均度来作为常数C：<br><img src="https://static.zybuluo.com/EVA001/u1tu0zblo3rszx8dri6ulxwr/image_1bv7p29jq1rl9hp3p5jijs17s1g.png" alt="image_1bv7p29jq1rl9hp3p5jijs17s1g.png-78.6kB">  </p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <p><strong>VSFDP算法步骤：</strong></p>
 <ol>
@@ -436,8 +436,8 @@
 <li>Overview+Detail</li>
 <li>气泡图</li>
 </ul>
-<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p><strong>可视化流水线</strong>是将原始数据转换成计算机内存中数据结构。并用一种可视化方法将数据在屏幕上展现出来的过程，如图下图所示，在这个过程中包括用户的交互反馈以及各种工具方法等的使用。<br><img src="http://static.zybuluo.com/EVA001/irpoxenj92z48725g4t9egnk/image_1bv7qncht5oh1hskfvgk0719861t.png" alt="image_1bv7qncht5oh1hskfvgk0719861t.png-35.2kB"></p>
-<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="http://static.zybuluo.com/EVA001/jy2mxh1v9nk1jqy5yddj1x2b/image_1bv7qqn1n12s1157p11ec1d8h1nka2a.png" alt="image_1bv7qqn1n12s1157p11ec1d8h1nka2a.png-209.1kB"></p>
+<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p><strong>可视化流水线</strong>是将原始数据转换成计算机内存中数据结构。并用一种可视化方法将数据在屏幕上展现出来的过程，如图下图所示，在这个过程中包括用户的交互反馈以及各种工具方法等的使用。<br><img src="https://static.zybuluo.com/EVA001/irpoxenj92z48725g4t9egnk/image_1bv7qncht5oh1hskfvgk0719861t.png" alt="image_1bv7qncht5oh1hskfvgk0719861t.png-35.2kB"></p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="https://static.zybuluo.com/EVA001/jy2mxh1v9nk1jqy5yddj1x2b/image_1bv7qqn1n12s1157p11ec1d8h1nka2a.png" alt="image_1bv7qqn1n12s1157p11ec1d8h1nka2a.png-209.1kB"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇论文第一个创新点是对传统力导向算法的改进，加入了分层布局，使用整个图的平均度作为常数C，这样的结果就是度大的节点被分为一层，这里他们在布局时会被赋予较长的边距离，然后依次类推，下一层节点拥有较小的度，但是赋予的边的距离也同样变短。<br>另外，在交互手段上使用气泡图辅助，气泡图的圆心在当前层的节点位置，半径同样是按层间的比例，在将布局展示的同时通过气泡来辅助交互。</p>
 
 

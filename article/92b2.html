@@ -386,10 +386,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -416,7 +416,7 @@
 </ol>
 <p>原因：在select语句中的AS部分全部是取值于已存在记录的值，在id相同并执行update时，相当于更新一条完全相同的语句，即便是各个值没有违反唯一性约束，此时也会报: ORA-00001错误，不要全都一样就可以了；</p>
 <p>在Java中使用Oracle的MERGE INTO语句时，老师报错：sql语句未正常结束，但在Navcat中完全正常<br>解决：Navcat中执行时语句的最后有个分号；但在Java中prepareStatement构造时，要去掉这个分号！！！！</p>
-<h3 id="连接错误-no-listener、The-Network-Adapter-could-not-establish-the-connection"><a href="#连接错误-no-listener、The-Network-Adapter-could-not-establish-the-connection" class="headerlink" title="连接错误:no listener、The Network Adapter could not establish the connection"></a><strong>连接错误:no listener、The Network Adapter could not establish the connection</strong></h3><p>1.打开SQL Developer查看本地SYSTEM(例子)是否能连接（密码：ttzzlll）<br>如不行（报adapter错误等等）：<br>查看Oracle服务启动正常否：<br><img src="http://static.zybuluo.com/EVA001/3ch6i8je8ns3485eqegmybng/%E6%88%AA%E5%9B%BE.png" alt="截图.png-22.8kB"><br>如果未启动，则右键属性，转登录栏，使用账号密码重新登录，之后即可启动<br>上述完成，看是否可以本地连接，如果仍不行：<br>执行 lsnrctl start + lsnrctl status  看信息正常否<br>正常，则打开oracle安装目录下：oracle\product\12.1.0\dbhome_1\network\admin\listener.ora<br>打开listener.ora，找到最下方LINSTENER=(…)<br>修改HOST = 主机名（主机名可我的电脑右键属性查看）<br>保存，之后cmd下：<br>lsnrctl  stop<br>lsnrctl  start<br>lsnrctl  status<br>有一定的延迟，在客户机上连接，此时OK！！！！</p>
+<h3 id="连接错误-no-listener、The-Network-Adapter-could-not-establish-the-connection"><a href="#连接错误-no-listener、The-Network-Adapter-could-not-establish-the-connection" class="headerlink" title="连接错误:no listener、The Network Adapter could not establish the connection"></a><strong>连接错误:no listener、The Network Adapter could not establish the connection</strong></h3><p>1.打开SQL Developer查看本地SYSTEM(例子)是否能连接（密码：ttzzlll）<br>如不行（报adapter错误等等）：<br>查看Oracle服务启动正常否：<br><img src="https://static.zybuluo.com/EVA001/3ch6i8je8ns3485eqegmybng/%E6%88%AA%E5%9B%BE.png" alt="截图.png-22.8kB"><br>如果未启动，则右键属性，转登录栏，使用账号密码重新登录，之后即可启动<br>上述完成，看是否可以本地连接，如果仍不行：<br>执行 lsnrctl start + lsnrctl status  看信息正常否<br>正常，则打开oracle安装目录下：oracle\product\12.1.0\dbhome_1\network\admin\listener.ora<br>打开listener.ora，找到最下方LINSTENER=(…)<br>修改HOST = 主机名（主机名可我的电脑右键属性查看）<br>保存，之后cmd下：<br>lsnrctl  stop<br>lsnrctl  start<br>lsnrctl  status<br>有一定的延迟，在客户机上连接，此时OK！！！！</p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 
 
@@ -604,7 +604,7 @@
                   
                     
                     <h6 class="tags">
-                      <a class="tag" href="/tags/VMware/"><i class="fas fa-hashtag" aria-hidden="true"></i> VMware</a> <a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a>&nbsp;
+                      <a class="tag" href="/tags/%E8%B0%83%E8%AF%95/"><i class="fas fa-hashtag" aria-hidden="true"></i> 调试</a> <a class="tag" href="/tags/VMware/"><i class="fas fa-hashtag" aria-hidden="true"></i> VMware</a>&nbsp;
                     </h6>
                   
                 </span>

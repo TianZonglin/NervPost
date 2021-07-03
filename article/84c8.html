@@ -387,10 +387,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:04+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -415,11 +415,11 @@
 <h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p><strong>面向 web 的轻量级数据可视化工具</strong>主要是一些JavaScript库，利用canvas或者svg画散点，svg不能支持十亿以上的节点，使用 canvas 画布绘图的heatmap.js 在面对大数据量时也无能为力.<br><strong>热图</strong>是一种常用的基本数据可视化技术,通常用颜色编码数值大小，并以矩阵或方格形式整齐排列,在二维平面或者地图上呈现数据空间分布,被广泛应用在许多领域.近年来,许多研究者成功地将热图应用在眼动数据可视分析上, 有效地概括并表达用户视觉注意力的累计分布<br><strong>LOD</strong>针对数据可视化绘制速度慢、效率低等问题,孙敏等提出<strong>基于格网划分的LOD</strong>(levelsofdetail)分层方法, 实现对大数据集 DEM 数据的实时漫游.</p>
 <h3 id="并行计算大数据热图"><a href="#并行计算大数据热图" class="headerlink" title="并行计算大数据热图"></a>并行计算大数据热图</h3><ul>
 <li>经纬度换算</li>
-<li>并行计算<br>在 Spark 平台上实现热图的绘制,首先将经纬度坐标转换为对应不同瓦片上的像素坐标.每个基站的辐射范围可近似认为相同, 即每个基站（收集数据的基站坐标）的初始影响力近似相同,因此可采用<strong>影响力叠加法</strong>将数据点绘制到画布上,然后做径向渐变,叠加出每个位置的影响大小,得到初始灰度图,如图2a所示.然后将每一个像素点着色,根据每个像素的灰度值大小,以及调色板将灰度值映射成相对应的颜色. 图 2b 是一个透明的PNG 格式图片, 调色板如图 2c 所示. 本文中出现的热图均采用图 2c 调色板.<br><img src="http://static.zybuluo.com/EVA001/tmj529fjmnlk96eof3fwgtw7/image_1bv9vh4oqfatb5a12s4ui1sbe9.png" alt="image_1bv9vh4oqfatb5a12s4ui1sbe9.png-185.9kB"><br>将计算出的热图结果存储在HDFS上,并与经纬度以及层级建立索引关系方便以后读取,拼接后的热图绘制效果如图 3 所示.<br><img src="http://static.zybuluo.com/EVA001/vu8s4e2mxllsgqrohy1pfvrr/image_1bv9vj0vb16um1pt91qrs17bh1jam9.png" alt="image_1bv9vj0vb16um1pt91qrs17bh1jam9.png-128kB"></li>
+<li>并行计算<br>在 Spark 平台上实现热图的绘制,首先将经纬度坐标转换为对应不同瓦片上的像素坐标.每个基站的辐射范围可近似认为相同, 即每个基站（收集数据的基站坐标）的初始影响力近似相同,因此可采用<strong>影响力叠加法</strong>将数据点绘制到画布上,然后做径向渐变,叠加出每个位置的影响大小,得到初始灰度图,如图2a所示.然后将每一个像素点着色,根据每个像素的灰度值大小,以及调色板将灰度值映射成相对应的颜色. 图 2b 是一个透明的PNG 格式图片, 调色板如图 2c 所示. 本文中出现的热图均采用图 2c 调色板.<br><img src="https://static.zybuluo.com/EVA001/tmj529fjmnlk96eof3fwgtw7/image_1bv9vh4oqfatb5a12s4ui1sbe9.png" alt="image_1bv9vh4oqfatb5a12s4ui1sbe9.png-185.9kB"><br>将计算出的热图结果存储在HDFS上,并与经纬度以及层级建立索引关系方便以后读取,拼接后的热图绘制效果如图 3 所示.<br><img src="https://static.zybuluo.com/EVA001/vu8s4e2mxllsgqrohy1pfvrr/image_1bv9vj0vb16um1pt91qrs17bh1jam9.png" alt="image_1bv9vj0vb16um1pt91qrs17bh1jam9.png-128kB"></li>
 </ul>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
-<h3 id="瓦片边缘问题"><a href="#瓦片边缘问题" class="headerlink" title="瓦片边缘问题"></a>瓦片边缘问题</h3><p><img src="http://static.zybuluo.com/EVA001/qyt58jek3e90eyj0if036urn/image_1bv9vno7315gi1l1r1gog1cdg1tdnm.png" alt="image_1bv9vno7315gi1l1r1gog1cdg1tdnm.png-34.6kB"><br>边缘热点可能处于2片或者4片瓦片之间,因此需要通过2次或者4次重复计算.通过本文提出的重叠计算方法可以解决热图分片计算的边缘问题。</p>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p><img src="http://static.zybuluo.com/EVA001/2ksgx6mqyl43950buhvwwr1d/image_1bv9vr8311fe817tt11bb22qlr113.png" alt="image_1bv9vr8311fe817tt11bb22qlr113.png-284.2kB"></p>
+<h3 id="瓦片边缘问题"><a href="#瓦片边缘问题" class="headerlink" title="瓦片边缘问题"></a>瓦片边缘问题</h3><p><img src="https://static.zybuluo.com/EVA001/qyt58jek3e90eyj0if036urn/image_1bv9vno7315gi1l1r1gog1cdg1tdnm.png" alt="image_1bv9vno7315gi1l1r1gog1cdg1tdnm.png-34.6kB"><br>边缘热点可能处于2片或者4片瓦片之间,因此需要通过2次或者4次重复计算.通过本文提出的重叠计算方法可以解决热图分片计算的边缘问题。</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p><img src="https://static.zybuluo.com/EVA001/2ksgx6mqyl43950buhvwwr1d/image_1bv9vr8311fe817tt11bb22qlr113.png" alt="image_1bv9vr8311fe817tt11bb22qlr113.png-284.2kB"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文提出的大数据热图可视化方法能够有效地解决<strong>前端绘制计算量大的问题</strong>,通过在Spark平台上以瓦片为单位分层次并行计算热图, 将生成的热图存储在HDFS上,然后通过web服务器提供浏览器交互服务, 用户可以通过在地图上拖动鼠标或放大/缩小等操作选择感兴趣区域,再分析不同时间点用户行为差异或渐变过程. 通过解决<strong>热图数据点和地图映射</strong>关系问题以及<strong>瓦片热图之间的边缘</strong>问题,提供大数据热图绘方法, 以满足用户交互、协同和共享等多方面需求.该方法可以拓展到其他常用可视化方法,如ScatterPlot, Bar Chart,平行坐标等.但绘制过程是基于Spark计算后得到的<strong>离线数据</strong>,在<strong>实时性</strong>上还不能得到保证, 在下一步工作中, 我们将着手利用 <strong>Spark Streaming</strong> 库来解决这一问题.</p>
 
 

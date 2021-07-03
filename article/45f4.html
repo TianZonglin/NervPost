@@ -386,10 +386,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -411,28 +411,28 @@
 
 <p><a href>Gephi-Toolkit的引入与使用</a></p>
 <h3 id="Gexf"><a href="#Gexf" class="headerlink" title="Gexf"></a>Gexf</h3><p> <code>Gexf</code>是<code>Gephi</code>的输入数据格式，其本质上是XML文件格式，标注了顶点信息和边信息。</p>
-<p> <img src="http://static.zybuluo.com/EVA001/5jkutjoytgabub1slzxl2kwq/image_1cf7mj8lb19471bm2k4vjj61ag19.png" alt></p>
+<p> <img src="https://static.zybuluo.com/EVA001/5jkutjoytgabub1slzxl2kwq/image_1cf7mj8lb19471bm2k4vjj61ag19.png" alt></p>
 <p>如果我们想让自己的布局代码生成的数据直接拿到<code>Gephi</code>中展示，那就还需要有一步将数据构造成上图的格式，说道使用<code>Gephi</code>进行布局的可视化，虽然可以使用<code>Gephi-Toolkit</code>进行，已经是比较轻量的嵌入到原有项目中，但还是耦合较高，需要多处硬编码联动，并且在二次利用时针对XML的解析往往是不够高效的。</p>
 <h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON格式大家都十分耳熟能详了，针对上述的<code>Gexf</code>的种种局限，使用前端可视化工具可以作为一个解决方案，布局程序只需生成指定格式的<code>JSON</code>数据，然后由<code>D3.js</code>进行解析绘制即可。</p>
-<p><img src="http://static.zybuluo.com/EVA001/pumc4k459hudtlisjwuxh4go/image_1cf7nartr1g4356n1sqo1qvo1fff13.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/pumc4k459hudtlisjwuxh4go/image_1cf7nartr1g4356n1sqo1qvo1fff13.png" alt></p>
 <p>由上图可以看出，其整体结构比<code>Gexf</code>要更简单，但是有部分坐标冗余，不过影响不大，使用JSON的好处是可以方便的对数据进行操作（无论是在前端还是后端）</p>
 <h3 id="D3-JS"><a href="#D3-JS" class="headerlink" title="D3.JS"></a>D3.JS</h3><p>关于<code>D3</code>的详细叙述，请移步 <a href="https://github.com/d3/d3/wiki/API--%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C" target="_blank" rel="external nofollow noopener noreferrer">这里</a>，注意现在已经有 <a href="https://github.com/xswei/d3js_doc" target="_blank" rel="external nofollow noopener noreferrer">D3.V4</a> 版本了（其实<code>V5</code>也有了）。</p>
 <h3 id="Node的作用"><a href="#Node的作用" class="headerlink" title="Node的作用"></a>Node的作用</h3><p>这里为什么要用<code>Node</code>，其实主要是为了起一个<code>Server</code>，由上面的叙述可以知道，这里<code>d3</code>需要读取<code>json</code>文件，那么问题来了，直接静态打开是会报错的，必须放到一个<code>Server</code>内以请求的方式进行才可以，这个<code>Server</code>从何而来，当然可以是<code>Tomcat</code>，但是，人总是要接受新事物，<code>Node</code>的强大已经在各方面都慢慢体现出来了，服务容器当然也有他的身影，这里我只用了其中一种方式（<code>http-server</code>），如果时间允许自己实现一个也是可以的。</p>
 <p><code>http-server</code>除了可以快速起<code>Server</code>外，还具有实时更新的功能，即，我只管往目录内写（更新）文件，然后用<code>d3</code>进行绘制，更新的部分会自动更新到<code>Server</code>，即重写覆写文件后我不需要重开<code>Server</code>，只需要刷新一下页面即可。</p>
-<p><img src="http://static.zybuluo.com/EVA001/j25iidb3lggqqj2cschzhqd4/image_1cf8bno1ubslm5a1q4g1b5h83n9.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/j25iidb3lggqqj2cschzhqd4/image_1cf8bno1ubslm5a1q4g1b5h83n9.png" alt></p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="http-server的使用方式"><a href="#http-server的使用方式" class="headerlink" title="http-server的使用方式"></a>http-server的使用方式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> node --version                // 随便新建个目录并初始化</span></span><br><span class="line">v8.9.0</span><br><span class="line"></span><br><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install http-server -g   // 安装http-server</span></span><br><span class="line"></span><br><span class="line">hadoop@msi-PC MINGW64 ~/Desktop/CNPM</span><br><span class="line"><span class="meta">$</span><span class="bash"> http-server -p 8888           // 开启Server</span></span><br><span class="line">Starting up http-server, serving ./</span><br><span class="line">Available on:</span><br><span class="line">  http://192.168.230.1:8888</span><br><span class="line">  http://192.168.146.1:8888</span><br><span class="line">  http://127.0.0.1:8888</span><br><span class="line">Hit CTRL-C to stop the server</span><br></pre></td></tr></table></figure>
 
 <p>完成后的目录如下所示，这里的整个目录就如同<code>Tomcat</code>的<code>Webapp</code>目录一样；</p>
-<p><img src="http://static.zybuluo.com/EVA001/lxobezcvj10sacph4trbqdgy/image_1ceeh81vi3s41lke2a81pvme5f9.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/lxobezcvj10sacph4trbqdgy/image_1ceeh81vi3s41lke2a81pvme5f9.png" alt></p>
 <p>注意：这里的文件是可以动态增删改的</p>
 <h3 id="最后的检验"><a href="#最后的检验" class="headerlink" title="最后的检验"></a>最后的检验</h3><p>这里使用<code>d3</code>直接尝试读取生成的<code>csv</code>文件，目的是验证d3是否能够取到生成的数据文件。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/d3/4.13.0/d3.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span> </span><br><span class="line"><span class="actionscript">		d3.csv(<span class="string">"nodes.csv"</span>,<span class="function"><span class="keyword">function</span><span class="params">(error,csvdata)</span></span>&#123;  </span></span><br><span class="line">			if(error)&#123;  </span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(error);  </span></span><br><span class="line">			&#125;  </span><br><span class="line"><span class="javascript">			<span class="built_in">console</span>.log(csvdata);    </span></span><br><span class="line">		&#125;);  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>打开浏览器输入<code>localhost:8888/view.html</code>在<code>Console</code>中会发现<code>csv</code>内的数据已经被读取到。</p>
-<p>  <img src="http://static.zybuluo.com/EVA001/4p1zi9m43xg57455puldec63/image_1cefs4k8m12861bht1u2lq73pusm.png" alt></p>
+<p>  <img src="https://static.zybuluo.com/EVA001/4p1zi9m43xg57455puldec63/image_1cefs4k8m12861bht1u2lq73pusm.png" alt></p>
 <p>注意，必须是以请求的方式进行读取，否则会发生如下错误（如果直接以静态资源的方式打开<code>view.html</code>）</p>
-<p>  <img src="http://static.zybuluo.com/EVA001/33v2d2cid23vt4ouf3v16qvy/image_1cefs2r2qujrl4ip3ekk81ggg9.png" alt></p>
+<p>  <img src="https://static.zybuluo.com/EVA001/33v2d2cid23vt4ouf3v16qvy/image_1cefs2r2qujrl4ip3ekk81ggg9.png" alt></p>
 <h3 id="坐标轴绘制、图绘制"><a href="#坐标轴绘制、图绘制" class="headerlink" title="坐标轴绘制、图绘制"></a>坐标轴绘制、图绘制</h3><p>详见 <a href>使用D3.JS进行坐标轴绘制和图绘制</a></p>
 
 

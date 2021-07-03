@@ -35,7 +35,7 @@
   <title>Spark集群从搭建到任务提交-第N次记录 - 程序萌部落</title>
  
 	
-		<meta name="keywords" content="调试,集群,Spark,IDEA">
+		<meta name="keywords" content="集群,调试,Spark,IDEA">
 	
 	
 		<meta name="description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，">
@@ -386,10 +386,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -411,7 +411,7 @@
 
 <p>不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark 的搭建过程，当然还有运行调试（这才是关键）部分，包括用IDEA打包 jar 上传执行 和IDEA远程提交执行，这里也都分别作了记录。</p>
 <p>关于IDEA提交Spark任务的几种方式，可以参见我 <a href="https://old.cz5h.com/article/2018-5-14%20%E6%8F%90%E4%BA%A4Spark%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F.html" target="_blank" rel="external nofollow noopener noreferrer">另一篇文章</a> .</p>
-<h3 id="集群环境"><a href="#集群环境" class="headerlink" title="集群环境"></a>集群环境</h3><p><img src="http://static.zybuluo.com/EVA001/19ur7s1vyrj7j2gbhv73hpev/image_1cebhufs6uifapaadi18is1tnv9.png" alt></p>
+<h3 id="集群环境"><a href="#集群环境" class="headerlink" title="集群环境"></a>集群环境</h3><p><img src="https://static.zybuluo.com/EVA001/19ur7s1vyrj7j2gbhv73hpev/image_1cebhufs6uifapaadi18is1tnv9.png" alt></p>
 <p>得亏了我<code>16G</code>的内存，四个虚拟机全开还可以娱乐的玩耍，这四台虚拟机已经装过<code>Hadoop</code>了，<code>Hadoop</code>集群用起来也没什么问题，就保留了。</p>
 <p>各版本如下：</p>
 <table>
@@ -497,13 +497,13 @@
 <ul>
 <li>Spark UI 正常视图</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/988iyo8a0eyxz3hpr76qqwr4/image_1ceb5bjapsokfff5ir13h31sct9.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/988iyo8a0eyxz3hpr76qqwr4/image_1ceb5bjapsokfff5ir13h31sct9.png" alt></p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="IDEA-项目打包"><a href="#IDEA-项目打包" class="headerlink" title="IDEA 项目打包"></a>IDEA 项目打包</h3><ul>
 <li>项目示例</li>
 </ul>
 <p>这里的实例程序 读取 <code>hdfs</code> 文件 <code>Vote-demo.txt</code>，并且使用 <code>GraphX</code> 读取文件生成图，并打印图的边数。</p>
-<p> <img src="http://static.zybuluo.com/EVA001/6llcronynz0au9rrkj307an0/image_1ceb89rub18571sti1l8rv8iamb7r.png" alt></p>
+<p> <img src="https://static.zybuluo.com/EVA001/6llcronynz0au9rrkj307an0/image_1ceb89rub18571sti1l8rv8iamb7r.png" alt></p>
 <ul>
 <li>示例代码 <code>RemoteDemo.scala</code></li>
 </ul>
@@ -512,20 +512,20 @@
 <ul>
 <li>打包项目，注意指定 <code>Main Class</code></li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/w88qrxiy1d6xzcmnj9z81q7o/image_1ceb7g47a1206124fcqc1u1p14o757.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/w88qrxiy1d6xzcmnj9z81q7o/image_1ceb7g47a1206124fcqc1u1p14o757.png" alt></p>
 <ul>
 <li><code>Build</code> 打包</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/mm9wkoplatxckykx0exngru8/image_1ceb7qc821iij1eq76hbcvvnpj71.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/mm9wkoplatxckykx0exngru8/image_1ceb7qc821iij1eq76hbcvvnpj71.png" alt></p>
 <ul>
 <li>运行配置 <code>Run Configure</code></li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/og2xk000hl2yctw469f4n9t8/image_1ceb971s4ntcn0m1bu51h38irp88.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/og2xk000hl2yctw469f4n9t8/image_1ceb971s4ntcn0m1bu51h38irp88.png" alt></p>
 <hr>
 <h3 id="错误，IDEA远程连接失败"><a href="#错误，IDEA远程连接失败" class="headerlink" title="错误，IDEA远程连接失败"></a>错误，IDEA远程连接失败</h3><ul>
 <li>错误详情</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/ch5z84jgka2fzmdw99wfwnrx/image_1ceb99lcf13h0dq0p4ppav193u8l.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/ch5z84jgka2fzmdw99wfwnrx/image_1ceb99lcf13h0dq0p4ppav193u8l.png" alt></p>
 <h3 id="错误排查一"><a href="#错误排查一" class="headerlink" title="错误排查一"></a>错误排查一</h3><ul>
 <li><p>Spark://Hadoop01:7077</p>
 <p>  spark://host_name:7077 改为 spark://master_ip:7077</p>
@@ -533,7 +533,7 @@
 <li><p>修改配置 <code>spark-env.sh</code></p>
 </li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/f99ken6wal0oejydlbph98lw/image_1ceb9hgr36qip1l15293qtc61b2.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/f99ken6wal0oejydlbph98lw/image_1ceb9hgr36qip1l15293qtc61b2.png" alt></p>
 <ul>
 <li>重启 <code>saprk</code> 集群</li>
 </ul>
@@ -542,18 +542,18 @@
 <ul>
 <li>Spark UI <code>Master_IP:8080</code> 显示正常</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/chz87p9oipvhhxn32zatnllj/image_1ceb9rf071juv1c1i16lb1bj017hqg6.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/chz87p9oipvhhxn32zatnllj/image_1ceb9rf071juv1c1i16lb1bj017hqg6.png" alt></p>
 <h3 id="错误排查二"><a href="#错误排查二" class="headerlink" title="错误排查二"></a>错误排查二</h3><ul>
 <li>修改 Spark <code>spark-defaults.conf</code></li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/f32wyksdpxpoud7v0zu1sir7/image_1cebbgifqmcn3fn18m819e61ki99.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/f32wyksdpxpoud7v0zu1sir7/image_1cebbgifqmcn3fn18m819e61ki99.png" alt></p>
 <h3 id="错误排查三"><a href="#错误排查三" class="headerlink" title="错误排查三"></a>错误排查三</h3><ul>
 <li><p>排除集群本身问题，尝试spark-submit 提交</p>
 </li>
 <li><p>采用不打包依赖的方式打包（注意打包后只有 300kb）</p>
 </li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/2er74vqyrka3pobk0a4n8u9t/image_1cebcaiu3guc6rk15jur0v65p13.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/2er74vqyrka3pobk0a4n8u9t/image_1cebcaiu3guc6rk15jur0v65p13.png" alt></p>
 <ul>
 <li><strong>集群</strong> 打印了下述错误</li>
 </ul>
@@ -566,13 +566,13 @@
 <ul>
 <li><strong>集群提交</strong> 运行正常</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/dmsdt2jdz9vb7zpytdpn2unf/image_1cebedvpdejeftfhq513pbmgk3q.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/dmsdt2jdz9vb7zpytdpn2unf/image_1cebedvpdejeftfhq513pbmgk3q.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.146.130:4040/jobs/  4040 UI界面只有在job运行时才可见，运行完后就不可访问</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>集群输出正常</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/7qymc925xnmiyo6qkifkjhmg/image_1cebe4200192g1bec1qa91acr1i9l2d.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/7qymc925xnmiyo6qkifkjhmg/image_1cebe4200192g1bec1qa91acr1i9l2d.png" alt></p>
 <hr>
 <h3 id="回到IDEA提交问题"><a href="#回到IDEA提交问题" class="headerlink" title="回到IDEA提交问题"></a>回到IDEA提交问题</h3><ul>
 <li>比较这个错误（和一个错误IP相比）</li>
@@ -586,7 +586,7 @@
 <ul>
 <li>怀疑是 7077 端口的问题，但发现绑定一切正常</li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/gbthajhokjrwi3pjuudzomof/image_1cebg22sd1m51qslcsu1hfampd9.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/gbthajhokjrwi3pjuudzomof/image_1cebg22sd1m51qslcsu1hfampd9.png" alt></p>
 <ul>
 <li><p>怀疑是版本的问题了，集群是 scala-2.11.8 + Spark-2.2.0</p>
 <p>  解决：<a href="https://stackoverflow.com/questions/34518669/unable-to-connect-to-spark-master" target="_blank" rel="external nofollow noopener noreferrer"> 这里 </a></p>
@@ -611,7 +611,7 @@
 <p>  注：本机 windows ip 为 118.202.40.210 </p>
 </li>
 </ul>
-<p><img src="http://static.zybuluo.com/EVA001/zcksl1o6pmkd4zhfgu9tti94/image_1cebie8dd1dbitqprrbdf15t9m.png" alt></p>
+<p><img src="https://static.zybuluo.com/EVA001/zcksl1o6pmkd4zhfgu9tti94/image_1cebie8dd1dbitqprrbdf15t9m.png" alt></p>
 <h3 id="其他各种问题"><a href="#其他各种问题" class="headerlink" title="其他各种问题"></a>其他各种问题</h3><ul>
 <li><a href="https://www.jianshu.com/p/0de92480b8b6" target="_blank" rel="external nofollow noopener noreferrer">Spark常见问题解决办法</a></li>
 <li><a href="https://blog.csdn.net/you12345678901234567/article/details/52763713" target="_blank" rel="external nofollow noopener noreferrer">Spark各种问题的解决</a></li>
@@ -711,7 +711,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
 
 
         

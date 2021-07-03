@@ -35,7 +35,7 @@
   <title>VMware虚拟机联网 - 程序萌部落</title>
  
 	
-		<meta name="keywords" content="VMware,调试">
+		<meta name="keywords" content="调试,VMware">
 	
 	
 		<meta name="description" content="
@@ -388,10 +388,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-08T22:01:05+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T18:51:57+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年3月8日</p>
+    <p>本页文档最后更新于：2021年7月3日</p>
   </a>
 </div>
 
@@ -415,7 +415,7 @@
 
 <h2 id="复制虚拟机文件"><a href="#复制虚拟机文件" class="headerlink" title="复制虚拟机文件"></a>复制虚拟机文件</h2><p>拷到本机，随便放</p>
 <h2 id="在VMware中分别打开三个虚拟机"><a href="#在VMware中分别打开三个虚拟机" class="headerlink" title="在VMware中分别打开三个虚拟机"></a>在VMware中分别打开三个虚拟机</h2><p>第一次打开时一定要选择我已移动此虚拟机！否则需要重新配置IP<br>如果ip变了，要么重新配ip（百度），要么删掉重新拷贝一个；<br>验证：打开hadoop01/02/03 使用ifconfig看ip地址分别应该是<br>192.168.146.130/131/132；</p>
-<h2 id="设置NAT模式，固定IP，可上网"><a href="#设置NAT模式，固定IP，可上网" class="headerlink" title="设置NAT模式，固定IP，可上网"></a>设置NAT模式，固定IP，可上网</h2><p>先改本机（win）的虚拟网卡：修改VMnet8配置如下<br><img src="http://static.zybuluo.com/EVA001/ceasxagf6idpe1jd01sgj44m/82f4a98b3ba5463cbfb74a0083801581.jpg" alt="82f4a98b3ba5463cbfb74a0083801581.jpg-117.1kB"><br>再改虚拟机的网络设置：虚拟机-&gt;编辑-&gt;虚拟网络设置，如下<br><img src="http://static.zybuluo.com/EVA001/yc2f79yzhbh1chwtms2vbi7f/7C54B6589AD649C787858F0601767DA7.jpg" alt="7C54B6589AD649C787858F0601767DA7.jpg-120.5kB"><br>验证：三个节点打开浏览器看是否能上网，不要用ping，<br>如果不能上网重复第三步；</p>
+<h2 id="设置NAT模式，固定IP，可上网"><a href="#设置NAT模式，固定IP，可上网" class="headerlink" title="设置NAT模式，固定IP，可上网"></a>设置NAT模式，固定IP，可上网</h2><p>先改本机（win）的虚拟网卡：修改VMnet8配置如下<br><img src="https://static.zybuluo.com/EVA001/ceasxagf6idpe1jd01sgj44m/82f4a98b3ba5463cbfb74a0083801581.jpg" alt="82f4a98b3ba5463cbfb74a0083801581.jpg-117.1kB"><br>再改虚拟机的网络设置：虚拟机-&gt;编辑-&gt;虚拟网络设置，如下<br><img src="https://static.zybuluo.com/EVA001/yc2f79yzhbh1chwtms2vbi7f/7C54B6589AD649C787858F0601767DA7.jpg" alt="7C54B6589AD649C787858F0601767DA7.jpg-120.5kB"><br>验证：三个节点打开浏览器看是否能上网，不要用ping，<br>如果不能上网重复第三步；</p>
 <h2 id="运行一下"><a href="#运行一下" class="headerlink" title="运行一下"></a>运行一下</h2><p>三个节点分别有hadoop，zookeeper，storm，kafka，flume，maven<br>hadoop开：start-all.sh<br>hadoop关：stop-all.sh<br>其余开关：<br>先在根目录 cd cmd<br>zookeeper开：sh zookeeperstart.sh<br>zookeeper关：sh zookeeperstop.sh<br>kafka开：sh kafkastart.sh<br>kafka关：sh kafkastop.sh<br>storm开：stormstart.sh<br>storm关：stormstop.sh<br>对于flume的开启：<br>先cd /usr/local/flume<br>再bin/flume-ng agent –conf conf –conf-file conf/flume-conf.properties –name producer -Dflume.root.logger=INFO,console<br>对于flume的关闭：<br>直接关终端或Ctrl+C即可</p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 
@@ -512,7 +512,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/VMware/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>VMware</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/VMware/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>VMware</p></a></div>
 
 
         
