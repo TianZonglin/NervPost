@@ -387,10 +387,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-04T01:40:06+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月3日</p>
+    <p>本页文档最后更新于：2021年7月4日</p>
   </a>
 </div>
 
@@ -428,31 +428,31 @@
 <blockquote>
 <p>定义Service—————-Service service = new Service();<br>定义Call——————–Call call = (Call) service.createCall();<br>设置EndpointURL———使用服务发布的WSDL（结尾是 ?wsdl）或者ENDPOINT（原链接）<br><a href="http://ws.webxml.com.cn/WebServices/WeatherWebService.asmx" target="_blank" rel="external nofollow noopener noreferrer">http://ws.webxml.com.cn/WebServices/WeatherWebService.asmx</a> 或<br><a href="http://ws.webxml.com.cn/WebServices/WeatherWebService.asmx？wsdl" target="_blank" rel="external nofollow noopener noreferrer">http://ws.webxml.com.cn/WebServices/WeatherWebService.asmx？wsdl</a>    </p>
 </blockquote>
-<p><img src="//static.zybuluo.com/EVA001/6vtdx4cdjvs89c5ujruy8mey/clipboard.png" alt="clipboard.png-16kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-16kB"></p>
 <blockquote>
 <p>设置Operation名称——–要使用的接口方法，必须 new QName( 高层域名，原方法名称 )；（如下应为getWeatherbyCityName）  </p>
 </blockquote>
-<p><img src="//static.zybuluo.com/EVA001/p61vlbzcge3sr2yk6s687vjd/clipboard.png" alt="clipboard.png-22.1kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-22.1kB"></p>
 <blockquote>
 <p>添加Parameter参数——–接口方法传入的参数，有几个就写几个，必须 new QName( 高层域名，原参数名称 )；外加 XMLType.XSD_STRING, 和 ParameterMode.IN<br>  注意，此处是“注明”之意，赋值操作不在此处；（如下应为theCityName）  </p>
 </blockquote>
-<p><img src="//static.zybuluo.com/EVA001/1zejh03r21lf366sp5zhmdhq/clipboard.png" alt="clipboard.png-7.8kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-7.8kB"></p>
 <blockquote>
 <p>设置SOAPActionURL——高层域名url+接口方法；（如下应为<a href="http://WebXml.com.cn/getWeatherbyCityName），其中高层域名为&quot;http://WebXml.com.cn/&quot;" target="_blank" rel="external nofollow noopener noreferrer">http://WebXml.com.cn/getWeatherbyCityName），其中高层域名为&quot;http://WebXml.com.cn/&quot;</a>;  </p>
 </blockquote>
-<p><img src="//static.zybuluo.com/EVA001/njxdb6yayzzpby97gq9r38tm/clipboard.png" alt="clipboard.png-24.4kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-24.4kB"></p>
 <blockquote>
 <p>设置返回类型Type———-关系到invoke的返回值，具体要与发布的服务信息相对应<br>如下应使用为call.setReturnClass(java.lang.String[].class);  ，因为字符串数组是封装类，此时应声明返回的类型<br>如果返回值是可以描述的类型，比如String，byte这些基础类型，可以直接使用call.setReturnType(XMLType.XSD_STRING）  </p>
 </blockquote>
-<p><img src="//static.zybuluo.com/EVA001/w1sqcpq2rzppot9a11tbb0cg/clipboard.png" alt="clipboard.png-19.6kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-19.6kB"></p>
 <blockquote>
 <p>触发invoke—————–传入实际的参数，一是参数要为Object对象数组，二是返回类型可转换时(如String) invoke前要加强制转换，</p>
 </blockquote>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
-<h4 id="会员先注册，然后点击我的服务"><a href="#会员先注册，然后点击我的服务" class="headerlink" title="会员先注册，然后点击我的服务"></a><strong>会员先注册，然后点击我的服务</strong></h4><p><img src="//static.zybuluo.com/EVA001/srn4tffcu48difxfqf32pqsr/%E6%88%AA%E5%9B%BE.png" alt="截图.png-144.8kB"></p>
-<h4 id="然后点击一个服务的试用，之后返回，再用UserID就可以了"><a href="#然后点击一个服务的试用，之后返回，再用UserID就可以了" class="headerlink" title="然后点击一个服务的试用，之后返回，再用UserID就可以了"></a><strong>然后点击一个服务的试用，之后返回，再用UserID就可以了</strong></h4><p><img src="//static.zybuluo.com/EVA001/9iihwtmyfnqfr4hpcdpr8bbe/clipboard.png" alt="clipboard.png-9kB"></p>
-<h4 id="结果很完美"><a href="#结果很完美" class="headerlink" title="结果很完美"></a><strong>结果很完美</strong></h4><p><img src="//static.zybuluo.com/EVA001/rifkd1kvponuxuuco9ardx22/clipboard.png" alt="clipboard.png-47.1kB"></p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h4><p><img src="//static.zybuluo.com/EVA001/gnkv9yxgvh2a4r0vlqpyz9kt/%E6%88%AA%E5%9B%BE.png" alt="截图.png-144.8kB"></p>
+<h4 id="会员先注册，然后点击我的服务"><a href="#会员先注册，然后点击我的服务" class="headerlink" title="会员先注册，然后点击我的服务"></a><strong>会员先注册，然后点击我的服务</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/%E6%88%AA%E5%9B%BE.png" alt="截图.png-144.8kB"></p>
+<h4 id="然后点击一个服务的试用，之后返回，再用UserID就可以了"><a href="#然后点击一个服务的试用，之后返回，再用UserID就可以了" class="headerlink" title="然后点击一个服务的试用，之后返回，再用UserID就可以了"></a><strong>然后点击一个服务的试用，之后返回，再用UserID就可以了</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-9kB"></p>
+<h4 id="结果很完美"><a href="#结果很完美" class="headerlink" title="结果很完美"></a><strong>结果很完美</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/clipboard.png" alt="clipboard.png-47.1kB"></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/%E6%88%AA%E5%9B%BE.png" alt="截图.png-144.8kB"></p>
 
 
       <center><br><br>
@@ -500,7 +500,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1772.html" title="如何开发并发布REST风格的WebService" rel="bookmark">如何开发并发布REST风格的WebService</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c314.html" title="WebService获取数据实例及WSDL文件解读" rel="bookmark">WebService获取数据实例及WSDL文件解读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7b5b.html" title="Web接口开发的相关事项" rel="bookmark">Web接口开发的相关事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d44.html" title="Web数据接口开发的阶段总结" rel="bookmark">Web数据接口开发的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7bfd.html" title="JAVA动态创建表以及动态插入数据" rel="bookmark">JAVA动态创建表以及动态插入数据</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\1772.html" title="如何开发并发布REST风格的WebService" rel="bookmark">如何开发并发布REST风格的WebService</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\c314.html" title="WebService获取数据实例及WSDL文件解读" rel="bookmark">WebService获取数据实例及WSDL文件解读</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7b5b.html" title="Web接口开发的相关事项" rel="bookmark">Web接口开发的相关事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\d44.html" title="Web数据接口开发的阶段总结" rel="bookmark">Web数据接口开发的阶段总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\a660.html" title="关于JAVA中动态创建二维数组的技巧" rel="bookmark">关于JAVA中动态创建二维数组的技巧</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\ee49.html" title="注册型网站设计的阶段总结" rel="bookmark">注册型网站设计的阶段总结</a></h3></div></li></ul>
     </div>
   </section>
 

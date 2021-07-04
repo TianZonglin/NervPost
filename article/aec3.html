@@ -387,10 +387,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-04T01:43:52+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月3日</p>
+    <p>本页文档最后更新于：2021年7月4日</p>
   </a>
 </div>
 
@@ -424,8 +424,8 @@
 <h3 id="社区NN的HA架构、原理、机制"><a href="#社区NN的HA架构、原理、机制" class="headerlink" title="社区NN的HA架构、原理、机制"></a>社区NN的HA架构、原理、机制</h3><ol>
 <li>非HA的Namenode架构，一个HDFS集群只存在一个NN，DN只向一个NN汇报，NN的editlog存储在本地目录。</li>
 </ol>
-<p><img src="//static.zybuluo.com/EVA001/k0qlr7wailej0vmdm54cpeuz/image_1cbra11qd1ig91ahiirumb471b9.png" alt="图1，NN HA架构（源自社区）"><br>社区的NN HA包括两个NN，主（active）与备（standby），ZKFC，ZK，share editlog。流程：集群启动后一个NN处于active状态，并提供服务，处理客户端和datanode的请求，并把editlog写到本地和share editlog（可以是NFS，QJM等）中。另外一个NN处于Standby状态，它启动的时候加载fsimage，然后周期性的从share editlog中获取editlog，保持与active的状态同步。为了实现standby在sctive挂掉后迅速提供服务，需要DN同时向两个NN汇报，使得Stadnby保存block to datanode信息，因为NN启动中最费时的工作是处理所有datanode的blockreport。为了实现热备，增加FailoverController和ZK，FailoverController与ZK通信，通过ZK选主，FailoverController通过RPC让NN转换为active或standby。</p>
-<ol start="2">
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cbra11qd1ig91ahiirumb471b9.png" alt="图1，NN HA架构（源自社区）"><br>社区的NN HA包括两个NN，主（active）与备（standby），ZKFC，ZK，share editlog。流程：集群启动后一个NN处于active状态，并提供服务，处理客户端和datanode的请求，并把editlog写到本地和share editlog（可以是NFS，QJM等）中。另外一个NN处于Standby状态，它启动的时候加载fsimage，然后周期性的从share editlog中获取editlog，保持与active的状态同步。为了实现standby在sctive挂掉后迅速提供服务，需要DN同时向两个NN汇报，使得Stadnby保存block to datanode信息，因为NN启动中最费时的工作是处理所有datanode的blockreport。为了实现热备，增加FailoverController和ZK，FailoverController与ZK通信，通过ZK选主，FailoverController通过RPC让NN转换为active或standby。</p>
+<ol>
 <li>关键问题：</li>
 </ol>
 <ul>
@@ -455,7 +455,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="//static.zybuluo.com/EVA001/f80e5v3jjsy90z47y0nqrnek/image_1cbracpvr1bhu7nq1mqrsgc1ive16.png" alt="图2 FailoverController架构（源自社区）"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cbracpvr1bhu7nq1mqrsgc1ive16.png" alt="图2 FailoverController架构（源自社区）"></p>
 <ul>
 <li>FailoverController主要包括三个组件，<ul>
 <li>HealthMonitor 监控NameNode是否处于unavailable或unhealthy状态。当前通过RPC调用NN相应的方法完成。</li>
@@ -471,7 +471,7 @@
 <li><p>是什么，Qurom Journal Manager，基于Paxos（基于消息传递的一致性算法）。这个算法比较难懂，简单的说，Paxos算法是解决分布式环境中如何就某个值达成一致，（一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点都执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个”一致性算法”以保证每个节点看到的指令一致）</p>
 </li>
 </ul>
-<p><img src="//static.zybuluo.com/EVA001/02v6xpy69qqlrwbnu4bbexua/image_1cbrag8vv1kbde2a19b97o81cnh1j.png" alt="图3 QJM架构"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cbrag8vv1kbde2a19b97o81cnh1j.png" alt="图3 QJM架构"></p>
 <ul>
 <li><p>如何实现</p>
 <ul>

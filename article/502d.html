@@ -386,10 +386,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-04T01:53:33+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月3日</p>
+    <p>本页文档最后更新于：2021年7月4日</p>
   </a>
 </div>
 
@@ -415,7 +415,7 @@
 <p><strong>QPS</strong><br>因特网上，经常用每秒查询率来衡量域名系统服务器的机器的性能，其即为QPS。<br>对应fetches/sec，即每秒的响应请求数，也即是最大吞吐能力。<br>计算关系：<br>QPS = 并发量 / 平均响应时间<br>并发量 = QPS * 平均响应时间</p>
 </blockquote>
 <p>这里，<code>LeanCloud</code>对免费实例的<code>QPS</code>做了限制，可以理解，如果同时的查询发送的过多，则会使Lean返回错误代码，如下图所示：</p>
-<p><img src="//static.zybuluo.com/EVA001/qra41l8o6yq4w0a1xqpq3hu4/image_1cgcl6rvj125disn1qjr1fgi7lb9.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cgcl6rvj125disn1qjr1fgi7lb9.png" alt></p>
 <p><a href="https://leancloud.cn/docs/error_code.html" target="_blank" rel="external nofollow noopener noreferrer">错误码详解</a></p>
 <blockquote>
 <p><strong>429</strong><br>信息 - <strong>Too many requests.</strong><br>含义 - 超过应用的流控限制，即超过每个应用同一时刻最多可使用的工作线程数，或者说同一时刻最多可以同时处理的数据请求。通过 <strong>控制台 &gt; 存储 &gt; API 统计 &gt; API 性能 &gt; 总览</strong> 可以查看应用产生的请求统计数据，如平均工作线程、平均响应时间等。使用 LeanCloud 商用版或企业版 的用户，如有需要，可以联系我们来调整工作线程数。</p>
@@ -425,7 +425,7 @@
 <p>更简单的处理方式就是一一对应，一个计数实例（表中的一行记录）就是对应页面某处的一个计数器，只是在这里，由于分享下载的资源有点多，大概200元素，所以如果不加处理的发送查询请求，那几乎算是同时对<code>LeanCloud</code>发起这200次查询请求，由于其访问性能有限，所以需要对请求的发送做一定调整。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</span><br><span class="line">    <span class="keyword">var</span> texts = $(<span class="keyword">this</span>).parent().find(sp).eq(cnt);</span><br><span class="line">    <span class="keyword">var</span> url = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</span><br><span class="line">    query.equalTo(<span class="string">"url"</span>, url);</span><br><span class="line">    query.find(&#123;</span><br><span class="line">    	success: <span class="function"><span class="keyword">function</span>(<span class="params">results</span>) </span>&#123;</span><br><span class="line">    		<span class="keyword">if</span> (results.length == <span class="number">0</span>) &#123;</span><br><span class="line">    			texts.text(<span class="string">"0"</span>); <span class="comment">//初始是 0</span></span><br><span class="line">    			<span class="keyword">return</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; results.length; i++) &#123;</span><br><span class="line">    			<span class="keyword">var</span> object = results[i];</span><br><span class="line">    			texts.text(object.get(<span class="string">'time'</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p><img src="//static.zybuluo.com/EVA001/itcj2lnmbxzrw57y1ow6vi9o/image_1cge7og1n2h510su1h5deno18oq13.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cge7og1n2h510su1h5deno18oq13.png" alt></p>
 <p>我们主要关注<code>QPS</code>的变化，上图中较高的曲线是未经处理时发送查询请求的QPS曲线，这时由于并发的查询数过多，导致<code>LeanCloud</code>达到瞬时的负载上限而出现<code>429</code>错误。官方的错误代码解释为：</p>
 <blockquote>
 <p><strong>429</strong><br>信息 - <strong>Too many requests.</strong><br>含义 - 超过应用的流控限制，即超过每个应用同一时刻最多可使用的工作线程数，或者说同一时刻最多可以同时处理的数据请求。通过 <strong>控制台 &gt; 存储 &gt; API 统计 &gt; API 性能 &gt; 总览</strong> 可以查看应用产生的请求统计数据，如平均工作线程、平均响应时间等。使用 LeanCloud 商用版或企业版 的用户，如有需要，可以联系我们来调整工作线程数。</p>
@@ -442,10 +442,10 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(tar).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, item</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    	 send.leancloud.query(item); <span class="comment">// 伪代码	 </span></span><br><span class="line">    &#125;,<span class="number">100</span>*index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>上述为正确的写法，注意<code>100*index</code>，这是利用了其异步执行的特点来进行延时，每次循环后的查询请求还是跟之前叙述一样会几乎同时被执行，但是这里执行时的延时时间不一样了，这里变成了<code>0,100,200...</code>，即查询请求会在<code>0ms,100ms,200ms...</code>后被发送给LeanCloud，显然的，达到了控制<code>QPS</code>的要求。</p>
-<p><img src="//static.zybuluo.com/EVA001/fnijmpwthuvxyos4pzpp2zoe/image_1cge7qlcu1m82fj0i7k8g11tjv1g.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1cge7qlcu1m82fj0i7k8g11tjv1g.png" alt></p>
 <p>上图是查询发送处理后的<code>QPS</code>曲线，可以看出其值下降了很多，但仍有时很<strong>尖锐</strong>，可以通过加大查询的发送间隙来降低，当然，图示状态已经可以正常查询且不触发<code>429</code>错误。</p>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p>对于时间间隔来说，要综合查询的数量考虑，但总体上不能过大，这样会在前端显示过慢而损失交互性。<br><img src="//static.zybuluo.com/EVA001/8uttol7g62infft0sdfqmgkj/1111112.gif" alt></p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p>对于时间间隔来说，要综合查询的数量考虑，但总体上不能过大，这样会在前端显示过慢而损失交互性。<br><img src="/EVA001/8uttol7g62infft0sdfqmgkj/1111112.gif" alt></p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>偶发的断线异常，非本地错误!：</p>
 <blockquote>
 <p><strong>0</strong><br>信息 - (无)<br>含义 - WebSocket 正常关闭，可能发生在服务器重启，或本地网络异常的情况。SDK 会自动重连，无需人工干预。</p>

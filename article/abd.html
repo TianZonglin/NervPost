@@ -386,10 +386,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-03T19:58:04+02:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-04T01:54:08+02:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月3日</p>
+    <p>本页文档最后更新于：2021年7月4日</p>
   </a>
 </div>
 
@@ -409,14 +409,14 @@
           <p>最近家里换了宽带，并且在我的强烈要求下选择了能提供公网IP的联通宽带，当然这里是动态公网IP，期间，包括光猫的桥接+路由器拨号，都已经做完，基本上到这里为止家里的网络环境就是外部可访问的了，从此可以抛弃内网穿透，直连站起来重新做人了。为什么要折腾外部访问呢，因为我把群晖放家里了，自然是想随时随地访问一下子的，现在有了公网IP，虽然是动态的，但只需在群晖的DDNS页面配置下，就可以使用域名进行访问了，非常的方便和舒服，速度快的飞起来。欢迎访问ZoneCloud -&gt; <a href="http://asus.myds.me:5000/" target="_blank" rel="external nofollow noopener noreferrer">http://asus.myds.me:5000/</a></p>
 <a id="more"></a>
 
-<p><img src="//static.zybuluo.com/EVA001/l0ciduavm4enuui0hzfi7un9/image_1df129t0skup15hqvvtlga1ls1m.png" alt="image_1df129t0skup15hqvvtlga1ls1m.png-97.9kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df129t0skup15hqvvtlga1ls1m.png" alt="image_1df129t0skup15hqvvtlga1ls1m.png-97.9kB"></p>
 <p>下面就安装宽带的注意事项做一下记录：</p>
 <h3 id="宽带商的选择"><a href="#宽带商的选择" class="headerlink" title="宽带商的选择"></a>宽带商的选择</h3><p>一般只有三种选择，联通、移动和电信，其中移动手中有的IP资源是最少的，这是事实，但对于宽带是否提供（动态）公网IP，这在不同地域或有差别，但移动肯定是最不靠谱的一家；剩下的两家没太听到过槽点，所以酌情看套餐办理吧。</p>
 <h3 id="安装过程的操作"><a href="#安装过程的操作" class="headerlink" title="安装过程的操作"></a>安装过程的操作</h3><p>一般装宽带是得安装师傅本身到家里来装的，且现在基本是光纤入户，所以“光猫”是必不可少的一个硬件，主要完成的是光信号转换的任务（部分高端路由器也可以完成光信号转换）。一般而言，正常的上网流程是光纤入户后，在光猫处随机完成拨号上网，这种方式的缺点是：</p>
 <p>光猫作为家庭网络同外部网络沟通的最后一层，端口转发工作应在最外层即这一层完成，在此处，光猫得完成端口转发的工作，但要命的是光猫并不是路由器，无法替代路由工作，家里的设备总归要通过路由器汇集。这时问题来了，光猫拨号的前提下，路由器变为了二级路由，端口映射会变得非常复杂，DMZ+端口映射或许可以解决问题，但并不完美。</p>
 <p>真正方便快捷的方式是<strong>在安装时让师傅改光猫为桥接</strong>，这样光猫的功能退化为单一的光信号转换，而拨号、端口映射等任务全部交给路由器完成（<strong>稍高端的路由器均可支持</strong>），此时的网络结构，虽然光猫仍然是最前沿的阵地，但实际对网路信号而言路由器成了排头兵，所有的内外交换数据均通过路由器协调、中转，光猫只是开闸放水不加以任何干涉。</p>
 <p>此时，在路由器上设置的端口转发，会直接作用到IP上，即整个环境中只有一级路由，非常清晰和方便，类似群晖这类存储系统的外部访问，只需在路由上配置一连串的端口映射，即可以通过<strong>IP+端口</strong>的形式在公网环境中进行访问了。</p>
-<p><img src="//static.zybuluo.com/EVA001/jk8y1zf8tonjbtdpmo9quy98/image_1df4djnaubjpjrg1jn91cvnnbs9.png" alt="image_1df4djnaubjpjrg1jn91cvnnbs9.png-379.8kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df4djnaubjpjrg1jn91cvnnbs9.png" alt="image_1df4djnaubjpjrg1jn91cvnnbs9.png-379.8kB"></p>
 <h3 id="关于动态公网IP的变动"><a href="#关于动态公网IP的变动" class="headerlink" title="关于动态公网IP的变动"></a>关于动态公网IP的变动</h3><p>固定公网IP的宽带业务一般叫“专线”，属于企业宽带的范畴，动辄月付几百大洋，和普通家用宽带年付几百块相比要贵的多得多，所以，这里讨论的都是基于动态公网IP的各种操作。</p>
 <p>顾名思义，动态公网IP的IP地址是会变的，但变前和变后均为公网IP，变动的时机往往是重新拨号上网后，这和路由器的动态分配IP是一样的，每次断开重连都会回收原有IP并分配新的IP，但在分配后，设备会一直独占此IP，因此如果不是经常断电重启，那么动态公网IP也可以看作是短时的固定IP。</p>
 <p>但是，可能变化的IP对于外部访问是非常困扰的，例如你跟朋友刚分享了自己看的电影，结果下午你朋友通过IP就访问不到了（可能是经历了路由器重新拨号），杜绝这一现象的手段就是，将多变的IP绑定到单一固定的域名上，这样，在访问该域名时，即会解析到当前的IP（IP同域名之间的绑定关系会一直更新），整个上述过程即叫做<strong>DDNS</strong>，即动态域名解析。</p>
@@ -424,18 +424,18 @@
 <hr>
 <p><strong>&lt;&lt;</strong> 更多精彩尽在『程序萌部落』<strong>&gt;&gt;</strong><br><strong>&lt;&lt;</strong> <a href="https://www.cxmoe.com">https://www.cxmoe.com</a> <strong>&gt;&gt;</strong></p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>暂时写到这里，换了宽带只是万里长征第一步，只是，原来可能通过FRP内网穿透来访问的东西（非常慢），现在直接访问就行了，现在一步顶原来十步，果然是科技改变生活。关于其他的各种公网IP具备的或者是带来的功能及玩法，在以后有时间在写！</p>
-<h3 id="补充一：使用人人影视Web版来批量下载剧集"><a href="#补充一：使用人人影视Web版来批量下载剧集" class="headerlink" title="补充一：使用人人影视Web版来批量下载剧集"></a>补充一：使用人人影视Web版来批量下载剧集</h3><p><img src="//static.zybuluo.com/EVA001/tzc3q8d0fdy4b366ydv0shlr/image_1df4dvd9914s01dglqg71sc75cqm.png" alt="image_1df4dvd9914s01dglqg71sc75cqm.png-84.6kB"></p>
+<h3 id="补充一：使用人人影视Web版来批量下载剧集"><a href="#补充一：使用人人影视Web版来批量下载剧集" class="headerlink" title="补充一：使用人人影视Web版来批量下载剧集"></a>补充一：使用人人影视Web版来批量下载剧集</h3><p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df4dvd9914s01dglqg71sc75cqm.png" alt="image_1df4dvd9914s01dglqg71sc75cqm.png-84.6kB"></p>
 <p>这里采用的是在镜像库中评价最好的<code>oldiy/rrshare64</code>（第一个），使用方式很简单，在注册表找到并选中点击下载，在映像中能够找到它，然后双击可以弹出设置页面，初始可以不进行配置，直接点击下一步到最后，之后docker镜像会自动启动，然后在容器中就可以看到它了。</p>
-<p><img src="//static.zybuluo.com/EVA001/5tfcet7ej29ondaxnsxk6rtk/image_1df4efrc3patd03hpd1sd41jq13.png" alt="image_1df4efrc3patd03hpd1sd41jq13.png-136.9kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df4efrc3patd03hpd1sd41jq13.png" alt="image_1df4efrc3patd03hpd1sd41jq13.png-136.9kB"></p>
 <p>对该镜像的配置需要首先停止其运行，然后点击上方的<code>编辑</code>按钮即可进入配置页，<strong>重中之重是对“卷”的配置</strong>，这个直接关系到下载文件所在的位置。如上图红圈所示的路径和配置页是一致的，这里要注意：</p>
 <ul>
 <li>左侧的<code>文件/文件夹</code> 对应群晖中文件系统的路径（<strong>必须是FileStation可见的路径</strong>）</li>
 <li>右侧的<code>装在路径</code> 对应Web页面的设置中的下载路径（默认就是<strong>/opt/work/store</strong>）</li>
 </ul>
 <p>一定要注意对应关系，在这个地方浪费了好多时间。上述内容需要在配置页的“卷”这页，手动新建一个并配置（<strong>默认是空的，下载文件会找不到</strong>）</p>
-<p><img src="//static.zybuluo.com/EVA001/likcfthtvcn9jcfh27p0ukzw/image_1df4errtmms8bnh2h109k5ch1s.png" alt="image_1df4errtmms8bnh2h109k5ch1s.png-57.2kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df4errtmms8bnh2h109k5ch1s.png" alt="image_1df4errtmms8bnh2h109k5ch1s.png-57.2kB"></p>
 <p>上述配置过程结束后整个配置过程就完成了，然后就是使用人人Web端进行批量下载了，网站非常易用，下载页很给力，经过路径配置后，可以在<code>FileStation</code>中找到对应的文件，可以把上级文件夹绑定到<code>Plex</code>或者<code>DSVideo</code>的视频列表中，这样就可以下载转码一条龙搞定了！</p>
-<p><img src="//static.zybuluo.com/EVA001/jq1fuy4w7vcl1nqadmf2c2wo/image_1df4f385t1rnie1jmd7fpo14lq29.png" alt="image_1df4f385t1rnie1jmd7fpo14lq29.png-129kB"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/backupAllinOne/image_1df4f385t1rnie1jmd7fpo14lq29.png" alt="image_1df4f385t1rnie1jmd7fpo14lq29.png-129kB"></p>
 
 
       <center><br><br>
@@ -483,7 +483,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
   </header>
     <div class="content" style="background-color: #f2f2f2;margin-top: 0px;">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\13d5.html" title="如何组建高效的家庭网络" rel="bookmark">如何组建高效的家庭网络</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\9d39.html" title="虚拟化系统ESXi的安装使用" rel="bookmark">虚拟化系统ESXi的安装使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fe88.html" title="LEDE+iKuai双软路由整合" rel="bookmark">LEDE+iKuai双软路由整合</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\7f0e.html" title="Github托管站点的域名更换" rel="bookmark">Github托管站点的域名更换</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\8d84.html" title="功能强大的NAS云存储" rel="bookmark">功能强大的NAS云存储</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\13d5.html" title="如何组建高效的家庭网络" rel="bookmark">如何组建高效的家庭网络</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\9d39.html" title="虚拟化系统ESXi的安装使用" rel="bookmark">虚拟化系统ESXi的安装使用</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\fe88.html" title="LEDE+iKuai双软路由整合" rel="bookmark">LEDE+iKuai双软路由整合</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\f2f2.html" title="导出七牛云的数据到本地服务器" rel="bookmark">导出七牛云的数据到本地服务器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\article\bcad.html" title="网站域名到底加不加 WWW" rel="bookmark">网站域名到底加不加 WWW</a></h3></div></li></ul>
     </div>
   </section>
 
