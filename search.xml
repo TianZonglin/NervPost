@@ -1627,9 +1627,9 @@
             
             <tag> 路由 </tag>
             
-            <tag> Synology </tag>
-            
             <tag> HTPC </tag>
+            
+            <tag> Synology </tag>
             
         </tags>
       
@@ -4143,9 +4143,9 @@
       
         <tags>
             
-            <tag> Zookeeperp </tag>
-            
             <tag> Kafka </tag>
+            
+            <tag> Zookeeperp </tag>
             
             <tag> Storm </tag>
             
@@ -4398,9 +4398,9 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 调试 </tag>
+            
+            <tag> CentOS </tag>
             
             <tag> 联网 </tag>
             
