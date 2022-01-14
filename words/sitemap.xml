@@ -102,6 +102,13 @@
   </url>
   
   <url>
+    <loc>https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/</loc>
+    <lastmod>2022-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cxmoe.com/words/tags/presentation/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
@@ -110,13 +117,6 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/slides/</loc>
-    <lastmod>2022-01-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/%E5%BD%B1%E8%AF%84/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -165,13 +165,6 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/research/</loc>
-    <lastmod>2022-01-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.cxmoe.com/words/tags/notes/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
@@ -180,6 +173,13 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/training/</loc>
+    <lastmod>2022-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/research/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -216,14 +216,14 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/categories/English/</loc>
+    <loc>https://www.cxmoe.com/words/categories/Daily-Life/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/categories/Daily-Life/</loc>
+    <loc>https://www.cxmoe.com/words/categories/English/</loc>
     <lastmod>2022-01-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
