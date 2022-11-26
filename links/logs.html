@@ -374,10 +374,10 @@
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-01-14T04:18:42+01:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-11-26T23:33:47+01:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2022年1月14日</p>
+    <p>本页文档最后更新于：2022年11月26日</p>
   </a>
 </div>
 
@@ -481,7 +481,7 @@
 
 <p>巧妙的解决方式：<strong>遮罩屏蔽</strong></p>
 <p>新建个相同大小的div块，然后重叠放置在原插件上面（利用z-index），背景设置成透明即可。代码如下：</p>
-<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcodeMap.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">... ...</span><br><span class="line">&lt;!--遮罩部分--&gt;</span><br><span class="line">&lt;div style=<span class="string">"width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br><span class="line"><span class="regexp">&lt;!--地图插件部分--&gt;</span></span><br><span class="line"><span class="regexp">&lt;div style="z-index:1;position:relative;display:inline-block;width:209px;"&gt;</span></span><br><span class="line"><span class="regexp">	&lt;!--原始插件代码--&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">" src="</span><span class="comment">//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=ff0000" async="async"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>~\volantis\layout\_widget\qrcodeMap.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">... ...</span><br><span class="line">&lt;!--遮罩部分</span><br><span class="line">&lt;div style=<span class="string">"width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "</span>&gt;&lt;<span class="regexp">/div&gt;--&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br><span class="line"><span class="regexp">&lt;!--地图插件部分--&gt;</span></span><br><span class="line"><span class="regexp">&lt;div style="z-index:1;position:relative;display:inline-block;width:209px;"&gt;</span></span><br><span class="line"><span class="regexp">	&lt;!--原始插件代码--&gt;</span></span><br><span class="line"><span class="regexp">	&lt;script type="text/</span>javascript<span class="string">" src="</span><span class="comment">//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;amp;m=0c&amp;amp;c=ff0000&amp;amp;cr1=54ff00&amp;amp;crb1=54ff00&amp;amp;br=12&amp;amp;sx=0&amp;amp;rs=100&amp;amp;as=100&amp;amp;ds=0&amp;amp;cw=ffffff&amp;amp;cb=ff0000" async="async"&gt;&lt;/script&gt;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">... ...</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="内嵌页访问模式"><a href="#内嵌页访问模式" class="headerlink" title="内嵌页访问模式"></a><strong>内嵌页访问模式</strong></h4><p>这是针对几个自定义页面祭出的访问方式，主要有几点考虑：</p>
