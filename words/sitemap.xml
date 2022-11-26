@@ -102,27 +102,6 @@
   </url>
   
   <url>
-    <loc>https://www.cxmoe.com/words/tags/%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2022-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/presentation/</loc>
-    <lastmod>2022-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/slides/</loc>
-    <lastmod>2022-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.cxmoe.com/words/tags/%E7%9E%8E%E5%86%99/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>daily</changefreq>
@@ -144,6 +123,13 @@
   </url>
   
   <url>
+    <loc>https://www.cxmoe.com/words/tags/%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2022-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cxmoe.com/words/tags/pitfalls/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>daily</changefreq>
@@ -152,6 +138,27 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/writing/</loc>
+    <lastmod>2022-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/presentation/</loc>
+    <lastmod>2022-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/slides/</loc>
+    <lastmod>2022-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cxmoe.com/words/tags/introduction/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -173,13 +180,6 @@
   
   <url>
     <loc>https://www.cxmoe.com/words/tags/research/</loc>
-    <lastmod>2022-11-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cxmoe.com/words/tags/introduction/</loc>
     <lastmod>2022-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -35,7 +35,7 @@
   <title>Spark集群从搭建到任务提交-第N次记录 - 程序萌部落</title>
  
 	
-		<meta name="keywords" content="调试,集群,Spark,IDEA">
+		<meta name="keywords" content="集群,调试,Spark,IDEA">
 	
 	
 		<meta name="description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，">
@@ -711,7 +711,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E7%BE%A4/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>集群</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IDEA/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>IDEA</p></a></div>
 
 
         
@@ -949,8 +949,8 @@
 
 
   <div style="padding:5 5 5 5;background-color:#ff0000; border-radius: 8px;">
-  <!--<div style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
-    -->
+  <div id="mmmap" style="width:210px;height:143.5px;z-index:100;background:#fff;position:absolute;left:0;top:0;filter: alpha(opacity=0.01);  -moz-opacity: 0.01;opacity: 0.01; "></div>
+    
 
 <div style="z-index:1;position:relative;display:inline-block;width:209.9px;">
 <!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=219@6f3" async="async"></script>-->
@@ -1438,7 +1438,10 @@ if(true){
       });
     }
  
-
+		//文章列表置顶部分
+    $('#mmmap').click(function(){
+      window.open("https://www.revolvermaps.com/livestats/globe/51glt95x6ef/");
+      });
 
 		
 
